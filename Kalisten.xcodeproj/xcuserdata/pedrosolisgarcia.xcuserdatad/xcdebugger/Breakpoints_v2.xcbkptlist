@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kalisten/ExercisesTableViewController.swift"
+            timestampString = "512177015.658747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ExercisesTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.ExercisesTableViewController.exercises.getter : Swift.Array&lt;Kalisten.Exercise&gt;"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/ExercisesTableViewController.swift"
+                  timestampString = "512171559.674705"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.ExercisesTableViewController.exercises.setter : Swift.Array&lt;Kalisten.Exercise&gt;"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/ExercisesTableViewController.swift"
+                  timestampString = "512171559.889587"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.ExercisesTableViewController.init (style : __C.UITableViewStyle) -&gt; Kalisten.ExercisesTableViewController"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/ExercisesTableViewController.swift"
+                  timestampString = "512171559.893508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "3362">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.ExercisesTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Kalisten.ExercisesTableViewController"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/ExercisesTableViewController.swift"
+                  timestampString = "512171559.896876"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "3485">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.ExercisesTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Kalisten.ExercisesTableViewController&gt;"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/ExercisesTableViewController.swift"
+                  timestampString = "512171559.899861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "3370">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
