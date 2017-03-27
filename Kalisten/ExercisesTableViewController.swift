@@ -80,6 +80,13 @@ class ExercisesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            as! ExercisesTableViewCell
+        
+        cell.nameLabel.restartLabel()
+        cell.tarjetLabel.restartLabel()
+        cell.pqLabel.restartLabel()
         for cell in tableView.visibleCells as! [ExercisesTableViewCell] {
             cell.nameLabel.restartLabel()
             cell.tarjetLabel.restartLabel()
