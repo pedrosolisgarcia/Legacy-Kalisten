@@ -59,17 +59,11 @@ class ExercisesTableViewController: UITableViewController {
             as! ExercisesTableViewCell
         
         // Configure the cell
-        // Continuous Type
-        // Text string, fade length, leading buffer, trailing buffer, and scroll
-        // duration for this label are set via Interface Builder's Attributes Inspector!
         cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
-        //cell.tarjetLabel.tag = 201
         let arrayTarjet:NSArray = exercises[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
         let arrayPQ:NSArray = exercises[indexPath.row].pq as NSArray
-        //cell.pqLabel.tag = 301
         cell.pqLabel.text = arrayPQ.componentsJoined(by: ", ").uppercased()
-        //cell.levelLabel.tag = 401
         cell.levelLabel.text = difficultyLabel(difficulty: exercises[indexPath.row].difficulty)
         
         // Load image in background
@@ -85,13 +79,11 @@ class ExercisesTableViewController: UITableViewController {
         return cell
     }
     
-    // This function refresh the label movement when we scroll
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         for cell in tableView.visibleCells as! [ExercisesTableViewCell] {
-            cell.nameLabel.labelize = true
-            cell.tarjetLabel.labelize = true
-            cell.pqLabel.labelize = true
+            cell.nameLabel.restartLabel()
+            cell.tarjetLabel.restartLabel()
+            cell.pqLabel.restartLabel()
         }
     }
     
