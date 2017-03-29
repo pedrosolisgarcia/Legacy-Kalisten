@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5132BD931E8C2D2C00617E24 /* Workout.swift */; };
 		515799C41E8710B500E6D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799B91E8710B500E6D1A0 /* AudioToolbox.framework */; };
 		515799C51E8710B500E6D1A0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799BA1E8710B500E6D1A0 /* CFNetwork.framework */; };
 		515799C61E8710B500E6D1A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799BB1E8710B500E6D1A0 /* CoreGraphics.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5132BD931E8C2D2C00617E24 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		515799B91E8710B500E6D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		515799BA1E8710B500E6D1A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		515799BB1E8710B500E6D1A0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -105,6 +107,7 @@
 				51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */,
 				51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */,
 				51DDC3731E80715B009C1B12 /* Exercise.swift */,
+				5132BD931E8C2D2C00617E24 /* Workout.swift */,
 			);
 			name = Training;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */,
 				51C625AA1E75CCE800E94D6A /* ViewController.swift in Sources */,
 				51C625D31E7EAA6600E94D6A /* TrainingTableViewController.swift in Sources */,
+				5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */,
 				51DDC3761E81B620009C1B12 /* ExercisesTableViewController.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,
 				51DDC3781E81D85C009C1B12 /* ExercisesTableViewCell.swift in Sources */,

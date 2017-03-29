@@ -10,6 +10,7 @@ import UIKit
 import Parse
 
 class Exercise {
+    
     var exId = ""
     var name = ""
     var type = ""
