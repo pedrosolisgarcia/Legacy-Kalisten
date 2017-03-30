@@ -9,6 +9,13 @@
 import UIKit
 
 class WorkoutTableViewCell: UITableViewCell {
+    
+    @IBOutlet var nameLabel: MarqueeLabel!
+    @IBOutlet var familyLabel: MarqueeLabel!
+    @IBOutlet var tarjetLabel: MarqueeLabel!
+    @IBOutlet var numExlLabel: MarqueeLabel!
+    @IBOutlet var timeLabel: MarqueeLabel!
+    @IBOutlet var levelLabel: MarqueeLabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
