@@ -40,6 +40,9 @@
                                                 <constraint firstItem="0VO-zG-y13" firstAttribute="centerY" secondItem="GyX-wZ-VZn" secondAttribute="centerY" id="evg-yy-lsG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9a1-Mz-YgP" kind="show" id="d94-p6-WfG"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="151" id="YVt-Xi-xXa">
                                         <rect key="frame" x="0.0" y="151" width="375" height="151"/>
@@ -114,6 +117,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DS-Xg-QlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-842" y="-1266"/>
+        </scene>
+        <!--WORKOUT DAY-->
+        <scene sceneID="oH1-A4-tgo">
+            <objects>
+                <tableViewController id="9a1-Mz-YgP" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vYp-v1-fLB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="w0P-Oy-Jyx">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w0P-Oy-Jyx" id="X45-Gw-0KF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LEVEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-Eh-Gw9">
+                                            <rect key="frame" x="297" y="57" width="70" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ds3-mc-8sZ">
+                                            <rect key="frame" x="8" y="8" width="250" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="BEP-iV-DUa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ds3-mc-8sZ" secondAttribute="bottom" constant="36" id="IcO-vM-cL8"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="leading" secondItem="X45-Gw-0KF" secondAttribute="leadingMargin" id="T6Z-vl-JPA"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="top" secondItem="X45-Gw-0KF" secondAttribute="topMargin" id="kFR-yW-Nw3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9a1-Mz-YgP" id="IIb-dx-1cZ"/>
+                            <outlet property="delegate" destination="9a1-Mz-YgP" id="wwK-ea-noW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="WORKOUT DAY" id="ujj-9E-8la"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4k-uB-K9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183.2" y="-1266.1169415292354"/>
         </scene>
         <!--Training-->
         <scene sceneID="9tJ-eS-JHt">
@@ -383,7 +438,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERY EASY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeJ-OV-S5Q" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeJ-OV-S5Q" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
                                             <rect key="frame" x="297" y="57" width="70" height="14"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                             <nil key="textColor"/>
@@ -560,6 +615,24 @@
             </objects>
             <point key="canvasLocation" x="1927.2" y="187.55622188905548"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y0C-lV-lkT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KC1-P5-Lth" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XMX-xw-Wxt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9a1-Mz-YgP" kind="relationship" relationship="rootViewController" id="ajp-Y1-pNU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAM-LF-1nA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="-1266.1169415292354"/>
+        </scene>
     </scenes>
     <resources>
         <image name="exerciseIcon" width="32" height="32"/>
@@ -569,7 +642,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="5rX-eS-F5p"/>
         <segue reference="noM-f5-lbT"/>
-        <segue reference="BD9-jf-EPt"/>
         <segue reference="8hD-9E-6at"/>
+        <segue reference="d94-p6-WfG"/>
+        <segue reference="RPg-vz-VHE"/>
     </inferredMetricsTieBreakers>
 </document>
