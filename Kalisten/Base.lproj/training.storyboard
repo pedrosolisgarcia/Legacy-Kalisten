@@ -123,13 +123,13 @@
         <!--WORKOUT DAY-->
         <scene sceneID="oH1-A4-tgo">
             <objects>
-                <tableViewController id="9a1-Mz-YgP" customClass="WorkoutTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vYp-v1-fLB">
+                <tableViewController id="9a1-Mz-YgP" customClass="WorkoutsTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="vYp-v1-fLB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="w0P-Oy-Jyx" customClass="WorkoutTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="w0P-Oy-Jyx" customClass="WorkoutsTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w0P-Oy-Jyx" id="X45-Gw-0KF">
@@ -137,7 +137,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ds3-mc-8sZ" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="8" width="250" height="25"/>
+                                            <rect key="frame" x="8" y="8" width="270" height="24"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -151,74 +151,73 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAMILY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qf-xV-Nxf" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="36" width="250" height="17"/>
+                                            <rect key="frame" x="8" y="35" width="51.5" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="elX-X5-ovu"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-UltraLight" family="Avenir Next Condensed" pointSize="17"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TARJETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFW-xm-OG5" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="56" width="250" height="16"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                            <rect key="frame" x="8" y="55" width="51.5" height="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
                                             <color key="textColor" red="0.17800480769999999" green="0.17800480769999999" blue="0.17800480769999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NUM. EX" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feT-5J-PCk" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="8" width="70" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="FI1-de-4kB"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <color key="highlightedColor" red="0.17800480769999999" green="0.17800480769999999" blue="0.17800480769999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae9-O6-M3u" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="30" width="70" height="21"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
-                                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NUM.EX" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ae9-O6-M3u" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
+                                            <rect key="frame" x="322.5" y="29" width="44.5" height="22"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-UltraLight" family="Avenir Next Condensed" pointSize="16"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc7-Eh-Gw9" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                            <rect key="frame" x="297" y="53" width="70" height="22"/>
+                                            <rect key="frame" x="322.5" y="53" width="44.5" height="21"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
                                             <color key="textColor" red="0.17800480769999999" green="0.17800480769999999" blue="0.17800480769999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feT-5J-PCk" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
+                                            <rect key="frame" x="287" y="8" width="80" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="5wO-la-uga"/>
+                                                <constraint firstAttribute="height" constant="19" id="suC-6D-AHo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="18"/>
+                                            <color key="textColor" red="0.17800480769999999" green="0.17800480769999999" blue="0.17800480769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="0.17800480769999999" green="0.17800480769999999" blue="0.17800480769999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="feT-5J-PCk" firstAttribute="leading" secondItem="ds3-mc-8sZ" secondAttribute="trailing" constant="39" id="3R5-9D-BFk"/>
-                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="top" secondItem="X45-Gw-0KF" secondAttribute="topMargin" id="5L6-Pd-R0p"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tFW-xm-OG5" secondAttribute="bottom" constant="-0.5" id="9oi-aq-EfR"/>
-                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="leading" secondItem="X45-Gw-0KF" secondAttribute="leadingMargin" id="DiW-Dn-VOs"/>
+                                        <constraint firstItem="feT-5J-PCk" firstAttribute="trailing" secondItem="X45-Gw-0KF" secondAttribute="trailingMargin" id="BIN-cc-hCj"/>
                                         <constraint firstItem="tFW-xm-OG5" firstAttribute="top" secondItem="5qf-xV-Nxf" secondAttribute="bottom" constant="3" id="GQV-6g-257"/>
                                         <constraint firstItem="tFW-xm-OG5" firstAttribute="centerY" secondItem="Mc7-Eh-Gw9" secondAttribute="centerY" id="GvT-o8-B5n"/>
-                                        <constraint firstItem="feT-5J-PCk" firstAttribute="trailing" secondItem="Ae9-O6-M3u" secondAttribute="trailing" id="Gyc-8l-0L6"/>
-                                        <constraint firstItem="Ae9-O6-M3u" firstAttribute="top" secondItem="feT-5J-PCk" secondAttribute="bottom" constant="2" id="Hjb-gD-fqb"/>
-                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="trailing" secondItem="5qf-xV-Nxf" secondAttribute="trailing" id="HoC-xx-cQL"/>
                                         <constraint firstItem="5qf-xV-Nxf" firstAttribute="leading" secondItem="tFW-xm-OG5" secondAttribute="leading" id="Hqo-oS-RSs"/>
-                                        <constraint firstItem="feT-5J-PCk" firstAttribute="trailing" secondItem="X45-Gw-0KF" secondAttribute="trailingMargin" id="Hz4-xj-JHA"/>
                                         <constraint firstItem="Mc7-Eh-Gw9" firstAttribute="top" secondItem="Ae9-O6-M3u" secondAttribute="bottom" constant="2" id="Js4-ff-hyU"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="top" secondItem="feT-5J-PCk" secondAttribute="top" id="V5d-Vx-xug"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="top" secondItem="X45-Gw-0KF" secondAttribute="topMargin" id="WGr-7h-T4l"/>
+                                        <constraint firstItem="feT-5J-PCk" firstAttribute="leading" secondItem="ds3-mc-8sZ" secondAttribute="trailing" constant="9" id="XmR-CQ-zaa"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="leading" secondItem="5qf-xV-Nxf" secondAttribute="leading" id="bQY-sH-pVZ"/>
                                         <constraint firstItem="5qf-xV-Nxf" firstAttribute="baseline" secondItem="Ae9-O6-M3u" secondAttribute="firstBaseline" id="bbs-B6-XAm"/>
-                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="top" secondItem="feT-5J-PCk" secondAttribute="top" id="emB-CL-2cW"/>
                                         <constraint firstItem="Ae9-O6-M3u" firstAttribute="leading" secondItem="Mc7-Eh-Gw9" secondAttribute="leading" id="f92-xT-tUO"/>
                                         <constraint firstItem="5qf-xV-Nxf" firstAttribute="trailing" secondItem="tFW-xm-OG5" secondAttribute="trailing" id="gma-Bv-Glg"/>
                                         <constraint firstItem="Ae9-O6-M3u" firstAttribute="centerY" secondItem="X45-Gw-0KF" secondAttribute="centerY" id="hKB-iZ-JV0"/>
                                         <constraint firstItem="5qf-xV-Nxf" firstAttribute="baseline" secondItem="Ae9-O6-M3u" secondAttribute="baseline" id="hW6-yS-lKc"/>
+                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="leading" secondItem="X45-Gw-0KF" secondAttribute="leadingMargin" id="jlk-cR-kDR"/>
+                                        <constraint firstItem="Ae9-O6-M3u" firstAttribute="top" secondItem="feT-5J-PCk" secondAttribute="bottom" constant="2" id="kgi-WO-pab"/>
                                         <constraint firstItem="Ae9-O6-M3u" firstAttribute="trailing" secondItem="Mc7-Eh-Gw9" secondAttribute="trailing" id="onY-Zu-Fo2"/>
-                                        <constraint firstItem="ds3-mc-8sZ" firstAttribute="leading" secondItem="5qf-xV-Nxf" secondAttribute="leading" id="qVb-Zi-bST"/>
-                                        <constraint firstItem="5qf-xV-Nxf" firstAttribute="top" secondItem="ds3-mc-8sZ" secondAttribute="bottom" constant="3" id="vcz-vW-wsB"/>
-                                        <constraint firstItem="feT-5J-PCk" firstAttribute="leading" secondItem="Ae9-O6-M3u" secondAttribute="leading" id="wyP-KB-k7U"/>
+                                        <constraint firstItem="feT-5J-PCk" firstAttribute="trailing" secondItem="Ae9-O6-M3u" secondAttribute="trailing" id="wOP-qP-h4v"/>
+                                        <constraint firstItem="5qf-xV-Nxf" firstAttribute="top" secondItem="ds3-mc-8sZ" secondAttribute="bottom" constant="3" id="wcW-iE-GsI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="familyLabel" destination="5qf-xV-Nxf" id="KZ8-v7-2nO"/>
                                     <outlet property="levelLabel" destination="Mc7-Eh-Gw9" id="5Ut-Hq-TrZ"/>
                                     <outlet property="nameLabel" destination="ds3-mc-8sZ" id="1fO-ja-M8F"/>
-                                    <outlet property="numExlLabel" destination="feT-5J-PCk" id="pzN-mx-6cW"/>
+                                    <outlet property="numExlLabel" destination="Ae9-O6-M3u" id="CD6-m6-fOo"/>
                                     <outlet property="tarjetLabel" destination="tFW-xm-OG5" id="Yhb-nc-LFv"/>
-                                    <outlet property="timeLabel" destination="Ae9-O6-M3u" id="2Gp-uk-CGH"/>
+                                    <outlet property="timeLabel" destination="feT-5J-PCk" id="iPV-kH-y4d"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -709,10 +708,10 @@
         <image name="trainingIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5rX-eS-F5p"/>
-        <segue reference="noM-f5-lbT"/>
-        <segue reference="8hD-9E-6at"/>
-        <segue reference="d94-p6-WfG"/>
         <segue reference="RPg-vz-VHE"/>
+        <segue reference="5rX-eS-F5p"/>
+        <segue reference="8hD-9E-6at"/>
+        <segue reference="ZgT-tT-xyQ"/>
+        <segue reference="d94-p6-WfG"/>
     </inferredMetricsTieBreakers>
 </document>

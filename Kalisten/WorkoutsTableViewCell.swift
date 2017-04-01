@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WorkoutTableViewCell: UITableViewCell {
+class WorkoutsTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: MarqueeLabel!
     @IBOutlet var familyLabel: MarqueeLabel!
