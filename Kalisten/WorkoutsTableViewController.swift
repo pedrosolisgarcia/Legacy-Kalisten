@@ -1,5 +1,5 @@
 //
-//  WorkoutTableViewController.swift
+//  WorkoutsTableViewController.swift
 //  Kalisten
 //
 //  Created by Pedro Solís García on 30/03/17.
@@ -24,8 +24,6 @@ class WorkoutsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        //Remove the title of the back button
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,11 +32,6 @@ class WorkoutsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -57,8 +50,8 @@ class WorkoutsTableViewController: UITableViewController {
         cell.familyLabel.text = workouts[indexPath.row].family.uppercased()
         let arrayTarjet:NSArray = workouts[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
-        cell.numExlLabel.text = "NUM.EX: \(workouts[indexPath.row].numEx)"
-        cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN."
+        cell.numExlLabel.text = "EXERCISES: \(workouts[indexPath.row].numEx)"
+        cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN"
         cell.levelLabel.text = difficultyLabel(difficulty: workouts[indexPath.row].difficulty)
 
         return cell
@@ -85,17 +78,25 @@ class WorkoutsTableViewController: UITableViewController {
         
         return diffLabel
     }
-
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             as! WorkoutsTableViewCell
         
         cell.nameLabel.restartLabel()
+        cell.familyLabel.restartLabel()
         cell.tarjetLabel.restartLabel()
+        cell.timeLabel.restartLabel()
+        cell.numExlLabel.restartLabel()
+        cell.levelLabel.restartLabel()
         for cell in tableView.visibleCells as! [WorkoutsTableViewCell] {
             cell.nameLabel.restartLabel()
+            cell.familyLabel.restartLabel()
             cell.tarjetLabel.restartLabel()
+            cell.timeLabel.restartLabel()
+            cell.numExlLabel.restartLabel()
+            cell.levelLabel.restartLabel()
         }
     }
     
@@ -103,7 +104,7 @@ class WorkoutsTableViewController: UITableViewController {
     
     func loadWorkoutsFromParse() {
         // Clear up the array
-        workouts.removeAll(keepingCapacity: true)
+        workouts.removeAll(keepingCapacity: false)
         tableView.reloadData()
         
         // Pull data from Parse
@@ -118,13 +119,15 @@ class WorkoutsTableViewController: UITableViewController {
             
             if let objects = objects {
                 for (index, object) in objects.enumerated() {
-                    // Convert PFObject into Trip object
+                    // Convert PFObject into Workout object
                     let workout = Workout(pfObject: object)
                     self.workouts.append(workout)
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
                 }
+                //fixes the issue in which the last element had the labels without the info.
+                self.tableView.reloadData()
             }
         }
     }

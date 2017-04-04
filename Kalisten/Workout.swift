@@ -59,7 +59,7 @@ class Workout {
     }
     
     func toPFObject() -> PFObject {
-        let workoutObject = PFObject(className: "Exercise")
+        let workoutObject = PFObject(className: "Workout")
         workoutObject.objectId = workId
         workoutObject["name"] = name
         workoutObject["type"] = type

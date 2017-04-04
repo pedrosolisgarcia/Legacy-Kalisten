@@ -1,5 +1,5 @@
 //
-//  WorkoutTableViewCell.swift
+//  WorkoutsTableViewCell.swift
 //  Kalisten
 //
 //  Created by Pedro Solís García on 30/03/17.
