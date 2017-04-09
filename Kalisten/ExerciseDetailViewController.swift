@@ -10,10 +10,6 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var tarjetLabel: UILabel!
-    @IBOutlet var pqLabel: UILabel!
-    @IBOutlet var levelLabel: UILabel!
     @IBOutlet var exerciseImageView: UIImageView!
     
     @IBOutlet var tableView: UITableView!
@@ -36,9 +32,9 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         }
         
         //Set the default dimension of the cells.
-        //tableView.estimatedRowHeight = 36
+        tableView.estimatedRowHeight = 25
         //The height of the cell will change according to the text length
-        //tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         //Sets the header of the navigation bar to the exercise's name
         title = exercise.name.uppercased()
@@ -62,36 +58,39 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExerciseDetailViewController
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExerciseDetailTableViewCell
         
-//        // Configure the cell...
-//        switch indexPath.row{
-//        case 0:
-//            cell.fieldLabel.text = "Name"
-//            cell.valueLabel.text = restaurant.name
-//        case 1:
-//            cell.fieldLabel.text = "Type"
-//            cell.valueLabel.text = restaurant.type
-//        case 2:
-//            cell.fieldLabel.text = "Location"
-//            cell.valueLabel.text = restaurant.location
-//        case 3:
-//            cell.fieldLabel.text = "Phone"
-//            cell.valueLabel.text = restaurant.phone
-//        case 4:
-//            cell.fieldLabel.text = "Been here"
-//            //CHAPTER 16: Added the rating field
-//            cell.valueLabel.text = (restaurant.isVisited) ? "Yes, I've been here defore. \(restaurant.rating)" : "No"
-//        default:
-//            cell.fieldLabel.text = ""
-//            cell.valueLabel.text = ""
-//        }
+        // Configure the cell...
+        switch indexPath.row{
+        case 0:
+            cell.fieldLabel.text = "NAME"
+            cell.valueLabel.text = exercise.name.uppercased()
+        case 1:
+            cell.fieldLabel.text = "FAMILY"
+            let arrayFamily:NSArray = exercise.family as NSArray
+            cell.valueLabel.text = arrayFamily.componentsJoined(by: ", ").uppercased()
+        case 2:
+            cell.fieldLabel.text = "PLACE"
+            let arrayPlace:NSArray = exercise.place as NSArray
+            cell.valueLabel.text = arrayPlace.componentsJoined(by: ", ").uppercased()
+        case 3:
+            cell.fieldLabel.text = "PHYSICAL QUALITY"
+            let arrayPQ:NSArray = exercise.pq as NSArray
+            cell.valueLabel.text = arrayPQ.componentsJoined(by: ", ").uppercased()
+        case 4:
+            cell.fieldLabel.text = "TARJETS"
+            let arrayTarjets:NSArray = exercise.tarjets as NSArray
+            cell.valueLabel.text = arrayTarjets.componentsJoined(by: ", ").uppercased()
+        default:
+            cell.fieldLabel.text = ""
+            cell.valueLabel.text = ""
+        }
         
         tableView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.2)
         
-        //cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
         
-        //tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         tableView.separatorColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.8)
         

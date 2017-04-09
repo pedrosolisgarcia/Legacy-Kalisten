@@ -19,6 +19,9 @@ class ExercisesTableViewController: UITableViewController {
         
         loadExercisesFromParse()
         
+        //Hide the navigation bar when scrolling down
+        navigationController?.hidesBarsOnSwipe = true
+        
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
 
@@ -27,6 +30,13 @@ class ExercisesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Hide the bar on swipe
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -18,12 +18,22 @@ class WorkoutsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadWorkoutsFromParse()
+        
+        //Hide the navigation bar when scrolling down
+        navigationController?.hidesBarsOnSwipe = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Hide the bar on swipe
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func didReceiveMemoryWarning() {
