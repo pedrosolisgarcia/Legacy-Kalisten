@@ -19,12 +19,13 @@ class Exercise {
     var pq = [""]
     var object = [""]
     var image: PFFile?
+    var imageDet: PFFile?
     var difficulty:Int = 0
     var tarjets = [""]
     var description = ""
     var isCreated = false
     
-    init(exId: String, name: String, type: String, family: [String], place: [String], pq: [String], object: [String], image: PFFile!, difficulty: Int, tarjets: [String], description: String, isCreated: Bool){
+    init(exId: String, name: String, type: String, family: [String], place: [String], pq: [String], object: [String], image: PFFile!, imageDet: PFFile!, difficulty: Int, tarjets: [String], description: String, isCreated: Bool){
         
         self.exId = exId
         self.name = name
@@ -34,6 +35,7 @@ class Exercise {
         self.pq = pq
         self.object = object
         self.image = image
+        self.imageDet = imageDet
         self.difficulty = difficulty
         self.tarjets = tarjets
         self.description = description
@@ -51,6 +53,7 @@ class Exercise {
         if pfObject["object"] == nil {self.object = [""]}
         else{self.object = pfObject["object"] as! [String]}
         self.image = pfObject["image"] as? PFFile
+        self.imageDet = pfObject["imageDet"] as? PFFile
         self.difficulty = pfObject["difficulty"] as! Int
         self.tarjets = pfObject["tarjets"] as! [String]
         if pfObject["description"] == nil {self.description = ""}
@@ -68,6 +71,7 @@ class Exercise {
         exerciseObject["pq"] = pq
         exerciseObject["object"] = object
         exerciseObject["image"] = image
+        exerciseObject["imageDet"] = imageDet
         exerciseObject["difficulty"] = difficulty
         exerciseObject["tarjets"] = tarjets
         exerciseObject["description"] = description
