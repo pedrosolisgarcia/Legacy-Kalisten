@@ -18,6 +18,9 @@ class ExercisesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadExercisesFromParse()
+        
+        //Remove the title of the back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -108,9 +111,22 @@ class ExercisesTableViewController: UITableViewController {
         }
     }
 
+    //Prepare data from the selected exercise to be shown in the detail view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "showExerciseDetail"{
+            if let indexPath = tableView.indexPathForSelectedRow {
+                // Pass the selected object to the new view controller.
+                let destinationController = segue.destination as! ExerciseDetailViewController
+                
+                destinationController.exercise =  exercises[indexPath.row]
+            }
+        }
+    }
     
     // MARK: Parse-related methods
     
+    //Load the Exercise data from Parse to the object exercises
     func loadExercisesFromParse() {
         // Clear up the array
         exercises.removeAll(keepingCapacity: true)

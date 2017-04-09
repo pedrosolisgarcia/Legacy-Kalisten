@@ -126,7 +126,7 @@ class WorkoutsTableViewController: UITableViewController {
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
                 }
-                //fixes the issue in which the last element had the labels without the info.
+                //fixes the issue in which the last element had the labels without the info.<<<
                 self.tableView.reloadData()
             }
         }
