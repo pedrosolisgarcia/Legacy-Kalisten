@@ -13,6 +13,9 @@ class ExercisesTableViewController: UITableViewController {
     
     //Array to store the exercises from Parse as objects
     private var exercises = [Exercise]()
+    
+    //Return from the New Exercise View to the Exercise tableView
+    @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()

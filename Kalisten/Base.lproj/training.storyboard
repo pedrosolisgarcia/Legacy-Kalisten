@@ -117,7 +117,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DS-Xg-QlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="-1266"/>
+            <point key="canvasLocation" x="-842" y="-1267"/>
         </scene>
         <!--WORKOUT DAY-->
         <scene sceneID="oH1-A4-tgo">
@@ -358,7 +358,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHC-qG-hfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="-546"/>
+            <point key="canvasLocation" x="-3098" y="-546"/>
         </scene>
         <!--CARDIO & HIIT-->
         <scene sceneID="Bgp-sE-GPc">
@@ -396,7 +396,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaJ-m2-OrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="-546"/>
+            <point key="canvasLocation" x="-842" y="-546"/>
         </scene>
         <!--TRAINING-->
         <scene sceneID="Gfd-kH-KHC">
@@ -416,7 +416,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1d9-xp-QhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1796" y="-546"/>
+            <point key="canvasLocation" x="-4034" y="-546"/>
         </scene>
         <!--EXERCISES-->
         <scene sceneID="0Fv-TP-XLF">
@@ -537,7 +537,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUO-bl-9dy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="-2068"/>
+            <point key="canvasLocation" x="-3098" y="-1266"/>
         </scene>
         <!--Exercise Detail View Controller-->
         <scene sceneID="HOs-hc-raB">
@@ -624,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvB-FX-JhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="-2069"/>
+            <point key="canvasLocation" x="-2012" y="-1267"/>
         </scene>
         <!--NewExercise-->
         <scene sceneID="9AM-XJ-uqj">
@@ -695,11 +695,19 @@
                             <outlet property="delegate" destination="o7T-SZ-MPX" id="QDp-9z-b6K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NEW EXERCISE" id="90d-zQ-qlS"/>
+                    <navigationItem key="navigationItem" title="NEW EXERCISE" id="90d-zQ-qlS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SbY-hA-LSf">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Ln9-MO-nnE" kind="unwind" identifier="CancelNewExercise" unwindAction="unwindToHomeScreenWithSegue:" id="Je8-SP-6Oo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfx-RH-cYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ln9-MO-nnE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="244" y="-2892"/>
+            <point key="canvasLocation" x="-2012" y="-2090"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G2z-PE-Dlc">
@@ -717,7 +725,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-842" y="-2891"/>
+            <point key="canvasLocation" x="-3098" y="-2089"/>
         </scene>
     </scenes>
     <resources>
