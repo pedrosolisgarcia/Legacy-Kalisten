@@ -30,6 +30,14 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
                 }
             })
         }
+        else if let image = exercise.image {
+            image.getDataInBackground(block: { (imageData, error) in
+                if let exerciseImageData = imageData {
+                    self.exerciseImageView.image = UIImage(data: exerciseImageData)
+                }
+            })
+        }
+
         
         //Set the default dimension of the cells.
         tableView.estimatedRowHeight = 25
