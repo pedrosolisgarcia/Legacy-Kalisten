@@ -79,5 +79,5 @@ class Exercise {
         
         return exerciseObject
     }
-
+    
 }

@@ -51,7 +51,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //Preven from hiding the bar on swipe
+        //Prevent from hiding the bar on swipe
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -94,13 +94,11 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             cell.valueLabel.text = ""
         }
         
-        tableView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.2)
-        
         cell.backgroundColor = UIColor.clear
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        tableView.separatorColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0.8)
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         
         return cell
     }

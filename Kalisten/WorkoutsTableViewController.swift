@@ -21,7 +21,10 @@ class WorkoutsTableViewController: UITableViewController {
         
         //Hide the navigation bar when scrolling down
         navigationController?.hidesBarsOnSwipe = true
-
+        
+        //Remove the title of the back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -56,38 +59,40 @@ class WorkoutsTableViewController: UITableViewController {
             as! WorkoutsTableViewCell
         
         // Configure the cell
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         cell.nameLabel.text = workouts[indexPath.row].name.uppercased()
         cell.familyLabel.text = workouts[indexPath.row].family.uppercased()
         let arrayTarjet:NSArray = workouts[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
         cell.numExlLabel.text = "EXERCISES: \(workouts[indexPath.row].numEx)"
         cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN"
-        cell.levelLabel.text = difficultyLabel(difficulty: workouts[indexPath.row].difficulty)
+        cell.levelLabel.text = difficultyLevel(difficulty: workouts[indexPath.row].difficulty)
 
         return cell
     }
     
-    func difficultyLabel(difficulty: Int)-> String {
+    func difficultyLevel(difficulty: Int)-> String {
         
-        var diffLabel = ""
+        var diffLevel = ""
         
         switch difficulty {
-        case 1: diffLabel = "SUPER EASY"
-        case 2: diffLabel = "VERY EASY"
-        case 3: diffLabel = "EASY"
-        case 4: diffLabel = "NORMAL"
-        case 5: diffLabel = "CHALLENGING"
-        case 6: diffLabel = "HARD"
-        case 7: diffLabel = "VERY HARD"
-        case 8: diffLabel = "SUPER HARD"
-        case 9: diffLabel = "PROFESSIONAL"
-        case 10: diffLabel = "OLYMPIC"
+        case 1: diffLevel = "SUPER EASY"
+        case 2: diffLevel = "VERY EASY"
+        case 3: diffLevel = "EASY"
+        case 4: diffLevel = "NORMAL"
+        case 5: diffLevel = "CHALLENGING"
+        case 6: diffLevel = "HARD"
+        case 7: diffLevel = "VERY HARD"
+        case 8: diffLevel = "SUPER HARD"
+        case 9: diffLevel = "PROFESSIONAL"
+        case 10: diffLevel = "OLYMPIC"
         default:
-            diffLabel = "DIFFICULTY"
+            diffLevel = "DIFFICULTY"
         }
         
-        return diffLabel
+        return diffLevel
     }
+
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         

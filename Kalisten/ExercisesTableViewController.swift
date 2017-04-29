@@ -67,12 +67,13 @@ class ExercisesTableViewController: UITableViewController {
             as! ExercisesTableViewCell
         
         // Configure the cell
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
         let arrayTarjet:NSArray = exercises[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
         let arrayPQ:NSArray = exercises[indexPath.row].pq as NSArray
         cell.pqLabel.text = arrayPQ.componentsJoined(by: ", ").uppercased()
-        cell.levelLabel.text = difficultyLabel(difficulty: exercises[indexPath.row].difficulty)
+        cell.levelLabel.text = difficultyLevel(difficulty: exercises[indexPath.row].difficulty)
         
         // Load image in background
         cell.thumbnailImageView.image = UIImage()
@@ -87,26 +88,26 @@ class ExercisesTableViewController: UITableViewController {
         return cell
     }
     
-    func difficultyLabel(difficulty: Int)-> String {
+    func difficultyLevel(difficulty: Int)-> String {
         
-        var diffLabel = ""
+        var diffLevel = ""
         
         switch difficulty {
-        case 1: diffLabel = "SUPER EASY"
-        case 2: diffLabel = "VERY EASY"
-        case 3: diffLabel = "EASY"
-        case 4: diffLabel = "NORMAL"
-        case 5: diffLabel = "CHALLENGING"
-        case 6: diffLabel = "HARD"
-        case 7: diffLabel = "VERY HARD"
-        case 8: diffLabel = "SUPER HARD"
-        case 9: diffLabel = "PROFESSIONAL"
-        case 10: diffLabel = "OLYMPIC"
+        case 1: diffLevel = "SUPER EASY"
+        case 2: diffLevel = "VERY EASY"
+        case 3: diffLevel = "EASY"
+        case 4: diffLevel = "NORMAL"
+        case 5: diffLevel = "CHALLENGING"
+        case 6: diffLevel = "HARD"
+        case 7: diffLevel = "VERY HARD"
+        case 8: diffLevel = "SUPER HARD"
+        case 9: diffLevel = "PROFESSIONAL"
+        case 10: diffLevel = "OLYMPIC"
         default:
-            diffLabel = "DIFFICULTY"
+            diffLevel = "DIFFICULTY"
         }
         
-        return diffLabel
+        return diffLevel
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -147,6 +148,8 @@ class ExercisesTableViewController: UITableViewController {
         
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
+        //Filter exercises objects that belong to workout type
+        query.whereKey("type", equalTo: "Workout")
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             
