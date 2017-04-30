@@ -115,6 +115,19 @@ class WorkoutsTableViewController: UITableViewController {
         }
     }
     
+    //Prepare data from the selected workout to be shown in the detail view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "showWorkoutDetail"{
+            if let indexPath = tableView.indexPathForSelectedRow {
+                // Pass the selected object to the new view controller.
+                let destinationController = segue.destination as! WorkoutDetailViewController
+                
+                destinationController.workout =  workouts[indexPath.row]
+            }
+        }
+    }
+    
     // MARK: Parse-related methods
     
     func loadWorkoutsFromParse() {

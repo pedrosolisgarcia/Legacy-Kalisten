@@ -9,6 +9,9 @@
 import UIKit
 
 class WorkoutDetailTableViewCell: UITableViewCell {
+    
+    @IBOutlet var nameLabel: MarqueeLabel!
+    @IBOutlet var thumbnailImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

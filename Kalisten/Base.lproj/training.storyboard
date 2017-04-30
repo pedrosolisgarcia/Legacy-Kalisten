@@ -273,7 +273,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ladder" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-dc-94U">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-dc-94U">
                                                     <rect key="frame" x="86" y="63" width="40" height="55"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -405,7 +405,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="226" id="fDd-9U-GtI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="226" id="fDd-9U-GtI" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="377" width="375" height="226"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDd-9U-GtI" id="dhy-i3-uST">
@@ -417,7 +417,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="yRU-xI-yeD" userLabel="Cell">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="yRU-xI-yeD" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yRU-xI-yeD" id="RUf-Ph-JFy">
@@ -446,6 +446,10 @@
                                                                 </subviews>
                                                             </tableViewCellContentView>
                                                             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <connections>
+                                                                <outlet property="nameLabel" destination="ggM-8k-qf5" id="pBl-Ec-mXM"/>
+                                                                <outlet property="thumbnailImageView" destination="LZ4-Gp-5ik" id="aUo-kz-frK"/>
+                                                            </connections>
                                                         </tableViewCell>
                                                     </prototypes>
                                                 </tableView>
@@ -461,6 +465,17 @@
                             <outlet property="delegate" destination="1bl-GQ-uHc" id="n4q-Y0-92h"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="descrpt" destination="ECC-np-Y2c" id="vbc-A4-w00"/>
+                        <outlet property="family" destination="zAs-Pp-7kf" id="Yf4-0q-tFS"/>
+                        <outlet property="familyIconImageView" destination="XNw-dc-94U" id="VzZ-mh-YoL"/>
+                        <outlet property="intTime" destination="jwQ-Vz-21r" id="cqX-gT-ybw"/>
+                        <outlet property="level" destination="qRl-0b-MIC" id="IfX-na-uAX"/>
+                        <outlet property="numExercises" destination="5Dn-Wr-5SR" id="8nT-MO-7DD"/>
+                        <outlet property="pqImproved" destination="sbM-v3-JhG" id="B71-RU-7Cg"/>
+                        <outlet property="sets" destination="PA0-6U-3B1" id="lbp-7l-TQm"/>
+                        <outlet property="time" destination="qiy-P6-40h" id="878-2D-RYW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKw-oR-b2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -746,7 +761,7 @@
                     <navigationItem key="navigationItem" title="EXERCISES" id="yZO-z3-OzS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TRG-4y-Iuk">
                             <connections>
-                                <segue destination="0ed-Zv-efw" kind="presentation" identifier="addRestaurant" id="qbE-m2-ll8"/>
+                                <segue destination="0ed-Zv-efw" kind="presentation" identifier="addExercise" id="qbE-m2-ll8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -947,7 +962,6 @@
     </scenes>
     <resources>
         <image name="exerciseIcon" width="32" height="32"/>
-        <image name="ladder" width="128" height="128"/>
         <image name="photoalbum" width="64" height="64"/>
         <image name="trainingIcon" width="32" height="32"/>
     </resources>
