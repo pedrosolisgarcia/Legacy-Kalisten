@@ -59,7 +59,6 @@ class WorkoutsTableViewController: UITableViewController {
             as! WorkoutsTableViewCell
         
         // Configure the cell
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         cell.nameLabel.text = workouts[indexPath.row].name.uppercased()
         cell.familyLabel.text = workouts[indexPath.row].family.uppercased()
         let arrayTarjet:NSArray = workouts[indexPath.row].tarjets as NSArray
@@ -67,6 +66,8 @@ class WorkoutsTableViewController: UITableViewController {
         cell.numExlLabel.text = "EXERCISES: \(workouts[indexPath.row].numEx)"
         cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN"
         cell.levelLabel.text = difficultyLevel(difficulty: workouts[indexPath.row].difficulty)
+        
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
 
         return cell
     }

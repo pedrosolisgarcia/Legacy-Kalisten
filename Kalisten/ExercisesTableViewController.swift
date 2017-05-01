@@ -67,7 +67,6 @@ class ExercisesTableViewController: UITableViewController {
             as! ExercisesTableViewCell
         
         // Configure the cell
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
         let arrayTarjet:NSArray = exercises[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
@@ -84,6 +83,8 @@ class ExercisesTableViewController: UITableViewController {
                 }
             })
         }
+        
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
         
         return cell
     }

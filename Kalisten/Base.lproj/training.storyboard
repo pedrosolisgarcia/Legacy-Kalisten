@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="xh4-Va-J2F">
                                 <cells>
@@ -131,6 +135,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="w0P-Oy-Jyx" customClass="WorkoutsTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
@@ -219,7 +225,7 @@
                                     <outlet property="numExlLabel" destination="Ae9-O6-M3u" id="CD6-m6-fOo"/>
                                     <outlet property="tarjetLabel" destination="tFW-xm-OG5" id="Yhb-nc-LFv"/>
                                     <outlet property="timeLabel" destination="feT-5J-PCk" id="iPV-kH-y4d"/>
-                                    <segue destination="1bl-GQ-uHc" kind="show" identifier="showWorkoutDetail" id="mtw-GB-xuK"/>
+                                    <segue destination="393-El-eUM" kind="show" identifier="showWorkoutDetail" id="HSH-PV-kPK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -235,251 +241,344 @@
             <point key="canvasLocation" x="193" y="-2089"/>
         </scene>
         <!--Workout Detail View Controller-->
-        <scene sceneID="8HL-Bo-Ibo">
+        <scene sceneID="oU0-xi-bKq">
             <objects>
-                <tableViewController id="1bl-GQ-uHc" customClass="WorkoutDetailViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nyb-ye-N8F">
+                <viewController id="393-El-eUM" customClass="WorkoutDetailViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sCF-v4-0bK"/>
+                        <viewControllerLayoutGuide type="bottom" id="oY3-3q-acT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dex-ew-21M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="sw5-lv-9Vz">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="vOK-g9-rYB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Ov-us3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="x4a-bu-S0g">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="365"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W. FAMILY:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAs-Pp-7kf">
+                                            <rect key="frame" x="38" y="25" width="103" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="cBh-gB-2cq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-Wr-5SR">
+                                            <rect key="frame" x="38" y="59" width="40" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Brx-44-zQ8"/>
+                                                <constraint firstAttribute="width" constant="40" id="aN8-0F-mgu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="70"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EX." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW7-tc-OfQ">
+                                            <rect key="frame" x="73" y="57" width="25" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="FIl-bq-pIV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-dc-94U">
+                                            <rect key="frame" x="90" y="59" width="40" height="55"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 SET PER EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-6U-3B1">
+                                            <rect key="frame" x="34" y="127" width="111" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20.5" id="35X-zr-36O"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drj-fp-VXw" userLabel="VSeparator">
+                                            <rect key="frame" x="187" y="16" width="1" height="130"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="tqV-Mc-auh"/>
+                                            </constraints>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZG-La-hA0" userLabel="VSeparator">
+                                            <rect key="frame" x="15" y="163.5" width="345" height="1"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="bQ8-wo-3gI"/>
+                                            </constraints>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL TIME:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-on-b6L">
+                                            <rect key="frame" x="230" y="25" width="102.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="tc1-zb-VZs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-P6-40h">
+                                            <rect key="frame" x="230" y="59" width="70" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="LI2-zH-uR3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="70"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MIN." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-hA-lOA">
+                                            <rect key="frame" x="305" y="57" width="36" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Q33-p9-8rW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W. FAMILY: 0 MIN." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwQ-Vz-21r">
+                                            <rect key="frame" x="230" y="127" width="111" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20.5" id="Hit-Jm-B3U"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPROVES:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-WR-Lgp">
+                                            <rect key="frame" x="21" y="178.5" width="71" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="3pW-rA-Co9"/>
+                                                <constraint firstAttribute="width" constant="71" id="KeE-YW-j60"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ecH-lg-VHd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reV-g4-mqZ">
+                                            <rect key="frame" x="204" y="178.5" width="39" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Jti-fd-JSY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PQ IMPROVED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbM-v3-JhG">
+                                            <rect key="frame" x="21" y="202.5" width="163" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="KPf-uY-T1H"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIFFICULTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRl-0b-MIC">
+                                            <rect key="frame" x="204" y="202.5" width="157" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="157" id="9gF-Eh-ON8"/>
+                                                <constraint firstAttribute="height" constant="21" id="vCV-Co-UCv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  DESCRIPTION:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmt-qU-GUv">
+                                            <rect key="frame" x="0.0" y="231.5" width="375" height="20"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="p9U-5C-xXC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rHB-pO-5d9">
+                                            <rect key="frame" x="10" y="256.5" width="355" height="76.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-np-Y2c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="76.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  EXERCISES:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-W2-z8i">
+                                            <rect key="frame" x="0.0" y="338" width="375" height="27"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="Z57-jB-WuK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="top" secondItem="2Ct-on-b6L" secondAttribute="bottom" constant="11" id="0Oj-uj-2Oq"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="centerY" secondItem="qiy-P6-40h" secondAttribute="centerY" constant="-8" id="0yX-Og-aB3"/>
+                                        <constraint firstItem="5Dn-Wr-5SR" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="13" id="1NH-GC-iVV"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="top" secondItem="2Ct-on-b6L" secondAttribute="bottom" constant="11" id="1qR-E9-iMJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="TYz-W2-z8i" secondAttribute="bottom" id="1vY-cI-cJ2"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="leading" secondItem="5Dn-Wr-5SR" secondAttribute="leading" id="2e9-cD-UmU"/>
+                                        <constraint firstItem="reV-g4-mqZ" firstAttribute="top" secondItem="UZG-La-hA0" secondAttribute="bottom" constant="14" id="4lC-Ju-Lyl"/>
+                                        <constraint firstItem="qiy-P6-40h" firstAttribute="top" secondItem="2Ct-on-b6L" secondAttribute="bottom" constant="13" id="5h4-zh-hpt"/>
+                                        <constraint firstItem="sbM-v3-JhG" firstAttribute="top" secondItem="Xsv-WR-Lgp" secondAttribute="bottom" constant="3" id="65F-zf-DIQ"/>
+                                        <constraint firstItem="2Ct-on-b6L" firstAttribute="top" secondItem="x4a-bu-S0g" secondAttribute="top" constant="25" id="65c-wW-dOv"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="centerX" secondItem="PA0-6U-3B1" secondAttribute="centerX" id="6D5-Ya-Vsb"/>
+                                        <constraint firstItem="TYz-W2-z8i" firstAttribute="top" secondItem="rHB-pO-5d9" secondAttribute="bottom" constant="5" id="6S7-BK-yLt"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="leading" secondItem="OW7-tc-OfQ" secondAttribute="trailing" constant="89" id="70e-Ja-f1u"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="11" id="7Tn-9r-GeQ"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="trailing" secondItem="jwQ-Vz-21r" secondAttribute="trailing" id="9g9-BF-W98"/>
+                                        <constraint firstItem="reV-g4-mqZ" firstAttribute="leading" secondItem="qRl-0b-MIC" secondAttribute="leading" id="9o8-9w-zex"/>
+                                        <constraint firstItem="jwQ-Vz-21r" firstAttribute="top" secondItem="qiy-P6-40h" secondAttribute="bottom" constant="8" id="A5W-7i-kZe"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="centerX" secondItem="UZG-La-hA0" secondAttribute="centerX" id="CEU-FE-SXC"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="5Dn-Wr-5SR" secondAttribute="bottom" constant="8" id="CfL-rh-wM2"/>
+                                        <constraint firstItem="Xsv-WR-Lgp" firstAttribute="firstBaseline" secondItem="reV-g4-mqZ" secondAttribute="firstBaseline" id="CtZ-3A-YtY"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="top" secondItem="x4a-bu-S0g" secondAttribute="top" constant="25" id="DCm-Ee-lYx"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="11" id="DnS-Ab-EOE"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="top" secondItem="2Ct-on-b6L" secondAttribute="bottom" constant="11" id="Ecc-hK-xGY"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="XNw-dc-94U" secondAttribute="bottom" constant="13" id="EqZ-Lz-W1j"/>
+                                        <constraint firstItem="qRl-0b-MIC" firstAttribute="top" secondItem="reV-g4-mqZ" secondAttribute="bottom" constant="3" id="F02-m1-fvW"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="top" secondItem="x4a-bu-S0g" secondAttribute="top" constant="25" id="FyN-cV-NWK"/>
+                                        <constraint firstItem="Xsv-WR-Lgp" firstAttribute="top" secondItem="UZG-La-hA0" secondAttribute="bottom" constant="14" id="I8P-jn-XcH"/>
+                                        <constraint firstItem="jwQ-Vz-21r" firstAttribute="top" secondItem="qiy-P6-40h" secondAttribute="bottom" constant="8" id="IMN-av-iZ4"/>
+                                        <constraint firstItem="2Ct-on-b6L" firstAttribute="leading" secondItem="Drj-fp-VXw" secondAttribute="trailing" constant="42" id="IjS-GP-hVq"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="top" secondItem="qRl-0b-MIC" secondAttribute="bottom" constant="8" id="JLO-zu-Yao"/>
+                                        <constraint firstItem="sbM-v3-JhG" firstAttribute="top" secondItem="Xsv-WR-Lgp" secondAttribute="bottom" constant="3" id="JUb-Uh-s3b"/>
+                                        <constraint firstItem="rHB-pO-5d9" firstAttribute="top" secondItem="jmt-qU-GUv" secondAttribute="bottom" constant="5" id="Jur-wH-4JO"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="OW7-tc-OfQ" secondAttribute="bottom" constant="49" id="MT8-y0-Q55"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="11" id="MVV-a6-njz"/>
+                                        <constraint firstAttribute="trailing" secondItem="qRl-0b-MIC" secondAttribute="trailing" constant="14" id="Mc4-sA-MGu"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="trailing" secondItem="TYz-W2-z8i" secondAttribute="trailing" id="N1u-gn-BbO"/>
+                                        <constraint firstItem="qRl-0b-MIC" firstAttribute="leading" secondItem="sbM-v3-JhG" secondAttribute="trailing" constant="20" id="NHG-3V-jkd"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="leading" secondItem="PA0-6U-3B1" secondAttribute="trailing" constant="42" id="NpW-Ke-UBW"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" constant="73" id="PUp-I5-jaA"/>
+                                        <constraint firstItem="5Dn-Wr-5SR" firstAttribute="top" secondItem="XNw-dc-94U" secondAttribute="top" id="QuF-SB-WcU"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="top" secondItem="x4a-bu-S0g" secondAttribute="top" constant="16" id="RqI-4r-V37"/>
+                                        <constraint firstItem="5Dn-Wr-5SR" firstAttribute="baseline" secondItem="qiy-P6-40h" secondAttribute="baseline" id="TSb-sn-GTM"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="OW7-tc-OfQ" secondAttribute="bottom" constant="49" id="TrF-iC-yq0"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="firstBaseline" secondItem="2Ct-on-b6L" secondAttribute="firstBaseline" id="VWR-Mi-Dba"/>
+                                        <constraint firstItem="qRl-0b-MIC" firstAttribute="top" secondItem="reV-g4-mqZ" secondAttribute="bottom" constant="3" id="VZv-sR-N3c"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="top" secondItem="sbM-v3-JhG" secondAttribute="bottom" constant="8" id="Vi6-m6-gXZ"/>
+                                        <constraint firstItem="UZG-La-hA0" firstAttribute="centerX" secondItem="jmt-qU-GUv" secondAttribute="centerX" id="Vvy-TO-Ogt"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="11" id="Vyc-ke-XSR"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="leading" secondItem="XNw-dc-94U" secondAttribute="trailing" constant="57" id="W2n-3X-5Dg"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="top" secondItem="qRl-0b-MIC" secondAttribute="bottom" constant="8" id="YfW-aM-72h"/>
+                                        <constraint firstItem="Xsv-WR-Lgp" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" constant="21" id="ZIS-8f-wb8"/>
+                                        <constraint firstItem="UZG-La-hA0" firstAttribute="top" secondItem="PA0-6U-3B1" secondAttribute="bottom" constant="16" id="ZOD-HW-CGe"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="leading" secondItem="qiy-P6-40h" secondAttribute="trailing" constant="5" id="a9m-2M-yDq"/>
+                                        <constraint firstItem="rHB-pO-5d9" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" constant="10" id="aTr-d1-eMS"/>
+                                        <constraint firstItem="5Dn-Wr-5SR" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="13" id="agw-t9-lfY"/>
+                                        <constraint firstItem="sbM-v3-JhG" firstAttribute="baseline" secondItem="qRl-0b-MIC" secondAttribute="baseline" id="bFb-3r-1Wq"/>
+                                        <constraint firstItem="Xsv-WR-Lgp" firstAttribute="baseline" secondItem="reV-g4-mqZ" secondAttribute="baseline" id="cUl-7o-NK0"/>
+                                        <constraint firstItem="2Ct-on-b6L" firstAttribute="leading" secondItem="qiy-P6-40h" secondAttribute="leading" id="cf9-Tn-e7E"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="OW7-tc-OfQ" secondAttribute="bottom" constant="49" id="d9T-B4-Nso"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="baseline" secondItem="jwQ-Vz-21r" secondAttribute="baseline" id="dCu-ie-hiz"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="top" secondItem="2Ct-on-b6L" secondAttribute="bottom" constant="11" id="f9y-yh-Qdd"/>
+                                        <constraint firstItem="2Ct-on-b6L" firstAttribute="top" secondItem="x4a-bu-S0g" secondAttribute="top" constant="25" id="g5V-KM-2Tv"/>
+                                        <constraint firstItem="sbM-v3-JhG" firstAttribute="top" secondItem="Xsv-WR-Lgp" secondAttribute="bottom" constant="3" id="gaT-1q-WnZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="jmt-qU-GUv" secondAttribute="trailing" id="iBz-L8-p0I"/>
+                                        <constraint firstItem="Xsv-WR-Lgp" firstAttribute="leading" secondItem="sbM-v3-JhG" secondAttribute="leading" id="iXx-TY-Fgu"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="top" secondItem="sbM-v3-JhG" secondAttribute="bottom" constant="8" id="j5z-vh-zCq"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="leading" secondItem="TYz-W2-z8i" secondAttribute="leading" id="jbN-5y-nsh"/>
+                                        <constraint firstItem="5Dn-Wr-5SR" firstAttribute="firstBaseline" secondItem="qiy-P6-40h" secondAttribute="firstBaseline" id="lmH-BB-lOX"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" constant="34" id="mUD-gx-kx5"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="centerX" secondItem="rHB-pO-5d9" secondAttribute="centerX" id="oHD-FC-aND"/>
+                                        <constraint firstItem="UZG-La-hA0" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" constant="15" id="pNY-29-VHE"/>
+                                        <constraint firstItem="sbM-v3-JhG" firstAttribute="firstBaseline" secondItem="qRl-0b-MIC" secondAttribute="firstBaseline" id="q3E-PD-CTn"/>
+                                        <constraint firstAttribute="trailing" secondItem="qiy-P6-40h" secondAttribute="trailing" constant="75" id="rS4-uW-e30"/>
+                                        <constraint firstItem="Drj-fp-VXw" firstAttribute="leading" secondItem="zAs-Pp-7kf" secondAttribute="trailing" constant="46" id="sWA-xi-0TT"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="top" secondItem="sbM-v3-JhG" secondAttribute="bottom" constant="8" symbolic="YES" id="skS-5o-Z39"/>
+                                        <constraint firstItem="x6W-hA-lOA" firstAttribute="baseline" secondItem="OW7-tc-OfQ" secondAttribute="firstBaseline" id="t5E-Os-aV8"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="top" secondItem="zAs-Pp-7kf" secondAttribute="bottom" constant="11" id="uvd-1N-Zi4"/>
+                                        <constraint firstItem="qiy-P6-40h" firstAttribute="leading" secondItem="jwQ-Vz-21r" secondAttribute="leading" id="uzA-64-pGM"/>
+                                        <constraint firstItem="XNw-dc-94U" firstAttribute="leading" secondItem="5Dn-Wr-5SR" secondAttribute="trailing" constant="12" id="vIY-Zi-L2U"/>
+                                        <constraint firstItem="OW7-tc-OfQ" firstAttribute="baseline" secondItem="x6W-hA-lOA" secondAttribute="baseline" id="vMf-Lz-fhl"/>
+                                        <constraint firstItem="jmt-qU-GUv" firstAttribute="leading" secondItem="x4a-bu-S0g" secondAttribute="leading" id="wPF-8X-cIh"/>
+                                        <constraint firstAttribute="trailing" secondItem="x6W-hA-lOA" secondAttribute="trailing" constant="34" id="wcR-pY-5Uz"/>
+                                        <constraint firstItem="zAs-Pp-7kf" firstAttribute="baseline" secondItem="2Ct-on-b6L" secondAttribute="baseline" id="yGT-bU-uAp"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="5Dn-Wr-5SR" secondAttribute="bottom" constant="8" id="yQ2-Dg-76u"/>
+                                        <constraint firstItem="PA0-6U-3B1" firstAttribute="top" secondItem="5Dn-Wr-5SR" secondAttribute="bottom" constant="8" id="zdV-hb-8yu"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="Bzo-4n-wGN" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="393" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vOK-g9-rYB" id="Omn-PD-MWu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bzo-4n-wGN" id="G6R-HE-m8D">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LADDERS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAs-Pp-7kf">
-                                                    <rect key="frame" x="38" y="30" width="103" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dn-Wr-5SR">
-                                                    <rect key="frame" x="38" y="63" width="40" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="70"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EX." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW7-tc-OfQ">
-                                                    <rect key="frame" x="73" y="59" width="25" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-dc-94U">
-                                                    <rect key="frame" x="86" y="63" width="40" height="55"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F4s-m7-9M0">
+                                                    <rect key="frame" x="8" y="2" width="56" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="56" id="ew0-yC-epL"/>
+                                                        <constraint firstAttribute="height" constant="56" id="hZ1-qh-O0q"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 SET PER EXERCISE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA0-6U-3B1">
-                                                    <rect key="frame" x="34" y="134" width="111" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNY-ZK-HBO" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
+                                                    <rect key="frame" x="74" y="13" width="293" height="34.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drj-fp-VXw" userLabel="VSeparator">
-                                                    <rect key="frame" x="187" y="18" width="1" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOTAL TIME:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-on-b6L">
-                                                    <rect key="frame" x="230" y="30" width="103" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="24"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-P6-40h">
-                                                    <rect key="frame" x="230" y="63" width="70" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="70"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MIN." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-hA-lOA">
-                                                    <rect key="frame" x="299" y="59" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LADDERS: 7,5 MIN." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwQ-Vz-21r">
-                                                    <rect key="frame" x="230" y="134" width="111" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zNY-ZK-HBO" firstAttribute="trailing" secondItem="G6R-HE-m8D" secondAttribute="trailingMargin" id="EZD-HU-R04"/>
+                                                <constraint firstItem="zNY-ZK-HBO" firstAttribute="centerY" secondItem="F4s-m7-9M0" secondAttribute="centerY" id="Gzs-ZI-KKc"/>
+                                                <constraint firstItem="F4s-m7-9M0" firstAttribute="leading" secondItem="G6R-HE-m8D" secondAttribute="leadingMargin" id="LEt-z9-Y4r"/>
+                                                <constraint firstItem="zNY-ZK-HBO" firstAttribute="leading" secondItem="F4s-m7-9M0" secondAttribute="trailing" constant="10" id="MDs-GC-aK8"/>
+                                                <constraint firstItem="F4s-m7-9M0" firstAttribute="centerY" secondItem="G6R-HE-m8D" secondAttribute="centerY" id="Yo7-u9-l3e"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="zNY-ZK-HBO" id="7fg-I9-pKl"/>
+                                            <outlet property="thumbnailImageView" destination="F4s-m7-9M0" id="hXb-Vu-637"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Rnp-di-RsX">
-                                        <rect key="frame" x="0.0" y="187" width="375" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rnp-di-RsX" id="6Y6-Vx-t3j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IMPROVES:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsv-WR-Lgp">
-                                                    <rect key="frame" x="22" y="7" width="71" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LEVEL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reV-g4-mqZ">
-                                                    <rect key="frame" x="205" y="7" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENDURANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbM-v3-JhG">
-                                                    <rect key="frame" x="22" y="31" width="163" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BEGINNER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRl-0b-MIC">
-                                                    <rect key="frame" x="205" y="31" width="157" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="oUp-bB-Hgv">
-                                        <rect key="frame" x="0.0" y="247" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oUp-bB-Hgv" id="rn2-VC-8Yi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  DESCRIPTION:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmt-qU-GUv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-np-Y2c">
-                                                    <rect key="frame" x="8" y="28" width="359" height="15"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="fey-NG-WgQ">
-                                        <rect key="frame" x="0.0" y="347" width="375" height="30"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fey-NG-WgQ" id="CCf-ML-StA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  EXERCISES:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-W2-z8i">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="226" id="fDd-9U-GtI" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="377" width="375" height="226"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDd-9U-GtI" id="dhy-i3-uST">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZW7-CJ-PSd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="226"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="yRU-xI-yeD" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="375" height="60"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yRU-xI-yeD" id="RUf-Ph-JFy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZ4-Gp-5ik">
-                                                                        <rect key="frame" x="8" y="4" width="50" height="50"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXERCISE NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggM-8k-qf5" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                                                        <rect key="frame" x="66" y="16" width="270" height="26"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="30"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="animationDelay">
-                                                                                <real key="value" value="5"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
-                                                                                <real key="value" value="10"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </label>
-                                                                </subviews>
-                                                            </tableViewCellContentView>
-                                                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                            <connections>
-                                                                <outlet property="nameLabel" destination="ggM-8k-qf5" id="pBl-Ec-mXM"/>
-                                                                <outlet property="thumbnailImageView" destination="LZ4-Gp-5ik" id="aUo-kz-frK"/>
-                                                            </connections>
-                                                        </tableViewCell>
-                                                    </prototypes>
-                                                </tableView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="1bl-GQ-uHc" id="LdS-dd-Z0k"/>
-                            <outlet property="delegate" destination="1bl-GQ-uHc" id="n4q-Y0-92h"/>
-                        </connections>
-                    </tableView>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="393-El-eUM" id="nsU-jR-YIe"/>
+                                    <outlet property="delegate" destination="393-El-eUM" id="hzY-Rq-6s2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
-                        <outlet property="descrpt" destination="ECC-np-Y2c" id="vbc-A4-w00"/>
-                        <outlet property="family" destination="zAs-Pp-7kf" id="Yf4-0q-tFS"/>
-                        <outlet property="familyIconImageView" destination="XNw-dc-94U" id="VzZ-mh-YoL"/>
-                        <outlet property="intTime" destination="jwQ-Vz-21r" id="cqX-gT-ybw"/>
-                        <outlet property="level" destination="qRl-0b-MIC" id="IfX-na-uAX"/>
-                        <outlet property="numExercises" destination="5Dn-Wr-5SR" id="8nT-MO-7DD"/>
-                        <outlet property="pqImproved" destination="sbM-v3-JhG" id="B71-RU-7Cg"/>
-                        <outlet property="sets" destination="PA0-6U-3B1" id="lbp-7l-TQm"/>
-                        <outlet property="time" destination="qiy-P6-40h" id="878-2D-RYW"/>
+                        <outlet property="descrpt" destination="ECC-np-Y2c" id="BKV-hd-fqk"/>
+                        <outlet property="family" destination="zAs-Pp-7kf" id="Cah-LR-hYe"/>
+                        <outlet property="familyIconImageView" destination="XNw-dc-94U" id="cV2-9Z-gXZ"/>
+                        <outlet property="intTime" destination="jwQ-Vz-21r" id="waw-M2-QMl"/>
+                        <outlet property="level" destination="qRl-0b-MIC" id="0lZ-bc-cYP"/>
+                        <outlet property="numExercises" destination="5Dn-Wr-5SR" id="p6U-Ii-Tl0"/>
+                        <outlet property="pqImproved" destination="sbM-v3-JhG" id="2c3-Gh-XLh"/>
+                        <outlet property="sets" destination="PA0-6U-3B1" id="7nA-gb-NfM"/>
+                        <outlet property="tableView" destination="BJ0-Ov-us3" id="2Bg-fy-drq"/>
+                        <outlet property="time" destination="qiy-P6-40h" id="MK0-ze-sz9"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UKw-oR-b2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="keB-ec-Qii" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213.5999999999999" y="-2089.2053973013494"/>
+            <point key="canvasLocation" x="1098" y="-2090"/>
         </scene>
         <!--Training-->
         <scene sceneID="9tJ-eS-JHt">
@@ -489,6 +588,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="ST1-Hi-hcL">
                                 <cells>
@@ -656,6 +757,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="eCK-eh-YoY" customClass="ExercisesTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>

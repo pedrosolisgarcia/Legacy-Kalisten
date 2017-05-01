@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class WorkoutDetailViewController: UITableViewController  {
+class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     @IBOutlet var family: UILabel!
     @IBOutlet var numExercises: UILabel!
@@ -24,6 +24,9 @@ class WorkoutDetailViewController: UITableViewController  {
     
     @IBOutlet var descrpt: UILabel!
     
+    @IBOutlet var tableView: UITableView!
+
+    
     var workout: Workout!
     
     private var WExercises = [Exercise]()
@@ -35,15 +38,12 @@ class WorkoutDetailViewController: UITableViewController  {
         
         /* We enter the line below to avoid the following error:
           'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier Cell -must register a nib or a class for the identifier or connect a prototype cell in a storyboard'*/
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         loadExercisesFromWorkout()
         
         //Sets the header of the navigation bar with the workout's name
         title = workout.name.uppercased()
-        
-        //The height of the cell will change according to the text length
-        tableView.rowHeight = UITableViewAutomaticDimension
         
         //Set the cells content with the information from the selected workout
         family.text = "\(workout.family.uppercased()):"
@@ -59,13 +59,15 @@ class WorkoutDetailViewController: UITableViewController  {
             })
         }
         
-        sets.text = "\(workout.numSets)"
+        //Depending of the amount of sets the label is set in plural or singular
+        workout.numSets > 1 ? (sets.text = "\(workout.numSets) SETS PER EXERCISE") : (sets.text = "\(workout.numSets) SET PER EXERCISE")
         
         time.text = "\(workout.totalTime)"
         intTime.text = "\(workout.family.uppercased()): \(workout.intTime[1]) MIN."
         pqImproved.text = workout.improves.uppercased()
         
-        descrpt.text = workout.description
+        descrpt.text = workout.description.uppercased()
+        level.text = difficultyLevel(difficulty: workout.difficulty)
         
     }
 
@@ -84,19 +86,12 @@ class WorkoutDetailViewController: UITableViewController  {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections
-        return 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return WExercises.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout.exercises.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            as! WorkoutDetailTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutDetailTableViewCell
         
         // Configure the cell
         cell.nameLabel.text = WExercises[indexPath.row].name.uppercased()
@@ -111,8 +106,35 @@ class WorkoutDetailViewController: UITableViewController  {
             })
         }
         
+        cell.backgroundColor = UIColor.white
+        
+        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        
         return cell
     }
+    
+    func difficultyLevel(difficulty: Int)-> String {
+        
+        var diffLevel = ""
+        
+        switch difficulty {
+        case 1: diffLevel = "SUPER EASY"
+        case 2: diffLevel = "VERY EASY"
+        case 3: diffLevel = "EASY"
+        case 4: diffLevel = "NORMAL"
+        case 5: diffLevel = "CHALLENGING"
+        case 6: diffLevel = "HARD"
+        case 7: diffLevel = "VERY HARD"
+        case 8: diffLevel = "SUPER HARD"
+        case 9: diffLevel = "PROFESSIONAL"
+        case 10: diffLevel = "OLYMPIC"
+        default:
+            diffLevel = "DIFFICULTY"
+        }
+        
+        return diffLevel
+    }
+
     
     //Load the exercises from the selected Workout
     func loadExercisesFromWorkout() {
