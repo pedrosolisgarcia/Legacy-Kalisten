@@ -13,10 +13,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--WORKOUT-->
+        <!--STRENGTH-->
         <scene sceneID="r6r-gQ-bSF">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="CpV-UH-zEl" customClass="WorkoutListTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="CpV-UH-zEl" customClass="TrainingTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4XD-2Q-Tft">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,8 +33,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT DAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VO-zG-y13">
-                                                    <rect key="frame" x="87" y="50" width="201" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STRENGHT WORKOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VO-zG-y13">
+                                                    <rect key="frame" x="44.5" y="50" width="286.5" height="50"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="36"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -57,8 +57,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT ROUTINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-lJ-M2E">
-                                                    <rect key="frame" x="53.5" y="50" width="268" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STRENGTH ROUTINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-lJ-M2E">
+                                                    <rect key="frame" x="54.5" y="50" width="266" height="50"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="36"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -78,8 +78,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT PLAN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVq-rI-xZK">
-                                                    <rect key="frame" x="78" y="50" width="219" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STRENGTH EXERCISES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVq-rI-xZK">
+                                                    <rect key="frame" x="43" y="50" width="289" height="50"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="36"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                             <outlet property="delegate" destination="CpV-UH-zEl" id="4md-pR-9PK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="WORKOUT" id="bRe-1q-umF"/>
+                    <navigationItem key="navigationItem" title="STRENGTH" id="bRe-1q-umF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DS-Xg-QlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,7 +252,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Ov-us3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Ov-us3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,9 +403,10 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rHB-pO-5d9">
                                             <rect key="frame" x="10" y="256.5" width="355" height="76.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-np-Y2c">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-np-Y2c">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="76.5"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="16"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -512,22 +513,22 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="Bzo-4n-wGN" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="Bzo-4n-wGN" customClass="WorkoutDetailTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="393" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bzo-4n-wGN" id="G6R-HE-m8D">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F4s-m7-9M0">
-                                                    <rect key="frame" x="8" y="2" width="56" height="56"/>
+                                                    <rect key="frame" x="8" y="2.5" width="55" height="55"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="56" id="ew0-yC-epL"/>
-                                                        <constraint firstAttribute="height" constant="56" id="hZ1-qh-O0q"/>
+                                                        <constraint firstAttribute="width" constant="55" id="ew0-yC-epL"/>
+                                                        <constraint firstAttribute="height" constant="55" id="hZ1-qh-O0q"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXERCISE NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNY-ZK-HBO" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                                    <rect key="frame" x="74" y="13" width="293" height="34.5"/>
+                                                    <rect key="frame" x="73" y="13" width="294" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -552,6 +553,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="zNY-ZK-HBO" id="7fg-I9-pKl"/>
                                             <outlet property="thumbnailImageView" destination="F4s-m7-9M0" id="hXb-Vu-637"/>
+                                            <segue destination="LOP-h7-tWp" kind="show" identifier="showWorkoutExercise" id="VYV-cj-nXj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -580,116 +582,221 @@
             </objects>
             <point key="canvasLocation" x="1098" y="-2090"/>
         </scene>
-        <!--Training-->
-        <scene sceneID="9tJ-eS-JHt">
+        <!--TRAINING-->
+        <scene sceneID="plu-zM-nMr">
             <objects>
-                <tableViewController title="Training" id="tSb-oY-0z5" customClass="TrainingTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s9g-7v-hmc">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4ff-Dx-Fgi" customClass="TrainingViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tCL-QW-ZNV"/>
+                        <viewControllerLayoutGuide type="bottom" id="KPz-9r-sCt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyv-Wb-eCQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection id="ST1-Hi-hcL">
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pon-s0-W8t">
+                                <rect key="frame" x="0.0" y="438" width="375" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TCell1" rowHeight="90" id="mLw-5i-Sqf" userLabel="TCell1" customClass="TrainingTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mLw-5i-Sqf" id="9d4-ea-Gfz">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM3-yx-t6O">
+                                                    <rect key="frame" x="129" y="25" width="117.5" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kM3-yx-t6O" firstAttribute="centerX" secondItem="9d4-ea-Gfz" secondAttribute="centerX" id="0z7-Bc-IOY"/>
+                                                <constraint firstItem="kM3-yx-t6O" firstAttribute="centerY" secondItem="9d4-ea-Gfz" secondAttribute="centerY" id="Dce-pS-nXY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="planLabel" destination="kM3-yx-t6O" id="q3d-6Z-Ywb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TCell2" rowHeight="90" id="rSH-m8-fcx" userLabel="TCell2" customClass="TrainingTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rSH-m8-fcx" id="gWV-oX-rEP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9g-20-ATs">
+                                                    <rect key="frame" x="129" y="25" width="117.5" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="t9g-20-ATs" firstAttribute="centerY" secondItem="gWV-oX-rEP" secondAttribute="centerY" id="9nh-2E-gZp"/>
+                                                <constraint firstItem="t9g-20-ATs" firstAttribute="centerX" secondItem="gWV-oX-rEP" secondAttribute="centerX" id="Vxy-bc-gCe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myWorkoutsLabel" destination="t9g-20-ATs" id="tyJ-5F-gNR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="4ff-Dx-Fgi" id="hbb-fq-vRB"/>
+                                    <outlet property="delegate" destination="4ff-Dx-Fgi" id="BRP-dT-mgy"/>
+                                </connections>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sXx-dw-GHM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="376"/>
+                                <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="376" id="5II-VU-U9c"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="ArK-gX-RC1">
+                                    <size key="itemSize" width="187" height="187"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="185" id="Eix-8u-olG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eix-8u-olG" id="IuU-2W-f33">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CCell1" id="zz0-bJ-vUO" userLabel="CCell1" customClass="TrainingCollectionViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKOUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxY-5t-lCE">
-                                                    <rect key="frame" x="82" y="55.5" width="211.5" height="74"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="54"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="shadowColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oH3-1r-Coj" userLabel="Category">
+                                                    <rect key="frame" x="32" y="73" width="123" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="OxY-5t-lCE" firstAttribute="centerY" secondItem="IuU-2W-f33" secondAttribute="centerY" id="TEg-fK-leD"/>
-                                                <constraint firstItem="OxY-5t-lCE" firstAttribute="centerX" secondItem="IuU-2W-f33" secondAttribute="centerX" id="qch-2Y-yT2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="oH3-1r-Coj" firstAttribute="centerX" secondItem="zz0-bJ-vUO" secondAttribute="centerX" id="57i-GA-Rog"/>
+                                            <constraint firstItem="oH3-1r-Coj" firstAttribute="centerY" secondItem="zz0-bJ-vUO" secondAttribute="centerY" id="OGa-d6-hzw"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="CpV-UH-zEl" kind="show" id="noM-f5-lbT"/>
+                                            <outlet property="strengthLabel" destination="oH3-1r-Coj" id="DLH-4a-ufd"/>
+                                            <segue destination="CpV-UH-zEl" kind="show" id="B3M-hf-bkq"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="185" id="6p3-Eu-Bqf">
-                                        <rect key="frame" x="0.0" y="185" width="375" height="185"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6p3-Eu-Bqf" id="u1Z-Ni-EWS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CCell2" id="QZa-Mr-tMj" userLabel="CCell2" customClass="TrainingCollectionViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="188" y="0.0" width="187" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITIONING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF4-9I-O54">
-                                                    <rect key="frame" x="33" y="55.5" width="309" height="74"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="54"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="shadowColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muH-4z-GiT" userLabel="Category">
+                                                    <rect key="frame" x="32" y="73" width="123" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="eF4-9I-O54" firstAttribute="centerY" secondItem="u1Z-Ni-EWS" secondAttribute="centerY" id="A2W-sS-aVa"/>
-                                                <constraint firstItem="eF4-9I-O54" firstAttribute="centerX" secondItem="u1Z-Ni-EWS" secondAttribute="centerX" id="AaN-4z-2AU"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="muH-4z-GiT" firstAttribute="centerX" secondItem="QZa-Mr-tMj" secondAttribute="centerX" id="Ltx-pY-DJu"/>
+                                            <constraint firstItem="muH-4z-GiT" firstAttribute="centerY" secondItem="QZa-Mr-tMj" secondAttribute="centerY" id="aW6-uT-wxS"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="wfL-94-KFa" kind="show" id="8hD-9E-6at"/>
+                                            <outlet property="conditioningLabel" destination="muH-4z-GiT" id="omh-HO-q3m"/>
+                                            <segue destination="wfL-94-KFa" kind="show" id="GTl-l7-ZrK"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="185" id="c1i-Zx-nfZ">
-                                        <rect key="frame" x="0.0" y="370" width="375" height="185"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c1i-Zx-nfZ" id="P1O-ix-O6o">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CCell3" id="O8r-8d-bcV" userLabel="CCell3" customClass="TrainingCollectionViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188" width="187" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARDIO &amp; HIIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRZ-2x-o8x">
-                                                    <rect key="frame" x="42.5" y="55.5" width="291" height="74"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="54"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="shadowColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQw-R6-m7w" userLabel="Category">
+                                                    <rect key="frame" x="32" y="73" width="123" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="lRZ-2x-o8x" firstAttribute="centerY" secondItem="P1O-ix-O6o" secondAttribute="centerY" id="X42-g7-dMM"/>
-                                                <constraint firstItem="lRZ-2x-o8x" firstAttribute="centerX" secondItem="P1O-ix-O6o" secondAttribute="centerX" id="dpl-Tj-zra"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="LQw-R6-m7w" firstAttribute="centerY" secondItem="O8r-8d-bcV" secondAttribute="centerY" id="5FY-mj-uZN"/>
+                                            <constraint firstItem="LQw-R6-m7w" firstAttribute="centerX" secondItem="O8r-8d-bcV" secondAttribute="centerX" id="f3f-U9-bii"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="7xL-IC-F5v" kind="show" id="5rX-eS-F5p"/>
+                                            <outlet property="cardioLabel" destination="LQw-R6-m7w" id="kdV-TR-NRs"/>
+                                            <segue destination="7xL-IC-F5v" kind="show" id="un8-j2-fNi"/>
                                         </connections>
-                                    </tableViewCell>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CCell4" id="nGN-B5-1G3" userLabel="CCell4" customClass="TrainingCollectionViewCell" customModule="Kalisten" customModuleProvider="target">
+                                        <rect key="frame" x="188" y="188" width="187" height="187"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="187"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-oW-gJB" userLabel="Category">
+                                                    <rect key="frame" x="32" y="73" width="123" height="41"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="hf4-oW-gJB" firstAttribute="centerY" secondItem="nGN-B5-1G3" secondAttribute="centerY" id="UrT-Se-OYF"/>
+                                            <constraint firstItem="hf4-oW-gJB" firstAttribute="centerX" secondItem="nGN-B5-1G3" secondAttribute="centerX" id="hMT-58-rgc"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="stretchingLabel" destination="hf4-oW-gJB" id="7J9-Xx-itZ"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="tSb-oY-0z5" id="OMz-no-kpz"/>
-                            <outlet property="delegate" destination="tSb-oY-0z5" id="jt6-Rm-Tzx"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="TRAINING" id="tT7-0L-vKI" userLabel="Training">
-                        <barButtonItem key="leftBarButtonItem" image="exerciseIcon" id="Ey4-xR-CR0">
+                                <connections>
+                                    <outlet property="dataSource" destination="4ff-Dx-Fgi" id="r05-UK-OKe"/>
+                                    <outlet property="delegate" destination="4ff-Dx-Fgi" id="LBA-NC-nyB"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pon-s0-W8t" firstAttribute="leading" secondItem="cyv-Wb-eCQ" secondAttribute="leading" id="9Ae-oO-fUP"/>
+                            <constraint firstItem="sXx-dw-GHM" firstAttribute="trailing" secondItem="pon-s0-W8t" secondAttribute="trailing" id="N5f-eq-u9g"/>
+                            <constraint firstAttribute="trailing" secondItem="pon-s0-W8t" secondAttribute="trailing" id="UnE-r9-TqH"/>
+                            <constraint firstItem="KPz-9r-sCt" firstAttribute="top" secondItem="pon-s0-W8t" secondAttribute="bottom" id="ccd-gR-1SO"/>
+                            <constraint firstItem="sXx-dw-GHM" firstAttribute="leading" secondItem="pon-s0-W8t" secondAttribute="leading" id="mki-Gv-4xL"/>
+                            <constraint firstItem="sXx-dw-GHM" firstAttribute="top" secondItem="cyv-Wb-eCQ" secondAttribute="top" constant="64" id="ohM-7Z-qFe"/>
+                            <constraint firstItem="pon-s0-W8t" firstAttribute="top" secondItem="sXx-dw-GHM" secondAttribute="bottom" constant="-2" id="xgR-Cn-uuE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TRAINING" id="aGW-3a-emp" userLabel="Training">
+                        <barButtonItem key="leftBarButtonItem" image="exerciseIcon" id="cbn-hY-Wd9">
                             <connections>
-                                <segue destination="0Rw-Hn-hR6" kind="show" id="BD9-jf-EPt"/>
+                                <segue destination="0Rw-Hn-hR6" kind="show" id="w5Y-k4-WaI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BHC-qG-hfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="collectionView" destination="sXx-dw-GHM" id="aBc-Tt-csg"/>
+                        <outlet property="tableView" destination="pon-s0-W8t" id="Zzc-Xd-glh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyb-K9-I8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3098" y="-546"/>
+            <point key="canvasLocation" x="-3098.4000000000001" y="-546.47676161919048"/>
         </scene>
         <!--CARDIO & HIIT-->
         <scene sceneID="Bgp-sE-GPc">
@@ -727,7 +834,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaJ-m2-OrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="-546"/>
+            <point key="canvasLocation" x="96.799999999999997" y="-546.47676161919048"/>
         </scene>
         <!--TRAINING-->
         <scene sceneID="Gfd-kH-KHC">
@@ -742,7 +849,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tSb-oY-0z5" kind="relationship" relationship="rootViewController" id="aHa-If-vrr"/>
+                        <segue destination="4ff-Dx-Fgi" kind="relationship" relationship="rootViewController" id="HhH-PN-dzN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1d9-xp-QhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -760,7 +867,7 @@
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="eCK-eh-YoY" customClass="ExercisesTableViewCell" customModule="Kalisten" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="eCK-eh-YoY" customClass="ExercisesTableViewCell" customModule="Kalisten" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eCK-eh-YoY" id="2OI-ZO-HIU">
@@ -1068,4 +1175,7 @@
         <image name="photoalbum" width="64" height="64"/>
         <image name="trainingIcon" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VYV-cj-nXj"/>
+    </inferredMetricsTieBreakers>
 </document>

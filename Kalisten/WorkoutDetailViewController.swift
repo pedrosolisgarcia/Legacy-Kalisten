@@ -45,6 +45,9 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         //Sets the header of the navigation bar with the workout's name
         title = workout.name.uppercased()
         
+        //Remove the title of the back button
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
+        
         //Set the cells content with the information from the selected workout
         family.text = "\(workout.family.uppercased()):"
         numExercises.text = "\(workout.numEx)"
@@ -134,6 +137,11 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         return diffLevel
     }
+    
+    //Automatically deselect the cell when touched
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 
     
     //Load the exercises from the selected Workout
@@ -166,15 +174,17 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //Prepare data from the selected exercise to be shown in the detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showWorkoutExercise"{
+            if let indexPath = tableView.indexPathForSelectedRow {
+                // Pass the selected object to the new view controller.
+                let destinationController = segue.destination as! ExerciseDetailViewController
+                
+                destinationController.exercise =  WExercises[indexPath.row]
+            }
+        }
     }
-    */
-
 }

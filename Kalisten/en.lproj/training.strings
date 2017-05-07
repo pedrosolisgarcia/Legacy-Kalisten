@@ -1,0 +1,156 @@
+
+/* Class = "UILabel"; text = "WORKOUT DAY"; ObjectID = "0VO-zG-y13"; */
+"0VO-zG-y13.text" = "WORKOUT DAY";
+
+/* Class = "UILabel"; text = "TOTAL TIME:"; ObjectID = "2Ct-on-b6L"; */
+"2Ct-on-b6L.text" = "TOTAL TIME:";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "5Dn-Wr-5SR"; */
+"5Dn-Wr-5SR.text" = "0";
+
+/* Class = "UILabel"; text = "EXERCISE NAME"; ObjectID = "5fZ-6i-s4w"; */
+"5fZ-6i-s4w.text" = "EXERCISE NAME";
+
+/* Class = "UILabel"; text = "FAMILY"; ObjectID = "5qf-xV-Nxf"; */
+"5qf-xV-Nxf.text" = "FAMILY";
+
+/* Class = "UINavigationItem"; title = "NEW EXERCISE"; ObjectID = "90d-zQ-qlS"; */
+"90d-zQ-qlS.title" = "NEW EXERCISE";
+
+/* Class = "UILabel"; text = "NUM.EX"; ObjectID = "Ae9-O6-M3u"; */
+"Ae9-O6-M3u.text" = "NUM.EX";
+
+/* Class = "UILabel"; text = "PHYSICAL QUALITY"; ObjectID = "E3B-V4-z5i"; */
+"E3B-V4-z5i.text" = "PHYSICAL QUALITY";
+
+/* Class = "UILabel"; text = "DESCRIPTION"; ObjectID = "ECC-np-Y2c"; */
+"ECC-np-Y2c.text" = "DESCRIPTION";
+
+/* Class = "UINavigationItem"; title = "CARDIO & HIIT"; ObjectID = "EXR-lj-ZSX"; */
+"EXR-lj-ZSX.title" = "CARDIO & HIIT";
+
+/* Class = "UILabel"; text = "WORKOUT ROUTINE"; ObjectID = "JrN-lJ-M2E"; */
+"JrN-lJ-M2E.text" = "WORKOUT ROUTINE";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "LQw-R6-m7w"; */
+"LQw-R6-m7w.text" = "CATEGORY";
+
+/* Class = "UILabel"; text = "LEVEL"; ObjectID = "Mc7-Eh-Gw9"; */
+"Mc7-Eh-Gw9.text" = "LEVEL";
+
+/* Class = "UILabel"; text = "FIELD"; ObjectID = "McM-NC-O22"; */
+"McM-NC-O22.text" = "FIELD";
+
+/* Class = "UILabel"; text = "EX."; ObjectID = "OW7-tc-OfQ"; */
+"OW7-tc-OfQ.text" = "EX.";
+
+/* Class = "UILabel"; text = "WORKOUT"; ObjectID = "OxY-5t-lCE"; */
+"OxY-5t-lCE.text" = "WORKOUT";
+
+/* Class = "UILabel"; text = "0 SET PER EXERCISE"; ObjectID = "PA0-6U-3B1"; */
+"PA0-6U-3B1.text" = "0 SET PER EXERCISE";
+
+/* Class = "UILabel"; text = "TARJETS"; ObjectID = "Shl-bq-Mp8"; */
+"Shl-bq-Mp8.text" = "TARJETS";
+
+/* Class = "UILabel"; text = "  EXERCISES:"; ObjectID = "TYz-W2-z8i"; */
+"TYz-W2-z8i.text" = "  EXERCISES:";
+
+/* Class = "UILabel"; text = "IMPROVES:"; ObjectID = "Xsv-WR-Lgp"; */
+"Xsv-WR-Lgp.text" = "IMPROVES:";
+
+/* Class = "UINavigationItem"; title = "TRAINING"; ObjectID = "aGW-3a-emp"; */
+"aGW-3a-emp.title" = "TRAINING";
+
+/* Class = "UINavigationItem"; title = "WORKOUT"; ObjectID = "bRe-1q-umF"; */
+"bRe-1q-umF.title" = "WORKOUT";
+
+/* Class = "UILabel"; text = "WORKOUT NAME"; ObjectID = "ds3-mc-8sZ"; */
+"ds3-mc-8sZ.text" = "WORKOUT NAME";
+
+/* Class = "UILabel"; text = "CONDITIONING"; ObjectID = "eF4-9I-O54"; */
+"eF4-9I-O54.text" = "CONDITIONING";
+
+/* Class = "UILabel"; text = "TIME"; ObjectID = "feT-5J-PCk"; */
+"feT-5J-PCk.text" = "TIME";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "hf4-oW-gJB"; */
+"hf4-oW-gJB.text" = "CATEGORY";
+
+/* Class = "UILabel"; text = "VALUE"; ObjectID = "jhW-eg-6Lj"; */
+"jhW-eg-6Lj.text" = "VALUE";
+
+/* Class = "UILabel"; text = "  DESCRIPTION:"; ObjectID = "jmt-qU-GUv"; */
+"jmt-qU-GUv.text" = "  DESCRIPTION:";
+
+/* Class = "UILabel"; text = "W. FAMILY: 0 MIN."; ObjectID = "jwQ-Vz-21r"; */
+"jwQ-Vz-21r.text" = "W. FAMILY: 0 MIN.";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "kM3-yx-t6O"; */
+"kM3-yx-t6O.text" = "CATEGORY";
+
+/* Class = "UILabel"; text = "CARDIO & HIIT"; ObjectID = "lRZ-2x-o8x"; */
+"lRZ-2x-o8x.text" = "CARDIO & HIIT";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "muH-4z-GiT"; */
+"muH-4z-GiT.text" = "CATEGORY";
+
+/* Class = "UITableViewController"; title = "NewExercise"; ObjectID = "o7T-SZ-MPX"; */
+"o7T-SZ-MPX.title" = "NewExercise";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "oH3-1r-Coj"; */
+"oH3-1r-Coj.text" = "CATEGORY";
+
+/* Class = "UILabel"; text = "YOUR WORKOUTS"; ObjectID = "pSL-hm-CD6"; */
+"pSL-hm-CD6.text" = "YOUR WORKOUTS";
+
+/* Class = "UILabel"; text = "DIFFICULTY"; ObjectID = "qRl-0b-MIC"; */
+"qRl-0b-MIC.text" = "DIFFICULTY";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "qiy-P6-40h"; */
+"qiy-P6-40h.text" = "00";
+
+/* Class = "UILabel"; text = "LEVEL:"; ObjectID = "reV-g4-mqZ"; */
+"reV-g4-mqZ.text" = "LEVEL:";
+
+/* Class = "UILabel"; text = "PQ IMPROVED"; ObjectID = "sbM-v3-JhG"; */
+"sbM-v3-JhG.text" = "PQ IMPROVED";
+
+/* Class = "UILabel"; text = "CATEGORY"; ObjectID = "t9g-20-ATs"; */
+"t9g-20-ATs.text" = "CATEGORY";
+
+/* Class = "UILabel"; text = "TARJETS"; ObjectID = "tFW-xm-OG5"; */
+"tFW-xm-OG5.text" = "TARJETS";
+
+/* Class = "UITableViewController"; title = "Training"; ObjectID = "tSb-oY-0z5"; */
+"tSb-oY-0z5.title" = "Training";
+
+/* Class = "UINavigationItem"; title = "TRAINING"; ObjectID = "tT7-0L-vKI"; */
+"tT7-0L-vKI.title" = "TRAINING";
+
+/* Class = "UILabel"; text = "WORKOUT PLAN"; ObjectID = "tVq-rI-xZK"; */
+"tVq-rI-xZK.text" = "WORKOUT PLAN";
+
+/* Class = "UITabBarItem"; title = "TRAINING"; ObjectID = "uZV-N1-O09"; */
+"uZV-N1-O09.title" = "TRAINING";
+
+/* Class = "UINavigationItem"; title = "WORKOUT DAY"; ObjectID = "ujj-9E-8la"; */
+"ujj-9E-8la.title" = "WORKOUT DAY";
+
+/* Class = "UILabel"; text = "MIN."; ObjectID = "x6W-hA-lOA"; */
+"x6W-hA-lOA.text" = "MIN.";
+
+/* Class = "UILabel"; text = "LEVEL"; ObjectID = "xeJ-OV-S5Q"; */
+"xeJ-OV-S5Q.text" = "LEVEL";
+
+/* Class = "UINavigationItem"; title = "EXERCISES"; ObjectID = "yZO-z3-OzS"; */
+"yZO-z3-OzS.title" = "EXERCISES";
+
+/* Class = "UILabel"; text = "W. FAMILY:"; ObjectID = "zAs-Pp-7kf"; */
+"zAs-Pp-7kf.text" = "W. FAMILY:";
+
+/* Class = "UILabel"; text = "EXERCISE NAME"; ObjectID = "zNY-ZK-HBO"; */
+"zNY-ZK-HBO.text" = "EXERCISE NAME";
+
+/* Class = "UINavigationItem"; title = "CONDITIONING"; ObjectID = "zY8-gh-nvx"; */
+"zY8-gh-nvx.title" = "CONDITIONING";
