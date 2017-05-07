@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = UIColor.black
         UITabBar.appearance().tintColor = UIColor.white
         
+        //Set the general Segmented Control appearance
+        UISegmentedControl.appearance().layer.borderColor = UIColor.black.cgColor
+        UISegmentedControl.appearance().layer.cornerRadius = 1
+        UISegmentedControl.appearance().tintColor = UIColor.black
+        
         if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 28) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFront]
         }
