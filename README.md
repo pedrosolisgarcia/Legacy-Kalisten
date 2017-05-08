@@ -9,12 +9,14 @@
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Summary: The data allocated in the repository comes from the work-space of Xcode 8. The app is codded in Swift 3. Is spited in 5 
+  different folders that correspond with the five items showed in the tab bar of the application.
+
+* Database configuration: All the data is stored in a Parse server managed by the website Back4App. the link to the dashboard: 
+  https://parse-dashboard.back4app.com/apps/e27d6996-40ad-4da5-8901-7e8fb2bfb6b3/browser/Exercise
+
+* Tests: no tests permormed yet
+
 
 ### Contribution guidelines ###
 
@@ -24,5 +26,5 @@
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Owner: Pedro Solis Garcia (solisgpedro@gmail.com)
+* Project supervisor: Susana Irene Dias Rodriguez (sirene@uniovi.es)
