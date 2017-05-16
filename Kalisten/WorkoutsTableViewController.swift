@@ -61,8 +61,8 @@ class WorkoutsTableViewController: UITableViewController {
         // Configure the cell
         cell.nameLabel.text = workouts[indexPath.row].name.uppercased()
         cell.familyLabel.text = workouts[indexPath.row].family.uppercased()
-        let arrayTarjet:NSArray = workouts[indexPath.row].tarjets as NSArray
-        cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
+        let arrayTarjet: NSArray? = workouts[indexPath.row].tarjets as NSArray?
+        cell.tarjetLabel.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
         cell.numExlLabel.text = "EXERCISES: \(workouts[indexPath.row].numEx)"
         cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN"
         cell.levelLabel.text = difficultyLevel(difficulty: workouts[indexPath.row].difficulty)

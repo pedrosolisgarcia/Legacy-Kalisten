@@ -69,7 +69,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         intTime.text = "\(workout.family.uppercased()): \(workout.intTime[1]) MIN."
         pqImproved.text = workout.improves.uppercased()
         
-        descrpt.text = workout.description.uppercased()
+        descrpt.text = workout.description?.uppercased()
         level.text = difficultyLevel(difficulty: workout.difficulty)
         
     }

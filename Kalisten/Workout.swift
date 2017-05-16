@@ -22,12 +22,12 @@ class Workout {
     var intTime:[Int] = [0]
     var totalTime:Int = 0
     var difficulty:Int = 0
-    var tarjets = [""]
+    var tarjets: [String]?
     var improves = ""
-    var description = ""
+    var description: String?
     var isCreated = false
     
-    init(workId: String, name: String, type: String, family: String, familyIcon: PFFile!, numEx: Int, numSets: Int, exercises: [String], intTime: [Int], totalTime: Int, difficulty: Int, tarjets: [String], improves: String, description: String, isCreated: Bool){
+    init(workId: String, name: String, type: String, family: String, familyIcon: PFFile!, numEx: Int, numSets: Int, exercises: [String], intTime: [Int], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, description: String!, isCreated: Bool){
         
         self.workId = workId
         self.name = name
@@ -59,11 +59,9 @@ class Workout {
         self.intTime = pfObject["intTime"] as! [Int]
         self.totalTime = pfObject["totalTime"] as! Int
         self.difficulty = pfObject["difficulty"] as! Int
-        if pfObject["tarjets"] == nil {self.tarjets = [""]}
-        else{self.tarjets = pfObject["tarjets"] as! [String]}
+        self.tarjets = pfObject["tarjets"] as? [String]
         self.improves = pfObject["improves"] as! String
-        if pfObject["description"] == nil {self.description = ""}
-        else{self.description = pfObject["description"] as! String}
+        self.description = pfObject["description"] as? String
         self.isCreated = pfObject["isCreated"] as! Bool
     }
     

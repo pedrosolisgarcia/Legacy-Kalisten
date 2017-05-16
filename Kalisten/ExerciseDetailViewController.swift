@@ -50,17 +50,17 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         // Do any additional setup after loading the view.
         
         //Initialize the tableViews in separate ways
-        tableViewInformation.dataSource = self
+        /*tableViewInformation.dataSource = self
         tableViewInformation.delegate = self
-        tableViewInformation.register(UITableViewCell.self, forCellReuseIdentifier: "informationCell")
+        tableViewInformation.register(ExerciseDetailTableViewCell.self, forCellReuseIdentifier: "informationCell")*/
         
-        tableViewExecution.dataSource = self
+        /*tableViewExecution.dataSource = self
         tableViewExecution.delegate = self
         tableViewExecution.register(UITableViewCell.self, forCellReuseIdentifier: "executionCell")
         
         tableViewTarjects.dataSource = self
         tableViewTarjects.delegate = self
-        tableViewTarjects.register(UITableViewCell.self, forCellReuseIdentifier: "tarjectsCell")
+        tableViewTarjects.register(UITableViewCell.self, forCellReuseIdentifier: "tarjectsCell")*/
         
         // Load image in the detail view
         exerciseImageView.image = UIImage()
@@ -114,13 +114,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             count = 5
         }
         
-        if tableView == self.tableViewExecution {
+        /*if tableView == self.tableViewExecution {
             count =  4
         }
         
         if tableView == self.tableViewTarjects {
             count =  3
-        }
+        }*/
         
         return count!
     }
@@ -167,7 +167,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             
         }
         
-        if tableView == self.tableViewExecution {
+        /*if tableView == self.tableViewExecution {
             cell = tableView.dequeueReusableCell(withIdentifier: "executionCell", for: indexPath) as! ExerciseDetailTableViewCell
             
         }
@@ -175,7 +175,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         if tableView == self.tableViewTarjects {
             cell = tableView.dequeueReusableCell(withIdentifier: "tarjectsCell", for: indexPath) as! ExerciseDetailTableViewCell
             
-        }
+        }*/
         
         return cell!
     }

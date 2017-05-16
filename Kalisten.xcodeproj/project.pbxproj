@@ -15,6 +15,8 @@
 		5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5132BD931E8C2D2C00617E24 /* Workout.swift */; };
 		5132BD961E8D172000617E24 /* WorkoutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5132BD951E8D172000617E24 /* WorkoutsTableViewController.swift */; };
 		5132BD981E8D175300617E24 /* WorkoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5132BD971E8D175300617E24 /* WorkoutsTableViewCell.swift */; };
+		5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139017C1ECB9A14002F0EEB /* Routine.swift */; };
+		5139017F1ECB9A5B002F0EEB /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139017E1ECB9A5B002F0EEB /* Plan.swift */; };
 		514D7DB81EBE4B27009AFD0C /* TrainingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D7DB71EBE4B26009AFD0C /* TrainingCollectionViewCell.swift */; };
 		514D7DBA1EBE4FAA009AFD0C /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D7DB91EBE4FA9009AFD0C /* TrainingTableViewCell.swift */; };
 		515799C41E8710B500E6D1A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799B91E8710B500E6D1A0 /* AudioToolbox.framework */; };
@@ -56,6 +58,8 @@
 		5132BD931E8C2D2C00617E24 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		5132BD951E8D172000617E24 /* WorkoutsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsTableViewController.swift; sourceTree = "<group>"; };
 		5132BD971E8D175300617E24 /* WorkoutsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsTableViewCell.swift; sourceTree = "<group>"; };
+		5139017C1ECB9A14002F0EEB /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		5139017E1ECB9A5B002F0EEB /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		514D7DB71EBE4B26009AFD0C /* TrainingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCollectionViewCell.swift; sourceTree = "<group>"; };
 		514D7DB91EBE4FA9009AFD0C /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
 		515799B91E8710B500E6D1A0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -133,6 +137,8 @@
 				5132BD971E8D175300617E24 /* WorkoutsTableViewCell.swift */,
 				51DDC3731E80715B009C1B12 /* Exercise.swift */,
 				5132BD931E8C2D2C00617E24 /* Workout.swift */,
+				5139017C1ECB9A14002F0EEB /* Routine.swift */,
+				5139017E1ECB9A5B002F0EEB /* Plan.swift */,
 			);
 			name = Training;
 			sourceTree = "<group>";
@@ -314,6 +320,8 @@
 				51C625D31E7EAA6600E94D6A /* TrainingTableViewController.swift in Sources */,
 				5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */,
 				51DDC3761E81B620009C1B12 /* ExercisesTableViewController.swift in Sources */,
+				5139017F1ECB9A5B002F0EEB /* Plan.swift in Sources */,
+				5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */,
 				5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */,
 				51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,
