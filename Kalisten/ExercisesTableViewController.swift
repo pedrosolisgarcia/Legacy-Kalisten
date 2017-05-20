@@ -64,8 +64,8 @@ class ExercisesTableViewController: UITableViewController {
         cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
         let arrayTarjet:NSArray = exercises[indexPath.row].tarjets as NSArray
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
-        let arrayPQ:NSArray = exercises[indexPath.row].pq as NSArray
-        cell.pqLabel.text = arrayPQ.componentsJoined(by: ", ").uppercased()
+        let arrayPQ:NSArray? = exercises[indexPath.row].pq as NSArray?
+        cell.pqLabel.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
         cell.levelLabel.text = difficultyLevel(difficulty: exercises[indexPath.row].difficulty)
         
         // Load image in background
@@ -144,7 +144,7 @@ class ExercisesTableViewController: UITableViewController {
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
         //Filter exercises objects that belong to workout type
-        query.whereKey("type", equalTo: "Workout")
+        //query.whereKey("type", equalTo: "Workout")
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             

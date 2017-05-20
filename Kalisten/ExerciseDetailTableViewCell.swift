@@ -11,7 +11,11 @@ import UIKit
 class ExerciseDetailTableViewCell: UITableViewCell {
     
     @IBOutlet var fieldLabel: UILabel!
-    @IBOutlet var valueLabel: UILabel!
+    @IBOutlet var valueText: UITextField!
+    
+    @IBOutlet var fieldLabel0: UILabel!
+    @IBOutlet var valueText0: UITextField!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

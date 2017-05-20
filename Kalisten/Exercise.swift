@@ -15,17 +15,16 @@ class Exercise {
     var name = ""
     var type = ""
     var family = [""]
-    var place = [""]
-    var pq = [""]
+    var place: [String]?
+    var pq: [String]?
     var object: [String]?
     var image: PFFile?
     var imageDet: PFFile?
     var difficulty:Int = 0
     var tarjets = [""]
     var description: String?
-    var isCreated = false
     
-    init(exId: String, name: String, type: String, family: [String], place: [String], pq: [String], object: [String]!, image: PFFile!, imageDet: PFFile!, difficulty: Int, tarjets: [String], description: String!, isCreated: Bool){
+    init(exId: String, name: String, type: String, family: [String], place: [String]!, pq: [String]!, object: [String]!, image: PFFile!, imageDet: PFFile!, difficulty: Int, tarjets: [String], description: String!){
         
         self.exId = exId
         self.name = name
@@ -39,7 +38,6 @@ class Exercise {
         self.difficulty = difficulty
         self.tarjets = tarjets
         self.description = description
-        self.isCreated = isCreated
         
     }
     
@@ -48,15 +46,14 @@ class Exercise {
         self.name = pfObject["name"] as! String
         self.type = pfObject["type"] as! String
         self.family = pfObject["family"] as! [String]
-        self.place = pfObject["place"] as! [String]
-        self.pq = pfObject["pq"] as! [String]
+        self.place = pfObject["place"] as? [String]
+        self.pq = pfObject["pq"] as? [String]
         self.object = pfObject["object"] as? [String]
         self.image = pfObject["image"] as? PFFile
         self.imageDet = pfObject["imageDet"] as? PFFile
         self.difficulty = pfObject["difficulty"] as! Int
         self.tarjets = pfObject["tarjets"] as! [String]
         self.description = pfObject["description"] as? String
-        self.isCreated = pfObject["isCreated"] as! Bool
     }
     
     func toPFObject() -> PFObject {
@@ -73,7 +70,6 @@ class Exercise {
         exerciseObject["difficulty"] = difficulty
         exerciseObject["tarjets"] = tarjets
         exerciseObject["description"] = description
-        exerciseObject["isCreated"] = isCreated
         
         return exerciseObject
     }
