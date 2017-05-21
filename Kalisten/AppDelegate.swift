@@ -45,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         
+        // Enable public read access by default, with any newly created PFObjects belonging to the current user
+        let defaultACL: PFACL = PFACL()
+        defaultACL.getPublicReadAccess = true
+        PFACL.setDefault(defaultACL, withAccessForCurrentUser: true)
+        
         return true
     }
     

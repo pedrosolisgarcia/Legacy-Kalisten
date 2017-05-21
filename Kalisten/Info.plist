@@ -38,5 +38,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You must grant Kalisten access in order to pick a photo from the Library.</string>
 </dict>
 </plist>

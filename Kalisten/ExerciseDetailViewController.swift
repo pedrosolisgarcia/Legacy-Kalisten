@@ -205,6 +205,18 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
+    //Prepare data from the exercise to be available for editing in the edit view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "editExercise"{
+            
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! EditExerciseController
+
+            destinationController.editExercise = exercise
+        }
+    }
+    
     //Action for the Edit button:
     /* When clicked the user can modify the fields. In case he does, the system check them
      * If the changes are correct, the system asks the user to confirm the canges.

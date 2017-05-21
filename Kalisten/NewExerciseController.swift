@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class NewExerciseController: UITableViewController {
+class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet var cell:NewExerciseViewCell!
     
@@ -22,40 +22,69 @@ class NewExerciseController: UITableViewController {
     @IBOutlet var placeTextField:UITextField?
     @IBOutlet var objectTextField:UITextField?
     @IBOutlet var pqTextField:UITextField?
-    @IBOutlet var descriptionTextField:UITextField?
+    @IBOutlet var descriptionTextView:UITextView?
+    var placeholderLabel : UILabel!
     
     
-    //Function that creates a random objectId (No need. Parse generates objects id automatically)
-    /*func parseObjectId() -> String {
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var objectId = ""
-        
-        for _ in 0 ..< 10 {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            objectId += NSString(characters: &nextChar, length: 1) as String
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
+            UIImage{
+            exerciseImageView.image = selectedImage
+            exerciseImageView.contentMode = .scaleAspectFit
+            exerciseImageView.clipsToBounds = true
         }
         
-        return objectId
-    }*/
+        let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+        leadingConstraint.isActive = true
+        
+        let trailingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.trailing, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+        trailingConstraint.isActive = true
+        
+        let topConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.top, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.top, multiplier: 1, constant: 0)
+        topConstraint.isActive = true
+        
+        let bottomConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.bottom, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+        bottomConstraint.isActive = true
+        
+        dismiss(animated: true, completion: nil)
+    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        descriptionTextView?.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Enter a description:"
+        placeholderLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: (descriptionTextView?.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        descriptionTextView?.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Pick an image from photo image library
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0{
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                
+                present(imagePicker,animated: true,completion: nil)
+            }
+        }
     }
     
     @IBAction func save(sender: AnyObject){
@@ -76,7 +105,7 @@ class NewExerciseController: UITableViewController {
             exercise["pq"] = pqTextField?.text?.components(separatedBy: ", ")
             exercise["place"] = placeTextField?.text?.components(separatedBy: ", ")
             exercise["object"] = objectTextField?.text?.components(separatedBy: ", ")
-            exercise["description"] = descriptionTextField?.text
+            exercise["description"] = descriptionTextView?.text
             
             // Add the exercise on Parse
             exercise.saveInBackground(block: { (success, error) -> Void in

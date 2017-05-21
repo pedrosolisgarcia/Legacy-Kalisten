@@ -25,11 +25,15 @@ class WorkoutsTableViewController: UITableViewController {
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.refreshControl?.addTarget(self, action: #selector(WorkoutsTableViewController.pullToRefresh(_:)), for: UIControlEvents.valueChanged)
+    }
+    
+    //Reloads the data from Parse and the tableview data when pulled down
+    func pullToRefresh(_ refreshControl: UIRefreshControl) {
+        
+        loadWorkoutsFromParse()
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +120,47 @@ class WorkoutsTableViewController: UITableViewController {
         }
     }
     
+    //Shows the delete option on swipe to remove the workout from Parse
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            let alert = UIAlertController(title: "Delete workout", message: "The workout will be deleted permanently. Are you sure you want to delete it?",preferredStyle: .alert)
+            
+            let delete = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+                
+                let query = PFQuery(className: "Workout")
+                query.whereKey("objectId", equalTo: self.workouts[indexPath.row].workId)
+                query.findObjectsInBackground { (objects, error) -> Void in
+                    
+                    if let error = error {
+                        print("Error: \(error) \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    if let objects = objects {
+                        for object in objects {
+                            object.deleteEventually()
+                            
+                            self.workouts.remove(at: indexPath.row)
+                            self.tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    }
+                }
+            })
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .default, handler: { (action) -> Void in })
+            
+            alert.addAction(cancel)
+            alert.addAction(delete)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
+        //This is nice if you want to add a edit button later
+        return [deleteAction]
+        
+    }
+    
     //Prepare data from the selected workout to be shown in the detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -148,7 +193,8 @@ class WorkoutsTableViewController: UITableViewController {
             
             if let objects = objects {
                 for (index, object) in objects.enumerated() {
-                    // Convert PFObject into Workout object
+                    //Filter exercises objects that belong to strength type
+                    query.whereKey("type", equalTo: "Strength")
                     let workout = Workout(pfObject: object)
                     self.workouts.append(workout)
                     

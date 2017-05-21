@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */; };
 		510D85C41ECDF3E800EE8B91 /* NewExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */; };
+		510D85C61ED033E400EE8B91 /* EditExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C51ED033E300EE8B91 /* EditExerciseController.swift */; };
 		5111B5F91E8FCB87009D7959 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */; };
 		51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */; };
 		51212B531E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseViewCell.swift; sourceTree = "<group>"; };
+		510D85C51ED033E300EE8B91 /* EditExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditExerciseController.swift; sourceTree = "<group>"; };
 		5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				51C625C41E78971800E94D6A /* training.storyboard */,
+				510D85C51ED033E300EE8B91 /* EditExerciseController.swift */,
 				51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */,
 				510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */,
 				51C625D21E7EAA6600E94D6A /* TrainingTableViewController.swift */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */,
+				510D85C61ED033E400EE8B91 /* EditExerciseController.swift in Sources */,
 				51C625D31E7EAA6600E94D6A /* TrainingTableViewController.swift in Sources */,
 				5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */,
 				51DDC3761E81B620009C1B12 /* ExercisesTableViewController.swift in Sources */,
