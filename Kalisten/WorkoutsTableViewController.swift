@@ -9,10 +9,14 @@
 import UIKit
 import Parse
 
-class WorkoutsTableViewController: UITableViewController {
+class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdating {
     
     //Array to store the workouts from Parse as objects
     private var workouts = [Workout]()
+    
+    var searchController = UISearchController()
+    var searchResults:[Workout] = [Workout]()
+    var searchActive: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,23 @@ class WorkoutsTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
         self.refreshControl?.addTarget(self, action: #selector(WorkoutsTableViewController.pullToRefresh(_:)), for: UIControlEvents.valueChanged)
+        
+        // Add a search bar
+        searchController = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search exercises..."
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor.black
+
+        
+        // Pull To Refresh Control
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(loadWorkoutsFromParse), for: UIControlEvents.valueChanged)
+        
     }
     
     //Reloads the data from Parse and the tableview data when pulled down
@@ -51,25 +72,31 @@ class WorkoutsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return workouts.count
+        // Return the number of rows
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return workouts.count
+        }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             as! WorkoutsTableViewCell
         
+        // Determine if we get the exercises from search result or the original array
+        let workout = (searchController.isActive) ? searchResults[indexPath.row] : workouts[indexPath.row]
+        
         // Configure the cell
-        cell.nameLabel.text = workouts[indexPath.row].name.uppercased()
-        cell.familyLabel.text = workouts[indexPath.row].family.uppercased()
-        let arrayTarjet: NSArray? = workouts[indexPath.row].tarjets as NSArray?
+        cell.nameLabel.text = workout.name.uppercased()
+        cell.familyLabel.text = workout.family.uppercased()
+        let arrayTarjet: NSArray? = workout.tarjets as NSArray?
         cell.tarjetLabel.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
-        cell.numExlLabel.text = "EXERCISES: \(workouts[indexPath.row].numEx)"
-        cell.timeLabel.text = "TIME: \(workouts[indexPath.row].totalTime)MIN"
-        cell.levelLabel.text = difficultyLevel(difficulty: workouts[indexPath.row].difficulty)
+        cell.numExlLabel.text = "EXERCISES: \(workout.numEx)"
+        cell.timeLabel.text = "TIME: \(workout.totalTime)MIN"
+        cell.levelLabel.text = difficultyLevel(difficulty: workout.difficulty)
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
 
@@ -97,7 +124,14 @@ class WorkoutsTableViewController: UITableViewController {
         
         return diffLevel
     }
-
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchController.isActive {
+            return false
+        } else {
+            return true
+        }
+    }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -169,8 +203,48 @@ class WorkoutsTableViewController: UITableViewController {
                 // Pass the selected object to the new view controller.
                 let destinationController = segue.destination as! WorkoutDetailViewController
                 
-                destinationController.workout =  workouts[indexPath.row]
+                destinationController.workout = (searchController.isActive) ? searchResults[indexPath.row] : workouts[indexPath.row]
             }
+        }
+    }
+    
+    //Filter the contents to show by the characters typed
+    func filterContent(for searchText: String) {
+        
+        var query: PFQuery<PFObject>!
+        
+        let nameQuery = PFQuery(className: "Workout")
+        let tarjetsQuery = PFQuery(className: "Workout")
+        
+        // Filter by search string
+        nameQuery.whereKey("name", contains: searchText)
+        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText)
+        query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
+        searchActive = true
+        query.findObjectsInBackground { (objects, error) -> Void in
+            if (error == nil) {
+                self.searchResults.removeAll(keepingCapacity: false)
+                
+                if let objects = objects {
+                    for object in objects {
+                        let workout = Workout(pfObject: object)
+                        self.searchResults.append(workout)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            else{
+                print("Error: \(error) \(error?.localizedDescription)")
+            }
+            self.searchActive = false
+        }
+        
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
         }
     }
     
@@ -204,52 +278,11 @@ class WorkoutsTableViewController: UITableViewController {
                 //fixes the issue in which the last element had the labels without the info.<<<
                 self.tableView.reloadData()
             }
+            if let refreshControl = self.refreshControl {
+                if refreshControl.isRefreshing {
+                    refreshControl.endRefreshing()
+                }
+            }
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

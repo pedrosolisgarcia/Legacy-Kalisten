@@ -9,13 +9,14 @@
 import UIKit
 import Parse
 
-class ExercisesTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
+class ExercisesTableViewController: UITableViewController, UISearchResultsUpdating {
     
     //Array to store the exercises from Parse as objects
     private var exercises = [Exercise]()
     
-    var searchController: UISearchController!
+    var searchController = UISearchController()
     var searchResults:[Exercise] = [Exercise]()
+    var searchActive: Bool = false
     
     //Return from the New Exercise View to the Exercise tableView
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue){}
@@ -34,9 +35,11 @@ class ExercisesTableViewController: UITableViewController, UISearchBarDelegate, 
         // Add a search bar
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search exercises..."
+        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.barTintColor = UIColor.black
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
@@ -205,13 +208,19 @@ class ExercisesTableViewController: UITableViewController, UISearchBarDelegate, 
         }
     }
     
+    //Filter the contents to show by the characters typed
     func filterContent(for searchText: String) {
         
-        let query = PFQuery(className: "Exercise")
+        var query: PFQuery<PFObject>!
+        
+        let nameQuery = PFQuery(className: "Exercise")
+        let tarjetsQuery = PFQuery(className: "Exercise")
         
         // Filter by search string
-        query.whereKey("name", contains: searchText)
-        searchController.isActive = true
+        nameQuery.whereKey("name", contains: searchText)
+        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText)
+        query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
+        searchActive = true
         query.findObjectsInBackground { (objects, error) -> Void in
             if (error == nil) {
                 self.searchResults.removeAll(keepingCapacity: false)
@@ -227,8 +236,9 @@ class ExercisesTableViewController: UITableViewController, UISearchBarDelegate, 
             else{
                 print("Error: \(error) \(error?.localizedDescription)")
             }
-            self.searchController.isActive = false
+            self.searchActive = false
         }
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -265,6 +275,11 @@ class ExercisesTableViewController: UITableViewController, UISearchBarDelegate, 
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
+                }
+            }
+            if let refreshControl = self.refreshControl {
+                if refreshControl.isRefreshing {
+                    refreshControl.endRefreshing()
                 }
             }
         }
