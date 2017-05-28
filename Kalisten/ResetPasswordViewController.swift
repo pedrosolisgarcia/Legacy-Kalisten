@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class ResetPasswordViewController: UIViewController {
+    
+    @IBOutlet weak var emailField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +24,20 @@ class ResetPasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func passwordReset(_ sender: AnyObject) {
+        let email = self.emailField.text!
+        let finalEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        // Send a request to reset a password
+        PFUser.requestPasswordResetForEmail(inBackground: finalEmail)
+        
+        let alertController = UIAlertController(title: "Password Reset", message: "An email containing information on how to reset your password has been sent to \(finalEmail).", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            (_)in
+            self.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion:nil)
+        
     }
-    */
-
 }

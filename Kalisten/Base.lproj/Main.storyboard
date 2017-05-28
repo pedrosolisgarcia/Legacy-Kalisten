@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="elS-Lb-b7s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="elS-Lb-b7s">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <!--KALISTEN-->
         <scene sceneID="aSj-2v-QYE">
             <objects>
-                <tableViewController id="uZg-1E-Hj6" customClass="MyPlanTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MyPlan" id="uZg-1E-Hj6" customClass="MyPlanTableViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="b75-jp-mNJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,9 +471,11 @@
                         <outlet property="nutritionLabel" destination="1xr-JW-1aA" id="PJo-cZ-myl"/>
                         <outlet property="trainingButton" destination="075-hU-ejN" id="UYz-IX-jWP"/>
                         <outlet property="trainingLabel" destination="1St-RC-lag" id="WNH-sr-9Hd"/>
+                        <segue destination="ZlS-ih-eEj" kind="unwind" identifier="unwindToMyPlan" unwindAction="unwindToMyPlanWithSegue:" id="QcW-SC-vwN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n01-cE-fPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZlS-ih-eEj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2000.8" y="-546.47676161919048"/>
         </scene>

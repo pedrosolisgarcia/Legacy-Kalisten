@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet var loginView: UIView!
+    
+    var blurEffectView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.removeFromSuperview()
+        
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.4)
+        self.showAnimate()
+        //Add blur effect to the background view
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        self.view.insertSubview(blurEffectView, belowSubview: loginView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +37,91 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showAnimate()
+    {
+        view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        view.alpha = 0.0;
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.alpha = 1.0
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        });
     }
-    */
+    
+    func removeAnimate()
+    {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.alpha = 0.0;
+        }, completion:{(finished : Bool)  in
+            if (finished)
+            {
+                self.view.removeFromSuperview()
+            }
+        });
+    }
+    
+    @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}
+    
+    @IBAction func loginAction(sender: AnyObject) {
+        var username = self.usernameField.text!
+        var password = self.passwordField.text!
+        
+        // Validate the text fields
+        if username.characters.count < 5 {
+            
+            let alertController = UIAlertController(title: "Username Invalid", message: "Username length mus be greater than five characters.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion:nil)
+            
+        } else if password.characters.count < 8 {
+            
+            let alertController = UIAlertController(title: "Password Invalid", message: "Password length mus be greater than five characters.", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion:nil)
+            
+        } else if PFUser.current() != nil {
+            
+            let alertController = UIAlertController(title: "User already logged", message: "There is a sesion already iniciated by \(PFUser.current()?["username"])", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            present(alertController, animated: true, completion:nil)
+        
+        } else {
+            
+            // Run a spinner to show a task in progress
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)) as UIActivityIndicatorView
+            spinner.startAnimating()
+            
+            // Send a request to login
+            PFUser.logInWithUsername(inBackground: username, password: password, block: { (user, error) -> Void in
+                
+                // Stop the spinner
+                spinner.stopAnimating()
+                
+                if ((user) != nil) {
+                    let alertController = UIAlertController(title: "Loged In Successfully", message: "Your account has been logged in. Welcome back \(username)", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                        (_)in
+                        
+                        self.removeAnimate()
+                        self.view.willRemoveSubview(self.blurEffectView)
+                    })
 
+                    alertController.addAction(alertAction)
+                    self.present(alertController, animated: true, completion:nil)
+                    
+                } else {
+                    
+                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(cancelAction)
+                    self.present(alertController, animated: true, completion:nil)
+                }
+            })
+        }
+    }
+    
+    
 }

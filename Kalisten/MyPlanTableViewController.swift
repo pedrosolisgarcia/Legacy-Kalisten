@@ -14,6 +14,8 @@ class MyPlanTableViewController: UITableViewController {
     @IBOutlet var nutriGoalButton: UIButton!
     @IBOutlet var trainingLabel: MarqueeLabel!
     @IBOutlet var nutritionLabel: MarqueeLabel!
+    
+    @IBAction func unwindToMyPlan(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
