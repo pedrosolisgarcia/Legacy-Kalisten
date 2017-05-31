@@ -39,6 +39,18 @@
 		515799D51E87135300E6D1A0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D31E87135300E6D1A0 /* Bolts.framework */; };
 		515799D61E87135300E6D1A0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D41E87135300E6D1A0 /* Parse.framework */; };
 		515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */; };
+		516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F81EDB18DC0039497D /* ic_eye_closed.png */; };
+		516F49041EDB18DC0039497D /* ic_eye_closed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */; };
+		516F49051EDB18DC0039497D /* ic_eye_closed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */; };
+		516F49061EDB18DC0039497D /* ic_eye_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FB1EDB18DC0039497D /* ic_eye_open.png */; };
+		516F49071EDB18DC0039497D /* ic_eye_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FC1EDB18DC0039497D /* ic_eye_open@2x.png */; };
+		516F49081EDB18DC0039497D /* ic_eye_open@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FD1EDB18DC0039497D /* ic_eye_open@3x.png */; };
+		516F49091EDB18DC0039497D /* ic_password_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */; };
+		516F490A1EDB18DC0039497D /* ic_password_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */; };
+		516F490B1EDB18DC0039497D /* ic_password_checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */; };
+		516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */; };
+		516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */; };
+		51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */; };
 		51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C625A71E75CCE800E94D6A /* AppDelegate.swift */; };
 		51C625AD1E75CCE800E94D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625AB1E75CCE800E94D6A /* Main.storyboard */; };
 		51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */; };
@@ -88,6 +100,19 @@
 		515799D31E87135300E6D1A0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		515799D41E87135300E6D1A0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
+		516F48F81EDB18DC0039497D /* ic_eye_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_eye_closed.png; sourceTree = "<group>"; };
+		516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_closed@2x.png"; sourceTree = "<group>"; };
+		516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_closed@3x.png"; sourceTree = "<group>"; };
+		516F48FB1EDB18DC0039497D /* ic_eye_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_eye_open.png; sourceTree = "<group>"; };
+		516F48FC1EDB18DC0039497D /* ic_eye_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_open@2x.png"; sourceTree = "<group>"; };
+		516F48FD1EDB18DC0039497D /* ic_eye_open@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_open@3x.png"; sourceTree = "<group>"; };
+		516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_password_checkmark.png; sourceTree = "<group>"; };
+		516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_password_checkmark@2x.png"; sourceTree = "<group>"; };
+		516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_password_checkmark@3x.png"; sourceTree = "<group>"; };
+		516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideShowPasswordTextField.swift; sourceTree = "<group>"; };
+		516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
+		516F490E1EDB72D10039497D /* Kalisten.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kalisten.entitlements; sourceTree = "<group>"; };
+		51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		51C625A41E75CCE800E94D6A /* Kalisten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalisten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C625A71E75CCE800E94D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C625AC1E75CCE800E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +213,7 @@
 				51C625C71E78976700E94D6A /* profile.storyboard */,
 				513852171ED4DB5800685D82 /* ProfileViewController.swift */,
 				513852191ED4DC2700685D82 /* SignUpViewController.swift */,
+				51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */,
 				5138521B1ED4DC7600685D82 /* LoginViewController.swift */,
 				5138521D1ED4DCB300685D82 /* ResetPasswordViewController.swift */,
 			);
@@ -222,12 +248,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		516F48F71EDB189A0039497D /* Additional Files */ = {
+			isa = PBXGroup;
+			children = (
+				515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */,
+				516F48F81EDB18DC0039497D /* ic_eye_closed.png */,
+				516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */,
+				516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */,
+				516F48FB1EDB18DC0039497D /* ic_eye_open.png */,
+				516F48FC1EDB18DC0039497D /* ic_eye_open@2x.png */,
+				516F48FD1EDB18DC0039497D /* ic_eye_open@3x.png */,
+				516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */,
+				516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */,
+				516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */,
+				516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */,
+				516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */,
+			);
+			name = "Additional Files";
+			path = Kalisten;
+			sourceTree = "<group>";
+		};
 		51C6259B1E75CCE800E94D6A = {
 			isa = PBXGroup;
 			children = (
 				51C625A61E75CCE800E94D6A /* Kalisten */,
 				515799AF1E8705B600E6D1A0 /* Parse */,
 				51C625A51E75CCE800E94D6A /* Products */,
+				516F48F71EDB189A0039497D /* Additional Files */,
 				515799B81E8710B500E6D1A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -243,13 +290,13 @@
 		51C625A61E75CCE800E94D6A /* Kalisten */ = {
 			isa = PBXGroup;
 			children = (
-				510336201E8994AE00CDED57 /* Profile */,
-				5103361F1E8994A600CDED57 /* Challenges */,
-				5103361E1E89949400CDED57 /* MyPlan */,
-				5103361D1E89948A00CDED57 /* Nutrition */,
+				516F490E1EDB72D10039497D /* Kalisten.entitlements */,
 				5103361C1E89947200CDED57 /* Training */,
+				5103361D1E89948A00CDED57 /* Nutrition */,
+				5103361E1E89949400CDED57 /* MyPlan */,
+				5103361F1E8994A600CDED57 /* Challenges */,
+				510336201E8994AE00CDED57 /* Profile */,
 				51C625A71E75CCE800E94D6A /* AppDelegate.swift */,
-				515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */,
 				51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */,
 				51C625D01E7DFDDE00E94D6A /* Assets.xcassets */,
 				51C625B61E75CCE800E94D6A /* Info.plist */,
@@ -289,8 +336,14 @@
 				TargetAttributes = {
 					51C625A31E75CCE800E94D6A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = YMP4M2YLRU;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -317,13 +370,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				516F490B1EDB18DC0039497D /* ic_password_checkmark@3x.png in Resources */,
 				51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */,
+				516F49041EDB18DC0039497D /* ic_eye_closed@2x.png in Resources */,
+				516F49071EDB18DC0039497D /* ic_eye_open@2x.png in Resources */,
+				516F49061EDB18DC0039497D /* ic_eye_open.png in Resources */,
 				51C625CB1E78978900E94D6A /* nutrition.storyboard in Resources */,
 				51C625C81E78976700E94D6A /* profile.storyboard in Resources */,
+				516F49091EDB18DC0039497D /* ic_password_checkmark.png in Resources */,
+				516F490A1EDB18DC0039497D /* ic_password_checkmark@2x.png in Resources */,
+				516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */,
 				51C625CD1E7897BA00E94D6A /* challenges.storyboard in Resources */,
 				51C625D11E7DFDDE00E94D6A /* Assets.xcassets in Resources */,
+				516F49081EDB18DC0039497D /* ic_eye_open@3x.png in Resources */,
 				51C625C61E78971900E94D6A /* training.storyboard in Resources */,
 				51C625AD1E75CCE800E94D6A /* Main.storyboard in Resources */,
+				516F49051EDB18DC0039497D /* ic_eye_closed@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,15 +406,18 @@
 				5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */,
 				51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */,
 				5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */,
+				51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,
 				5111B5F91E8FCB87009D7959 /* TrainingViewController.swift in Sources */,
 				51212B531E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift in Sources */,
+				516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */,
 				51DDC3781E81D85C009C1B12 /* ExercisesTableViewCell.swift in Sources */,
 				5138521C1ED4DC7600685D82 /* LoginViewController.swift in Sources */,
 				5132BD981E8D175300617E24 /* WorkoutsTableViewCell.swift in Sources */,
 				514D7DBA1EBE4FAA009AFD0C /* TrainingTableViewCell.swift in Sources */,
 				513852181ED4DB5900685D82 /* ProfileViewController.swift in Sources */,
 				51C625CF1E7D6C0900E94D6A /* MyPlanTableViewController.swift in Sources */,
+				516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */,
 				51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */,
 				5138521A1ED4DC2700685D82 /* SignUpViewController.swift in Sources */,
 				51DDC37A1E8463AB009C1B12 /* NewExerciseController.swift in Sources */,
@@ -497,6 +562,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = Kalisten/Kalisten.entitlements;
+				DEVELOPMENT_TEAM = YMP4M2YLRU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kalisten",
@@ -515,6 +582,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = Kalisten/Kalisten.entitlements;
+				DEVELOPMENT_TEAM = YMP4M2YLRU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kalisten",

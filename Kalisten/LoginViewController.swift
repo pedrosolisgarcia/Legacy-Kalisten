@@ -9,11 +9,13 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPasswordTextFieldDelegate*/ {
     
     @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var passwordField: HideShowPasswordTextField!
     @IBOutlet var loginView: UIView!
+    
+    @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}
     
     var blurEffectView: UIView!
 
@@ -23,6 +25,7 @@ class LoginViewController: UIViewController {
         self.view.removeFromSuperview()
         
         // Do any additional setup after loading the view.
+        setupPasswordTextField()
         self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.4)
         self.showAnimate()
         //Add blur effect to the background view
@@ -59,11 +62,20 @@ class LoginViewController: UIViewController {
             }
         });
     }
-    
-    @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}
+        
+    // Sets the configuration for the password text field 
+    fileprivate func setupPasswordTextField() {
+        
+        passwordField.delegate = self
+        passwordField.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).cgColor
+        passwordField.clipsToBounds = true
+        passwordField.font = UIFont(name: "AvenirNextCondensed-Regular", size: 17)
+        
+        passwordField.rightView?.tintColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 1.0)
+    }
     
     @IBAction func loginAction(sender: AnyObject) {
-        var username = self.usernameField.text!
+        var username = self.usernameField.text!.lowercased()
         var password = self.passwordField.text!
         
         // Validate the text fields
@@ -122,6 +134,4 @@ class LoginViewController: UIViewController {
             })
         }
     }
-    
-    
 }
