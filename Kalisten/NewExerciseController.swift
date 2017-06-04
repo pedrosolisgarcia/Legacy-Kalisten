@@ -24,6 +24,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var pqTextField:UITextField?
     @IBOutlet var descriptionTextView:UITextView?
     var placeholderLabel : UILabel!
+    var imagePicked = false
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -32,6 +33,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             exerciseImageView.image = selectedImage
             exerciseImageView.contentMode = .scaleAspectFit
             exerciseImageView.clipsToBounds = true
+            imagePicked = true
         }
         
         let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
@@ -106,6 +108,13 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             exercise["place"] = placeTextField?.text?.components(separatedBy: ", ")
             exercise["object"] = objectTextField?.text?.components(separatedBy: ", ")
             exercise["description"] = descriptionTextView?.text
+            
+            // Save the image in case we introduced one
+            let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)
+            if imageData != nil && self.imagePicked {
+                let imageFile = PFFile(name:"\(nameTextField.text).png", data:imageData!)
+                exercise["image"] = imageFile
+            }
             
             // Add the exercise on Parse
             exercise.saveInBackground(block: { (success, error) -> Void in

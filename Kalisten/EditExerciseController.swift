@@ -206,7 +206,7 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                     // Save the image in case we introduced one
                     let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)
                     if imageData != nil && self.imagePicked {
-                        let imageFile = PFFile(name:"exercise.png", data:imageData!)
+                        let imageFile = PFFile(name:"\(self.nameTextField.text).png", data:imageData!)
                         exerciseToUpdate["image"] = imageFile
                     }
                     

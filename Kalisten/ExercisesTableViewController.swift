@@ -18,11 +18,27 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
     var searchResults:[Exercise] = [Exercise]()
     var searchActive: Bool = false
     
+    @IBOutlet var addExercise: UIBarButtonItem!
+    
     //Return from the New Exercise View to the Exercise tableView
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Only admins can see the add button
+        let current = PFUser.current()
+        
+        if current == nil {
+            addExercise.isEnabled = false
+            addExercise.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else if current?["isAdmin"] as! Bool == false{
+            addExercise.isEnabled = false
+            addExercise.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else {
+            addExercise.isEnabled = true
+            addExercise.tintColor = UIColor.white
+        }
         
         loadExercisesFromParse()
         

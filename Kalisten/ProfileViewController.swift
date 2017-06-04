@@ -11,17 +11,30 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     var blurEffectView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Show the current visitor's username
-        if let pUserName = PFUser.current()?["username"] as? String {
-            self.userNameLabel.text = "@" + pUserName
+        //Shows the avatar if the user has one
+        userAvatar.image = UIImage()
+        if let avatar = PFUser.current()?["avatar"] as? PFFile {
+            avatar.getDataInBackground(block: { (avatarData, error) in
+                if let userAvatarData = avatarData {
+                    self.userAvatar.image = UIImage(data: userAvatarData)
+                }
+            })
         } else {
-            self.userNameLabel.text = "@username"
+            self.userAvatar.image = UIImage(named: "user")
+        }
+        
+        // Show the current user's username
+        if let pUserName = PFUser.current()?["username"] as? String {
+            self.usernameLabel.text = "@" + pUserName
+        } else {
+            self.usernameLabel.text = "@username"
         }
     }
     
@@ -31,9 +44,13 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(self.view.subviews.count)
         if (PFUser.current() == nil) {
             
-            if (self.view.subviews.count == 5) {
+            self.userAvatar.image = UIImage(named: "user")
+            self.usernameLabel.text = "@username"
+            
+            if (self.view.subviews.count <= 5) {
                 
                 //Add the Login subview
                 let popLoginView = UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
@@ -45,10 +62,27 @@ class ProfileViewController: UIViewController {
             
         } else {
             
-            if let pUserName = PFUser.current()?["username"] as? String {
-                self.userNameLabel.text = "@" + pUserName
+            if (self.view.subviews.count > 5){
+                //self.view.subviews.removeLast()
+            }
+            
+            //Shows the avatar if the user has one
+            userAvatar.image = UIImage()
+            if let avatar = PFUser.current()?["avatar"] as? PFFile {
+                avatar.getDataInBackground(block: { (avatarData, error) in
+                    if let userAvatarData = avatarData {
+                        self.userAvatar.image = UIImage(data: userAvatarData)
+                    }
+                })
             } else {
-                self.userNameLabel.text = "@username"
+                self.userAvatar.image = UIImage(named: "user")
+            }
+            
+            // Show the current user's username
+            if let pUserName = PFUser.current()?["username"] as? String {
+                self.usernameLabel.text = "@" + pUserName
+            } else {
+                self.usernameLabel.text = "@username"
             }
         }
     }

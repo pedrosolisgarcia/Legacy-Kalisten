@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/NewExerciseController.swift"
-            timestampString = "517007919.25006"
+            timestampString = "518207124.36842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/NewExerciseController.swift"
-            timestampString = "517007919.25006"
+            timestampString = "518207124.36842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "NewExerciseController"
             landmarkType = "3">
          </BreakpointContent>
@@ -151,11 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/ExerciseDetailViewController.swift"
-            timestampString = "516961386.917207"
+            timestampString = "518263416.193824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "fieldChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/ExerciseDetailViewController.swift"
-            timestampString = "516969566.246513"
+            timestampString = "518263416.193824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/ExercisesTableViewController.swift"
-            timestampString = "517048092.148929"
+            timestampString = "518265008.157063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "filterContent(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -199,12 +199,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/ExercisesTableViewController.swift"
-            timestampString = "517048092.148929"
+            timestampString = "518265008.157063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "filterContent(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kalisten/SignUpViewController.swift"
+            timestampString = "518254703.126559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "signUpAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kalisten/ProfileViewController.swift"
+            timestampString = "518255067.110331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

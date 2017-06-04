@@ -51,6 +51,7 @@
 		516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */; };
 		516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */; };
 		51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */; };
+		51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */; };
 		51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C625A71E75CCE800E94D6A /* AppDelegate.swift */; };
 		51C625AD1E75CCE800E94D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625AB1E75CCE800E94D6A /* Main.storyboard */; };
 		51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */; };
@@ -113,6 +114,7 @@
 		516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
 		516F490E1EDB72D10039497D /* Kalisten.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kalisten.entitlements; sourceTree = "<group>"; };
 		51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
+		51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewCell.swift; sourceTree = "<group>"; };
 		51C625A41E75CCE800E94D6A /* Kalisten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalisten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C625A71E75CCE800E94D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C625AC1E75CCE800E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				51C625C71E78976700E94D6A /* profile.storyboard */,
 				513852171ED4DB5800685D82 /* ProfileViewController.swift */,
 				513852191ED4DC2700685D82 /* SignUpViewController.swift */,
+				51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */,
 				51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */,
 				5138521B1ED4DC7600685D82 /* LoginViewController.swift */,
 				5138521D1ED4DCB300685D82 /* ResetPasswordViewController.swift */,
@@ -405,6 +408,7 @@
 				5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */,
 				5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */,
 				51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */,
+				51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */,
 				5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */,
 				51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,

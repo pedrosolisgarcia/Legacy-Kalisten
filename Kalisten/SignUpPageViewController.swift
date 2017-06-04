@@ -10,15 +10,18 @@ import UIKit
 
 class SignUpPageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
-    var view1isHidden = [false, true, true]
-    var view2isHidden = [true, false, true]
-    var view3isHidden = [true, true, false]
-
+    var view1isHidden = [false, true]
+    var view2isHidden = [true, false]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the data source to itself
         dataSource = self
+        
+        //pageSignUp = storyboard?.instantiateViewController(withIdentifier: "SignUp") as? SignUpViewController
+        
+        //keepUsername = pageSignUp.keepUsername
 
         // Create the first walkthrough screen
         if let startingViewController = contentViewController(at: 0) {
@@ -55,14 +58,13 @@ class SignUpPageViewController: UIPageViewController, UIPageViewControllerDataSo
         }
         
         // Create a new view controller and pass the suitable view in each case
-        if let pageSignUpViewController = storyboard?.instantiateViewController(withIdentifier: "SignUp") as? SignUpViewController {
+        if let pageSignUp = storyboard?.instantiateViewController(withIdentifier: "SignUp") as? SignUpViewController {
             
-            pageSignUpViewController.view1isHidden = view1isHidden[index]
-            pageSignUpViewController.view2isHidden = view2isHidden[index]
-            pageSignUpViewController.view3isHidden = view3isHidden[index]
-            pageSignUpViewController.index = index
+            pageSignUp.view1isHidden = view1isHidden[index]
+            pageSignUp.view2isHidden = view2isHidden[index]
+            pageSignUp.index = index
             
-            return pageSignUpViewController
+            return pageSignUp
             
         }
         return nil

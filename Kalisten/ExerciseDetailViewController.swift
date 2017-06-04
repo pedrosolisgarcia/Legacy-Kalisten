@@ -55,6 +55,20 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Only admins can see the edit button
+        let current = PFUser.current()
+        
+        if current == nil {
+            editButton.isEnabled = false
+            editButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else if current?["isAdmin"] as! Bool == false{
+            editButton.isEnabled = false
+            editButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else {
+            editButton.isEnabled = true
+            editButton.tintColor = UIColor.white
+        }
 
         // Do any additional setup after loading the view.
         
