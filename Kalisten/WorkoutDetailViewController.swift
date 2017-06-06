@@ -53,14 +53,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         numExercises.text = "\(workout.numEx)"
         
         // Load familyIcon in the detail view
-        familyIconImageView.image = UIImage()
-        if let imageDet = workout.familyIcon {
-            imageDet.getDataInBackground(block: { (imageData, error) in
-                if let familyIconData = imageData {
-                    self.familyIconImageView.image = UIImage(data: familyIconData)
-                }
-            })
-        }
+        familyIconImageView.image = UIImage(named: "\(workout.family.lowercased())")
         
         //Depending of the amount of sets the label is set in plural or singular
         workout.numSets > 1 ? (sets.text = "\(workout.numSets) SETS PER EXERCISE") : (sets.text = "\(workout.numSets) SET PER EXERCISE")
@@ -69,7 +62,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         intTime.text = "\(workout.family.uppercased()): \(workout.intTime[1]) MIN."
         pqImproved.text = workout.improves.uppercased()
         
-        descrpt.text = workout.description?.uppercased()
+        descrpt.text = workout.information?[0].uppercased()
         level.text = difficultyLevel(difficulty: workout.difficulty)
         
     }
@@ -185,6 +178,12 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
                 
                 destinationController.exercise =  WExercises[indexPath.row]
             }
+        }
+        if segue.identifier == "selectWorkout"{
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! WorkoutInstructionsViewController
+            
+            destinationController.workout = workout
         }
     }
 }

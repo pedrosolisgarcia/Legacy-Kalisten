@@ -52,6 +52,8 @@
 		516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */; };
 		51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */; };
 		51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */; };
+		51702B4C1EE43E5300CEEBAF /* WorkoutInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B4B1EE43E5200CEEBAF /* WorkoutInstructionsViewController.swift */; };
+		51702B501EE4B04300CEEBAF /* LadderWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B4F1EE4B04300CEEBAF /* LadderWorkoutViewController.swift */; };
 		51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C625A71E75CCE800E94D6A /* AppDelegate.swift */; };
 		51C625AD1E75CCE800E94D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625AB1E75CCE800E94D6A /* Main.storyboard */; };
 		51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */; };
@@ -115,6 +117,8 @@
 		516F490E1EDB72D10039497D /* Kalisten.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kalisten.entitlements; sourceTree = "<group>"; };
 		51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewCell.swift; sourceTree = "<group>"; };
+		51702B4B1EE43E5200CEEBAF /* WorkoutInstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutInstructionsViewController.swift; sourceTree = "<group>"; };
+		51702B4F1EE4B04300CEEBAF /* LadderWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LadderWorkoutViewController.swift; sourceTree = "<group>"; };
 		51C625A41E75CCE800E94D6A /* Kalisten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kalisten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C625A71E75CCE800E94D6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C625AC1E75CCE800E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -160,24 +164,13 @@
 		5103361C1E89947200CDED57 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				51702B4E1EE4AE1100CEEBAF /* Workouts */,
+				51702B4D1EE4ADFB00CEEBAF /* Exercises */,
 				51C625C41E78971800E94D6A /* training.storyboard */,
-				510D85C51ED033E300EE8B91 /* EditExerciseController.swift */,
-				51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */,
-				510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */,
 				51C625D21E7EAA6600E94D6A /* TrainingTableViewController.swift */,
 				5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */,
 				514D7DB71EBE4B26009AFD0C /* TrainingCollectionViewCell.swift */,
 				514D7DB91EBE4FA9009AFD0C /* TrainingTableViewCell.swift */,
-				51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */,
-				51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */,
-				5127594A1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift */,
-				51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */,
-				51DDC3751E81B620009C1B12 /* ExercisesTableViewController.swift */,
-				5132BD951E8D172000617E24 /* WorkoutsTableViewController.swift */,
-				51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */,
-				5132BD971E8D175300617E24 /* WorkoutsTableViewCell.swift */,
-				51DDC3731E80715B009C1B12 /* Exercise.swift */,
-				5132BD931E8C2D2C00617E24 /* Workout.swift */,
 				5139017C1ECB9A14002F0EEB /* Routine.swift */,
 				5139017E1ECB9A5B002F0EEB /* Plan.swift */,
 			);
@@ -269,6 +262,35 @@
 			);
 			name = "Additional Files";
 			path = Kalisten;
+			sourceTree = "<group>";
+		};
+		51702B4D1EE4ADFB00CEEBAF /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				510D85C51ED033E300EE8B91 /* EditExerciseController.swift */,
+				5127594A1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift */,
+				51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */,
+				510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */,
+				51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */,
+				51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */,
+				51DDC3751E81B620009C1B12 /* ExercisesTableViewController.swift */,
+				51DDC3731E80715B009C1B12 /* Exercise.swift */,
+			);
+			name = Exercises;
+			sourceTree = "<group>";
+		};
+		51702B4E1EE4AE1100CEEBAF /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				51702B4F1EE4B04300CEEBAF /* LadderWorkoutViewController.swift */,
+				51702B4B1EE43E5200CEEBAF /* WorkoutInstructionsViewController.swift */,
+				51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */,
+				51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */,
+				5132BD971E8D175300617E24 /* WorkoutsTableViewCell.swift */,
+				5132BD951E8D172000617E24 /* WorkoutsTableViewController.swift */,
+				5132BD931E8C2D2C00617E24 /* Workout.swift */,
+			);
+			name = Workouts;
 			sourceTree = "<group>";
 		};
 		51C6259B1E75CCE800E94D6A = {
@@ -405,11 +427,13 @@
 				5132BD941E8C2D2C00617E24 /* Workout.swift in Sources */,
 				51DDC3761E81B620009C1B12 /* ExercisesTableViewController.swift in Sources */,
 				5139017F1ECB9A5B002F0EEB /* Plan.swift in Sources */,
+				51702B501EE4B04300CEEBAF /* LadderWorkoutViewController.swift in Sources */,
 				5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */,
 				5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */,
 				51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */,
 				51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */,
 				5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */,
+				51702B4C1EE43E5300CEEBAF /* WorkoutInstructionsViewController.swift in Sources */,
 				51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,
 				5111B5F91E8FCB87009D7959 /* TrainingViewController.swift in Sources */,
