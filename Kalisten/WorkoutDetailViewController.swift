@@ -29,7 +29,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     var workout: Workout!
     
-    private var WExercises = [Exercise]()
+    var exercises = [Exercise]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,6 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         /* We enter the line below to avoid the following error:
           'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier Cell -must register a nib or a class for the identifier or connect a prototype cell in a storyboard'*/
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         loadExercisesFromWorkout()
         
@@ -50,7 +49,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         //Set the cells content with the information from the selected workout
         family.text = "\(workout.family.uppercased()):"
-        numExercises.text = "\(workout.numEx)"
+        numExercises.text = "\(workout.exercises.count)"
         
         // Load familyIcon in the detail view
         familyIconImageView.image = UIImage(named: "\(workout.family.lowercased())")
@@ -83,18 +82,19 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WExercises.count
+        return exercises.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutDetailTableViewCell
         
         // Configure the cell
-        cell.nameLabel.text = WExercises[indexPath.row].name.uppercased()
+        cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
         
         // Load image in background
         cell.thumbnailImageView.image = UIImage()
-        if let image = WExercises[indexPath.row].image {
+        if let image = exercises[indexPath.row].image {
+        //if let image = exercises_order[indexPath.row]?.image {
             image.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
                     cell.thumbnailImageView.image = UIImage(data: exerciseImageData)
@@ -133,20 +133,19 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     //Automatically deselect the cell when touched
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-
     
     //Load the exercises from the selected Workout
     func loadExercisesFromWorkout() {
         // Clear up the array
-        WExercises.removeAll(keepingCapacity: true)
+        exercises.removeAll(keepingCapacity: true)
         tableView.reloadData()
         
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
-        //Filter exercises whoses Ids are contained in the workout array
-        query.whereKey("objectId", containedIn: workout.exercises)
+        //Filter exercises whoses names are contained in the workout array
+        query.whereKey("name", containedIn: workout.exercises)
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             
@@ -156,10 +155,21 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
             }
             
             if let objects = objects {
-                for (index, object) in objects.enumerated() {
-                    // Convert PFObject into Trip object
+                var objects_order = [PFObject]()
+                for exercise in self.workout.exercises {
+                    for object in objects {
+                        let ex = Exercise(pfObject: object)
+                        if (ex.name == exercise){
+                            objects_order.append(object)
+                        }
+                    }
+                }
+                
+                for (index, object) in objects_order.enumerated() {
+                    
+                    // Convert PFObject into Exercise object
                     let exercise = Exercise(pfObject: object)
-                    self.WExercises.append(exercise)
+                    self.exercises.append(exercise)
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
@@ -176,7 +186,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
                 // Pass the selected object to the new view controller.
                 let destinationController = segue.destination as! ExerciseDetailViewController
                 
-                destinationController.exercise =  WExercises[indexPath.row]
+                destinationController.exercise =  exercises[indexPath.row]
             }
         }
         if segue.identifier == "selectWorkout"{
@@ -184,6 +194,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
             let destinationController = segue.destination as! WorkoutInstructionsViewController
             
             destinationController.workout = workout
+            destinationController.exercises = exercises
         }
     }
 }

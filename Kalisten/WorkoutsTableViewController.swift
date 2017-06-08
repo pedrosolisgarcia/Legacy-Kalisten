@@ -36,7 +36,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search exercises..."
+        searchController.searchBar.placeholder = "Search workouts..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
 
@@ -94,7 +94,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.familyLabel.text = workout.family.uppercased()
         let arrayTarjet: NSArray? = workout.tarjets as NSArray?
         cell.tarjetLabel.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
-        cell.numExlLabel.text = "EXERCISES: \(workout.numEx)"
+        cell.numExlLabel.text = "EXERCISES: \(workout.exercises.count)"
         cell.timeLabel.text = "TIME: \(workout.totalTime)MIN"
         cell.levelLabel.text = difficultyLevel(difficulty: workout.difficulty)
         

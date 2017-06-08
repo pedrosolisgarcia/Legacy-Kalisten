@@ -10,7 +10,8 @@ import UIKit
 
 class LadderWorkoutViewController: UIViewController {
     
-    var ladderWorkout: Workout!
+    var workout: Workout!
+    var exercises = [Exercise]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -15,7 +15,6 @@ class Workout {
     var name = ""
     var type = ""
     var family = ""
-    var numEx:Int = 0
     var numSets:Int = 0
     var exercises = [""]
     var intTime:[Int] = [0]
@@ -26,13 +25,12 @@ class Workout {
     var information: [String]?
     var isCreated = false
     
-    init(workId: String, name: String, type: String, family: String, numEx: Int, numSets: Int, exercises: [String], intTime: [Int], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool){
+    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Int], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool){
         
         self.workId = workId
         self.name = name
         self.type = type
         self.family = family
-        self.numEx = numEx
         self.numSets = numSets
         self.exercises = exercises
         self.intTime = intTime
@@ -50,7 +48,6 @@ class Workout {
         self.name = pfObject["name"] as! String
         self.type = pfObject["type"] as! String
         self.family = pfObject["family"] as! String
-        self.numEx = pfObject["numEx"] as! Int
         self.numSets = pfObject["numSets"] as! Int
         self.exercises = pfObject["exercises"] as! [String]
         self.intTime = pfObject["intTime"] as! [Int]
@@ -68,7 +65,6 @@ class Workout {
         workoutObject["name"] = name
         workoutObject["type"] = type
         workoutObject["family"] = family
-        workoutObject["numEx"] = numEx
         workoutObject["numSets"] = numSets
         workoutObject["exercises"] = exercises
         workoutObject["intTime"] = intTime

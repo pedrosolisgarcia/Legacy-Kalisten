@@ -14,6 +14,7 @@ class WorkoutInstructionsViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     var workout: Workout!
+    var exercises = [Exercise]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,8 @@ class WorkoutInstructionsViewController: UIViewController {
             // Pass the selected object to the new view controller.
             let destinationController = segue.destination as! LadderWorkoutViewController
             
-            destinationController.ladderWorkout = workout
+            destinationController.workout = workout
+            destinationController.exercises = exercises
         }
     }
 }
