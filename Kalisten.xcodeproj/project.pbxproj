@@ -164,6 +164,8 @@
 		5103361C1E89947200CDED57 /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				5167455F1EE9FB2F00F054A7 /* Plans */,
+				5167455E1EE9FB2600F054A7 /* Routines */,
 				51702B4E1EE4AE1100CEEBAF /* Workouts */,
 				51702B4D1EE4ADFB00CEEBAF /* Exercises */,
 				51C625C41E78971800E94D6A /* training.storyboard */,
@@ -171,8 +173,6 @@
 				5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */,
 				514D7DB71EBE4B26009AFD0C /* TrainingCollectionViewCell.swift */,
 				514D7DB91EBE4FA9009AFD0C /* TrainingTableViewCell.swift */,
-				5139017C1ECB9A14002F0EEB /* Routine.swift */,
-				5139017E1ECB9A5B002F0EEB /* Plan.swift */,
 			);
 			name = Training;
 			sourceTree = "<group>";
@@ -242,6 +242,22 @@
 				515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5167455E1EE9FB2600F054A7 /* Routines */ = {
+			isa = PBXGroup;
+			children = (
+				5139017C1ECB9A14002F0EEB /* Routine.swift */,
+			);
+			name = Routines;
+			sourceTree = "<group>";
+		};
+		5167455F1EE9FB2F00F054A7 /* Plans */ = {
+			isa = PBXGroup;
+			children = (
+				5139017E1ECB9A5B002F0EEB /* Plan.swift */,
+			);
+			name = Plans;
 			sourceTree = "<group>";
 		};
 		516F48F71EDB189A0039497D /* Additional Files */ = {
