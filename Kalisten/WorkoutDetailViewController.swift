@@ -89,7 +89,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WorkoutDetailTableViewCell
         
         // Configure the cell
-        cell.nameLabel.text = exercises[indexPath.row].name.uppercased()
+        cell.nameLabel.text = exercises[indexPath.row].name.uppercased() + "S"
         
         // Load image in background
         cell.thumbnailImageView.image = UIImage()

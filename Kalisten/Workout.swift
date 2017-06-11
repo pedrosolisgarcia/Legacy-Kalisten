@@ -17,7 +17,7 @@ class Workout {
     var family = ""
     var numSets:Int = 0
     var exercises = [""]
-    var intTime:[Int] = [0]
+    var intTime:[Double] = [0]
     var totalTime:Int = 0
     var difficulty:Int = 0
     var tarjets: [String]?
@@ -25,7 +25,7 @@ class Workout {
     var information: [String]?
     var isCreated = false
     
-    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Int], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool){
+    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Double], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool){
         
         self.workId = workId
         self.name = name
@@ -50,7 +50,7 @@ class Workout {
         self.family = pfObject["family"] as! String
         self.numSets = pfObject["numSets"] as! Int
         self.exercises = pfObject["exercises"] as! [String]
-        self.intTime = pfObject["intTime"] as! [Int]
+        self.intTime = pfObject["intTime"] as! [Double]
         self.totalTime = pfObject["totalTime"] as! Int
         self.difficulty = pfObject["difficulty"] as! Int
         self.tarjets = pfObject["tarjets"] as? [String]

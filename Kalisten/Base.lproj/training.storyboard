@@ -657,15 +657,15 @@
         <!--LADDER WORKOUT-->
         <scene sceneID="aic-fG-g7C">
             <objects>
-                <tableViewController title="LADDER WORKOUT" id="9hI-1b-FTq" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bHC-9G-THX">
+                <tableViewController title="LADDER WORKOUT" id="9hI-1b-FTq" customClass="LadderWorkoutViewController" customModule="Kalisten" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bHC-9G-THX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="FXH-5c-kC1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NavigationBar" rowHeight="65" id="Cv9-5J-NsT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NavigationBar" rowHeight="65" id="Cv9-5J-NsT">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cv9-5J-NsT" id="XTB-Ri-eNU">
@@ -685,7 +685,7 @@
                                                     <items>
                                                         <navigationItem title="WORKOUT NAME" id="EcK-Yv-O90">
                                                             <barButtonItem key="leftBarButtonItem" width="9" id="En3-BK-d2E">
-                                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="jS2-qU-PD6">
+                                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="jS2-qU-PD6">
                                                                     <rect key="frame" x="16" y="31" width="22" height="22"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -711,7 +711,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="30" id="4HH-dM-ZIU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="30" id="4HH-dM-ZIU">
                                         <rect key="frame" x="0.0" y="65" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4HH-dM-ZIU" id="nGn-P1-L4E">
@@ -731,6 +731,7 @@
                                                 <constraint firstItem="ZG2-4O-GZi" firstAttribute="centerX" secondItem="nGn-P1-L4E" secondAttribute="centerX" id="pzz-aH-iX2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesCell" rowHeight="225" id="mLw-EX-HVY">
                                         <rect key="frame" x="0.0" y="95" width="375" height="225"/>
@@ -779,22 +780,22 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="45" id="OWh-pz-T1u">
-                                        <rect key="frame" x="0.0" y="320" width="375" height="45"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="progressionCell" rowHeight="50" id="OWh-pz-T1u">
+                                        <rect key="frame" x="0.0" y="320" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OWh-pz-T1u" id="dhj-tX-OFK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXERCISE: X/X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-2S-7lA">
-                                                    <rect key="frame" x="8" y="10" width="170" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXERCISE: X/X" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ug-2S-7lA">
+                                                    <rect key="frame" x="8" y="12" width="170" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LADDER: X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI3-Yd-H3z">
-                                                    <rect key="frame" x="196" y="10" width="171" height="25"/>
+                                                    <rect key="frame" x="196" y="12" width="171" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="28"/>
                                                     <nil key="textColor"/>
@@ -804,8 +805,8 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="qCl-M9-kZD">
-                                        <rect key="frame" x="0.0" y="365" width="375" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="timingCell" rowHeight="50" id="qCl-M9-kZD">
+                                        <rect key="frame" x="0.0" y="370" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qCl-M9-kZD" id="p94-Aw-v8w">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -850,8 +851,8 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="UTV-lC-Rro">
-                                        <rect key="frame" x="0.0" y="415" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ladderCell" rowHeight="60" id="UTV-lC-Rro">
+                                        <rect key="frame" x="0.0" y="420" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UTV-lC-Rro" id="IoO-pI-Iwo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
@@ -864,19 +865,24 @@
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-gA-IQL">
-                                                    <rect key="frame" x="29" y="22" width="73" height="16"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-gA-IQL">
+                                                    <rect key="frame" x="29" y="22" width="95" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="73" id="wXG-TB-7zI"/>
+                                                        <constraint firstAttribute="width" constant="95" id="wXG-TB-7zI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="30"/>
                                                     <state key="normal" title="PAUSE">
                                                         <color key="titleColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="pauseResumeTimer:" destination="9hI-1b-FTq" eventType="touchUpInside" id="Y9w-Jb-A2J"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-JY-C8w">
-                                                    <rect key="frame" x="260" y="17" width="73" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-JY-C8w">
+                                                    <rect key="frame" x="251" y="22" width="95" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="95" id="U5y-ZG-cET"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="30"/>
                                                     <state key="normal" title="SKIP">
                                                         <color key="titleColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -885,24 +891,27 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MXE-gA-IQL" firstAttribute="centerY" secondItem="IoO-pI-Iwo" secondAttribute="centerY" id="6Nh-nv-nbF"/>
-                                                <constraint firstItem="EHd-nw-hmt" firstAttribute="leading" secondItem="MXE-gA-IQL" secondAttribute="trailing" constant="31" id="Auv-Q2-Tbf"/>
+                                                <constraint firstItem="s1l-JY-C8w" firstAttribute="centerY" secondItem="IoO-pI-Iwo" secondAttribute="centerY" id="9az-vm-tce"/>
+                                                <constraint firstItem="EHd-nw-hmt" firstAttribute="leading" secondItem="MXE-gA-IQL" secondAttribute="trailing" constant="9" id="Auv-Q2-Tbf"/>
                                                 <constraint firstItem="MXE-gA-IQL" firstAttribute="centerY" secondItem="IoO-pI-Iwo" secondAttribute="centerY" id="FDi-6D-qhn"/>
                                                 <constraint firstItem="MXE-gA-IQL" firstAttribute="leading" secondItem="IoO-pI-Iwo" secondAttribute="leadingMargin" constant="21" id="JEW-Ms-3O4"/>
-                                                <constraint firstItem="EHd-nw-hmt" firstAttribute="centerY" secondItem="IoO-pI-Iwo" secondAttribute="centerY" id="fcD-Rp-pIZ"/>
+                                                <constraint firstItem="s1l-JY-C8w" firstAttribute="top" secondItem="IoO-pI-Iwo" secondAttribute="topMargin" constant="14" id="QcW-El-RqN"/>
+                                                <constraint firstItem="EHd-nw-hmt" firstAttribute="centerY" secondItem="IoO-pI-Iwo" secondAttribute="centerY" constant="1" id="fcD-Rp-pIZ"/>
                                                 <constraint firstItem="MXE-gA-IQL" firstAttribute="top" secondItem="IoO-pI-Iwo" secondAttribute="topMargin" constant="14" id="q9Z-lA-fg1"/>
+                                                <constraint firstItem="s1l-JY-C8w" firstAttribute="leading" secondItem="EHd-nw-hmt" secondAttribute="trailing" constant="8" id="vuZ-6b-wUM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="140" id="X0V-d4-Ocl">
-                                        <rect key="frame" x="0.0" y="475" width="375" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="countCell" rowHeight="150" id="X0V-d4-Ocl">
+                                        <rect key="frame" x="0.0" y="480" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X0V-d4-Ocl" id="vck-s1-cKP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1o-3A-ULE" userLabel="ladderUp">
-                                                    <rect key="frame" x="23" y="19" width="111" height="101.5"/>
+                                                    <rect key="frame" x="23" y="19" width="111" height="111.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="111" id="DjT-Lh-Xlx"/>
@@ -912,18 +921,34 @@
                                                     <state key="normal" title="0">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="ladderButtonPressed:" destination="9hI-1b-FTq" eventType="touchUpInside" id="w4u-FF-ama"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOV-lu-YRQ" userLabel="ladderDown">
-                                                    <rect key="frame" x="241" y="19" width="111" height="101.5"/>
+                                                    <rect key="frame" x="241" y="19" width="111" height="111.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="55"/>
                                                     <size key="titleShadowOffset" width="8" height="0.0"/>
                                                     <state key="normal" title="0">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="ladderButtonPressed:" destination="9hI-1b-FTq" eventType="touchUpInside" id="4zK-zz-55A"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5w-nO-f7b" userLabel="repSecs">
-                                                    <rect key="frame" x="155" y="43" width="63" height="56.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5w-nO-f7b" userLabel="repsCount">
+                                                    <rect key="frame" x="155" y="43" width="63" height="66.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="65"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -957,29 +982,31 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="55" id="t13-kH-pP2">
-                                        <rect key="frame" x="0.0" y="615" width="375" height="55"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="nextCell" rowHeight="40" id="t13-kH-pP2">
+                                        <rect key="frame" x="0.0" y="630" width="375" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t13-kH-pP2" id="mDo-rz-Gkg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEXT EXERCISE -----&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M9-uj-laM">
-                                                    <rect key="frame" x="24" y="17" width="183" height="21"/>
+                                                    <rect key="frame" x="22" y="9" width="183" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXERCISE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="god-LG-dKj">
-                                                    <rect key="frame" x="215" y="17" width="139" height="21"/>
+                                                    <rect key="frame" x="213" y="9" width="139" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -989,6 +1016,21 @@
                             <outlet property="delegate" destination="9hI-1b-FTq" id="2oh-4t-c9C"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="countTimerLabel" destination="CAY-ST-bZY" id="YuJ-18-b6C"/>
+                        <outlet property="exerciseName" destination="ZG2-4O-GZi" id="jex-Tp-V5c"/>
+                        <outlet property="exercisesCount" destination="6Ug-2S-7lA" id="WiU-Qm-fbd"/>
+                        <outlet property="intervalTimerLabel" destination="mvk-O2-Po0" id="jWS-rU-0tZ"/>
+                        <outlet property="ladderDownButton" destination="vOV-lu-YRQ" id="Cb0-PJ-zym"/>
+                        <outlet property="ladderUpButton" destination="z1o-3A-ULE" id="CuU-g9-yY4"/>
+                        <outlet property="laddersCount" destination="RI3-Yd-H3z" id="OPF-M7-5TW"/>
+                        <outlet property="navigBar" destination="Ibg-pH-LXb" id="j1T-xM-DEk"/>
+                        <outlet property="nextExercise" destination="god-LG-dKj" id="egX-mV-sH6"/>
+                        <outlet property="overallTimerLabel" destination="1O4-ie-YFQ" id="gH9-E3-jR6"/>
+                        <outlet property="pauseButton" destination="MXE-gA-IQL" id="muR-gq-IQm"/>
+                        <outlet property="remainIntervalLabel" destination="EHd-nw-hmt" id="6ze-u4-dBl"/>
+                        <outlet property="repsCountLabel" destination="g5w-nO-f7b" id="q33-iN-083"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yf-68-iO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

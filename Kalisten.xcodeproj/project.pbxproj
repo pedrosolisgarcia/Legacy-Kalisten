@@ -39,6 +39,7 @@
 		515799D51E87135300E6D1A0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D31E87135300E6D1A0 /* Bolts.framework */; };
 		515799D61E87135300E6D1A0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D41E87135300E6D1A0 /* Parse.framework */; };
 		515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */; };
+		516745611EECA2DE00F054A7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516745601EECA2DD00F054A7 /* HealthKit.framework */; };
 		516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F81EDB18DC0039497D /* ic_eye_closed.png */; };
 		516F49041EDB18DC0039497D /* ic_eye_closed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */; };
 		516F49051EDB18DC0039497D /* ic_eye_closed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */; };
@@ -103,6 +104,7 @@
 		515799D31E87135300E6D1A0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		515799D41E87135300E6D1A0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
+		516745601EECA2DD00F054A7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		516F48F81EDB18DC0039497D /* ic_eye_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_eye_closed.png; sourceTree = "<group>"; };
 		516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_closed@2x.png"; sourceTree = "<group>"; };
 		516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_closed@3x.png"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				515799C91E8710B500E6D1A0 /* libz.tbd in Frameworks */,
 				515799CA1E8710B500E6D1A0 /* MobileCoreServices.framework in Frameworks */,
 				515799CC1E8710B500E6D1A0 /* Security.framework in Frameworks */,
+				516745611EECA2DE00F054A7 /* HealthKit.framework in Frameworks */,
 				515799CD1E8710B500E6D1A0 /* SpriteKit.framework in Frameworks */,
 				515799CE1E8710B500E6D1A0 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -229,6 +232,7 @@
 		515799B81E8710B500E6D1A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				516745601EECA2DD00F054A7 /* HealthKit.framework */,
 				515799B91E8710B500E6D1A0 /* AudioToolbox.framework */,
 				515799BA1E8710B500E6D1A0 /* CFNetwork.framework */,
 				515799BB1E8710B500E6D1A0 /* CoreGraphics.framework */,
@@ -381,6 +385,9 @@
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
