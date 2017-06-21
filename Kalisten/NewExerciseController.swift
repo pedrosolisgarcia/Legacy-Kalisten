@@ -57,7 +57,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         
         descriptionTextView?.delegate = self
         placeholderLabel = UILabel()
-        placeholderLabel.text = "Enter a description:"
+        placeholderLabel.text = "ENTER A DESCRIPTION:"
         placeholderLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: (descriptionTextView?.font?.pointSize)!)
         placeholderLabel.sizeToFit()
         descriptionTextView?.addSubview(placeholderLabel)
@@ -99,15 +99,15 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             present(alertController, animated: true, completion:nil)
         }else{
             let exercise = PFObject(className: "Exercise")
-            exercise["name"] = nameTextField.text
-            exercise["type"] = typeTextField.text
-            exercise["family"] = familyTextField.text?.components(separatedBy: ", ")
+            exercise["name"] = nameTextField.text?.capitalized
+            exercise["type"] = typeTextField.text?.capitalized
+            exercise["family"] = familyTextField.text?.capitalized.components(separatedBy: ", ")
             exercise["difficulty"] = cell.difficulty
-            exercise["tarjets"] = tarjetsTextField.text?.components(separatedBy: ", ")
-            exercise["pq"] = pqTextField?.text?.components(separatedBy: ", ")
-            exercise["place"] = placeTextField?.text?.components(separatedBy: ", ")
-            exercise["object"] = objectTextField?.text?.components(separatedBy: ", ")
-            exercise["description"] = descriptionTextView?.text
+            exercise["tarjets"] = tarjetsTextField.text?.capitalized.components(separatedBy: ", ")
+            exercise["pq"] = pqTextField?.text?.capitalized.components(separatedBy: ", ")
+            exercise["place"] = placeTextField?.text?.capitalized.components(separatedBy: ", ")
+            exercise["object"] = objectTextField?.text?.capitalized.components(separatedBy: ", ")
+            exercise["description"] = descriptionTextView?.text.lowercased()
             
             // Save the image in case we introduced one
             let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)

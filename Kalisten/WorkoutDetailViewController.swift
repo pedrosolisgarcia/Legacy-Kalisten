@@ -25,11 +25,12 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet var descrpt: UILabel!
     
     @IBOutlet var tableView: UITableView!
-
     
     var workout: Workout!
     
     var exercises = [Exercise]()
+    
+    var workoutFamily: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

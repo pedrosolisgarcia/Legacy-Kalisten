@@ -17,9 +17,22 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
     var searchController = UISearchController()
     var searchResults:[Workout] = [Workout]()
     var searchActive: Bool = false
+    
+    @IBOutlet var addWorkout: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Only guests cannot see the add button
+        let current = PFUser.current()
+        
+        if current == nil {
+            addWorkout.isEnabled = false
+            addWorkout.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else {
+            addWorkout.isEnabled = true
+            addWorkout.tintColor = UIColor.white
+        }
         
         loadWorkoutsFromParse()
         
@@ -36,7 +49,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search workouts..."
+        searchController.searchBar.placeholder = "SEARCH WORKOUT..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
 
@@ -217,8 +230,8 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         let tarjetsQuery = PFQuery(className: "Workout")
         
         // Filter by search string
-        nameQuery.whereKey("name", contains: searchText)
-        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText)
+        nameQuery.whereKey("name", contains: searchText.capitalized)
+        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText.capitalized)
         query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
         searchActive = true
         query.findObjectsInBackground { (objects, error) -> Void in

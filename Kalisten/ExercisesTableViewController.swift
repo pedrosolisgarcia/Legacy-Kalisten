@@ -53,7 +53,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search exercises..."
+        searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
         
@@ -233,8 +233,8 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         let tarjetsQuery = PFQuery(className: "Exercise")
         
         // Filter by search string
-        nameQuery.whereKey("name", contains: searchText)
-        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText)
+        nameQuery.whereKey("name", contains: searchText.capitalized)
+        tarjetsQuery.whereKey("tarjets", hasPrefix: searchText.capitalized)
         query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
         searchActive = true
         query.findObjectsInBackground { (objects, error) -> Void in

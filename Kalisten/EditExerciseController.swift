@@ -107,24 +107,24 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
         }
         
         
-        nameTextField.text = editExercise.name
+        nameTextField.text = editExercise.name.uppercased()
         difficultyTextField.text = String(editExercise.difficulty)
-        typeTextField.text = editExercise.type
+        typeTextField.text = editExercise.type.uppercased()
         let arrayFamily:NSArray = editExercise.family as NSArray
-        familyTextField.text = arrayFamily.componentsJoined(by: ", ")
+        familyTextField.text = arrayFamily.componentsJoined(by: ", ").uppercased()
         let arrayTajets:NSArray = editExercise.tarjets as NSArray
-        tarjetsTextField.text = arrayTajets.componentsJoined(by: ", ")
+        tarjetsTextField.text = arrayTajets.componentsJoined(by: ", ").uppercased()
         let arrayPlace:NSArray? = editExercise.place as NSArray?
-        placeTextField?.text = arrayPlace?.componentsJoined(by: ", ")
+        placeTextField?.text = arrayPlace?.componentsJoined(by: ", ").uppercased()
         let arrayObject:NSArray? = editExercise.object as NSArray?
-        objectTextField?.text = arrayObject?.componentsJoined(by: ", ")
+        objectTextField?.text = arrayObject?.componentsJoined(by: ", ").uppercased()
         let arrayPQ:NSArray? = editExercise.pq as NSArray?
-        pqTextField?.text = arrayPQ?.componentsJoined(by: ", ")
-        descriptionTextView?.text = editExercise.description
+        pqTextField?.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
+        descriptionTextView?.text = editExercise.description?.uppercased()
         
         descriptionTextView?.delegate = self
         placeholderLabel = UILabel()
-        placeholderLabel.text = "Enter a description:"
+        placeholderLabel.text = "ENTER A DESCRIPTION:"
         placeholderLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: (descriptionTextView?.font?.pointSize)!)
         placeholderLabel.sizeToFit()
         descriptionTextView?.addSubview(placeholderLabel)
@@ -193,15 +193,15 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                     
                     let exerciseToUpdate = PFObject(withoutDataWithClassName: "Exercise", objectId: self.editExercise.exId)
                     
-                    exerciseToUpdate["name"] = self.nameTextField.text
-                    exerciseToUpdate["type"] = self.typeTextField.text
-                    exerciseToUpdate["family"] = self.familyTextField.text?.components(separatedBy: ", ")
+                    exerciseToUpdate["name"] = self.nameTextField.text?.capitalized
+                    exerciseToUpdate["type"] = self.typeTextField.text?.capitalized
+                    exerciseToUpdate["family"] = self.familyTextField.text?.capitalized.components(separatedBy: ", ")
                     exerciseToUpdate["difficulty"] = Int(self.difficultyTextField.text!)
-                    exerciseToUpdate["tarjets"] = self.tarjetsTextField.text?.components(separatedBy: ", ")
-                    exerciseToUpdate["pq"] = self.pqTextField?.text?.components(separatedBy: ", ")
-                    exerciseToUpdate["place"] = self.placeTextField?.text?.components(separatedBy: ", ")
-                    exerciseToUpdate["object"] = self.objectTextField?.text?.components(separatedBy: ", ")
-                    exerciseToUpdate["description"] = self.descriptionTextView?.text
+                    exerciseToUpdate["tarjets"] = self.tarjetsTextField.text?.capitalized.components(separatedBy: ", ")
+                    exerciseToUpdate["pq"] = self.pqTextField?.text?.capitalized.components(separatedBy: ", ")
+                    exerciseToUpdate["place"] = self.placeTextField?.text?.capitalized.components(separatedBy: ", ")
+                    exerciseToUpdate["object"] = self.objectTextField?.text?.capitalized.components(separatedBy: ", ")
+                    exerciseToUpdate["description"] = self.descriptionTextView?.text.lowercased()
                     
                     // Save the image in case we introduced one
                     let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)
@@ -228,63 +228,6 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                 present(alertController, animated: true, completion:nil)
                 
             }
-            //dismiss(animated: true, completion: nil)
         }
     }
-    
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

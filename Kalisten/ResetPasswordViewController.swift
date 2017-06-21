@@ -12,11 +12,16 @@ import Parse
 class ResetPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,13 +30,13 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @IBAction func passwordReset(_ sender: AnyObject) {
-        let email = self.emailField.text!
+        let email = self.emailField.text!.lowercased()
         let finalEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         // Send a request to reset a password
         PFUser.requestPasswordResetForEmail(inBackground: finalEmail)
         
-        let alertController = UIAlertController(title: "Password Reset", message: "An email containing information on how to reset your password has been sent to \(finalEmail).", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Password link sent", message: "An email containing a link to set a new password has been sent to \(finalEmail).", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
             (_)in
             self.dismiss(animated: true, completion: nil)

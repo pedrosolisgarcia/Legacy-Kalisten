@@ -161,7 +161,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         if textField == self.usernameField {
             
             let query = PFQuery(className: "_User")
-            query.whereKey("username", equalTo: usernameField.text!)
+            query.whereKey("username", equalTo: usernameField.text!.lowercased())
             query.findObjectsInBackground { (objects, error) -> Void in
                 if error == nil {
                     if (objects!.count > 0){
@@ -169,9 +169,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                         self.usernameTaken.text = "TAKEN"
                         self.usernameTaken.backgroundColor = UIColor(red: 250/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
                     } else {
-                        self.usernameIsTaken = false
-                        self.usernameTaken.text = "FREE"
-                        self.usernameTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                        
+                        if self.usernameField.text == "" {
+                            
+                            self.usernameIsTaken = false
+                            self.usernameTaken.backgroundColor = UIColor.white
+                        } else {
+                            
+                            self.usernameIsTaken = false
+                            self.usernameTaken.text = "FREE"
+                            self.usernameTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                        }
                     }
                 } else {
                     print("Error: \(error) \(error?.localizedDescription)")
@@ -181,7 +189,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         if textField == self.emailField {
             
             let query = PFQuery(className: "_User")
-            query.whereKey("email", equalTo: emailField.text!)
+            query.whereKey("email", equalTo: emailField.text!.lowercased())
             query.findObjectsInBackground { (objects, error) -> Void in
                 if error == nil {
                     if (objects!.count > 0){
@@ -191,9 +199,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                         self.emailTaken.backgroundColor = UIColor(red: 250/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
                     } else {
                         
-                        self.emailIsTaken = false
-                        self.emailTaken.text = "FREE"
-                        self.emailTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                        if self.emailField.text == "" {
+                            
+                            self.emailIsTaken = false
+                            self.emailTaken.backgroundColor = UIColor.white
+                        } else {
+                            
+                            self.emailIsTaken = false
+                            self.emailTaken.text = "FREE"
+                            self.emailTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                        }
                     }
                 } else {
                     

@@ -18,9 +18,22 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableViewTarjects: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    //var cell: ExerciseDetailTableViewCell!
+    //Variables for the navigation bar used during Workout Session
+    @IBOutlet weak var navigBar: UINavigationBar!
+    @IBOutlet weak var navigItem: UINavigationItem!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     var exercise: Exercise!
+    
+    var workoutFamily: String!
+    
+    @IBAction func backButtonPressed(_sender: UIBarButtonItem){
+        
+        if workoutFamily == "Ladder" {
+            self.performSegue(withIdentifier: "unwindToLadder", sender: self)
+        }
+        
+    }
     
     var editMode = false
     
@@ -71,6 +84,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         }
 
         // Do any additional setup after loading the view.
+        navigItem.title = exercise.name.uppercased()
         
         // Load image in the detail view
         exerciseImageView.image = UIImage()

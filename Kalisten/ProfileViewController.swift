@@ -12,7 +12,9 @@ import Parse
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userAvatar: UIImageView!
+    @IBOutlet weak var userAvatarView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var nameSurnameLabel: UILabel!
     var blurEffectView: UIView!
     
     override func viewDidLoad() {
@@ -24,17 +26,29 @@ class ProfileViewController: UIViewController {
             avatar.getDataInBackground(block: { (avatarData, error) in
                 if let userAvatarData = avatarData {
                     self.userAvatar.image = UIImage(data: userAvatarData)
+                    self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+
                 }
             })
         } else {
             self.userAvatar.image = UIImage(named: "user")
         }
         
-        // Show the current user's username
+        // Show the current user's username, name and surname
         if let pUserName = PFUser.current()?["username"] as? String {
-            self.usernameLabel.text = "@" + pUserName
+            self.usernameLabel.text = "@" + pUserName.uppercased()
         } else {
-            self.usernameLabel.text = "@username"
+            self.usernameLabel.text = "@USERNAME"
+        }
+        if let pFirstName = PFUser.current()?["firstName"] as? String {
+            if let pLastName = PFUser.current()?["lastName"] as? String {
+                self.nameSurnameLabel.text = pFirstName.uppercased() + " " + pLastName.uppercased()
+            } else {
+                self.nameSurnameLabel.text = pFirstName.uppercased()
+            }
+            
+        } else {
+            self.nameSurnameLabel.text = "NAME SURNAME"
         }
     }
     
@@ -44,13 +58,13 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(self.view.subviews.count)
+        
         if (PFUser.current() == nil) {
             
             self.userAvatar.image = UIImage(named: "user")
-            self.usernameLabel.text = "@username"
+            self.usernameLabel.text = "@USERNAME"
             
-            if (self.view.subviews.count <= 5) {
+            if (self.view.subviews.count <= 6) {
                 
                 //Add the Login subview
                 let popLoginView = UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
@@ -62,29 +76,40 @@ class ProfileViewController: UIViewController {
             
         } else {
             
-            if (self.view.subviews.count > 5){
+            if (self.view.subviews.count > 6){
                 //self.view.subviews.removeLast()
             }
-            
             //Shows the avatar if the user has one
             userAvatar.image = UIImage()
             if let avatar = PFUser.current()?["avatar"] as? PFFile {
                 avatar.getDataInBackground(block: { (avatarData, error) in
                     if let userAvatarData = avatarData {
                         self.userAvatar.image = UIImage(data: userAvatarData)
+                        self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+                        
                     }
                 })
             } else {
                 self.userAvatar.image = UIImage(named: "user")
             }
-            
-            // Show the current user's username
+            // Show the current user's username, name and surname
             if let pUserName = PFUser.current()?["username"] as? String {
-                self.usernameLabel.text = "@" + pUserName
+                self.usernameLabel.text = "@" + pUserName.uppercased()
             } else {
-                self.usernameLabel.text = "@username"
+                self.usernameLabel.text = "@USERNAME"
+            }
+            if let pFirstName = PFUser.current()?["firstName"] as? String {
+                if let pLastName = PFUser.current()?["lastName"] as? String {
+                    self.nameSurnameLabel.text = pFirstName.uppercased() + " " + pLastName.uppercased()
+                } else {
+                    self.nameSurnameLabel.text = pFirstName.uppercased()
+                }
+                
+            } else {
+                self.nameSurnameLabel.text = "NAME SURNAME"
             }
         }
+        self.viewDidLoad()
     }
     
     @IBAction func logOutAction(_ sender: AnyObject){
@@ -97,6 +122,7 @@ class ProfileViewController: UIViewController {
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion:nil)
         
-        self.tabBarController?.selectedIndex = 2;
+        self.tabBarController?.selectedIndex = 2
+        //self.performSegue(withIdentifier: "backToHomeScreen", sender: self)
     }
 }

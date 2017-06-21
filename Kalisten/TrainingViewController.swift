@@ -12,6 +12,8 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
+    
+    @IBAction func unwindToTraining(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         //Remove the title of the back button
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        tableView.separatorColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +68,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell4", for: indexPath) as! TrainingCollectionViewCell
             // Configure the cell...
-            cell.stretchingLabel.text = "STRETCHING"
+            cell.stretchingLabel.text = "FLEXIBILITY"
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell", for: indexPath)

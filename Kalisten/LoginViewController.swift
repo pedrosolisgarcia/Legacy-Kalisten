@@ -119,6 +119,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
                         
                         self.removeAnimate()
                         self.view.willRemoveSubview(self.blurEffectView)
+                        super.viewDidLoad()
                     })
 
                     alertController.addAction(alertAction)
@@ -126,7 +127,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
                     
                 } else {
                     
-                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Error while logging in", message: "Invalid username or password. Please check your credentials and try again.", preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(cancelAction)
                     self.present(alertController, animated: true, completion:nil)
