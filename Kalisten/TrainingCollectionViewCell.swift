@@ -17,7 +17,7 @@ class TrainingCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            self.contentView.backgroundColor = isSelected ? UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5) : UIColor.white
+            self.contentView.backgroundColor = isSelected ? UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5) : UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         }
     }
 

@@ -54,24 +54,29 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell1", for: indexPath) as! TrainingCollectionViewCell
             // Configure the cell...
             cell.strengthLabel.text = "STRENGTH"
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell2", for: indexPath) as! TrainingCollectionViewCell
             // Configure the cell...
             cell.conditioningLabel.text = "CONDITIONING"
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell3", for: indexPath) as! TrainingCollectionViewCell
             // Configure the cell...
             cell.cardioLabel.text = "CARDIO"
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell4", for: indexPath) as! TrainingCollectionViewCell
             // Configure the cell...
             cell.stretchingLabel.text = "FLEXIBILITY"
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell", for: indexPath)
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
             return cell
         }
     }
