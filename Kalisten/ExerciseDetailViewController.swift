@@ -27,6 +27,15 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     var workoutFamily: String!
     
+    //Return from the Exercise List to the New Workout Scene
+    @IBAction func unwindToExerciseDetail(segue:UIStoryboardSegue){
+        if segue.identifier == "exerciseEdited" {
+            viewDidLoad()
+            tableViewInformation.reloadData()
+            tableViewExecution.reloadData()
+        }
+    }
+    
     @IBAction func backButtonPressed(_sender: UIBarButtonItem){
         
         if workoutFamily == "Ladder" {
@@ -109,6 +118,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
 
         //Sets the header of the navigation bar to the exercise's name
         title = exercise.name.uppercased()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -218,8 +229,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             // Configure the cell...
             let cell = tableView.dequeueReusableCell(withIdentifier: "executionCell") as! ExerciseDetailTableViewCell
             cell.fieldLabel.text = "  DESCRIPTION"
-            cell.valueText.placeholder = "No description available."
-            cell.valueText.text = exercise?.description
+            cell.descriptionText.text = exercise?.description?.uppercased()
             return cell
         }
         else{

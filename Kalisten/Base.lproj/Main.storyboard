@@ -31,6 +31,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="075-hU-ejN">
                                                     <rect key="frame" x="0.0" y="226" width="375" height="50"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="26"/>
                                                     <state key="normal" title="SELECT TRAINING NOW">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,8 +139,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" WORKOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1St-RC-lag" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="1" width="375" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" TRAINING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1St-RC-lag" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="1" width="375" height="39"/>
+                                                    <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="36"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -167,7 +169,7 @@
                                                 <constraint firstItem="zX0-Sv-dQA" firstAttribute="leading" secondItem="Gfw-8z-0Qx" secondAttribute="trailing" constant="7" id="WNX-gc-jsd"/>
                                                 <constraint firstItem="siT-oc-1Rw" firstAttribute="top" secondItem="6Dd-pD-Zxr" secondAttribute="bottom" constant="33" id="Wm1-Q8-CmY"/>
                                                 <constraint firstItem="siT-oc-1Rw" firstAttribute="top" secondItem="c5M-t7-mMr" secondAttribute="bottom" constant="4" id="XA4-Rv-v7c"/>
-                                                <constraint firstItem="3kh-C6-NXQ" firstAttribute="top" secondItem="1St-RC-lag" secondAttribute="bottom" constant="8" symbolic="YES" id="YUD-jG-Khu"/>
+                                                <constraint firstItem="3kh-C6-NXQ" firstAttribute="top" secondItem="1St-RC-lag" secondAttribute="bottom" constant="9" id="YUD-jG-Khu"/>
                                                 <constraint firstItem="c5M-t7-mMr" firstAttribute="top" secondItem="3kh-C6-NXQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Yvs-qS-bzi"/>
                                                 <constraint firstItem="5oW-BE-KJa" firstAttribute="top" secondItem="zX0-Sv-dQA" secondAttribute="bottom" constant="1" id="aG2-Fk-8in"/>
                                                 <constraint firstItem="d8o-He-Jbt" firstAttribute="firstBaseline" secondItem="pz0-PX-EF9" secondAttribute="firstBaseline" id="auj-vp-klj"/>
@@ -204,6 +206,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ce-zr-Aig">
                                                     <rect key="frame" x="0.0" y="227" width="375" height="50"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.44705882349999998" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="5TQ-RV-cLI"/>
                                                     </constraints>
@@ -367,6 +370,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" NUTRITION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xr-JW-1aA" customClass="MarqueeLabel" customModule="Kalisten" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                                    <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="46" id="vVY-gG-6H7"/>
                                                     </constraints>

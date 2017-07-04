@@ -55,7 +55,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.barTintColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()

@@ -14,6 +14,7 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet var contentView: UIView!
     
     @IBOutlet var exerciseImageView: UIImageView!
+    @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var difficultyTextField:UITextField!
     @IBOutlet var typeTextField:UITextField!
@@ -26,6 +27,8 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     
     var placeholderLabel:UILabel!
     var imagePicked = false
+    var thumbPicked = false
+    var isThumbImage = false
     
     //Exercise received from segue
     var editExercise: Exercise!
@@ -33,23 +36,34 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
             UIImage{
-            exerciseImageView.image = selectedImage
-            exerciseImageView.contentMode = .scaleAspectFit
-            exerciseImageView.clipsToBounds = true
-            imagePicked = true
+            
+            if isThumbImage {
+                thumbnailImageView.image = selectedImage
+                thumbnailImageView.contentMode = .scaleAspectFill
+                thumbnailImageView.clipsToBounds = true
+                thumbPicked = true
+            } else {
+                exerciseImageView.image = selectedImage
+                exerciseImageView.contentMode = .scaleAspectFit
+                contentView.backgroundColor = UIColor.white
+                exerciseImageView.clipsToBounds = true
+                imagePicked = true
+            }
         }
-        
-        let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
-        leadingConstraint.isActive = true
-        
-        let trailingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.trailing, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
-        trailingConstraint.isActive = true
-        
-        let topConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.top, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.top, multiplier: 1, constant: 0)
-        topConstraint.isActive = true
-        
-        let bottomConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.bottom, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
-        bottomConstraint.isActive = true
+        if !isThumbImage {
+            
+            let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+            leadingConstraint.isActive = true
+            
+            let trailingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.trailing, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+            trailingConstraint.isActive = true
+            
+            let topConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.top, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.top, multiplier: 1, constant: 0)
+            topConstraint.isActive = true
+            
+            let bottomConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.bottom, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+            bottomConstraint.isActive = true
+        }
         
         dismiss(animated: true, completion: nil)
     }
@@ -57,8 +71,21 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
+        thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
+        
         // Load image in the detail view
+        thumbnailImageView.image = UIImage()
         exerciseImageView.image = UIImage()
+        if let image = editExercise.image {
+            image.getDataInBackground(block: { (imageData, error) in
+                if let exerciseImageData = imageData {
+                    self.thumbnailImageView.image = UIImage(data: exerciseImageData)
+                }
+            })
+            thumbnailImageView.contentMode = .scaleAspectFill
+            thumbnailImageView.clipsToBounds = true
+        }
         if let imageDet = editExercise.imageDet {
             imageDet.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
@@ -82,30 +109,6 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
             bottomConstraint.isActive = true
             
         }
-        else if let image = editExercise.image {
-            image.getDataInBackground(block: { (imageData, error) in
-                if let exerciseImageData = imageData {
-                    self.exerciseImageView.image = UIImage(data: exerciseImageData)
-                }
-            })
-            contentView.backgroundColor = UIColor.white
-            exerciseImageView.contentMode = .scaleAspectFit
-            exerciseImageView.clipsToBounds = true
-            
-            let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
-            leadingConstraint.isActive = true
-            
-            let trailingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.trailing, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
-            trailingConstraint.isActive = true
-            
-            let topConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.top, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.top, multiplier: 1, constant: 0)
-            topConstraint.isActive = true
-            
-            let bottomConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.bottom, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
-            bottomConstraint.isActive = true
-            
-        }
-        
         
         nameTextField.text = editExercise.name.uppercased()
         difficultyTextField.text = String(editExercise.difficulty)
@@ -150,9 +153,22 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                 imagePicker.delegate = self
                 imagePicker.allowsEditing = false
                 imagePicker.sourceType = .photoLibrary
-                
+                isThumbImage = false
                 present(imagePicker,animated: true,completion: nil)
             }
+        }
+    }
+    
+    func selectPic(_ sender: AnyObject) {
+        
+        isThumbImage = true
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            
+            present(imagePicker,animated: true,completion: nil)
         }
     }
     
@@ -203,11 +219,25 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                     exerciseToUpdate["object"] = self.objectTextField?.text?.capitalized.components(separatedBy: ", ")
                     exerciseToUpdate["description"] = self.descriptionTextView?.text.lowercased()
                     
-                    // Save the image in case we introduced one
+                    // Save the image or the icon in case we introduce one
                     let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)
-                    if imageData != nil && self.imagePicked {
-                        let imageFile = PFFile(name:"\(self.nameTextField.text).png", data:imageData!)
-                        exerciseToUpdate["image"] = imageFile
+                    let thumbData = UIImagePNGRepresentation(self.thumbnailImageView.image!)
+                    
+                    
+                    if imageData != nil && self.imagePicked && self.thumbPicked{
+                        let imageFile = PFFile(name:"image.png", data:imageData!)
+                        exerciseToUpdate["imageDet"] = imageFile
+                        let thumbFile = PFFile(name:"thumb.png", data:thumbData!)
+                        exerciseToUpdate["image"] = thumbFile
+                    }
+                    if thumbData != nil && self.thumbPicked && !self.imagePicked{
+                        let thumbFile = PFFile(name:"thumb.png", data:thumbData!)
+                        
+                        exerciseToUpdate["image"] = thumbFile
+                    }
+                    if thumbData != nil && !self.thumbPicked && self.imagePicked{
+                        let imageFile = PFFile(name:"image.png", data:imageData!)
+                        exerciseToUpdate["imageDet"] = imageFile
                     }
                     
                     // Update the exercise on Parse
@@ -218,6 +248,8 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                             print("Error: \(error?.localizedDescription ?? "Unknown error"))")
                         }
                     })
+                    
+                    self.performSegue(withIdentifier: "exerciseEdited", sender: self)
                 }
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
