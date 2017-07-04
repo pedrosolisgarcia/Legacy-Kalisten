@@ -26,6 +26,16 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet var tableView: UITableView!
     
+    //Return from the Edit Workout to the Workout Detail Scene
+    @IBAction func unwindToWorkoutDetail(segue:UIStoryboardSegue){
+        if segue.identifier == "doneEditWorkout" {
+            loadExercisesFromWorkout()
+            viewDidLoad()
+            tableView.reloadData()
+            
+        }
+    }
+    
     var workout: Workout!
     
     var exercises = [Exercise]()
@@ -189,6 +199,14 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
                 
                 destinationController.exercise =  exercises[indexPath.row]
             }
+        }
+        if segue.identifier == "editWorkout"{
+            
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! EditWorkoutController
+            
+            destinationController.workout = workout
+            destinationController.exercises = exercises
         }
         if segue.identifier == "selectWorkout"{
             // Pass the selected object to the new view controller.

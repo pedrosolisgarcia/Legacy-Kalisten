@@ -24,8 +24,9 @@ class Workout {
     var improves = ""
     var information: [String]?
     var isCreated = false
+    var user: String?
     
-    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Double], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool){
+    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Double], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool, user: String!){
         
         self.workId = workId
         self.name = name
@@ -40,6 +41,7 @@ class Workout {
         self.improves = improves
         self.information = information
         self.isCreated = isCreated
+        self.user = user
         
     }
     
@@ -57,6 +59,7 @@ class Workout {
         self.improves = pfObject["improves"] as! String
         self.information = pfObject["information"] as? [String]
         self.isCreated = pfObject["isCreated"] as! Bool
+        self.user = pfObject["user"] as? String
     }
     
     func toPFObject() -> PFObject {
@@ -74,6 +77,7 @@ class Workout {
         workoutObject["improves"] = improves
         workoutObject["information"] = information
         workoutObject["isCreated"] = isCreated
+        workoutObject["user"] = user
         
         return workoutObject
     }

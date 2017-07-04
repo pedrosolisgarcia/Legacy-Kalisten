@@ -166,7 +166,17 @@ class LadderWorkoutViewController: UITableViewController {
         }
         var timePassed: TimeInterval = currentTime - zeroTime - pausedSeconds
         var interPassed: TimeInterval = currentTime - zeroTime - pausedSeconds - setLadder
-        var ladderLeft = (/*workout.intTime[0]*/ 0.1 * 60) - interPassed + 1
+        var ladderLeft = (workout.intTime[0] * 60) - interPassed + 1
+        
+        //If the clock has 10 secs or less to finish the interval, it becomes red.
+        if ladderLeft <= 11 {
+            
+            remainIntervalLabel.tintColor = UIColor.red
+            
+        } else {
+            
+            remainIntervalLabel.tintColor = UIColor.black
+        }
         
         if ladderLeft <= 0 {
             
@@ -174,7 +184,7 @@ class LadderWorkoutViewController: UITableViewController {
             exReps.append(repsCount)
             
             if index < exercises.count - 1{
-                setLadder += (/*workout.intTime[0]*/ 0.1 * 60)
+                setLadder += (workout.intTime[0] * 60)
                 index += 1
                 insertExerciseData()
             } else {

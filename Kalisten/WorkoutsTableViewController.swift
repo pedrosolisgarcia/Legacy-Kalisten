@@ -19,6 +19,11 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
     var searchActive: Bool = false
     
     @IBOutlet var addWorkout: UIBarButtonItem!
+    
+    //Return from the New Workout View to the Exercise tableView
+    @IBAction func unwindToWorkouts(segue:UIStoryboardSegue){
+        loadWorkoutsFromParse()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
