@@ -35,7 +35,6 @@ class Plan {
         self.description = description
         self.isCreated = isCreated
         self.user = user
-        
     }
     
     init(pfObject: PFObject) {
@@ -66,5 +65,4 @@ class Plan {
         
         return planObject
     }
-    
 }

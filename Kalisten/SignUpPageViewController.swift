@@ -18,10 +18,6 @@ class SignUpPageViewController: UIPageViewController, UIPageViewControllerDataSo
         
         // Set the data source to itself
         dataSource = self
-        
-        //pageSignUp = storyboard?.instantiateViewController(withIdentifier: "SignUp") as? SignUpViewController
-        
-        //keepUsername = pageSignUp.keepUsername
 
         // Create the first walkthrough screen
         if let startingViewController = contentViewController(at: 0) {
@@ -65,7 +61,6 @@ class SignUpPageViewController: UIPageViewController, UIPageViewControllerDataSo
             pageSignUp.index = index
             
             return pageSignUp
-            
         }
         return nil
     }

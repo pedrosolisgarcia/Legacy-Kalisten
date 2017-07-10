@@ -91,7 +91,6 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             return exercises.count
         }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -203,12 +202,10 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             alert.addAction(cancel)
             alert.addAction(delete)
             self.present(alert, animated: true, completion: nil)
-            
         }
         
         //This is nice if you want to add a edit button later
         return [deleteAction]
-        
     }
 
     //Prepare data from the selected exercise to be shown in the detail view
@@ -254,7 +251,6 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             }
             self.searchActive = false
         }
-        
     }
     
     func updateSearchResults(for searchController: UISearchController) {

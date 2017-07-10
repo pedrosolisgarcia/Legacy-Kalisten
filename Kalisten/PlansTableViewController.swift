@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
-
+    
     //Array to store the Routines from Parse as objects
     private var plans = [Plan]()
     
@@ -204,16 +204,16 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
     
     //Prepare data from the selected workout to be shown in the detail view
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     if segue.identifier == "showPlanDetail"{
-     if let indexPath = tableView.indexPathForSelectedRow {
-     // Pass the selected object to the new view controller.
-     let destinationController = segue.destination as! PlanDetailViewController
-     
-     destinationController.plan = (searchController.isActive) ? searchResults[indexPath.row] : plans[indexPath.row]
-     }
-     }
-     }*/
+        // Get the new view controller using segue.destinationViewController.
+        if segue.identifier == "showPlanDetail"{
+            if let indexPath = tableView.indexPathForSelectedRow {
+                // Pass the selected object to the new view controller.
+                let destinationController = segue.destination as! PlanDetailViewController
+                
+                destinationController.plan = (searchController.isActive) ? searchResults[indexPath.row] : plans[indexPath.row]
+            }
+        }
+    }*/
     
     //Filter the contents to show by the characters typed
     func filterContent(for searchText: String) {
@@ -245,7 +245,6 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
             }
             self.searchActive = false
         }
-        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -274,7 +273,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
             
             if let objects = objects {
                 for (index, object) in objects.enumerated() {
-
+                    
                     let plan = Plan(pfObject: object)
                     self.plans.append(plan)
                     

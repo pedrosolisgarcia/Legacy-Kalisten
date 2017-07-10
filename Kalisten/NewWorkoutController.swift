@@ -297,5 +297,4 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
             self.performSegue(withIdentifier: "savedNewWorkout", sender: self)
         }
     }
-    
 }

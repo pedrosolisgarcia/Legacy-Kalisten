@@ -81,6 +81,5 @@ class Workout {
         
         return workoutObject
     }
-    
 }
 

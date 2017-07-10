@@ -14,9 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: HideShowPasswordTextField!
     @IBOutlet var loginView: UIView!
-    
     @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}
-    
     var blurEffectView: UIView!
 
     override func viewDidLoad() {
@@ -70,7 +68,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
         passwordField.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).cgColor
         passwordField.clipsToBounds = true
         passwordField.font = UIFont(name: "AvenirNextCondensed-Regular", size: 17)
-        
         passwordField.rightView?.tintColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 1.0)
     }
     
@@ -89,13 +86,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
         } else if password.characters.count < 8 {
             
             let alertController = UIAlertController(title: "Password Invalid", message: "Password length mus be greater than five characters.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion:nil)
-            
-        } else if PFUser.current() != nil {
-            
-            let alertController = UIAlertController(title: "User already logged", message: "There is a sesion already iniciated by \(PFUser.current()?["username"])", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion:nil)

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ExercisesTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: MarqueeLabel!

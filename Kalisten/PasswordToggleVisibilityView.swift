@@ -95,5 +95,3 @@ class PasswordToggleVisibilityView: UIView {
         delegate?.viewWasToggled(self, isSelected: eyeButton.isSelected)
     }
 }
-
-// Animation helpers

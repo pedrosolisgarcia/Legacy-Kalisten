@@ -27,7 +27,6 @@ class ProfileViewController: UIViewController {
                 if let userAvatarData = avatarData {
                     self.userAvatar.image = UIImage(data: userAvatarData)
                     self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
-
                 }
             })
         } else {
@@ -86,7 +85,6 @@ class ProfileViewController: UIViewController {
                     if let userAvatarData = avatarData {
                         self.userAvatar.image = UIImage(data: userAvatarData)
                         self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
-                        
                     }
                 })
             } else {
@@ -123,6 +121,5 @@ class ProfileViewController: UIViewController {
         present(alertController, animated: true, completion:nil)
         
         self.tabBarController?.selectedIndex = 2
-        //self.performSegue(withIdentifier: "backToHomeScreen", sender: self)
     }
 }

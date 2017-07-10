@@ -39,9 +39,9 @@ class WorkoutInstructionsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "startLadderWorkout"{
+            
             // Pass the selected object to the new view controller.
             let destinationController = segue.destination as! LadderWorkoutViewController
-            
             destinationController.workout = workout
             destinationController.exercises = exercises
         }

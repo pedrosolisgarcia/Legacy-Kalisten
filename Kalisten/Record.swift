@@ -21,7 +21,6 @@ class Record {
     var maxReps = [Int]()
     var countReps = [Int]()
     
-    
     init(recId: String, user: String, workName: String, workType: String, workFamily: String, workDate: Date, workExercises: [String], maxReps: [Int], countReps: [Int]) {
         
         self.recId = recId
@@ -62,4 +61,3 @@ class Record {
         return workoutObject
     }
 }
-

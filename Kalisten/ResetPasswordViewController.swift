@@ -19,9 +19,6 @@ class ResetPasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +40,5 @@ class ResetPasswordViewController: UIViewController {
         })
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion:nil)
-        
     }
 }

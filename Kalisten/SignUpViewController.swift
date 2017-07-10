@@ -11,7 +11,6 @@ import Parse
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, HideShowPasswordTextFieldDelegate  {
     
-    
     @IBOutlet var signUpView1:UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var usernameField: UITextField!
@@ -23,7 +22,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     @IBOutlet weak var passwordField: HideShowPasswordTextField!
     @IBOutlet weak var saveContButton: UIButton!
     
-    
     @IBOutlet var signUpView2:UIView!
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
@@ -34,7 +32,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     @IBOutlet weak var ageField: UITextField!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var finishButton: UIButton!
-    
     
     let newUser = PFUser()
     
@@ -75,25 +72,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         
         pickWeightUnit.delegate = self
         pickWeightUnit.dataSource = self
-        
         pickHeightUnit.delegate = self
         pickHeightUnit.dataSource = self
-        
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
         tableView.sectionIndexColor = UIColor.white
         tableView.sectionIndexBackgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-        
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
             UIImage{
-            
-            
             
             profilePic.image = selectedImage
             profilePic.contentMode = .scaleAspectFill
@@ -215,7 +206,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                     print("Error: \(error) \(error?.localizedDescription)")
                 }
             }
-            
         }
     }
     
@@ -315,7 +305,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                 // Sign up the user asynchronously
                 newUser.signUpInBackground(block: { (succeed, error) -> Void in
                     
-                    
                     // Stop the spinner
                     spinner.stopAnimating()
                     
@@ -337,9 +326,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                         
                         self.moveForward()
                     }
-                    
                 })
-                
             }
         }
         if sender == finishButton {
@@ -402,11 +389,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                             
                             alertController.addAction(alertAction)
                             self.present(alertController, animated: true, completion:nil)
-                            
                         }
                     })
                 }
-                
             }
         }
     }

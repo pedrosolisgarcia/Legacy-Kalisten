@@ -13,7 +13,6 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     
     let current = PFUser.current()
     
-    @IBOutlet var nameTextField:UITextField!
     @IBOutlet var familyTextField:UITextField!
     @IBOutlet var familyIconImageView: UIImageView!
     @IBOutlet var numExercisesLabel:UILabel!

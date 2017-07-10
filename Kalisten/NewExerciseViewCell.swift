@@ -18,17 +18,13 @@ class NewExerciseViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-
         difficulties = ["0","1","2","3","4","5","6","7","8","9","10"]
         pickDifficulty.delegate = self
         pickDifficulty.dataSource = self
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
 }
 

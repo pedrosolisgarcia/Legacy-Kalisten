@@ -80,7 +80,6 @@ class LadderWorkoutViewController: UITableViewController {
         navigItem.title = workout.name.uppercased()
         
         insertExerciseData()
-        
         startTimer()
     }
 
@@ -195,30 +194,22 @@ class LadderWorkoutViewController: UITableViewController {
         
         let minutes = UInt8(timePassed / 60.0)
         timePassed -= (TimeInterval(minutes) * 60)
-        
         let interMin = UInt8(interPassed / 60.0)
         interPassed -= (TimeInterval(interMin) * 60)
-        
         let minsLeft = UInt8(ladderLeft / 60)
         ladderLeft -= (TimeInterval(minsLeft) * 60)
         
-        
         let seconds = UInt8(timePassed)
         timePassed -= TimeInterval(seconds)
-        
         let interSecs = UInt8(interPassed)
         interPassed -= TimeInterval(interSecs)
-        
         let secsLeft = UInt8(Int(ladderLeft) % 60)
         ladderLeft -= TimeInterval(secsLeft)
         
-        
         let strMinutes = String(format: "%02d", minutes)
         let strInterMins = String(format: "%02d", interMin)
-        
         let strMinsLeft = String(format: "%02d", minsLeft)
         let strSeconds = String(format: "%02d", seconds)
-        
         let strInterSecs = String(format: "%02d", interSecs)
         let strSecsLeft = String(format: "%02d", secsLeft)
         
