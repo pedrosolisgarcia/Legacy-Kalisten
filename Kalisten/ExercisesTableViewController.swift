@@ -17,18 +17,17 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
     var searchController = UISearchController()
     var searchResults:[Exercise] = [Exercise]()
     var searchActive: Bool = false
+    let current = PFUser.current()
     
     @IBOutlet var addExercise: UIBarButtonItem!
     
     //Return from the New Exercise View to the Exercise tableView
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue){}
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Only admins can see the add button
-        let current = PFUser.current()
-        
         if current == nil {
             addExercise.isEnabled = false
             addExercise.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -70,19 +69,19 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         //Hide the bar on swipe
         navigationController?.hidesBarsOnSwipe = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows
         if searchController.isActive {
@@ -150,9 +149,15 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         if searchController.isActive {
             return false
         } else {
-            return true
+            if (current != nil) && (current?["isAdmin"] as! Bool == true){
+                return true
+            }
+            else{
+                return false
+            }
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
@@ -207,7 +212,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         //This is nice if you want to add a edit button later
         return [deleteAction]
     }
-
+    
     //Prepare data from the selected exercise to be shown in the detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -227,12 +232,16 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         var query: PFQuery<PFObject>!
         
         let nameQuery = PFQuery(className: "Exercise")
+        let familyQuery = PFQuery(className: "Exercise")
         let tarjetsQuery = PFQuery(className: "Exercise")
+        let pqQuery = PFQuery(className: "Exercise")
         
         // Filter by search string
         nameQuery.whereKey("name", contains: searchText.capitalized)
+        familyQuery.whereKey("family", contains: searchText.capitalized)
         tarjetsQuery.whereKey("tarjets", hasPrefix: searchText.capitalized)
-        query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
+        pqQuery.whereKey("pq", contains: searchText.capitalized)
+        query = PFQuery.orQuery(withSubqueries: [nameQuery, familyQuery, tarjetsQuery, pqQuery])
         searchActive = true
         query.findObjectsInBackground { (objects, error) -> Void in
             if (error == nil) {
@@ -270,7 +279,8 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
-        //query.whereKey("type", equalTo: "Workout")
+        //query.order(byAscending: "family")
+        query.addAscendingOrder("family")
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             

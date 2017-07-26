@@ -13,7 +13,7 @@ class Exercise {
     
     var exId = ""
     var name = ""
-    var type = ""
+    var category = ""
     var family = [""]
     var place: [String]?
     var pq: [String]?
@@ -24,11 +24,11 @@ class Exercise {
     var tarjets = [""]
     var description: String?
     
-    init(exId: String, name: String, type: String, family: [String], place: [String]!, pq: [String]!, object: [String]!, image: PFFile!, imageDet: PFFile!, difficulty: Int, tarjets: [String], description: String!){
+    init(exId: String, name: String, category: String, family: [String], place: [String]!, pq: [String]!, object: [String]!, image: PFFile!, imageDet: PFFile!, difficulty: Int, tarjets: [String], description: String!){
         
         self.exId = exId
         self.name = name
-        self.type = type
+        self.category = category
         self.family = family
         self.place = place
         self.pq = pq
@@ -44,7 +44,7 @@ class Exercise {
     init(pfObject: PFObject) {
         self.exId = pfObject.objectId!
         self.name = pfObject["name"] as! String
-        self.type = pfObject["type"] as! String
+        self.category = pfObject["category"] as! String
         self.family = pfObject["family"] as! [String]
         self.place = pfObject["place"] as? [String]
         self.pq = pfObject["pq"] as? [String]
@@ -60,7 +60,7 @@ class Exercise {
         let exerciseObject = PFObject(className: "Exercise")
         exerciseObject.objectId = exId
         exerciseObject["name"] = name
-        exerciseObject["type"] = type
+        exerciseObject["category"] = category
         exerciseObject["family"] = family
         exerciseObject["place"] = place
         exerciseObject["pq"] = pq

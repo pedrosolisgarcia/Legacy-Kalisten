@@ -62,7 +62,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         signUpView2.isHidden = view2isHidden
         
         self.usernameField.delegate = self
+        self.firstNameField.delegate = self
+        self.lastNameField.delegate = self
         self.emailField.delegate = self
+        self.passwordField.delegate = self
+        self.weightField.delegate = self
+        self.heightField.delegate = self
+        self.ageField.delegate = self
         
         let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
         profilePic.addGestureRecognizer(gestureRecognizerOne)
@@ -93,6 +99,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         }
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     override func didReceiveMemoryWarning() {
@@ -415,7 +426,7 @@ extension SignUpViewController: UIPickerViewDataSource , UIPickerViewDelegate {
         pickerView == pickWeightUnit ? (unitData = weightUnits[row]) : (unitData = heightUnits[row])
         
         unitLabel.textAlignment = .center
-        let myUnit = NSAttributedString(string: unitData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 22)!])
+        let myUnit = NSAttributedString(string: unitData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 21)!])
         unitLabel.attributedText = myUnit
         
         return unitLabel

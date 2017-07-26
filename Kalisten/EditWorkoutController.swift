@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EditWorkoutController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class EditWorkoutController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     let current = PFUser.current()
     
@@ -21,9 +21,6 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var intervalTimeTextField:UITextField!
     @IBOutlet var pqTextField:UITextField!
     @IBOutlet var difficultyTextField:UITextField!
-    @IBOutlet var descriptionTextView:UITextView!
-    var placeholderLabel: UILabel!
-    
     @IBOutlet var tableView: UITableView!
     
     var workout: Workout!
@@ -44,30 +41,26 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
         tableView.isEditing = true
         self.tableView.allowsSelectionDuringEditing = true
         
-        familyTextField.text = workout.family.uppercased()
-        familyIconImageView.image = UIImage(named: "\(workout.family.lowercased())")
+        self.familyTextField.delegate = self
+        self.setsTextField.delegate = self
+        self.totalTimeTextField.delegate = self
+        self.intervalTimeTextField.delegate = self
+        self.pqTextField.delegate = self
+        self.difficultyTextField.delegate = self
+        
+        familyTextField.text = workout.type.uppercased()
+        familyIconImageView.image = UIImage(named: "\(workout.type.lowercased())")
         numExercisesLabel.text = String(workout.exercises.count)
         setsTextField.text = String(workout.numSets)
         totalTimeTextField.text = String(workout.totalTime)
         intervalTimeTextField.text = String(workout.intTime[0])
         pqTextField.text = workout.improves.uppercased()
         difficultyTextField.text = difficultyLabel(difficulty: workout.difficulty)
-        descriptionTextView.text = workout.information?[0].uppercased()
-        
-        // Do any additional setup after loading the view.
-        descriptionTextView?.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "ENTER A DESCRIPTION:"
-        placeholderLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: (descriptionTextView?.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        descriptionTextView?.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,12 +78,13 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     }
     
     //If the family workout introduced is ladder, it will show the ladder icon
-    private func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == self.familyTextField {
             if familyTextField.text?.lowercased() == "ladder" {
                 // Load familyIcon in the detail view
                 familyIconImageView.image = UIImage(named: "ladder")
+                familyIconImageView.reloadInputViews()
             }
         }
     }
@@ -280,6 +274,13 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
             destinationController.workoutView = "ExercisesEdit"
             
         }
+        if segue.identifier == "doneEditWorkout"{
+            
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! WorkoutDetailViewController
+            destinationController.workout = workout
+            
+        }
     }
     
     @IBAction func done(sender: AnyObject){
@@ -305,17 +306,26 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     
                     let workoutToUpdate = PFObject(withoutDataWithClassName: "Workout", objectId: self.workout.workId)
                     
-                    workoutToUpdate["family"] = self.familyTextField.text?.capitalized
+                    workoutToUpdate["type"] = self.familyTextField.text?.capitalized
+                    self.workout.type = (self.familyTextField.text?.capitalized)!
                     workoutToUpdate["numSets"] = Int(self.setsTextField.text!)
+                    self.workout.numSets = Int(self.setsTextField.text!)!
                     workoutToUpdate["exercises"] = self.exercisesNames
+                    self.workout.exercises = self.exercisesNames
                     workoutToUpdate["intTime"] = intTime
+                    self.workout.intTime = intTime
                     workoutToUpdate["totalTime"] = Int(self.totalTimeTextField.text!)
+                    self.workout.totalTime = Int(self.totalTimeTextField.text!)!
                     workoutToUpdate["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
+                    self.workout.difficulty = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
                     workoutToUpdate["tarjets"] = self.getTarjet(array: self.exercises)
+                    self.workout.tarjets = self.getTarjet(array: self.exercises)
                     workoutToUpdate["improves"] = self.pqTextField?.text?.capitalized
-                    workoutToUpdate["information"] = [self.descriptionTextView?.text.lowercased()]
+                    self.workout.improves = (self.pqTextField?.text?.capitalized)!
                     workoutToUpdate["isCreated"] = false
+                    self.workout.isCreated = false
                     workoutToUpdate["user"] = self.current?.objectId
+                    self.workout.user = self.current?.objectId
                     
                     // Update the workout on Parse
                     workoutToUpdate.saveInBackground(block: { (success, error) -> Void in
@@ -333,9 +343,8 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     
                     let workout = PFObject(className: "Workout")
                     workout["name"] = self.workout.name.capitalized + " (Variation)"
-                    workout["type"] = "Strength"
-                    print("Strength")
-                    workout["family"] = self.familyTextField.text?.capitalized
+                    workout["category"] = "Strength"
+                    workout["type"] = self.familyTextField.text?.capitalized
                     workout["numSets"] = Int(self.setsTextField.text!)
                     workout["exercises"] = self.exercisesNames
                     workout["intTime"] = intTime
@@ -343,7 +352,6 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     workout["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
                     workout["tarjets"] = self.getTarjet(array: self.exercises)
                     workout["improves"] = self.pqTextField?.text?.capitalized
-                    workout["information"] = [self.descriptionTextView?.text.lowercased()]
                     workout["isCreated"] = false
                     workout["user"] = self.current?.objectId
                     
@@ -374,8 +382,8 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     
                     let workout = PFObject(className: "Workout")
                     workout["name"] = self.workout.name.capitalized + " (Variation)"
-                    workout["type"] = "Strength"
-                    workout["family"] = self.familyTextField.text?.capitalized
+                    workout["category"] = "Strength"
+                    workout["type"] = self.familyTextField.text?.capitalized
                     workout["numSets"] = Int(self.setsTextField.text!)
                     workout["exercises"] = self.exercisesNames
                     workout["intTime"] = intTime
@@ -383,7 +391,6 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     workout["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
                     workout["tarjets"] = self.getTarjet(array: self.exercises)
                     workout["improves"] = self.pqTextField?.text?.capitalized
-                    workout["information"] = [self.descriptionTextView?.text.lowercased()]
                     workout["isCreated"] = true
                     workout["user"] = self.current?.objectId
                     
@@ -409,5 +416,4 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
             }
         }
     }
-    
 }

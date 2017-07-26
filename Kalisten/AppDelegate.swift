@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UISegmentedControl.appearance().layer.cornerRadius = 1
         UISegmentedControl.appearance().tintColor = UIColor.black
         
-        if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 28) {
+        if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFront]
         }
         

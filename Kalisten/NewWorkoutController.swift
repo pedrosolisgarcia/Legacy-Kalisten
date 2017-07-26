@@ -9,10 +9,11 @@
 import UIKit
 import Parse
 
-class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
     
     let current = PFUser.current()
     
+    @IBOutlet var cancelButton:UIBarButtonItem!
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var familyTextField:UITextField!
     @IBOutlet var familyIconImageView: UIImageView!
@@ -22,10 +23,10 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var intervalTimeTextField:UITextField!
     @IBOutlet var pqTextField:UITextField!
     @IBOutlet var difficultyTextField:UITextField!
-    @IBOutlet var descriptionTextView:UITextView!
-    var placeholderLabel: UILabel!
     
     @IBOutlet var tableView: UITableView!
+    
+    var workoutNew: Workout!
     
     var exercises = [Exercise]()
     var exercisesNames = [String]()
@@ -44,20 +45,19 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
         tableView.isEditing = true
         self.tableView.allowsSelectionDuringEditing = true
         
-        // Do any additional setup after loading the view.
-        descriptionTextView?.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "ENTER A DESCRIPTION:"
-        placeholderLabel.font = UIFont(name: "AvenirNextCondensed-Regular", size: (descriptionTextView?.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        descriptionTextView?.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+        self.nameTextField.delegate = self
+        self.familyTextField.delegate = self
+        self.setsTextField.delegate = self
+        self.totalTimeTextField.delegate = self
+        self.intervalTimeTextField.delegate = self
+        self.pqTextField.delegate = self
+        self.difficultyTextField.delegate = self
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+    // Keyboard will disappear when return button is touched
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,12 +75,13 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     //If the family workout introduced is ladder, it will show the ladder icon
-    private func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == self.familyTextField {
             if familyTextField.text?.lowercased() == "ladder" {
                 // Load familyIcon in the detail view
                 familyIconImageView.image = UIImage(named: "ladder")
+                familyIconImageView.reloadInputViews()
             }
         }
     }
@@ -246,8 +247,13 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
             let destinationController = segue.destination as! AddExercisesController
             
             destinationController.workoutView = "ExercisesNew"
-            
         }
+        /*if segue.identifier == "savedNewWorkout"{
+            
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! WorkoutsTableViewController
+            destinationController.workouts.append(workoutNew)
+        }*/
     }
     
     @IBAction func save(sender: AnyObject){
@@ -265,25 +271,33 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
             }
             let workout = PFObject(className: "Workout")
             workout["name"] = nameTextField.text?.capitalized
-            workout["type"] = "Strength"
-            print("Strength")
-            workout["family"] = familyTextField.text?.capitalized
+            workout["category"] = "Strength"
+            workout["type"] = familyTextField.text?.capitalized
             workout["numSets"] = Int(setsTextField.text!)
-            print(setsTextField.text!)
             workout["exercises"] = exercisesNames
             workout["intTime"] = intTime
             workout["totalTime"] = Int(totalTimeTextField.text!)
-            print(totalTimeTextField.text!)
             workout["difficulty"] = difficultyLevel(difficulty: difficultyTextField.text!)
-            print(difficultyLevel(difficulty: difficultyTextField.text!))
             workout["tarjets"] = getTarjet(array: exercises)
-            print(getTarjet(array: exercises))
             workout["improves"] = pqTextField?.text?.capitalized
-            workout["information"] = [descriptionTextView?.text.lowercased()]
             let isAdmin = current?["isAdmin"] as! Bool
             isAdmin ? (workout["isCreated"] = false) : (workout["isCreated"] = true)
-            print(isAdmin)
             workout["user"] = current?.objectId
+            
+            /*self.workoutNew.workId = "M9hyGTJ0eW"
+            self.workoutNew.name = (nameTextField.text?.capitalized)!
+            self.workoutNew.type = "Strength"
+            self.workoutNew.family = (self.familyTextField.text?.capitalized)!
+            self.workoutNew.numSets = Int(self.setsTextField.text!)!
+            self.workoutNew.exercises = self.exercisesNames
+            self.workoutNew.intTime = intTime
+            self.workoutNew.totalTime = Int(self.totalTimeTextField.text!)!
+            self.workoutNew.difficulty = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
+            self.workoutNew.tarjets = self.getTarjet(array: self.exercises)
+            self.workoutNew.improves = (self.pqTextField?.text?.capitalized)!
+            self.workoutNew.information = [""]
+            self.workoutNew.isCreated = false
+            self.workoutNew.user = self.current?.objectId*/
 
             // Add the exercise on Parse
             workout.saveInBackground(block: { (success, error) -> Void in

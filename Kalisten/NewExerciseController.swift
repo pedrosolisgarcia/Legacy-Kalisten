@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet var cell:NewExerciseViewCell!
     @IBOutlet var contentView: UIView!
@@ -18,7 +18,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var thumbnailImageView: UIImageView!
     
     @IBOutlet var nameTextField:UITextField!
-    @IBOutlet var typeTextField:UITextField!
+    @IBOutlet var categoryTextField:UITextField!
     @IBOutlet var familyTextField:UITextField!
     @IBOutlet var tarjetsTextField:UITextField!
     @IBOutlet var placeTextField:UITextField?
@@ -37,13 +37,12 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             
             if isThumbImage {
                 thumbnailImageView.image = selectedImage
-                thumbnailImageView.contentMode = .scaleAspectFill
+                thumbnailImageView.contentMode = .scaleAspectFit
                 thumbnailImageView.clipsToBounds = true
                 thumbPicked = true
             } else {
                 exerciseImageView.image = selectedImage
                 exerciseImageView.contentMode = .scaleAspectFit
-                contentView.backgroundColor = UIColor.white
                 exerciseImageView.clipsToBounds = true
                 imagePicked = true
             }
@@ -73,6 +72,14 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
         thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
         
+        self.nameTextField.delegate = self
+        self.categoryTextField.delegate = self
+        self.familyTextField.delegate = self
+        self.tarjetsTextField.delegate = self
+        self.placeTextField?.delegate = self
+        self.objectTextField?.delegate = self
+        self.pqTextField?.delegate = self
+        
         descriptionTextView?.delegate = self
         placeholderLabel = UILabel()
         placeholderLabel.text = "ENTER A DESCRIPTION:"
@@ -82,6 +89,11 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -125,7 +137,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBAction func save(sender: AnyObject){
         
         
-        if nameTextField.text == "" || typeTextField.text == "" || familyTextField.text == "" || tarjetsTextField.text == "" || cell.difficulty == 0{
+        if nameTextField.text == "" || categoryTextField.text == "" || familyTextField.text == "" || tarjetsTextField.text == "" || cell.difficulty == 0{
             let alertController = UIAlertController(title: "Error", message: "We cant proceed because one of the mandatory fields is blank. Please check.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
@@ -133,7 +145,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         }else{
             let exercise = PFObject(className: "Exercise")
             exercise["name"] = nameTextField.text?.capitalized
-            exercise["type"] = typeTextField.text?.capitalized
+            exercise["category"] = categoryTextField.text?.capitalized
             exercise["family"] = familyTextField.text?.capitalized.components(separatedBy: ", ")
             exercise["difficulty"] = cell.difficulty
             exercise["tarjets"] = tarjetsTextField.text?.capitalized.components(separatedBy: ", ")

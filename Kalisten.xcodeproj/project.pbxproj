@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510608371F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510608361F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift */; };
 		51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */; };
 		510D85C41ECDF3E800EE8B91 /* NewExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */; };
 		510D85C61ED033E400EE8B91 /* EditExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C51ED033E300EE8B91 /* EditExerciseController.swift */; };
@@ -83,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		510608361F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalWorkoutViewController.swift; sourceTree = "<group>"; };
 		51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseViewCell.swift; sourceTree = "<group>"; };
 		510D85C51ED033E300EE8B91 /* EditExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditExerciseController.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				5199F0491EF31C0300D20EDF /* LadderCompletedViewController.swift */,
 				5199F04B1EF3257200D20EDF /* LadderCompleteViewCell.swift */,
+				510608361F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift */,
 				51702B4F1EE4B04300CEEBAF /* LadderWorkoutViewController.swift */,
 				51702B4B1EE43E5200CEEBAF /* WorkoutInstructionsViewController.swift */,
 				5199F04D1EF32F8700D20EDF /* Record.swift */,
@@ -499,6 +502,7 @@
 				5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */,
 				5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */,
 				51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */,
+				510608371F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift in Sources */,
 				51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */,
 				5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */,
 				51702B4C1EE43E5300CEEBAF /* WorkoutInstructionsViewController.swift in Sources */,
@@ -672,8 +676,9 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.Kalisten;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -692,8 +697,9 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.Kalisten;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -12,25 +12,22 @@ import Parse
 class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdating {
     
     //Array to store the workouts from Parse as objects
-    private var workouts = [Workout]()
+    var workouts = [Workout]()
     
     var searchController = UISearchController()
     var searchResults:[Workout] = [Workout]()
     var searchActive: Bool = false
+    let current = PFUser.current()
     
     @IBOutlet var addWorkout: UIBarButtonItem!
     
     //Return from the New Workout View to the Exercise tableView
-    @IBAction func unwindToWorkouts(segue:UIStoryboardSegue){
-        loadWorkoutsFromParse()
-    }
-
+    @IBAction func unwindToWorkouts(segue:UIStoryboardSegue){}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Only guests cannot see the add button
-        let current = PFUser.current()
-        
         if current == nil {
             addWorkout.isEnabled = false
             addWorkout.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
@@ -57,7 +54,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         searchController.searchBar.placeholder = "SEARCH WORKOUT..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
-
+        
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
@@ -81,14 +78,14 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         //Hide the bar on swipe
         navigationController?.hidesBarsOnSwipe = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows
         if searchController.isActive {
@@ -97,7 +94,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
             return workouts.count
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "Cell"
@@ -109,7 +106,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         
         // Configure the cell
         cell.nameLabel.text = workout.name.uppercased()
-        cell.familyLabel.text = workout.family.uppercased()
+        cell.familyLabel.text = workout.type.uppercased()
         let arrayTarjet: NSArray? = workout.tarjets as NSArray?
         cell.tarjetLabel.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
         cell.numExlLabel.text = "EXERCISES: \(workout.exercises.count)"
@@ -117,7 +114,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.levelLabel.text = difficultyLevel(difficulty: workout.difficulty)
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
-
+        
         return cell
     }
     
@@ -147,7 +144,13 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         if searchController.isActive {
             return false
         } else {
-            return true
+            if (current != nil) && (current?["isAdmin"] as! Bool == true){
+                return true
+            } else if (current != nil) && (current?["isAdmin"] as! Bool == false) && (workouts[indexPath.row].user == current?.objectId){
+                return true
+            }else{
+                return false
+            }
         }
     }
     
@@ -274,7 +277,21 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         tableView.reloadData()
         
         // Pull data from Parse
-        let query = PFQuery(className: "Workout")
+        var query: PFQuery<PFObject>!
+        //Filter exercises objects that belong to strength type
+        
+        let typeQuery = PFQuery(className: "Workout")
+        let userQuery = PFQuery(className: "Workout")
+        
+        typeQuery.whereKey("category", equalTo: "Strength")
+        if current == nil {
+            userQuery.whereKey("user", equalTo: "kalisten")
+        }else {
+            userQuery.whereKey("user", contains: "kalisten,\(current?.objectId)")
+        }
+        query = PFQuery.orQuery(withSubqueries: [typeQuery, userQuery])
+        
+        
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             
@@ -285,8 +302,6 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
             
             if let objects = objects {
                 for (index, object) in objects.enumerated() {
-                    //Filter exercises objects that belong to strength type
-                    query.whereKey("type", equalTo: "Strength")
                     let workout = Workout(pfObject: object)
                     self.workouts.append(workout)
                     

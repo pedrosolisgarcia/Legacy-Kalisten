@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LadderWorkoutViewController: UITableViewController {
     
@@ -24,12 +25,12 @@ class LadderWorkoutViewController: UITableViewController {
     @IBOutlet weak var intervalTimerLabel: UILabel!
     
     @IBOutlet weak var remainIntervalLabel: UILabel!
-    @IBOutlet weak var countTimerLabel: UILabel!
     @IBOutlet weak var pauseButton: UIButton!
     
-    @IBOutlet weak var repsCountLabel: UILabel!
     @IBOutlet weak var ladderUpButton: UIButton!
     @IBOutlet weak var ladderDownButton: UIButton!
+    @IBOutlet weak var repsLabel: UILabel!
+    @IBOutlet weak var repsCountLabel: UILabel!
     
     @IBOutlet weak var nextExerciseLabel: UILabel!
     @IBOutlet weak var nextExercise: UILabel!
@@ -41,6 +42,8 @@ class LadderWorkoutViewController: UITableViewController {
     var pausedTime: Date?
     var pausedIntervals = [TimeInterval]()
     
+    var alreadyPaused = Bool()
+    
     var setLadder = 0.0
     
     var reps = 0
@@ -48,31 +51,98 @@ class LadderWorkoutViewController: UITableViewController {
     var isGoingUp = true
     var maxLadder = 0
     var maxLadders = [Int]()
-    var exReps = [Int]()
+    var exReps = [[Int]]()
     
     var workout: Workout!
     var exercises = [Exercise]()
     var index = 0
     
     //Return from the Exercise Detail View to the Workout Session
-    @IBAction func unwindToLadderSession(segue:UIStoryboardSegue){}
+    @IBAction func unwindToLadderSession(segue:UIStoryboardSegue){
+        if !self.alreadyPaused {
+            self.pauseResumeTimerAction()
+        }
+    }
+    
+    @IBAction func exerciseInfoPressed(_ sender: UIButton) {
+        if  !timePaused {
+            pauseResumeTimerAction()
+            alreadyPaused = false
+        } else {
+            alreadyPaused = true
+        }
+        self.performSegue(withIdentifier: "showLadderExercise", sender: exerciseInfo)
+    }
     
     @IBAction func exitButtonPressed(_ sender: UIBarButtonItem){
-        
-        let alertController = UIAlertController(title: "Discard Workout Session", message: "If you continue, the information about this workout will be deleted permanently. Are you sure you want to continue?", preferredStyle: .alert)
-        
-        let applyAction = UIAlertAction(title: "Continue", style: .destructive) { (alert: UIAlertAction!) -> Void in
-            self.performSegue(withIdentifier: "unwindToTraining", sender: self)
+        if  !timePaused {
+            pauseResumeTimerAction()
+            alreadyPaused = false
+        } else {
+            alreadyPaused = true
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+        if PFUser.current() != nil {
+            
+            let alertController = UIAlertController(title: "Abort Workout Session", message: "You are trying to abort the current workout. Do you want to save the progress done or you want to discard?", preferredStyle: .alert)
+            
+            let saveAction = UIAlertAction(title: "Save and exit", style: .default) { (alert: UIAlertAction!) -> Void in
+                
+                let record = PFObject(className: "Record")
+                
+                record["user"] = PFUser.current()?.objectId
+                record["workName"] = self.workout.name
+                record["workType"] = self.workout.type
+                record["workFamily"] = self.workout.type
+                record["workDate"] = Date()
+                record["workExercises"] = self.workout.exercises
+                record["maxReps"] = self.maxLadders
+                record["countReps"] = self.exReps
+                
+                // Add the workout record on Parse
+                record.saveInBackground(block: { (success, error) -> Void in
+                    if (success) {
+                        print("Successfully added the workout record.")
+                    } else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown error"))")
+                    }
+                })
+                self.performSegue(withIdentifier: "unwindToTraining", sender: self)
+            }
+            
+            let discardAction = UIAlertAction(title: "Discard", style: .destructive) { (alert: UIAlertAction!) -> Void in
+                self.performSegue(withIdentifier: "unwindToTraining", sender: self)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+                if !self.alreadyPaused {
+                    self.pauseResumeTimerAction()
+                }
+            }
+            
+            alertController.addAction(saveAction)
+            alertController.addAction(discardAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion:nil)
         }
-        
-        alertController.addAction(applyAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion:nil)
+        else {
+            
+            let alertController = UIAlertController(title: "Abort Workout Session", message: "If you leave now, all the progress done will be lost. Are you sure you want to discard?", preferredStyle: .alert)
+            
+            let discardAction = UIAlertAction(title: "Discard", style: .destructive) { (alert: UIAlertAction!) -> Void in
+                self.performSegue(withIdentifier: "unwindToTraining", sender: self)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+                if !self.alreadyPaused {
+                    self.pauseResumeTimerAction()
+                }
+            }
+            alertController.addAction(discardAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true, completion:nil)
+        }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +152,7 @@ class LadderWorkoutViewController: UITableViewController {
         insertExerciseData()
         startTimer()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,7 +182,7 @@ class LadderWorkoutViewController: UITableViewController {
             })
         } else {
             self.exerciseImage.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
-
+            
         }
         
         exercisesCount.text = "EXERCISES: \(index + 1)/\(exercises.count)"
@@ -124,7 +194,8 @@ class LadderWorkoutViewController: UITableViewController {
         ladderDownButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
         ladderDownButton.setTitle("", for: .normal)
         ladderDownButton.isEnabled = false
-        repsCountLabel.text = "00"
+        repsCountLabel.text = "0"
+        repsLabel.text = "0"
         maxLadder = 0
         repsCount = 0
         reps = 0
@@ -139,15 +210,15 @@ class LadderWorkoutViewController: UITableViewController {
             nextExercise.text = exercises[index + 1].name.uppercased() + "S"
         }
         
-
+        
     }
     
     //Initializes the clock to start counting the workout timing
     func startTimer() {
         
         if !timer.isValid {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
-        zeroTime = Date.timeIntervalSinceReferenceDate
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
+            zeroTime = Date.timeIntervalSinceReferenceDate
         }
         
         timeRunning = true
@@ -170,17 +241,17 @@ class LadderWorkoutViewController: UITableViewController {
         //If the clock has 10 secs or less to finish the interval, it becomes red.
         if ladderLeft <= 11 {
             
-            remainIntervalLabel.tintColor = UIColor.red
+            remainIntervalLabel.textColor = UIColor.red
             
         } else {
             
-            remainIntervalLabel.tintColor = UIColor.black
+            remainIntervalLabel.textColor = UIColor.black
         }
         
         if ladderLeft <= 0 {
             
             maxLadders.append(maxLadder)
-            exReps.append(repsCount)
+            exReps.append([repsCount])
             
             if index < exercises.count - 1{
                 setLadder += (workout.intTime[0] * 60)
@@ -218,10 +289,9 @@ class LadderWorkoutViewController: UITableViewController {
         remainIntervalLabel.text = "\(strMinsLeft):\(strSecsLeft)"
     }
     
-    //Stops or resumes the timer when the button is clicked. It also sets the elements when tapped
-    @IBAction func pauseResumeTimer(_ sender: AnyObject) {
-        
+    func pauseResumeTimerAction() {
         if timeRunning && !timePaused {
+            alreadyPaused = true
             timer.invalidate()
             timePaused = true
             timeRunning = false
@@ -234,6 +304,7 @@ class LadderWorkoutViewController: UITableViewController {
             ladderDownButton.isEnabled = false
             
         } else if !timeRunning && timePaused {
+            alreadyPaused = false
             let pausedSeconds = Date().timeIntervalSince(pausedTime!)
             pausedIntervals.append(pausedSeconds)
             pausedTime = nil
@@ -247,7 +318,7 @@ class LadderWorkoutViewController: UITableViewController {
             timeRunning = true
             pauseButton.setTitle("PAUSE", for: .normal)
             
-            if isGoingUp {
+            if isGoingUp || (!isGoingUp && reps == 1){
                 ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
                 ladderUpButton.isEnabled = true
             }
@@ -256,6 +327,11 @@ class LadderWorkoutViewController: UITableViewController {
                 ladderDownButton.isEnabled = true
             }
         }
+    }
+    
+    //Stops or resumes the timer when the button is clicked. It also sets the elements when tapped
+    @IBAction func pauseResumeTimer(_ sender: AnyObject) {
+        pauseResumeTimerAction()
     }
     
     //Sets the amounts of reps in each state of the workout
@@ -302,6 +378,7 @@ class LadderWorkoutViewController: UITableViewController {
                 ladderDownButton.setTitle("1", for: .normal)
             }
         }
+        repsLabel.text = String(reps)
         repsCountLabel.text = String(repsCount)
     }
     
@@ -313,7 +390,7 @@ class LadderWorkoutViewController: UITableViewController {
             // Pass the selected object to the new view controller.
             let destinationController = segue.destination as! ExerciseDetailViewController
             destinationController.exercise =  exercises[index]
-            destinationController.workoutFamily = workout.family
+            destinationController.workoutFamily = workout.type
         }
         if segue.identifier == "workoutResults"{
             // Pass the selected object to the new view controller.

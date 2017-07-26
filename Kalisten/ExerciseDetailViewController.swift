@@ -31,6 +31,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func unwindToExerciseDetail(segue:UIStoryboardSegue){
         if segue.identifier == "exerciseEdited" {
             viewDidLoad()
+            exerciseImageView.reloadInputViews()
             tableViewInformation.reloadData()
             tableViewExecution.reloadData()
         }
@@ -41,7 +42,9 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         if workoutFamily == "Ladder" {
             self.performSegue(withIdentifier: "unwindToLadder", sender: self)
         }
-        
+        if workoutFamily == "Interval" {
+            self.performSegue(withIdentifier: "unwindToInterval", sender: self)
+        }
     }
     
     var editMode = false
@@ -178,8 +181,8 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
 
-                cell.fieldLabel.text = "  TYPE"
-                cell.valueText.text = exercise.type.uppercased()
+                cell.fieldLabel.text = "  CATEGORY"
+                cell.valueText.text = exercise.category.uppercased()
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell

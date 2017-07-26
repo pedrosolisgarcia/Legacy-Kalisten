@@ -44,7 +44,7 @@ extension NewExerciseViewCell : UIPickerViewDataSource , UIPickerViewDelegate {
         
         diffData = difficulties[row]
         diffLabel.textAlignment = .center
-        let myDiff = NSAttributedString(string: diffData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 25)!])
+        let myDiff = NSAttributedString(string: diffData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 29)!])
         diffLabel.attributedText = myDiff
         
         return diffLabel
@@ -52,7 +52,7 @@ extension NewExerciseViewCell : UIPickerViewDataSource , UIPickerViewDelegate {
     
     //Sets the space between elements by changing the row height
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 33
+        return 48
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -18,10 +18,11 @@ class Record {
     var workFamily = ""
     var workDate: Date!
     var workExercises = [""]
+    var repetitions: [Int]?
     var maxReps = [Int]()
-    var countReps = [Int]()
+    var countReps = [[Int]]()
     
-    init(recId: String, user: String, workName: String, workType: String, workFamily: String, workDate: Date, workExercises: [String], maxReps: [Int], countReps: [Int]) {
+    init(recId: String, user: String, workName: String, workType: String, workFamily: String, workDate: Date, workExercises: [String], repetitions: [Int]!, maxReps: [Int], countReps: [[Int]]) {
         
         self.recId = recId
         self.user = user
@@ -30,6 +31,7 @@ class Record {
         self.workFamily = workFamily
         self.workDate = workDate
         self.workExercises = workExercises
+        self.repetitions = repetitions
         self.maxReps = maxReps
         self.countReps = countReps
     }
@@ -42,8 +44,9 @@ class Record {
         self.workFamily = pfObject["workFamily"] as! String
         self.workDate = pfObject["workDate"] as! Date
         self.workExercises = pfObject["workExercises"] as! [String]
+        self.repetitions = pfObject["repetitions"] as? [Int]
         self.maxReps = pfObject["maxReps"] as! [Int]
-        self.countReps = pfObject["countReps"] as! [Int]
+        self.countReps = pfObject["countReps"] as! [[Int]]
     }
     
     func toPFObject() -> PFObject {
@@ -55,6 +58,7 @@ class Record {
         workoutObject["workFamily"] = workFamily
         workoutObject["workDate"] = workDate
         workoutObject["workExercises"] = workExercises
+        workoutObject["repetitions"] = repetitions
         workoutObject["maxReps"] = maxReps
         workoutObject["countReps"] = countReps
         

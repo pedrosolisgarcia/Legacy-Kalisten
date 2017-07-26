@@ -13,11 +13,12 @@ class Workout {
     
     var workId = ""
     var name = ""
+    var category = ""
     var type = ""
-    var family = ""
     var numSets:Int = 0
     var exercises = [""]
     var intTime:[Double] = [0]
+    var repetitions: [Int]?
     var totalTime:Int = 0
     var difficulty:Int = 0
     var tarjets: [String]?
@@ -26,14 +27,15 @@ class Workout {
     var isCreated = false
     var user: String?
     
-    init(workId: String, name: String, type: String, family: String, numSets: Int, exercises: [String], intTime: [Double], totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool, user: String!){
+    init(workId: String, name: String, category: String, type: String, numSets: Int, exercises: [String], intTime: [Double], repetitions: [Int]!, totalTime: Int, difficulty: Int, tarjets: [String]!, improves: String, information: [String]!, isCreated: Bool, user: String!){
         
         self.workId = workId
         self.name = name
+        self.category = category
         self.type = type
-        self.family = family
         self.numSets = numSets
         self.exercises = exercises
+        self.repetitions = repetitions
         self.intTime = intTime
         self.totalTime = totalTime
         self.difficulty = difficulty
@@ -48,10 +50,11 @@ class Workout {
     init(pfObject: PFObject) {
         self.workId = pfObject.objectId!
         self.name = pfObject["name"] as! String
+        self.category = pfObject["category"] as! String
         self.type = pfObject["type"] as! String
-        self.family = pfObject["family"] as! String
         self.numSets = pfObject["numSets"] as! Int
         self.exercises = pfObject["exercises"] as! [String]
+        self.repetitions = pfObject["repetitions"] as? [Int]
         self.intTime = pfObject["intTime"] as! [Double]
         self.totalTime = pfObject["totalTime"] as! Int
         self.difficulty = pfObject["difficulty"] as! Int
@@ -66,10 +69,11 @@ class Workout {
         let workoutObject = PFObject(className: "Workout")
         workoutObject.objectId = workId
         workoutObject["name"] = name
+        workoutObject["category"] = category
         workoutObject["type"] = type
-        workoutObject["family"] = family
         workoutObject["numSets"] = numSets
         workoutObject["exercises"] = exercises
+        workoutObject["repetitions"] = repetitions
         workoutObject["intTime"] = intTime
         workoutObject["totalTime"] = totalTime
         workoutObject["difficulty"] = difficulty

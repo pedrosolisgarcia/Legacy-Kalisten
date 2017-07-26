@@ -226,12 +226,16 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         var query: PFQuery<PFObject>!
         
         let nameQuery = PFQuery(className: "Exercise")
+        let typeQuery = PFQuery(className: "Exercise")
         let tarjetsQuery = PFQuery(className: "Exercise")
+        let pqQuery = PFQuery(className: "Exercise")
         
         // Filter by search string
         nameQuery.whereKey("name", contains: searchText.capitalized)
+        typeQuery.whereKey("type", contains: searchText.capitalized)
         tarjetsQuery.whereKey("tarjets", hasPrefix: searchText.capitalized)
-        query = PFQuery.orQuery(withSubqueries: [nameQuery, tarjetsQuery])
+        pqQuery.whereKey("pq", contains: searchText.capitalized)
+        query = PFQuery.orQuery(withSubqueries: [nameQuery, typeQuery, tarjetsQuery, pqQuery])
         searchActive = true
         query.findObjectsInBackground { (objects, error) -> Void in
             if (error == nil) {

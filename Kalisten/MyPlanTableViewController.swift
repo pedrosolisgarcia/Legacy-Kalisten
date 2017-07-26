@@ -19,7 +19,7 @@ class MyPlanTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorColor = UIColor.black
     }
 

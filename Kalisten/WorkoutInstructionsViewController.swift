@@ -20,7 +20,7 @@ class WorkoutInstructionsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.instructions.text = workout.information?[1]
+        self.instructions.text = "Tips before training:\n\nAlways focus on perform each rep in a controlled motion, taking care of the technique. Remember that five reps perfectly performed count twice more that ten with poor execution."
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +30,11 @@ class WorkoutInstructionsViewController: UIViewController {
     
     //Depending on the workout type, the button will forward us to the workout session appropiate
     @IBAction func startWorkout(_ sender: UIButton) {
-        if workout.family == "Ladder" {
+        if workout.type == "Ladder" {
             self.performSegue(withIdentifier: "startLadderWorkout", sender: self)
+        }
+        if workout.type == "Interval" {
+            self.performSegue(withIdentifier: "startIntervalWorkout", sender: self)
         }
     }
     
@@ -42,6 +45,13 @@ class WorkoutInstructionsViewController: UIViewController {
             
             // Pass the selected object to the new view controller.
             let destinationController = segue.destination as! LadderWorkoutViewController
+            destinationController.workout = workout
+            destinationController.exercises = exercises
+        }
+        if segue.identifier == "startIntervalWorkout"{
+            
+            // Pass the selected object to the new view controller.
+            let destinationController = segue.destination as! IntervalWorkoutViewController
             destinationController.workout = workout
             destinationController.exercises = exercises
         }

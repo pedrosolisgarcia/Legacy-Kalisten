@@ -11,6 +11,7 @@ import Parse
 
 class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var family: UILabel!
     @IBOutlet var numExercises: UILabel!
     @IBOutlet var familyIconImageView: UIImageView!
@@ -22,35 +23,42 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet var pqImproved: UILabel!
     @IBOutlet var level: UILabel!
     
-    @IBOutlet var descrpt: UILabel!
-    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var selectButton: UIButton!
+    
     
     //Return from the Edit Workout to the Workout Detail Scene
     @IBAction func unwindToWorkoutDetail(segue:UIStoryboardSegue){
         if segue.identifier == "doneEditWorkout" {
-            loadExercisesFromWorkout()
             viewDidLoad()
-            tableView.reloadData()
-            
         }
     }
     
     var workout: Workout!
-    
     var exercises = [Exercise]()
-    
     var workoutFamily: String!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+
         /* We enter the line below to avoid the following error:
           'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier Cell -must register a nib or a class for the identifier or connect a prototype cell in a storyboard'*/
         
+        //Only admins can see the edit button
+        let current = PFUser.current()
+        
+        if current == nil {
+            editButton.isEnabled = false
+            editButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        } else {
+            editButton.isEnabled = true
+            editButton.tintColor = UIColor.white
+        }
+        
         loadExercisesFromWorkout()
+        
         
         //Sets the header of the navigation bar with the workout's name
         title = workout.name.uppercased()
@@ -59,20 +67,19 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
         //Set the cells content with the information from the selected workout
-        family.text = "\(workout.family.uppercased()):"
+        family.text = "\(workout.type.uppercased()):"
         numExercises.text = "\(workout.exercises.count)"
         
         // Load familyIcon in the detail view
-        familyIconImageView.image = UIImage(named: "\(workout.family.lowercased())")
+        familyIconImageView.image = UIImage(named: "\(workout.type.lowercased())")
         
         //Depending of the amount of sets the label is set in plural or singular
         workout.numSets > 1 ? (sets.text = "\(workout.numSets) SETS PER EXERCISE") : (sets.text = "\(workout.numSets) SET PER EXERCISE")
         
         time.text = "\(workout.totalTime)"
-        intTime.text = "\(workout.family.uppercased()): \(workout.intTime[1]) MIN."
+        intTime.text = "\(workout.type.uppercased()): \(workout.intTime[1]) MIN."
         pqImproved.text = workout.improves.uppercased()
         
-        descrpt.text = workout.information?[0].uppercased()
         level.text = difficultyLevel(difficulty: workout.difficulty)
         
     }
@@ -185,10 +192,12 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
                 }
+                self.editButton.isEnabled = true
+                self.selectButton.isEnabled = true
             }
         }
     }
-    
+        
     //Prepare data from the selected exercise to be shown in the detail view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

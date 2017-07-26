@@ -9,28 +9,39 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPasswordTextFieldDelegate*/ {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: HideShowPasswordTextField!
     @IBOutlet var loginView: UIView!
+    
     @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}
     var blurEffectView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
+        
+        hideKeyboard()
+        
         self.view.removeFromSuperview()
         
         // Do any additional setup after loading the view.
         setupPasswordTextField()
-        self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.4)
+        self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.6)
         self.showAnimate()
         //Add blur effect to the background view
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         self.view.insertSubview(blurEffectView, belowSubview: loginView)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,5 +135,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate/*, HideShowPass
                 }
             })
         }
+    }
+}
+
+extension LoginViewController
+{
+    func hideKeyboard()
+    {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(LoginViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard()
+    {
+        view.endEditing(true)
     }
 }

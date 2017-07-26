@@ -19,7 +19,7 @@ class LadderCompletedViewController: UIViewController, UITableViewDataSource, UI
     var workout: Workout!
     var exercises = [Exercise]()
     var maxLadders = [Int]()
-    var exReps = [Int]()
+    var exReps = [[Int]]()
     var totalReps = 0
     
     let date = Date()
@@ -61,16 +61,19 @@ class LadderCompletedViewController: UIViewController, UITableViewDataSource, UI
             // Configure the cell
             cell.exerciseName.text = exercises[indexPath.row].name.uppercased() + "S"
             cell.maxLadder.text = String(maxLadders[indexPath.row])
-            cell.reps.text = String(exReps[indexPath.row])
-            totalReps += exReps[indexPath.row]
+            cell.reps.text = String(exReps[indexPath.row][0])
+            totalReps += exReps[indexPath.row][0]
         } else {
             
             // Configure the cell
             cell.totalTitle.text = "TOTAL OF REPETITIONS:"
+            cell.totalTitle.textColor = UIColor.white
             cell.totalReps.text = String(totalReps)
+            cell.totalReps.textColor = UIColor.white
             cell.exerciseName.text = ""
             cell.maxLadder.text = ""
             cell.reps.text = ""
+            cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.75)
         }
         return cell
     }
@@ -83,7 +86,7 @@ class LadderCompletedViewController: UIViewController, UITableViewDataSource, UI
             record["user"] = PFUser.current()?.objectId
             record["workName"] = workout.name
             record["workType"] = workout.type
-            record["workFamily"] = workout.family
+            record["workFamily"] = workout.type
             record["workDate"] = Date()
             record["workExercises"] = workout.exercises
             record["maxReps"] = maxLadders
