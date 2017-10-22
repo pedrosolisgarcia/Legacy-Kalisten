@@ -1,15 +1,15 @@
 //
-//  LadderCompletedViewController.swift
+//  IntervalCompletedViewController.swift
 //  Kalisten
 //
-//  Created by Pedro Solís García on 15/06/17.
+//  Created by Pedro Solís García on 27/07/17.
 //  Copyright © 2017 AppCoda. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class LadderCompletedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class IntervalCompletedViewController: UIViewController {
     
     @IBOutlet weak var workoutName: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -24,10 +24,10 @@ class LadderCompletedViewController: UIViewController, UITableViewDataSource, UI
     
     let date = Date()
     let formatter = DateFormatter()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if PFUser.current() != nil {
             saveButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
@@ -41,7 +41,7 @@ class LadderCompletedViewController: UIViewController, UITableViewDataSource, UI
         
         workoutName.text = workout.name.uppercased()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

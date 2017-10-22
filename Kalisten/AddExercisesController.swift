@@ -19,8 +19,6 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
     var searchResults:[Exercise] = [Exercise]()
     var searchActive: Bool = false
     
-    var selectedExercises = [Exercise]()
-    
     @IBOutlet weak var navigBar: UINavigationBar!
     @IBOutlet weak var navigItem: UINavigationItem!
     
@@ -40,7 +38,7 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         navigItem.title = "ADD EXERCISES"
         
         //Hide the navigation bar when scrolling down
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
         
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
@@ -60,7 +58,7 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         super.viewWillAppear(animated)
         
         //Hide the bar on swipe
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -162,18 +160,6 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
             cell.tarjetLabel.restartLabel()
             cell.pqLabel.restartLabel()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //let cell = tableView.cellForRow(at: indexPath) as! ExercisesTableViewCell
-        
-        selectedExercises.append(exercises[indexPath.row])
-        //print(selectedExercises[indexPath.row].name)
-        
-        // Toggle check-in and undo-check-in
-        /*self.exerciseIsSelected[indexPath.row] = self.exerciseIsSelected[indexPath.row] ? false : true
-         cell?.accessoryType = self.exerciseIsSelected[indexPath.row] ? .checkmark : .none*/
     }
     
     @IBAction func buttonPressed(_ sender: UIBarButtonItem) {

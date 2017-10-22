@@ -33,7 +33,7 @@ class LadderWorkoutViewController: UITableViewController {
     @IBOutlet weak var repsCountLabel: UILabel!
     
     @IBOutlet weak var nextExerciseLabel: UILabel!
-    @IBOutlet weak var nextExercise: UILabel!
+    @IBOutlet weak var nextExercise: MarqueeLabel!
     
     var zeroTime = TimeInterval()
     var timer : Timer = Timer()
@@ -394,7 +394,7 @@ class LadderWorkoutViewController: UITableViewController {
         }
         if segue.identifier == "workoutResults"{
             // Pass the selected object to the new view controller.
-            let destinationController = segue.destination as! LadderCompletedViewController
+            let destinationController = segue.destination as! WorkoutCompletedViewController
             
             destinationController.workout = workout
             destinationController.exercises = exercises

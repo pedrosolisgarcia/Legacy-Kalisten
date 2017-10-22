@@ -42,7 +42,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         loadExercisesFromParse()
         
         //Hide the navigation bar when scrolling down
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
         
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
@@ -54,12 +54,12 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        refreshControl?.tintColor = UIColor.white
         refreshControl?.addTarget(self, action: #selector(loadExercisesFromParse), for: UIControlEvents.valueChanged)
     }
     
@@ -67,7 +67,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         super.viewWillAppear(animated)
         
         //Hide the bar on swipe
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,6 +119,20 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         }
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        
+        /*if(cell.isSelected){
+            cell.contentView.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+            cell.nameLabel.textColor = UIColor.white
+            cell.tarjetLabel.textColor = UIColor.white
+            cell.pqLabel.textColor = UIColor.white
+            cell.levelLabel.textColor = UIColor.white
+        }else{
+            cell.contentView.backgroundColor = UIColor.white
+            cell.nameLabel.textColor = UIColor.black
+            cell.tarjetLabel.textColor = UIColor.black
+            cell.pqLabel.textColor = UIColor.black
+            cell.levelLabel.textColor = UIColor.black
+        }*/
         
         return cell
     }

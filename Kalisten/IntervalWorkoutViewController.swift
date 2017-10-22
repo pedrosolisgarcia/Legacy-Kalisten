@@ -426,12 +426,11 @@ extension IntervalWorkoutViewController : UIPickerViewDataSource , UIPickerViewD
         }
         if segue.identifier == "workoutResults"{
             // Pass the selected object to the new view controller.
-            let destinationController = segue.destination as! LadderCompletedViewController
+            let destinationController = segue.destination as! WorkoutCompletedViewController
             
             destinationController.workout = workout
             destinationController.exercises = exercises
-            //destinationController.maxLadders = maxLadders
-            //destinationController.exReps = exReps
+            destinationController.exReps = countReps
         }
     }
 }

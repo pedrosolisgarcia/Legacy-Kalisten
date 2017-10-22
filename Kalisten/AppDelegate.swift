@@ -21,18 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UITabBar.appearance().barTintColor = UIColor.black
         UITabBar.appearance().tintColor = UIColor.white
+        UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedIcon.png")
         
         //Set the general Segmented Control appearance
         UISegmentedControl.appearance().layer.borderColor = UIColor.black.cgColor
         UISegmentedControl.appearance().layer.cornerRadius = 1
         UISegmentedControl.appearance().tintColor = UIColor.black
         
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        
+        // use UITableViewCell.appearance() to configure
+        // the default appearance of all UITableViewCells in your app
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
+        
         if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
             UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFront]
         }
-        
-        UITabBar.appearance().tintColor = UIColor.white
-        UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedIcon.png")
         
         //To make this have effect, you need first to add a row in Info.plist with view controller... and set NO.
         UIApplication.shared.statusBarStyle = .lightContent

@@ -359,13 +359,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kalisten/WorkoutsTableViewController.swift"
-            timestampString = "522251928.126558"
+            timestampString = "523292060.641349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "loadWorkoutsFromParse()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kalisten/WorkoutCompletedViewController.swift"
+            timestampString = "522872848.414343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kalisten/AppDelegate.swift"
+            timestampString = "525279074.891121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.AppDelegate.__deallocating_deinit"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/AppDelegate.swift"
+                  timestampString = "525279082.997989"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.AppDelegate.init () -&gt; Kalisten.AppDelegate"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/AppDelegate.swift"
+                  timestampString = "525279083.001798"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Kalisten.AppDelegate.__allocating_init () -&gt; Kalisten.AppDelegate"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/AppDelegate.swift"
+                  timestampString = "525279083.004803"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "Kalisten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pedrosolisgarcia/Documents/Xcode%20Repository/Kalisten/Kalisten/AppDelegate.swift"
+                  timestampString = "525279083.008205"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

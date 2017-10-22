@@ -39,7 +39,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         loadWorkoutsFromParse()
         
         //Hide the navigation bar when scrolling down
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
         
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
@@ -51,17 +51,15 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "SEARCH WORKOUT..."
+        searchController.searchBar.placeholder = "SEARCH WORKOUTS..."
         searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.black
-        
+        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        refreshControl?.tintColor = UIColor.white
         refreshControl?.addTarget(self, action: #selector(loadWorkoutsFromParse), for: UIControlEvents.valueChanged)
-        
     }
     
     //Reloads the data from Parse and the tableview data when pulled down
@@ -76,7 +74,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         super.viewWillAppear(animated)
         
         //Hide the bar on swipe
-        navigationController?.hidesBarsOnSwipe = true
+        //navigationController?.hidesBarsOnSwipe = true
     }
     
     override func didReceiveMemoryWarning() {
