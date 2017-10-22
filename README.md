@@ -27,4 +27,3 @@
 ### Who do I talk to? ###
 
 * Owner: Pedro Solis Garcia (solisgpedro@gmail.com)
-* Project supervisor: Susana Irene Dias Rodriguez (sirene@uniovi.es)
