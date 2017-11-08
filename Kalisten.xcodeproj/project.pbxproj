@@ -680,7 +680,7 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -701,7 +701,7 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";

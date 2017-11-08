@@ -236,7 +236,7 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
                 }
             }
             else{
-                print("Error: \(error) \(error?.localizedDescription)")
+                print("Error: \(String(describing: error)) \(String(describing: error?.localizedDescription))")
             }
             self.searchActive = false
         }

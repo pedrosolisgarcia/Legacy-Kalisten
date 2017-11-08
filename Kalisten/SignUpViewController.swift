@@ -145,7 +145,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     
     // Show the user that their password is valid.
     func isValidPassword(_ password: String) -> Bool {
-        return password.characters.count > 7
+        return password.count > 7
     }
     
     fileprivate func setupPasswordTextField() {
@@ -184,7 +184,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                         }
                     }
                 } else {
-                    print("Error: \(error) \(error?.localizedDescription)")
+                    print("Error: \(String(describing: error)) \(String(describing: error?.localizedDescription))")
                 }
             }
         }
@@ -214,7 +214,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                     }
                 } else {
                     
-                    print("Error: \(error) \(error?.localizedDescription)")
+                    print("Error: \(String(describing: error)) \(String(describing: error?.localizedDescription))")
                 }
             }
         }
@@ -251,15 +251,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         
         if sender == saveContButton {
             
-            var username = self.usernameField.text!.lowercased()
+            let username = self.usernameField.text!.lowercased()
             let firstName = self.firstNameField.text?.capitalized
             let lastName = self.lastNameField.text?.capitalized
-            var email = self.emailField.text!.lowercased()
+            let email = self.emailField.text!.lowercased()
             let finalEmail = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            var password = self.passwordField.text!
+            let password = self.passwordField.text!
             
             // Validate the text fields
-            if username.characters.count < 5 {
+            if username.count < 5 {
                 
                 let alertController = UIAlertController(title: "Username Invalid", message: "Username length mus be greater than five characters.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -273,7 +273,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                 alertController.addAction(alertAction)
                 present(alertController, animated: true, completion:nil)
                 
-            } else if email.characters.count < 8 {
+            } else if email.count < 8 {
                 
                 let alertController = UIAlertController(title: "Email Invalid", message: "Email length mus be greater than eigth characters.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -287,7 +287,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                 alertController.addAction(alertAction)
                 present(alertController, animated: true, completion:nil)
                 
-            } else if password.characters.count < 8 {
+            } else if password.count < 8 {
                 
                 let alertController = UIAlertController(title: "Password Invalid", message: "Password length mus be greater than five characters.", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -321,7 +321,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                     
                     if ((error) != nil) {
                         
-                        let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "Error", message: String(describing: error), preferredStyle: .alert)
                         let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(cancelAction)
                         self.present(alertController, animated: true, completion:nil)
@@ -346,7 +346,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             
             if current != nil {
                 
-                if gender.characters.count == 0 || weightField.text == "" || heightField.text == "" || ageField.text == "" || factor < 1 {
+                if gender.count == 0 || weightField.text == "" || heightField.text == "" || ageField.text == "" || factor < 1 {
                     
                     let alertController = UIAlertController(title: "Information incomplete", message: "Part of the information required has not been filled. Please check and gather all the information required.", preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "OK", style: .default) { (alert: UIAlertAction!) -> Void in
@@ -384,7 +384,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                         
                         if ((error) != nil) {
                             
-                            let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "Error", message: String(describing: error), preferredStyle: .alert)
                             let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                             alertController.addAction(cancelAction)
                             self.present(alertController, animated: true, completion:nil)

@@ -83,18 +83,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(sender: AnyObject) {
-        var username = self.usernameField.text!.lowercased()
-        var password = self.passwordField.text!
+        let username = self.usernameField.text!.lowercased()
+        let password = self.passwordField.text!
         
         // Validate the text fields
-        if username.characters.count < 5 {
+        if username.count < 5 {
             
             let alertController = UIAlertController(title: "Username Invalid", message: "Username length mus be greater than five characters.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion:nil)
             
-        } else if password.characters.count < 8 {
+        } else if password.count < 8 {
             
             let alertController = UIAlertController(title: "Password Invalid", message: "Password length mus be greater than five characters.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)

@@ -253,7 +253,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
                 }
             }
             else{
-                print("Error: \(error) \(error?.localizedDescription)")
+                print("Error: \(String(describing: error)) \(String(describing: error?.localizedDescription))")
             }
             self.searchActive = false
         }
@@ -285,7 +285,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         if current == nil {
             userQuery.whereKey("user", equalTo: "kalisten")
         }else {
-            userQuery.whereKey("user", contains: "kalisten,\(current?.objectId)")
+            userQuery.whereKey("user", contains: "kalisten,\(String(describing: current?.objectId))")
         }
         query = PFQuery.orQuery(withSubqueries: [typeQuery, userQuery])
         
