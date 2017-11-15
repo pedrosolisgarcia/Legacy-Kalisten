@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E7797A0B0533CA2132A697F /* Pods_Kalisten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2C6D3D8A5D79034C4373D /* Pods_Kalisten.framework */; };
 		510608371F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510608361F25C6B3006B5BD5 /* IntervalWorkoutViewController.swift */; };
 		51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51066A381E9A44950085B44E /* ExerciseDetailViewController.swift */; };
 		510D85C41ECDF3E800EE8B91 /* NewExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */; };
@@ -163,6 +164,9 @@
 		51DDC3751E81B620009C1B12 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewCell.swift; sourceTree = "<group>"; };
 		51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseController.swift; sourceTree = "<group>"; };
+		64C2C6D3D8A5D79034C4373D /* Pods_Kalisten.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kalisten.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA309EC550374823B373008D /* Pods-Kalisten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalisten.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten.release.xcconfig"; sourceTree = "<group>"; };
+		C206F07F12B4CCCC959B9115 /* Pods-Kalisten.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalisten.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				516745611EECA2DE00F054A7 /* HealthKit.framework in Frameworks */,
 				515799CD1E8710B500E6D1A0 /* SpriteKit.framework in Frameworks */,
 				515799CE1E8710B500E6D1A0 /* SystemConfiguration.framework in Frameworks */,
+				4E7797A0B0533CA2132A697F /* Pods_Kalisten.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +276,7 @@
 				515799C11E8710B500E6D1A0 /* Security.framework */,
 				515799C21E8710B500E6D1A0 /* SpriteKit.framework */,
 				515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */,
+				64C2C6D3D8A5D79034C4373D /* Pods_Kalisten.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 				51C625A51E75CCE800E94D6A /* Products */,
 				516F48F71EDB189A0039497D /* Additional Files */,
 				515799B81E8710B500E6D1A0 /* Frameworks */,
+				CB388CD2F07C945BD1140492 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,6 +403,15 @@
 			path = Kalisten;
 			sourceTree = "<group>";
 		};
+		CB388CD2F07C945BD1140492 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C206F07F12B4CCCC959B9115 /* Pods-Kalisten.debug.xcconfig */,
+				BA309EC550374823B373008D /* Pods-Kalisten.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,9 +419,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51C625B91E75CCE800E94D6A /* Build configuration list for PBXNativeTarget "Kalisten" */;
 			buildPhases = (
+				3758652DC3AFFED90E1C19E4 /* [CP] Check Pods Manifest.lock */,
 				51C625A01E75CCE800E94D6A /* Sources */,
 				51C625A11E75CCE800E94D6A /* Frameworks */,
 				51C625A21E75CCE800E94D6A /* Resources */,
+				25F143356F39B171AA31516A /* [CP] Embed Pods Frameworks */,
+				1AB98AB88D8531EA9B535D4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,6 +504,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AB98AB88D8531EA9B535D4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25F143356F39B171AA31516A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3758652DC3AFFED90E1C19E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kalisten-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51C625A01E75CCE800E94D6A /* Sources */ = {
@@ -684,6 +759,7 @@
 		};
 		51C625BA1E75CCE800E94D6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C206F07F12B4CCCC959B9115 /* Pods-Kalisten.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;
@@ -705,6 +781,7 @@
 		};
 		51C625BB1E75CCE800E94D6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA309EC550374823B373008D /* Pods-Kalisten.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = NO;

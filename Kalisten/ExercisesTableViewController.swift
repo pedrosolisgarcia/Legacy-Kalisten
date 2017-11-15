@@ -9,12 +9,12 @@
 import UIKit
 import Parse
 
-class ExercisesTableViewController: UITableViewController, UISearchResultsUpdating {
+class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpdating*/ {
     
     //Array to store the exercises from Parse as objects
     private var exercises = [Exercise]()
     
-    var searchController = UISearchController()
+    //var searchController = UISearchController()
     var searchResults:[Exercise] = [Exercise]()
     var searchActive: Bool = false
     let current = PFUser.current()
@@ -48,18 +48,18 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
         // Add a search bar
-        searchController = UISearchController(searchResultsController: nil)
+        /*searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)
+        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)*/
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-        refreshControl?.tintColor = UIColor.white
+        refreshControl?.backgroundColor = UIColor.lightGray
+        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         refreshControl?.addTarget(self, action: #selector(loadExercisesFromParse), for: UIControlEvents.valueChanged)
     }
     
@@ -84,11 +84,13 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows
-        if searchController.isActive {
+        /*if searchController.isActive {
+            print(searchResults.count)
             return searchResults.count
-        } else {
+        } else {*/
+            print(exercises.count)
             return exercises.count
-        }
+        //}
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +100,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             as! ExercisesTableViewCell
         
         // Determine if we get the exercises from search result or the original array
-        let exercise = (searchController.isActive) ? searchResults[indexPath.row] : exercises[indexPath.row]
+        let exercise = /*(searchController.isActive) ? searchResults[indexPath.row] :*/ exercises[indexPath.row]
         
         // Configure the cell
         cell.nameLabel.text = exercise.name.uppercased()
@@ -107,6 +109,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         let arrayPQ:NSArray? = exercise.pq as NSArray?
         cell.pqLabel.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
         cell.levelLabel.text = difficultyLevel(difficulty: exercise.difficulty)
+        print(cell.nameLabel.text as Any)
         
         // Load image in background
         cell.thumbnailImageView.image = UIImage()
@@ -160,16 +163,16 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if searchController.isActive {
+        /*if searchController.isActive {
             return false
-        } else {
+        } else {*/
             if (current != nil) && (current?["isAdmin"] as! Bool == true){
                 return true
             }
             else{
                 return false
             }
-        }
+        //}
     }
     
     
@@ -235,13 +238,13 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
                 // Pass the selected object to the new view controller.
                 let destinationController = segue.destination as! ExerciseDetailViewController
                 
-                destinationController.exercise = (searchController.isActive) ? searchResults[indexPath.row] : exercises[indexPath.row]
+                destinationController.exercise = /*(searchController.isActive) ? searchResults[indexPath.row] : */exercises[indexPath.row]
             }
         }
     }
     
     //Filter the contents to show by the characters typed
-    func filterContent(for searchText: String) {
+    /*func filterContent(for searchText: String) {
         
         var query: PFQuery<PFObject>!
         
@@ -281,7 +284,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             filterContent(for: searchText)
             tableView.reloadData()
         }
-    }
+    }*/
     
     // MARK: Parse-related methods
     
@@ -294,7 +297,7 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
         //query.order(byAscending: "family")
-        query.addAscendingOrder("family")
+        //query.addAscendingOrder("family")
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             
@@ -305,13 +308,15 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             
             if let objects = objects {
                 for (index, object) in objects.enumerated() {
-                    // Convert PFObject into Trip object
+                    
                     let exercise = Exercise(pfObject: object)
                     self.exercises.append(exercise)
+                    print(exercise.name)
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)
                 }
+                self.tableView.reloadData()
             }
             if let refreshControl = self.refreshControl {
                 if refreshControl.isRefreshing {

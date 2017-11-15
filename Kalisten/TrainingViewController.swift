@@ -13,14 +13,25 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     
+    let navigationAndTabBarSize: CGFloat = 114.5
+    
     @IBAction func unwindToTraining(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Remove the title of the back button
-        //Remove the title of the back button
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
+
+        let cellSize = (self.view.frame.size.width-1)*0.5
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        collectionView.frame.size.height = self.view.frame.size.width
+        tableView.frame.size.height = (self.view.frame.size.height-self.view.frame.size.width-navigationAndTabBarSize)
+        tableView.rowHeight = tableView.frame.size.height*0.5
         tableView.separatorColor = UIColor.white
     }
     

@@ -10,16 +10,18 @@ import UIKit
 
 class MyPlanTableViewController: UITableViewController {
     
-    @IBOutlet var trainingButton: UIButton!
-    @IBOutlet var nutriGoalButton: UIButton!
-    @IBOutlet var trainingLabel: MarqueeLabel!
-    @IBOutlet var nutritionLabel: MarqueeLabel!
+    @IBOutlet weak var trainingButton: UIButton!
+    @IBOutlet weak var nutriGoalButton: UIButton!
+    @IBOutlet weak var trainingLabel: MarqueeLabel!
+    @IBOutlet weak var nutritionLabel: MarqueeLabel!
+    
+    let navigationAndTabBarSize: CGFloat = 112
     
     @IBAction func unwindToMyPlan(segue:UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = (self.view.frame.size.height - navigationAndTabBarSize)*0.5
         tableView.separatorColor = UIColor.black
     }
 
