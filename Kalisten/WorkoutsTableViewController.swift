@@ -63,7 +63,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
     }
     
     //Reloads the data from Parse and the tableview data when pulled down
-    func pullToRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func pullToRefresh(_ refreshControl: UIRefreshControl) {
         
         loadWorkoutsFromParse()
         self.tableView.reloadData()
@@ -269,7 +269,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
     
     // MARK: Parse-related methods
     
-    func loadWorkoutsFromParse() {
+    @objc func loadWorkoutsFromParse() {
         // Clear up the array
         workouts.removeAll(keepingCapacity: false)
         tableView.reloadData()

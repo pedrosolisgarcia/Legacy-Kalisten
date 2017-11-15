@@ -63,7 +63,7 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
     }
     
     //Reloads the data from Parse and the tableview data when pulled down
-    func pullToRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func pullToRefresh(_ refreshControl: UIRefreshControl) {
         
         loadRoutinesFromParse()
         self.tableView.reloadData()
@@ -260,7 +260,7 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
     
     // MARK: Parse-related methods
     
-    func loadRoutinesFromParse() {
+    @objc func loadRoutinesFromParse() {
         // Clear up the array
         routines.removeAll(keepingCapacity: false)
         tableView.reloadData()

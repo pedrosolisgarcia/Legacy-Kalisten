@@ -44,7 +44,7 @@ extension NewExerciseViewCell : UIPickerViewDataSource , UIPickerViewDelegate {
         
         diffData = difficulties[row]
         diffLabel.textAlignment = .center
-        let myDiff = NSAttributedString(string: diffData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 29)!])
+        let myDiff = NSAttributedString(string: diffData, attributes: [NSAttributedStringKey.font:UIFont(name: "AvenirNextCondensed-Medium", size: 29)!])
         diffLabel.attributedText = myDiff
         
         return diffLabel

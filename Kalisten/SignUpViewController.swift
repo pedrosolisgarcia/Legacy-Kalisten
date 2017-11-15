@@ -132,7 +132,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     }
     
     //Pick an image from photo image library
-    func selectPic(_ sender: AnyObject) {
+    @objc func selectPic(_ sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()
@@ -426,7 +426,7 @@ extension SignUpViewController: UIPickerViewDataSource , UIPickerViewDelegate {
         pickerView == pickWeightUnit ? (unitData = weightUnits[row]) : (unitData = heightUnits[row])
         
         unitLabel.textAlignment = .center
-        let myUnit = NSAttributedString(string: unitData, attributes: [NSFontAttributeName:UIFont(name: "AvenirNextCondensed-Medium", size: 21)!])
+        let myUnit = NSAttributedString(string: unitData, attributes: [NSAttributedStringKey.font:UIFont(name: "AvenirNextCondensed-Medium", size: 21)!])
         unitLabel.attributedText = myUnit
         
         return unitLabel

@@ -256,7 +256,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: Parse-related methods
     
-    func loadPlansFromParse() {
+    @objc func loadPlansFromParse() {
         // Clear up the array
         plans.removeAll(keepingCapacity: false)
         tableView.reloadData()

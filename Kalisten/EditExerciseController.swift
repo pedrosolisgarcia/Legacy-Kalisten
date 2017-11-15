@@ -178,7 +178,7 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
         }
     }
     
-    func selectPic(_ sender: AnyObject) {
+    @objc func selectPic(_ sender: AnyObject) {
         
         isThumbImage = true
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){

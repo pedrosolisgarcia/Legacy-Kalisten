@@ -289,7 +289,7 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
     // MARK: Parse-related methods
     
     //Load the Exercise data from Parse to the object exercises
-    func loadExercisesFromParse() {
+    @objc func loadExercisesFromParse() {
         // Clear up the array
         exercises.removeAll(keepingCapacity: true)
         tableView.reloadData()

@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
-            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white, NSFontAttributeName:barFront]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font:barFront]
         }
         
         //To make this have effect, you need first to add a row in Info.plist with view controller... and set NO.

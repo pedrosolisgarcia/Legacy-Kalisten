@@ -94,7 +94,7 @@ extension HideShowPasswordTextField: PasswordToggleVisibilityDelegate {
 
 // MARK: Control events
 extension HideShowPasswordTextField {
-    func passwordTextChanged(_ sender: AnyObject) {
+    @objc func passwordTextChanged(_ sender: AnyObject) {
         if let password = self.text {
             passwordToggleVisibilityView.checkmarkVisible = passwordDelegate?.isValidPassword(password) ?? false
         } else {
