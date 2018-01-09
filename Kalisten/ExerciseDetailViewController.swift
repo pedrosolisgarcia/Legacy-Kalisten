@@ -176,7 +176,7 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
                 cell.fieldLabel.text = "  NAME"
                 cell.valueText.text = exercise.name.uppercased()
                 cell.fieldLabel0.text = "  DIFFICULTY"
-                cell.valueText0.text = String(exercise.difficulty)
+                cell.valueText0.text = String(Functions.difficultyLevel(difficulty: exercise.difficulty))
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell

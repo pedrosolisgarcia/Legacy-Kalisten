@@ -55,7 +55,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
         totalTimeTextField.text = String(workout.totalTime)
         intervalTimeTextField.text = String(workout.intTime[0])
         pqTextField.text = workout.improves.uppercased()
-        difficultyTextField.text = difficultyLabel(difficulty: workout.difficulty)
+        difficultyTextField.text = Functions.difficultyLevel(difficulty: workout.difficulty)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -185,50 +185,6 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
         return [deleteAction]
     }
     
-    func difficultyLevel(difficulty: String)-> Int {
-        
-        var diffLevel = 0
-        
-        switch difficulty {
-        case "SUPER EASY": diffLevel = 1
-        case "VERY EASY": diffLevel = 2
-        case "EASY": diffLevel = 3
-        case "NORMAL": diffLevel = 4
-        case "CHALLENGING": diffLevel = 5
-        case "HARD": diffLevel = 6
-        case "VERY HARD": diffLevel = 7
-        case "SUPER HARD": diffLevel = 8
-        case "PROFESSIONAL": diffLevel = 9
-        case "OLYMPIC": diffLevel = 10
-        default:
-            diffLevel = 0
-        }
-        
-        return diffLevel
-    }
-    
-    func difficultyLabel(difficulty: Int)-> String {
-        
-        var diffLevel = ""
-        
-        switch difficulty {
-        case 1: diffLevel = "SUPER EASY"
-        case 2: diffLevel = "VERY EASY"
-        case 3: diffLevel = "EASY"
-        case 4: diffLevel = "NORMAL"
-        case 5: diffLevel = "CHALLENGING"
-        case 6: diffLevel = "HARD"
-        case 7: diffLevel = "VERY HARD"
-        case 8: diffLevel = "SUPER HARD"
-        case 9: diffLevel = "PROFESSIONAL"
-        case 10: diffLevel = "OLYMPIC"
-        default:
-            diffLevel = "DIFFICULTY"
-        }
-        
-        return diffLevel
-    }
-    
     func getTarjet(array: [Exercise])-> [String] {
         var exerciseTarjets = [String]()
         for exercise in exercises {
@@ -316,8 +272,8 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     self.workout.intTime = intTime
                     workoutToUpdate["totalTime"] = Int(self.totalTimeTextField.text!)
                     self.workout.totalTime = Int(self.totalTimeTextField.text!)!
-                    workoutToUpdate["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
-                    self.workout.difficulty = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
+                    workoutToUpdate["difficulty"] = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
+                    self.workout.difficulty = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
                     workoutToUpdate["tarjets"] = self.getTarjet(array: self.exercises)
                     self.workout.tarjets = self.getTarjet(array: self.exercises)
                     workoutToUpdate["improves"] = self.pqTextField?.text?.capitalized
@@ -349,7 +305,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     workout["exercises"] = self.exercisesNames
                     workout["intTime"] = intTime
                     workout["totalTime"] = Int(self.totalTimeTextField.text!)
-                    workout["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
+                    workout["difficulty"] = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
                     workout["tarjets"] = self.getTarjet(array: self.exercises)
                     workout["improves"] = self.pqTextField?.text?.capitalized
                     workout["isCreated"] = false
@@ -388,7 +344,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     workout["exercises"] = self.exercisesNames
                     workout["intTime"] = intTime
                     workout["totalTime"] = Int(self.totalTimeTextField.text!)
-                    workout["difficulty"] = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
+                    workout["difficulty"] = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
                     workout["tarjets"] = self.getTarjet(array: self.exercises)
                     workout["improves"] = self.pqTextField?.text?.capitalized
                     workout["isCreated"] = true

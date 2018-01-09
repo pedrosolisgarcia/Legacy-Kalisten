@@ -24,7 +24,6 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet var familyTextField:UITextField!
     @IBOutlet var tarjetsTextField:UITextField!
     @IBOutlet var placeTextField:UITextField?
-    @IBOutlet var objectTextField:UITextField?
     @IBOutlet var pqTextField:UITextField?
     @IBOutlet var descriptionTextView:UITextView?
     
@@ -72,8 +71,8 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
+        let selectorName = "selectPic"
+        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: Selector(selectorName))
         thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
         
         // Do any additional setup after loading the view.
@@ -117,14 +116,13 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
         self.nameTextField.delegate = self
         self.categoryTextField.delegate = self
         self.familyTextField.delegate = self
+        self.difficultyTextField.delegate = self
         self.tarjetsTextField.delegate = self
         self.placeTextField?.delegate = self
-        self.objectTextField?.delegate = self
         self.pqTextField?.delegate = self
-        self.difficultyTextField.delegate = self
         
         nameTextField.text = editExercise.name.uppercased()
-        difficultyTextField.text = String(editExercise.difficulty)
+        difficultyTextField.text = String(Functions.difficultyLevel(difficulty: editExercise.difficulty))
         categoryTextField.text = editExercise.category.uppercased()
         let arrayFamily:NSArray = editExercise.family as NSArray
         familyTextField.text = arrayFamily.componentsJoined(by: ", ").uppercased()
@@ -132,8 +130,6 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
         tarjetsTextField.text = arrayTajets.componentsJoined(by: ", ").uppercased()
         let arrayPlace:NSArray? = editExercise.place as NSArray?
         placeTextField?.text = arrayPlace?.componentsJoined(by: ", ").uppercased()
-        let arrayObject:NSArray? = editExercise.object as NSArray?
-        objectTextField?.text = arrayObject?.componentsJoined(by: ", ").uppercased()
         let arrayPQ:NSArray? = editExercise.pq as NSArray?
         pqTextField?.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
         descriptionTextView?.text = editExercise.description?.uppercased()
@@ -178,7 +174,7 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
         }
     }
     
-    @objc func selectPic(_ sender: AnyObject) {
+    func selectPic(_ sender: AnyObject) {
         
         isThumbImage = true
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
@@ -192,7 +188,7 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
     }
     
     func exerciseDidChange() -> Bool{
-        if (editExercise.name == nameTextField.text!) && (editExercise.difficulty == Int(difficultyTextField.text!)!) && (editExercise.category == categoryTextField.text!) && (editExercise.family == (familyTextField.text?.components(separatedBy: ", "))!) && (editExercise.tarjets == (tarjetsTextField.text?.components(separatedBy: ", "))!) && (editExercise.place! == (placeTextField?.text?.components(separatedBy: ", "))!) && (editExercise.object! == (objectTextField?.text?.components(separatedBy: ", "))!) && (editExercise.pq! == (pqTextField?.text?.components(separatedBy: ", "))!) && (editExercise.description! == (descriptionTextView?.text!)!){
+        if (editExercise.name == nameTextField.text!) && (editExercise.difficulty == Int(difficultyTextField.text!)!) && (editExercise.category == categoryTextField.text!) && (editExercise.family == (familyTextField.text?.components(separatedBy: ", "))!) && (editExercise.tarjets == (tarjetsTextField.text?.components(separatedBy: ", "))!) && (editExercise.place! == (placeTextField?.text?.components(separatedBy: ", "))!) && (editExercise.pq! == (pqTextField?.text?.components(separatedBy: ", "))!) && (editExercise.description! == (descriptionTextView?.text!)!){
             return false
         }else {
             return true
@@ -233,16 +229,14 @@ class EditExerciseController: UITableViewController, UIImagePickerControllerDele
                     self.editExercise.category = (self.categoryTextField.text?.capitalized)!
                     exerciseToUpdate["family"] = self.familyTextField.text?.capitalized.components(separatedBy: ", ")
                     self.editExercise.family = (self.familyTextField.text?.capitalized.components(separatedBy: ", "))!
-                    exerciseToUpdate["difficulty"] = Int(self.difficultyTextField.text!)
-                    self.editExercise.difficulty = Int(self.difficultyTextField.text!)!
+                    exerciseToUpdate["difficulty"] = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
+                    self.editExercise.difficulty = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
                     exerciseToUpdate["tarjets"] = self.tarjetsTextField.text?.capitalized.components(separatedBy: ", ")
                     self.editExercise.tarjets = (self.tarjetsTextField.text?.capitalized.components(separatedBy: ", "))!
                     exerciseToUpdate["pq"] = self.pqTextField?.text?.capitalized.components(separatedBy: ", ")
                     self.editExercise.pq = self.pqTextField?.text?.capitalized.components(separatedBy: ", ")
                     exerciseToUpdate["place"] = self.placeTextField?.text?.capitalized.components(separatedBy: ", ")
                     self.editExercise.place = self.placeTextField?.text?.capitalized.components(separatedBy: ", ")
-                    exerciseToUpdate["object"] = self.objectTextField?.text?.capitalized.components(separatedBy: ", ")
-                    self.editExercise.object = self.objectTextField?.text?.capitalized.components(separatedBy: ", ")
                     exerciseToUpdate["description"] = self.descriptionTextView?.text.lowercased()
                     self.editExercise.description = self.descriptionTextView?.text.lowercased()
                     

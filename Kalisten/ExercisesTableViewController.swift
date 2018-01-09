@@ -9,12 +9,12 @@
 import UIKit
 import Parse
 
-class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpdating*/ {
+class ExercisesTableViewController: UITableViewController, UISearchResultsUpdating {
     
     //Array to store the exercises from Parse as objects
     private var exercises = [Exercise]()
     
-    //var searchController = UISearchController()
+    var searchController = UISearchController()
     var searchResults:[Exercise] = [Exercise]()
     var searchActive: Bool = false
     let current = PFUser.current()
@@ -48,19 +48,20 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
         // Add a search bar
-        /*searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)*/
+        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.lightGray
-        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-        refreshControl?.addTarget(self, action: #selector(loadExercisesFromParse), for: UIControlEvents.valueChanged)
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        let selectorName = "loadExercisesFromParse"
+        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControlEvents.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,13 +85,11 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows
-        /*if searchController.isActive {
-            print(searchResults.count)
+        if searchController.isActive {
             return searchResults.count
-        } else {*/
-            print(exercises.count)
+        } else {
             return exercises.count
-        //}
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,7 +99,7 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
             as! ExercisesTableViewCell
         
         // Determine if we get the exercises from search result or the original array
-        let exercise = /*(searchController.isActive) ? searchResults[indexPath.row] :*/ exercises[indexPath.row]
+        let exercise = (searchController.isActive) ? searchResults[indexPath.row] : exercises[indexPath.row]
         
         // Configure the cell
         cell.nameLabel.text = exercise.name.uppercased()
@@ -108,8 +107,7 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
         cell.tarjetLabel.text = arrayTarjet.componentsJoined(by: ", ").uppercased()
         let arrayPQ:NSArray? = exercise.pq as NSArray?
         cell.pqLabel.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
-        cell.levelLabel.text = difficultyLevel(difficulty: exercise.difficulty)
-        print(cell.nameLabel.text as Any)
+        cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: exercise.difficulty))
         
         // Load image in background
         cell.thumbnailImageView.image = UIImage()
@@ -123,71 +121,19 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
         
-        /*if(cell.isSelected){
-            cell.contentView.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-            cell.nameLabel.textColor = UIColor.white
-            cell.tarjetLabel.textColor = UIColor.white
-            cell.pqLabel.textColor = UIColor.white
-            cell.levelLabel.textColor = UIColor.white
-        }else{
-            cell.contentView.backgroundColor = UIColor.white
-            cell.nameLabel.textColor = UIColor.black
-            cell.tarjetLabel.textColor = UIColor.black
-            cell.pqLabel.textColor = UIColor.black
-            cell.levelLabel.textColor = UIColor.black
-        }*/
-        
         return cell
     }
     
-    func difficultyLevel(difficulty: Int)-> String {
-        
-        var diffLevel = ""
-        
-        switch difficulty {
-        case 1: diffLevel = "SUPER EASY"
-        case 2: diffLevel = "VERY EASY"
-        case 3: diffLevel = "EASY"
-        case 4: diffLevel = "NORMAL"
-        case 5: diffLevel = "CHALLENGING"
-        case 6: diffLevel = "HARD"
-        case 7: diffLevel = "VERY HARD"
-        case 8: diffLevel = "SUPER HARD"
-        case 9: diffLevel = "PROFESSIONAL"
-        case 10: diffLevel = "OLYMPIC"
-        default:
-            diffLevel = "DIFFICULTY"
-        }
-        
-        return diffLevel
-    }
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        /*if searchController.isActive {
+        if searchController.isActive {
             return false
-        } else {*/
+        } else {
             if (current != nil) && (current?["isAdmin"] as! Bool == true){
                 return true
             }
             else{
                 return false
             }
-        //}
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            as! ExercisesTableViewCell
-        
-        cell.nameLabel.restartLabel()
-        cell.tarjetLabel.restartLabel()
-        cell.pqLabel.restartLabel()
-        for cell in tableView.visibleCells as! [ExercisesTableViewCell] {
-            cell.nameLabel.restartLabel()
-            cell.tarjetLabel.restartLabel()
-            cell.pqLabel.restartLabel()
         }
     }
     
@@ -226,7 +172,6 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
             self.present(alert, animated: true, completion: nil)
         }
         
-        //This is nice if you want to add a edit button later
         return [deleteAction]
     }
     
@@ -244,7 +189,7 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
     }
     
     //Filter the contents to show by the characters typed
-    /*func filterContent(for searchText: String) {
+    func filterContent(for searchText: String) {
         
         var query: PFQuery<PFObject>!
         
@@ -284,12 +229,12 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
             filterContent(for: searchText)
             tableView.reloadData()
         }
-    }*/
+    }
     
     // MARK: Parse-related methods
     
     //Load the Exercise data from Parse to the object exercises
-    @objc func loadExercisesFromParse() {
+    func loadExercisesFromParse() {
         // Clear up the array
         exercises.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -297,7 +242,6 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
         // Pull data from Parse
         let query = PFQuery(className: "Exercise")
         //query.order(byAscending: "family")
-        //query.addAscendingOrder("family")
         query.cachePolicy = PFCachePolicy.networkElseCache
         query.findObjectsInBackground { (objects, error) -> Void in
             
@@ -311,7 +255,6 @@ class ExercisesTableViewController: UITableViewController/*, UISearchResultsUpda
                     
                     let exercise = Exercise(pfObject: object)
                     self.exercises.append(exercise)
-                    print(exercise.name)
                     
                     let indexPath = IndexPath(row: index, section: 0)
                     self.tableView.insertRows(at: [indexPath], with: .fade)

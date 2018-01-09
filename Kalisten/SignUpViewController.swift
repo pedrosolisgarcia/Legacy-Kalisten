@@ -70,7 +70,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         self.heightField.delegate = self
         self.ageField.delegate = self
         
-        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
+        let selectorName = "selectPic"
+        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: Selector(selectorName))
         profilePic.addGestureRecognizer(gestureRecognizerOne)
         
         usernameTaken.backgroundColor = UIColor.white
@@ -132,7 +133,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     }
     
     //Pick an image from photo image library
-    @objc func selectPic(_ sender: AnyObject) {
+    func selectPic(_ sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()

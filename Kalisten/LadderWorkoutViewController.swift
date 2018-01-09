@@ -217,7 +217,8 @@ class LadderWorkoutViewController: UITableViewController {
     func startTimer() {
         
         if !timer.isValid {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
+            let selectorName = "updateTime"
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(selectorName), userInfo: nil, repeats: true)
             zeroTime = Date.timeIntervalSinceReferenceDate
         }
         
@@ -227,7 +228,7 @@ class LadderWorkoutViewController: UITableViewController {
     }
     
     //Is called during startTimer() and provides data to be used when creating the timers
-    @objc func updateTime() {
+    func updateTime() {
         
         let currentTime = Date.timeIntervalSinceReferenceDate
         var pausedSeconds = pausedIntervals.reduce(0) { $0 + $1 }
@@ -311,7 +312,8 @@ class LadderWorkoutViewController: UITableViewController {
             
             if !timer.isValid {
                 timer.invalidate()
-                timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
+                let selectorName = "updateTime"
+                timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(selectorName), userInfo: nil, repeats: true)
             }
             
             timePaused = false

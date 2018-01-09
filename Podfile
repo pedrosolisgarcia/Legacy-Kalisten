@@ -6,5 +6,4 @@ target 'Kalisten' do
   use_frameworks!
 
   # Pods for Kalisten
-  pod 'Parse'
 end

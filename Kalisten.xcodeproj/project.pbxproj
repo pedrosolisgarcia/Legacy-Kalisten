@@ -13,6 +13,7 @@
 		510D85C41ECDF3E800EE8B91 /* NewExerciseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */; };
 		510D85C61ED033E400EE8B91 /* EditExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510D85C51ED033E300EE8B91 /* EditExerciseController.swift */; };
 		5111B5F91E8FCB87009D7959 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */; };
+		5114FA69200534E1004579C2 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5114FA68200534E1004579C2 /* Functions.swift */; };
 		51212B511E9C168B00EEC333 /* WorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */; };
 		51212B531E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */; };
 		5127594B1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127594A1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift */; };
@@ -42,8 +43,6 @@
 		515799CC1E8710B500E6D1A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C11E8710B500E6D1A0 /* Security.framework */; };
 		515799CD1E8710B500E6D1A0 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C21E8710B500E6D1A0 /* SpriteKit.framework */; };
 		515799CE1E8710B500E6D1A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */; };
-		515799D51E87135300E6D1A0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D31E87135300E6D1A0 /* Bolts.framework */; };
-		515799D61E87135300E6D1A0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799D41E87135300E6D1A0 /* Parse.framework */; };
 		515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */; };
 		516745611EECA2DE00F054A7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516745601EECA2DD00F054A7 /* HealthKit.framework */; };
 		516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F81EDB18DC0039497D /* ic_eye_closed.png */; };
@@ -83,6 +82,8 @@
 		51DDC3761E81B620009C1B12 /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDC3751E81B620009C1B12 /* ExercisesTableViewController.swift */; };
 		51DDC3781E81D85C009C1B12 /* ExercisesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */; };
 		51DDC37A1E8463AB009C1B12 /* NewExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */; };
+		51FB2FF92003AC610026DEB5 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FB2FF72003AC610026DEB5 /* Parse.framework */; };
+		51FB2FFB2003ADAF0026DEB5 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FB2FFA2003ADAF0026DEB5 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		510D85C31ECDF3E700EE8B91 /* NewExerciseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseViewCell.swift; sourceTree = "<group>"; };
 		510D85C51ED033E300EE8B91 /* EditExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditExerciseController.swift; sourceTree = "<group>"; };
 		5111B5F81E8FCB87009D7959 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		5114FA68200534E1004579C2 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		51212B501E9C168B00EEC333 /* WorkoutDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewController.swift; sourceTree = "<group>"; };
 		51212B521E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailTableViewCell.swift; sourceTree = "<group>"; };
 		5127594A1E9AC0BA007A4521 /* ExerciseDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,8 +122,6 @@
 		515799C11E8710B500E6D1A0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		515799C21E8710B500E6D1A0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		515799D31E87135300E6D1A0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		515799D41E87135300E6D1A0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
 		516745601EECA2DD00F054A7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		516F48F81EDB18DC0039497D /* ic_eye_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_eye_closed.png; sourceTree = "<group>"; };
@@ -164,6 +164,8 @@
 		51DDC3751E81B620009C1B12 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		51DDC3771E81D85C009C1B12 /* ExercisesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewCell.swift; sourceTree = "<group>"; };
 		51DDC3791E8463AB009C1B12 /* NewExerciseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExerciseController.swift; sourceTree = "<group>"; };
+		51FB2FF72003AC610026DEB5 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		51FB2FFA2003ADAF0026DEB5 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		64C2C6D3D8A5D79034C4373D /* Pods_Kalisten.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kalisten.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA309EC550374823B373008D /* Pods-Kalisten.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalisten.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten.release.xcconfig"; sourceTree = "<group>"; };
 		C206F07F12B4CCCC959B9115 /* Pods-Kalisten.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kalisten.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kalisten/Pods-Kalisten.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,14 +176,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FB2FFB2003ADAF0026DEB5 /* Bolts.framework in Frameworks */,
 				515799CB1E8710B500E6D1A0 /* QuartzCore.framework in Frameworks */,
 				515799C41E8710B500E6D1A0 /* AudioToolbox.framework in Frameworks */,
 				515799C51E8710B500E6D1A0 /* CFNetwork.framework in Frameworks */,
 				515799C61E8710B500E6D1A0 /* CoreGraphics.framework in Frameworks */,
-				515799D51E87135300E6D1A0 /* Bolts.framework in Frameworks */,
+				51FB2FF92003AC610026DEB5 /* Parse.framework in Frameworks */,
 				515799C71E8710B500E6D1A0 /* CoreLocation.framework in Frameworks */,
 				515799C81E8710B500E6D1A0 /* libsqlite3.tbd in Frameworks */,
-				515799D61E87135300E6D1A0 /* Parse.framework in Frameworks */,
 				515799C91E8710B500E6D1A0 /* libz.tbd in Frameworks */,
 				515799CA1E8710B500E6D1A0 /* MobileCoreServices.framework in Frameworks */,
 				515799CC1E8710B500E6D1A0 /* Security.framework in Frameworks */,
@@ -254,8 +256,8 @@
 		515799AF1E8705B600E6D1A0 /* Parse */ = {
 			isa = PBXGroup;
 			children = (
-				515799D31E87135300E6D1A0 /* Bolts.framework */,
-				515799D41E87135300E6D1A0 /* Parse.framework */,
+				51FB2FFA2003ADAF0026DEB5 /* Bolts.framework */,
+				51FB2FF72003AC610026DEB5 /* Parse.framework */,
 			);
 			name = Parse;
 			path = Kalisten;
@@ -316,6 +318,7 @@
 				516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */,
 				516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */,
 				516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */,
+				5114FA68200534E1004579C2 /* Functions.swift */,
 			);
 			name = "Additional Files";
 			path = Kalisten;
@@ -442,7 +445,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = AppCoda;
 				TargetAttributes = {
 					51C625A31E75CCE800E94D6A = {
@@ -601,6 +604,7 @@
 				513852181ED4DB5900685D82 /* ProfileViewController.swift in Sources */,
 				51C625CF1E7D6C0900E94D6A /* MyPlanTableViewController.swift in Sources */,
 				516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */,
+				5114FA69200534E1004579C2 /* Functions.swift in Sources */,
 				51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */,
 				5199F04C1EF3257200D20EDF /* LadderCompletedViewCell.swift in Sources */,
 				5199F0521EFC766D00D20EDF /* RoutinesTableViewCell.swift in Sources */,
@@ -774,7 +778,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -797,6 +801,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};

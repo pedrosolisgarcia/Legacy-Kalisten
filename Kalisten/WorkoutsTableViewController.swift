@@ -44,8 +44,6 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
-        self.refreshControl?.addTarget(self, action: #selector(WorkoutsTableViewController.pullToRefresh(_:)), for: UIControlEvents.valueChanged)
-        
         // Add a search bar
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
@@ -57,17 +55,10 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-        refreshControl?.tintColor = UIColor.white
-        refreshControl?.addTarget(self, action: #selector(loadWorkoutsFromParse), for: UIControlEvents.valueChanged)
-    }
-    
-    //Reloads the data from Parse and the tableview data when pulled down
-    @objc func pullToRefresh(_ refreshControl: UIRefreshControl) {
-        
-        loadWorkoutsFromParse()
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        let selectorName = "loadWorkoutsFromParse"
+        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControlEvents.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,33 +100,11 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.tarjetLabel.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
         cell.numExlLabel.text = "EXERCISES: \(workout.exercises.count)"
         cell.timeLabel.text = "TIME: \(workout.totalTime)MIN"
-        cell.levelLabel.text = difficultyLevel(difficulty: workout.difficulty)
+        cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: workout.difficulty))
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
         
         return cell
-    }
-    
-    func difficultyLevel(difficulty: Int)-> String {
-        
-        var diffLevel = ""
-        
-        switch difficulty {
-        case 1: diffLevel = "SUPER EASY"
-        case 2: diffLevel = "VERY EASY"
-        case 3: diffLevel = "EASY"
-        case 4: diffLevel = "NORMAL"
-        case 5: diffLevel = "CHALLENGING"
-        case 6: diffLevel = "HARD"
-        case 7: diffLevel = "VERY HARD"
-        case 8: diffLevel = "SUPER HARD"
-        case 9: diffLevel = "PROFESSIONAL"
-        case 10: diffLevel = "OLYMPIC"
-        default:
-            diffLevel = "DIFFICULTY"
-        }
-        
-        return diffLevel
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -149,27 +118,6 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
             }else{
                 return false
             }
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            as! WorkoutsTableViewCell
-        
-        cell.nameLabel.restartLabel()
-        cell.familyLabel.restartLabel()
-        cell.tarjetLabel.restartLabel()
-        cell.timeLabel.restartLabel()
-        cell.numExlLabel.restartLabel()
-        cell.levelLabel.restartLabel()
-        for cell in tableView.visibleCells as! [WorkoutsTableViewCell] {
-            cell.nameLabel.restartLabel()
-            cell.familyLabel.restartLabel()
-            cell.tarjetLabel.restartLabel()
-            cell.timeLabel.restartLabel()
-            cell.numExlLabel.restartLabel()
-            cell.levelLabel.restartLabel()
         }
     }
     
@@ -269,7 +217,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
     
     // MARK: Parse-related methods
     
-    @objc func loadWorkoutsFromParse() {
+    func loadWorkoutsFromParse() {
         // Clear up the array
         workouts.removeAll(keepingCapacity: false)
         tableView.reloadData()

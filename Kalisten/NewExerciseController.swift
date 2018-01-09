@@ -20,9 +20,9 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var categoryTextField:UITextField!
     @IBOutlet var familyTextField:UITextField!
+    @IBOutlet var difficultyTextField:UITextField!
     @IBOutlet var tarjetsTextField:UITextField!
     @IBOutlet var placeTextField:UITextField?
-    @IBOutlet var objectTextField:UITextField?
     @IBOutlet var pqTextField:UITextField?
     @IBOutlet var descriptionTextView:UITextView?
     var placeholderLabel : UILabel!
@@ -68,8 +68,8 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: #selector(selectPic))
+        let selectorName = "selectPic"
+        let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: Selector(selectorName))
         thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
         
         self.nameTextField.delegate = self
@@ -77,7 +77,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         self.familyTextField.delegate = self
         self.tarjetsTextField.delegate = self
         self.placeTextField?.delegate = self
-        self.objectTextField?.delegate = self
+        
         self.pqTextField?.delegate = self
         
         descriptionTextView?.delegate = self
@@ -120,7 +120,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         }
     }
     
-    @objc func selectPic(_ sender: AnyObject) {
+    func selectPic(_ sender: AnyObject) {
         
         isThumbImage = true
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
@@ -147,11 +147,10 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             exercise["name"] = nameTextField.text?.capitalized
             exercise["category"] = categoryTextField.text?.capitalized
             exercise["family"] = familyTextField.text?.capitalized.components(separatedBy: ", ")
-            exercise["difficulty"] = cell.difficulty
+            exercise["difficulty"] = Functions.difficultyAmount(difficulty: self.difficultyTextField.text!)
             exercise["tarjets"] = tarjetsTextField.text?.capitalized.components(separatedBy: ", ")
             exercise["pq"] = pqTextField?.text?.capitalized.components(separatedBy: ", ")
             exercise["place"] = placeTextField?.text?.capitalized.components(separatedBy: ", ")
-            exercise["object"] = objectTextField?.text?.capitalized.components(separatedBy: ", ")
             exercise["description"] = descriptionTextView?.text.lowercased()
             
             // Save the image or the icon in case we introduce one

@@ -1,16 +1,27 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5eJ-3V-rdJ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5eJ-3V-rdJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNextCondensed.ttc">
+            <string>AvenirNextCondensed-DemiBold</string>
+            <string>AvenirNextCondensed-Medium</string>
+            <string>AvenirNextCondensed-Regular</string>
+            <string>AvenirNextCondensed-UltraLight</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--PROFILE-->
         <scene sceneID="iaU-1D-6I1">
@@ -25,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTr-vq-NLy">
-                                <rect key="frame" x="16" y="551" width="344" height="50"/>
+                                <rect key="frame" x="16" y="551" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RB6-Uf-0GV"/>
@@ -74,7 +85,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQc-p1-MVp">
-                                <rect key="frame" x="150" y="273" width="76" height="21"/>
+                                <rect key="frame" x="149.5" y="273" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rTN-1J-PrM"/>
                                 </constraints>
@@ -83,7 +94,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME SURNAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-2R-sAj">
-                                <rect key="frame" x="46" y="302" width="284" height="21"/>
+                                <rect key="frame" x="46" y="302" width="283" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BdM-9J-fUr"/>
                                 </constraints>
@@ -132,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEf-n4-Ku4" userLabel="SignUp1">
-                                <rect key="frame" x="21" y="25" width="333" height="616"/>
+                                <rect key="frame" x="21" y="25" width="333" height="617"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUa-eD-2VO" userLabel="EXIT">
                                         <rect key="frame" x="299" y="8" width="26" height="31"/>
@@ -251,7 +262,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="k7u-Vw-QV1">
-                                        <rect key="frame" x="155" y="588" width="23" height="20"/>
+                                        <rect key="frame" x="155" y="589" width="23" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="WS1-jq-Dou"/>
                                         </constraints>
@@ -315,7 +326,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH3-03-rMI" userLabel="SignUp2">
-                                <rect key="frame" x="21" y="25" width="333" height="616"/>
+                                <rect key="frame" x="21" y="25" width="333" height="617"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srY-qE-lE9" userLabel="EXIT">
                                         <rect key="frame" x="300" y="10" width="25" height="25"/>
@@ -453,11 +464,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="303" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTr-bn-BaY" id="L3A-Eu-j43">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="39"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVITY LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwV-Xc-gq7">
-                                                            <rect key="frame" x="8" y="10" width="287" height="21"/>
+                                                            <rect key="frame" x="15" y="10" width="273" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="4iS-Iw-Q6u"/>
                                                             </constraints>
@@ -504,7 +515,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-SA-wSv">
-                                        <rect key="frame" x="155" y="588" width="23" height="20"/>
+                                        <rect key="frame" x="155" y="589" width="23" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="e0a-2j-9rY"/>
                                         </constraints>
@@ -929,7 +940,7 @@
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdc-pk-xwl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

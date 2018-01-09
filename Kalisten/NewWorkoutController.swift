@@ -182,28 +182,6 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
         return [deleteAction]
     }
     
-    func difficultyLevel(difficulty: String)-> Int {
-        
-        var diffLevel = 0
-        
-        switch difficulty {
-        case "SUPER EASY": diffLevel = 1
-        case "VERY EASY": diffLevel = 2
-        case "EASY": diffLevel = 3
-        case "NORMAL": diffLevel = 4
-        case "CHALLENGING": diffLevel = 5
-        case "HARD": diffLevel = 6
-        case "VERY HARD": diffLevel = 7
-        case "SUPER HARD": diffLevel = 8
-        case "PROFESSIONAL": diffLevel = 9
-        case "OLYMPIC": diffLevel = 10
-        default:
-            diffLevel = 0
-        }
-        
-        return diffLevel
-    }
-    
     func getTarjet(array: [Exercise])-> [String] {
         var exerciseTarjets = [String]()
         for exercise in exercises {
@@ -277,27 +255,12 @@ class NewWorkoutController: UIViewController, UINavigationControllerDelegate, UI
             workout["exercises"] = exercisesNames
             workout["intTime"] = intTime
             workout["totalTime"] = Int(totalTimeTextField.text!)
-            workout["difficulty"] = difficultyLevel(difficulty: difficultyTextField.text!)
+            workout["difficulty"] = Functions.difficultyAmount(difficulty: difficultyTextField.text!)
             workout["tarjets"] = getTarjet(array: exercises)
             workout["improves"] = pqTextField?.text?.capitalized
             let isAdmin = current?["isAdmin"] as! Bool
             isAdmin ? (workout["isCreated"] = false) : (workout["isCreated"] = true)
             workout["user"] = current?.objectId
-            
-            /*self.workoutNew.workId = "M9hyGTJ0eW"
-            self.workoutNew.name = (nameTextField.text?.capitalized)!
-            self.workoutNew.type = "Strength"
-            self.workoutNew.family = (self.familyTextField.text?.capitalized)!
-            self.workoutNew.numSets = Int(self.setsTextField.text!)!
-            self.workoutNew.exercises = self.exercisesNames
-            self.workoutNew.intTime = intTime
-            self.workoutNew.totalTime = Int(self.totalTimeTextField.text!)!
-            self.workoutNew.difficulty = self.difficultyLevel(difficulty: self.difficultyTextField.text!)
-            self.workoutNew.tarjets = self.getTarjet(array: self.exercises)
-            self.workoutNew.improves = (self.pqTextField?.text?.capitalized)!
-            self.workoutNew.information = [""]
-            self.workoutNew.isCreated = false
-            self.workoutNew.user = self.current?.objectId*/
 
             // Add the exercise on Parse
             workout.saveInBackground(block: { (success, error) -> Void in

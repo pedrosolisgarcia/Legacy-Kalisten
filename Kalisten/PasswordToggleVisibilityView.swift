@@ -74,7 +74,8 @@ class PasswordToggleVisibilityView: UIView {
         eyeButton.adjustsImageWhenHighlighted = false
         eyeButton.setImage(self.eyeClosedImage, for: UIControlState())
         eyeButton.setImage(self.eyeOpenedImage.withRenderingMode(.alwaysTemplate), for: .selected)
-        eyeButton.addTarget(self, action: #selector(eyeButtonPressed), for: .touchUpInside)
+        let selectorName = "eyeButtonPressed"
+        eyeButton.addTarget(self, action: Selector(selectorName), for: .touchUpInside)
         eyeButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         eyeButton.tintColor = self.tintColor
         self.addSubview(eyeButton)
@@ -90,7 +91,7 @@ class PasswordToggleVisibilityView: UIView {
     }
     
     
-    @objc func eyeButtonPressed(_ sender: AnyObject) {
+    func eyeButtonPressed(_ sender: AnyObject) {
         eyeButton.isSelected = !eyeButton.isSelected
         delegate?.viewWasToggled(self, isSelected: eyeButton.isSelected)
     }

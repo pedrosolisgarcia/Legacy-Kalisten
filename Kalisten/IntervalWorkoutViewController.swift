@@ -261,7 +261,8 @@ class IntervalWorkoutViewController: UITableViewController {
     func startTimer() {
         
         if !timer.isValid {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
+            let selectorName = "updateTime"
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(selectorName), userInfo: nil, repeats: true)
             zeroTime = Date.timeIntervalSinceReferenceDate
         }
         
@@ -366,7 +367,8 @@ class IntervalWorkoutViewController: UITableViewController {
             
             if !timer.isValid {
                 timer.invalidate()
-                timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(LadderWorkoutViewController.updateTime), userInfo: nil, repeats: true)
+                let selectorName = "updateTime"
+                timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: Selector(selectorName), userInfo: nil, repeats: true)
             }
             
             timePaused = false

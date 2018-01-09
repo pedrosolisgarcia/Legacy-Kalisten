@@ -42,8 +42,6 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
-        self.refreshControl?.addTarget(self, action: #selector(RoutinesTableViewController.pullToRefresh(_:)), for: UIControlEvents.valueChanged)
-        
         // Add a search bar
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
@@ -57,17 +55,9 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor.gray
-        refreshControl?.addTarget(self, action: #selector(loadRoutinesFromParse), for: UIControlEvents.valueChanged)
-        
-    }
-    
-    //Reloads the data from Parse and the tableview data when pulled down
-    @objc func pullToRefresh(_ refreshControl: UIRefreshControl) {
-        
-        loadRoutinesFromParse()
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        let selectorName = "loadRoutinesFromParse"
+        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControlEvents.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,33 +98,11 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.improvesLabel.text = routine.improves.uppercased()
         cell.numDayslLabel.text = "DAYS: \(routine.workouts.count)"
         cell.timeLabel.text = "TIME: \(routine.avgTime)MIN"
-        cell.levelLabel.text = difficultyLevel(difficulty: routine.difficulty)
+        cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: routine.difficulty))
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
         
         return cell
-    }
-    
-    func difficultyLevel(difficulty: Int)-> String {
-        
-        var diffLevel = ""
-        
-        switch difficulty {
-        case 1: diffLevel = "SUPER EASY"
-        case 2: diffLevel = "VERY EASY"
-        case 3: diffLevel = "EASY"
-        case 4: diffLevel = "NORMAL"
-        case 5: diffLevel = "CHALLENGING"
-        case 6: diffLevel = "HARD"
-        case 7: diffLevel = "VERY HARD"
-        case 8: diffLevel = "SUPER HARD"
-        case 9: diffLevel = "PROFESSIONAL"
-        case 10: diffLevel = "OLYMPIC"
-        default:
-            diffLevel = "DIFFICULTY"
-        }
-        
-        return diffLevel
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -142,25 +110,6 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
             return false
         } else {
             return true
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            as! RoutinesTableViewCell
-        
-        cell.nameLabel.restartLabel()
-        cell.familyLabel.restartLabel()
-        cell.timeLabel.restartLabel()
-        cell.numDayslLabel.restartLabel()
-        cell.levelLabel.restartLabel()
-        for cell in tableView.visibleCells as! [RoutinesTableViewCell] {
-            cell.nameLabel.restartLabel()
-            cell.familyLabel.restartLabel()
-            cell.timeLabel.restartLabel()
-            cell.numDayslLabel.restartLabel()
-            cell.levelLabel.restartLabel()
         }
     }
     
@@ -260,7 +209,7 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
     
     // MARK: Parse-related methods
     
-    @objc func loadRoutinesFromParse() {
+    func loadRoutinesFromParse() {
         // Clear up the array
         routines.removeAll(keepingCapacity: false)
         tableView.reloadData()

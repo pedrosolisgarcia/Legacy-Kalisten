@@ -94,7 +94,7 @@ extension HideShowPasswordTextField: PasswordToggleVisibilityDelegate {
 
 // MARK: Control events
 extension HideShowPasswordTextField {
-    @objc func passwordTextChanged(_ sender: AnyObject) {
+    func passwordTextChanged(_ sender: AnyObject) {
         if let password = self.text {
             passwordToggleVisibilityView.checkmarkVisible = passwordDelegate?.isValidPassword(password) ?? false
         } else {
@@ -116,7 +116,8 @@ extension HideShowPasswordTextField {
         self.rightViewMode = .whileEditing
         
         self.font = UIFont(name: "AvenirNextCondensed-Regular", size: 17)
-        self.addTarget(self, action: #selector(HideShowPasswordTextField.passwordTextChanged(_:)), for: .editingChanged)
+        let selectorName = "passwordTextChanged"
+        self.addTarget(self, action: Selector(selectorName), for: .editingChanged)
         
         // if we don't do this, the eye flies in on textfield focus!
         self.rightView?.frame = self.rightViewRect(forBounds: self.bounds)

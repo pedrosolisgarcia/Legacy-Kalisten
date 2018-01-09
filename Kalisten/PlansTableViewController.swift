@@ -42,14 +42,12 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
-        self.refreshControl?.addTarget(self, action: #selector(RoutinesTableViewController.pullToRefresh(_:)), for: UIControlEvents.valueChanged)
-        
         // Add a search bar
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "SEARCH ROUTINES..."
+        searchController.searchBar.placeholder = "SEARCH PLANS..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
         
@@ -57,17 +55,10 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor.gray
-        refreshControl?.addTarget(self, action: #selector(loadPlansFromParse), for: UIControlEvents.valueChanged)
+        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        let selectorName = "loadPlansFromParse"
+        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControlEvents.valueChanged)
         
-    }
-    
-    //Reloads the data from Parse and the tableview data when pulled down
-    func pullToRefresh(_ refreshControl: UIRefreshControl) {
-        
-        loadPlansFromParse()
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,35 +96,13 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         // Configure the cell
         cell.nameLabel.text = plan.name.uppercased()
         cell.tarjetLabel.text = plan.tarjet.uppercased()
-        cell.levelLabel.text = difficultyLevel(difficulty: plan.difficulty)
+        cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: plan.difficulty))
         cell.numWeeksLabel.text = "DAYS: \(plan.weeks.count)"
         cell.descriptionView.text = plan.description?.uppercased()
         
         tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
         
         return cell
-    }
-    
-    func difficultyLevel(difficulty: Int)-> String {
-        
-        var diffLevel = ""
-        
-        switch difficulty {
-        case 1: diffLevel = "SUPER EASY"
-        case 2: diffLevel = "VERY EASY"
-        case 3: diffLevel = "EASY"
-        case 4: diffLevel = "NORMAL"
-        case 5: diffLevel = "CHALLENGING"
-        case 6: diffLevel = "HARD"
-        case 7: diffLevel = "VERY HARD"
-        case 8: diffLevel = "SUPER HARD"
-        case 9: diffLevel = "PROFESSIONAL"
-        case 10: diffLevel = "OLYMPIC"
-        default:
-            diffLevel = "DIFFICULTY"
-        }
-        
-        return diffLevel
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -256,7 +225,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: Parse-related methods
     
-    @objc func loadPlansFromParse() {
+    func loadPlansFromParse() {
         // Clear up the array
         plans.removeAll(keepingCapacity: false)
         tableView.reloadData()
