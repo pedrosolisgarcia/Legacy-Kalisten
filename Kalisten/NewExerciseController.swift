@@ -9,14 +9,12 @@
 import UIKit
 import Parse
 
-class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, /*UIPickerViewDataSource,*/ UIPickerViewDelegate {
     
-    @IBOutlet var cell:NewExerciseViewCell!
+
     @IBOutlet var contentView: UIView!
-    
     @IBOutlet var exerciseImageView: UIImageView!
     @IBOutlet var thumbnailImageView: UIImageView!
-    
     @IBOutlet var nameTextField:UITextField!
     @IBOutlet var categoryTextField:UITextField!
     @IBOutlet var familyTextField:UITextField!
@@ -25,11 +23,14 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var placeTextField:UITextField?
     @IBOutlet var pqTextField:UITextField?
     @IBOutlet var descriptionTextView:UITextView?
-    var placeholderLabel : UILabel!
+    
+    var difficultyPicker = UIPickerView()
+    var placeholderLabel: UILabel!
     var imagePicked = false
     var thumbPicked = false
     var isThumbImage = false
     
+    let difficulties = ["SUPER EASY", "VERY EASY", "EASY", "NORMAL", "CHALLENGING", "HARD", "VERY HARD", "SUPER HARD", "PROFESSIONAL", "OLYMPIC"]
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
@@ -72,6 +73,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: Selector(selectorName))
         thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
         
+        self.difficultyPicker.delegate = self
         self.nameTextField.delegate = self
         self.categoryTextField.delegate = self
         self.familyTextField.delegate = self
@@ -137,7 +139,7 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBAction func save(sender: AnyObject){
         
         
-        if nameTextField.text == "" || categoryTextField.text == "" || familyTextField.text == "" || tarjetsTextField.text == "" || cell.difficulty == 0{
+        if nameTextField.text == "" || categoryTextField.text == "" || familyTextField.text == "" || difficultyTextField.text == "" || tarjetsTextField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "We cant proceed because one of the mandatory fields is blank. Please check.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
