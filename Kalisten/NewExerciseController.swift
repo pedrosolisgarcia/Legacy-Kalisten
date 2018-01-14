@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, /*UIPickerViewDataSource,*/ UIPickerViewDelegate {
+class NewExerciseController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
 
     @IBOutlet var contentView: UIView!
@@ -24,13 +24,24 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     @IBOutlet var pqTextField:UITextField?
     @IBOutlet var descriptionTextView:UITextView?
     
+    var categoryPicker = UIPickerView()
+    var familyPicker = UIPickerView()
     var difficultyPicker = UIPickerView()
+    var tarjetsPicker = UIPickerView()
+    var placePicker = UIPickerView()
+    var pqPicker = UIPickerView()
+    
     var placeholderLabel: UILabel!
     var imagePicked = false
     var thumbPicked = false
     var isThumbImage = false
     
+    let categories = ["STRENGTH","CONDITIONING","CARDIO","FLEXIBILITY"]
+    let families = ["PUSH-UP","PULL-UP","DIP","SQUAT","FRONT LEVER","BACK LEVER","HANDSTAND","PLANK","FLAG"]
     let difficulties = ["SUPER EASY", "VERY EASY", "EASY", "NORMAL", "CHALLENGING", "HARD", "VERY HARD", "SUPER HARD", "PROFESSIONAL", "OLYMPIC"]
+    let tarjets = ["CHEST","BACK","BICEPS","TRICEPS","SHOULDERS","FOREARMS","LEGS","CORE"]
+    let places = ["FLOOR","STRAIGHT BAR","PARALLEL BARS","PARALLETES","RINGS","BAND","WEIGHT","ELEVATED SURFACE"]
+    let pqs = ["ISOMETRIC STRENGTH", "DYNAMIC STRENGTH","EXPLOSIVE STRENGTH","MOBILITY","ENDURANCE","BALANCE","STABILITY"]
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
@@ -73,14 +84,22 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         let gestureRecognizerOne = UITapGestureRecognizer(target: self, action: Selector(selectorName))
         thumbnailImageView.addGestureRecognizer(gestureRecognizerOne)
         
-        self.difficultyPicker.delegate = self
+        //navigationController?.hidesBarsOnSwipe = true
+        
         self.nameTextField.delegate = self
         self.categoryTextField.delegate = self
         self.familyTextField.delegate = self
+        self.difficultyTextField.delegate = self
         self.tarjetsTextField.delegate = self
         self.placeTextField?.delegate = self
-        
         self.pqTextField?.delegate = self
+        
+        self.categoryPicker.delegate = self
+        self.familyPicker.delegate = self
+        self.difficultyPicker.delegate = self
+        self.tarjetsPicker.delegate = self
+        self.placePicker.delegate = self
+        self.pqPicker.delegate = self
         
         descriptionTextView?.delegate = self
         placeholderLabel = UILabel()
@@ -91,6 +110,82 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+            self.pickData(textField)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        var numRows = 0
+        if pickerView == categoryPicker {
+            numRows = categories.count
+        }
+        if pickerView == familyPicker {
+            numRows = families.count
+        }
+        if pickerView == difficultyPicker {
+            numRows = difficulties.count
+        }
+        if pickerView == tarjetsPicker {
+            numRows = tarjets.count
+        }
+        if pickerView == placePicker {
+            numRows = places.count
+        }
+        if pickerView == pqPicker {
+            numRows = pqs.count
+        }
+        return numRows
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        var value = ""
+        if pickerView == categoryPicker {
+            value = categories[row]
+        }
+        if pickerView == familyPicker {
+            value = families[row]
+        }
+        if pickerView == difficultyPicker {
+            value = difficulties[row]
+        }
+        if pickerView == tarjetsPicker {
+            value = tarjets[row]
+        }
+        if pickerView == placePicker {
+            value = places[row]
+        }
+        if pickerView == pqPicker {
+            value = pqs[row]
+        }
+        return value
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == categoryPicker {
+            categoryTextField.text = categories[row]
+        }
+        if pickerView == familyPicker {
+            familyTextField.text = families[row]
+        }
+        if pickerView == difficultyPicker {
+            difficultyTextField.text = difficulties[row]
+        }
+        if pickerView == tarjetsPicker {
+            tarjetsTextField.text = tarjets[row]
+        }
+        if pickerView == placePicker {
+            placeTextField?.text = places[row]
+        }
+        if pickerView == pqPicker {
+            pqTextField?.text = pqs[row]
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -135,9 +230,108 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         }
     }
     
+    func pickData(_ textField : UITextField){
+        
+        // ToolBar
+        let toolBar = UIToolbar()
+        var done = ""
+        var cancel = ""
+        toolBar.barStyle = .default
+        toolBar.barTintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        toolBar.tintColor = UIColor.white
+        toolBar.sizeToFit()
+        
+        if textField == categoryTextField {
+            self.categoryPicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.categoryPicker
+            done = "doneCategory"
+            cancel = "cancelCategory"
+        }
+        if textField == familyTextField {
+            self.familyPicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.familyPicker
+            done = "doneFamily"
+            cancel = "cancelFamily"
+        }
+        if textField == difficultyTextField {
+            self.difficultyPicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.difficultyPicker
+            done = "doneDifficulty"
+            cancel = "cancelDifficulty"
+        }
+        if textField == tarjetsTextField {
+            self.tarjetsPicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.tarjetsPicker
+            done = "doneTarjets"
+            cancel = "cancelTarjets"
+        }
+        if textField == placeTextField {
+            self.placePicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.placePicker
+            done = "donePlace"
+            cancel = "cancelPlace"
+        }
+        if textField == pqTextField {
+            self.pqPicker.backgroundColor = UIColor.lightGray
+            textField.inputView = self.pqPicker
+            done = "donePQ"
+            cancel = "cancelPQ"
+        }
+        
+        
+        
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: Selector(done))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: Selector(cancel))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        textField.inputAccessoryView = toolBar
+    }
+    func doneCategory() {
+        categoryTextField.resignFirstResponder()
+    }
+    func doneFamily() {
+        familyTextField.resignFirstResponder()
+    }
+    func doneDifficulty() {
+        difficultyTextField.resignFirstResponder()
+    }
+    func doneTarjets() {
+        tarjetsTextField.resignFirstResponder()
+    }
+    func donePlace() {
+        placeTextField?.resignFirstResponder()
+    }
+    func donePQ() {
+        pqTextField?.resignFirstResponder()
+    }
+    func cancelCategory() {
+        categoryTextField.text = ""
+        categoryTextField.resignFirstResponder()
+    }
+    func cancelFamily() {
+        familyTextField.text = ""
+        familyTextField.resignFirstResponder()
+    }
+    func cancelDifficulty() {
+        difficultyTextField.text = ""
+        difficultyTextField.resignFirstResponder()
+    }
+    func cancelTarjets() {
+        tarjetsTextField.text = ""
+        tarjetsTextField.resignFirstResponder()
+    }
+    func cancelPlace() {
+        placeTextField?.text = ""
+        placeTextField?.resignFirstResponder()
+    }
+    func cancelPQ() {
+        pqTextField?.text = ""
+        pqTextField?.resignFirstResponder()
+    }
     
     @IBAction func save(sender: AnyObject){
-        
         
         if nameTextField.text == "" || categoryTextField.text == "" || familyTextField.text == "" || difficultyTextField.text == "" || tarjetsTextField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "We cant proceed because one of the mandatory fields is blank. Please check.", preferredStyle: .alert)
@@ -186,4 +380,11 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             dismiss(animated: true, completion: nil)
         }
     }
+    
+    func hideKeyboard() {
+        let selectorName = "dismissKeyboard"
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(selectorName))
+        view.addGestureRecognizer(tap)
+    }
+    func dismissKeyboard() { view.endEditing(true) }
 }

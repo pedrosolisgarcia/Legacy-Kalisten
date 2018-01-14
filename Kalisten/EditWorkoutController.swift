@@ -13,15 +13,15 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     
     let current = PFUser.current()
     
-    @IBOutlet var familyTextField:UITextField!
-    @IBOutlet var familyIconImageView: UIImageView!
-    @IBOutlet var numExercisesLabel:UILabel!
-    @IBOutlet var setsTextField:UITextField!
-    @IBOutlet var totalTimeTextField:UITextField!
-    @IBOutlet var intervalTimeTextField:UITextField!
-    @IBOutlet var pqTextField:UITextField!
-    @IBOutlet var difficultyTextField:UITextField!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var nameTextField:UITextField!
+    @IBOutlet weak var familyTextField:UITextField!
+    @IBOutlet weak var setsTextField:UITextField!
+    @IBOutlet weak var totalTimeTextField:UITextField!
+    @IBOutlet weak var intervalTimeTextField:UITextField!
+    @IBOutlet weak var pqTextField:UITextField!
+    @IBOutlet weak var tarjetsTextField: UITextField!
+    @IBOutlet weak var difficultyTextField:UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     var workout: Workout!
     var exercises = [Exercise]()
@@ -31,7 +31,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     @IBAction func unwindToEditWorkout(segue:UIStoryboardSegue){
         if segue.identifier == "doneToEdit" {
             tableView.reloadData()
-            numExercisesLabel.text = String(exercises.count)
+            //numExercisesLabel.text = String(exercises.count)
         }
     }
     
@@ -41,20 +41,23 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
         tableView.isEditing = true
         self.tableView.allowsSelectionDuringEditing = true
         
+        self.nameTextField.delegate = self
         self.familyTextField.delegate = self
         self.setsTextField.delegate = self
         self.totalTimeTextField.delegate = self
         self.intervalTimeTextField.delegate = self
         self.pqTextField.delegate = self
+        self.tarjetsTextField.delegate = self
         self.difficultyTextField.delegate = self
         
+        nameTextField.text = workout.name.uppercased()
         familyTextField.text = workout.type.uppercased()
-        familyIconImageView.image = UIImage(named: "\(workout.type.lowercased())")
-        numExercisesLabel.text = String(workout.exercises.count)
         setsTextField.text = String(workout.numSets)
         totalTimeTextField.text = String(workout.totalTime)
         intervalTimeTextField.text = String(workout.intTime[0])
         pqTextField.text = workout.improves.uppercased()
+        let arrayTarjet: NSArray? = workout.tarjets as NSArray?
+        tarjetsTextField.text = arrayTarjet?.componentsJoined(by: ", ").uppercased()
         difficultyTextField.text = Functions.difficultyLevel(difficulty: workout.difficulty)
     }
     
@@ -78,7 +81,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     }
     
     //If the family workout introduced is ladder, it will show the ladder icon
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    /*func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == self.familyTextField {
             if familyTextField.text?.lowercased() == "ladder" {
@@ -87,7 +90,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                 familyIconImageView.reloadInputViews()
             }
         }
-    }
+    }*/
     
     //We increase the number of rows in one unit to include the add Exercise cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,7 +181,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
             
             self.exercises.remove(at: indexPath.row - 1)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.numExercisesLabel.text = String(self.exercises.count)
+            //self.numExercisesLabel.text = String(self.exercises.count)
         }
         
         //This is nice if you want to add a edit button later
@@ -241,7 +244,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     
     @IBAction func done(sender: AnyObject){
         
-        if familyTextField.text == "" || setsTextField.text == "" || totalTimeTextField.text == "" || intervalTimeTextField.text == "" || pqTextField.text == "" || difficultyTextField.text == "" {
+        if nameTextField.text == "" || familyTextField.text == "" || setsTextField.text == "" || totalTimeTextField.text == "" || intervalTimeTextField.text == "" || pqTextField.text == "" || difficultyTextField.text == "" {
             let alertController = UIAlertController(title: "Error", message: "We cant proceed because one of the mandatory fields is blank. Please check.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
@@ -262,6 +265,8 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                     
                     let workoutToUpdate = PFObject(withoutDataWithClassName: "Workout", objectId: self.workout.workId)
                     
+                    workoutToUpdate["name"] = self.nameTextField.text?.capitalized
+                    self.workout.name = (self.nameTextField.text?.capitalized)!
                     workoutToUpdate["type"] = self.familyTextField.text?.capitalized
                     self.workout.type = (self.familyTextField.text?.capitalized)!
                     workoutToUpdate["numSets"] = Int(self.setsTextField.text!)
@@ -298,7 +303,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                 let createAction = UIAlertAction(title: "Create", style: .default) { (alert: UIAlertAction!) -> Void in
                     
                     let workout = PFObject(className: "Workout")
-                    workout["name"] = self.workout.name.capitalized + " (Variation)"
+                    workout["name"] = (self.nameTextField.text?.capitalized)! + " (Variation)"
                     workout["category"] = "Strength"
                     workout["type"] = self.familyTextField.text?.capitalized
                     workout["numSets"] = Int(self.setsTextField.text!)
@@ -337,7 +342,7 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
                 let createAction = UIAlertAction(title: "Yes, save", style: .default) { (alert: UIAlertAction!) -> Void in
                     
                     let workout = PFObject(className: "Workout")
-                    workout["name"] = self.workout.name.capitalized + " (Variation)"
+                    workout["name"] = (self.nameTextField.text?.capitalized)! + " (Variation)"
                     workout["category"] = "Strength"
                     workout["type"] = self.familyTextField.text?.capitalized
                     workout["numSets"] = Int(self.setsTextField.text!)

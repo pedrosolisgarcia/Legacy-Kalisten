@@ -168,57 +168,47 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         if tableView == self.tableViewInformation {
             
-            // Configure the cell...
             switch indexPath.row{
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell0") as! ExerciseDetailTableViewCell
-                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
                 cell.fieldLabel.text = "  NAME"
                 cell.valueText.text = exercise.name.uppercased()
-                cell.fieldLabel0.text = "  DIFFICULTY"
-                cell.valueText0.text = String(Functions.difficultyLevel(difficulty: exercise.difficulty))
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-
                 cell.fieldLabel.text = "  CATEGORY"
                 cell.valueText.text = exercise.category.uppercased()
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-
                 cell.fieldLabel.text = "  FAMILY"
                 let arrayFamily:NSArray = exercise.family as NSArray
                 cell.valueText.text = arrayFamily.componentsJoined(by: ", ").uppercased()
                 return cell
             case 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-
-                cell.fieldLabel.text = "  PLACE"
-                let arrayPlace:NSArray? = exercise.place as NSArray?
-                cell.valueText.text = arrayPlace?.componentsJoined(by: ", ").uppercased()
+                cell.fieldLabel.text = "  DIFFICULTY"
+                cell.valueText.text = String(Functions.difficultyLevel(difficulty: exercise.difficulty))
                 return cell
             case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-
-                cell.fieldLabel.text = "  OBJECT"
-                let arrayObject:NSArray? = exercise.object as NSArray?
-                cell.valueText.text = arrayObject?.componentsJoined(by: ", ").uppercased()
-                return cell
-            case 5:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-                editMode ? (cell.isUserInteractionEnabled = true) : (cell.isUserInteractionEnabled = false)
-                cell.fieldLabel.text = "  PHYSICAL QUALITY"
-                let arrayPQ:NSArray? = exercise.pq as NSArray?
-                cell.valueText.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
-                return cell
-            case 6:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
-                editMode ? (cell.isUserInteractionEnabled = true) : (cell.isUserInteractionEnabled = false)
                 cell.fieldLabel.text = "  TARJETS"
                 let arrayTarjets:NSArray = exercise.tarjets as NSArray
                 cell.valueText.text = arrayTarjets.componentsJoined(by: ", ").uppercased()
                 return cell
+            case 5:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
+                cell.fieldLabel.text = "  PLACE"
+                let arrayPlace:NSArray? = exercise.place as NSArray?
+                cell.valueText.text = arrayPlace?.componentsJoined(by: ", ").uppercased()
+                return cell
+            case 6:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
+                cell.fieldLabel.text = "  PHYSICAL QUALITY"
+                let arrayPQ:NSArray? = exercise.pq as NSArray?
+                cell.valueText.text = arrayPQ?.componentsJoined(by: ", ").uppercased()
+                return cell
+            
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! ExerciseDetailTableViewCell
                 cell.fieldLabel.text = ""

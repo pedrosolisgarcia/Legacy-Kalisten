@@ -23,6 +23,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet var pqImproved: UILabel!
     @IBOutlet var level: UILabel!
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var selectButton: UIButton!
     
@@ -66,6 +67,8 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
         
+        //let exercisesMultiplier = 1.0/CGFloat(workout.exercises.count)
+        tableView.rowHeight = (tableView.frame.size.height - 64 - headerView.frame.size.height)*0.2
         //Set the cells content with the information from the selected workout
         family.text = "\(workout.type.uppercased()):"
         numExercises.text = "\(workout.exercises.count)"
