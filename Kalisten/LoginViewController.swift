@@ -12,7 +12,7 @@ import Parse
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: HideShowPasswordTextField!
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet var loginView: UIView!
     
     @IBAction func unwindToLogInScreen(_ segue:UIStoryboardSegue) {}

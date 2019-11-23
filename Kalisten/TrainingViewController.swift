@@ -21,7 +21,11 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
-
+        self.fitCellsToScreenSize();
+    }
+    
+    func fitCellsToScreenSize() {
+        
         let cellSize = (self.view.frame.size.width-1)*0.5
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: cellSize, height: cellSize)
@@ -52,7 +56,6 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         return 4
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }

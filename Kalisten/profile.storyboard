@@ -805,7 +805,7 @@
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Co-Jt-TTi" customClass="HideShowPasswordTextField" customModule="Kalisten" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Co-Jt-TTi">
                                         <rect key="frame" x="37" y="200" width="269" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="smx-gx-WJe"/>
@@ -922,7 +922,7 @@
                     </view>
                     <connections>
                         <outlet property="loginView" destination="xJ8-J8-k08" id="CU3-Sy-UQo"/>
-                        <outlet property="passwordField" destination="1Co-Jt-TTi" id="B3A-fY-xAC"/>
+                        <outlet property="passwordField" destination="1Co-Jt-TTi" id="vWq-qJ-uaZ"/>
                         <outlet property="usernameField" destination="Chd-Dl-Nxr" id="2gz-Lg-dRZ"/>
                     </connections>
                 </viewController>
@@ -934,9 +934,7 @@
         <scene sceneID="0Y9-8A-waS">
             <objects>
                 <navigationController id="5eJ-3V-rdJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="PROFILE" image="profileIcon" id="0EU-cL-Y1N">
-                        <inset key="imageInsets" minX="1" minY="1" maxX="1" maxY="1"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="PROFILE" image="profileIcon" id="0EU-cL-Y1N"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdc-pk-xwl">

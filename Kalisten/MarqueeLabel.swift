@@ -1291,6 +1291,7 @@ open class MarqueeLabel: UILabel, CAAnimationDelegate {
      - SeeAlso: resetLabel
      - SeeAlso: triggerScrollStart
      */
+    @objc
     public func restartLabel() {
         // Shutdown the label
         shutdownLabel()
