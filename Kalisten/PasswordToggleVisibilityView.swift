@@ -72,7 +72,7 @@ class PasswordToggleVisibilityView: UIView {
         eyeButton.frame = buttonFrame
         eyeButton.backgroundColor = UIColor.clear
         eyeButton.adjustsImageWhenHighlighted = false
-        eyeButton.setImage(self.eyeClosedImage, for: UIControlState())
+        eyeButton.setImage(self.eyeClosedImage, for: UIControl.State())
         eyeButton.setImage(self.eyeOpenedImage.withRenderingMode(.alwaysTemplate), for: .selected)
         let selectorName = "eyeButtonPressed"
         eyeButton.addTarget(self, action: Selector(selectorName), for: .touchUpInside)

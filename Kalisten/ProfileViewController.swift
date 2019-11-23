@@ -67,10 +67,10 @@ class ProfileViewController: UIViewController {
                 
                 //Add the Login subview
                 let popLoginView = UIStoryboard(name: "profile", bundle: nil).instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
-                self.addChildViewController(popLoginView)
+                self.addChild(popLoginView)
                 popLoginView.view.frame = self.view.frame
                 self.view.addSubview(popLoginView.view)
-                popLoginView.didMove(toParentViewController: self)
+                popLoginView.didMove(toParent: self)
             }
             
         } else {

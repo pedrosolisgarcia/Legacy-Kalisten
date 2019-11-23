@@ -399,7 +399,7 @@ extension IntervalWorkoutViewController : UIPickerViewDataSource , UIPickerViewD
         
         repsData = repetitions[row]
         repsLabel.textAlignment = .center
-        let myDiff = NSAttributedString(string: repsData, attributes: [NSAttributedStringKey.font:UIFont(name: "AvenirNextCondensed-DemiBold", size: 55)!])
+        let myDiff = NSAttributedString(string: repsData, attributes: [NSAttributedString.Key.font:UIFont(name: "AvenirNextCondensed-DemiBold", size: 55)!])
         repsLabel.attributedText = myDiff
         repsLabel.textColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
         

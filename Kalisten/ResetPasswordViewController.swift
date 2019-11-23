@@ -34,7 +34,7 @@ class ResetPasswordViewController: UIViewController {
         PFUser.requestPasswordResetForEmail(inBackground: finalEmail)
         
         let alertController = UIAlertController(title: "Password link sent", message: "An email containing a link to set a new password has been sent to \(finalEmail).", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+        let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
             (_)in
             self.dismiss(animated: true, completion: nil)
         })

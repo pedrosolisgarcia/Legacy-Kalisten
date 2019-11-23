@@ -58,7 +58,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         refreshControl?.backgroundColor = UIColor.white
         refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
         let selectorName = "loadWorkoutsFromParse"
-        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControlEvents.valueChanged)
+        refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
