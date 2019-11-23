@@ -42,7 +42,7 @@ class Record {
         self.workName = pfObject["workName"] as! String
         self.workType = pfObject["workType"] as! String
         self.workFamily = pfObject["workFamily"] as! String
-        self.workDate = pfObject["workDate"] as! Date
+        self.workDate = pfObject["workDate"] as? Date
         self.workExercises = pfObject["workExercises"] as! [String]
         self.repetitions = pfObject["repetitions"] as? [Int]
         self.maxReps = pfObject["maxReps"] as! [Int]

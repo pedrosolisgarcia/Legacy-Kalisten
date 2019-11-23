@@ -89,8 +89,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         tableView.sectionIndexBackgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if let selectedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as?
             UIImage{
             
             profilePic.image = selectedImage
@@ -302,7 +305,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                 spinner.startAnimating()
                 
                 // Save the avatar in case the user introduces one
-                let imageData = UIImagePNGRepresentation(self.profilePic.image!)
+                let imageData = self.profilePic.image!.pngData()
                 if imageData != nil && self.avatarPicked {
                     let imageFile = PFFile(name:"\(username).png", data:imageData!)
                     newUser["avatar"] = imageFile
@@ -427,7 +430,7 @@ extension SignUpViewController: UIPickerViewDataSource , UIPickerViewDelegate {
         pickerView == pickWeightUnit ? (unitData = weightUnits[row]) : (unitData = heightUnits[row])
         
         unitLabel.textAlignment = .center
-        let myUnit = NSAttributedString(string: unitData, attributes: [NSAttributedStringKey.font:UIFont(name: "AvenirNextCondensed-Medium", size: 21)!])
+        let myUnit = NSAttributedString(string: unitData, attributes: [NSAttributedString.Key.font:UIFont(name: "AvenirNextCondensed-Medium", size: 21)!])
         unitLabel.attributedText = myUnit
         
         return unitLabel
@@ -442,4 +445,14 @@ extension SignUpViewController: UIPickerViewDataSource , UIPickerViewDelegate {
         if pickerView == pickWeightUnit {weightUnit = weightUnits[row].lowercased()}
         if pickerView == pickHeightUnit {heightUnit = heightUnits[row].lowercased()}
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

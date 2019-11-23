@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.black
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -37,11 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font:barFront]
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:barFront]
         }
         
         //To make this have effect, you need first to add a row in Info.plist with view controller... and set NO.
-        UIApplication.shared.statusBarStyle = .lightContent
+        var preferredStatusBarStyle: UIStatusBarStyle {
+            return .lightContent
+        }
         
         // Initialize Parse.
         let configuration = ParseClientConfiguration {

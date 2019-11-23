@@ -43,8 +43,11 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
     let places = ["FLOOR","STRAIGHT BAR","PARALLEL BARS","PARALLETES","RINGS","BAND","WEIGHT","ELEVATED SURFACE"]
     let pqs = ["ISOMETRIC STRENGTH", "DYNAMIC STRENGTH","EXPLOSIVE STRENGTH","MOBILITY","ENDURANCE","BALANCE","STABILITY"]
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let selectedImage = info[UIImagePickerControllerOriginalImage] as?
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if let selectedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as?
             UIImage{
             
             if isThumbImage {
@@ -61,16 +64,16 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         }
         if !isThumbImage {
             
-            let leadingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.leading, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+            let leadingConstraint = NSLayoutConstraint(item: exerciseImageView!, attribute: NSLayoutConstraint.Attribute.leading, relatedBy:NSLayoutConstraint.Relation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutConstraint.Attribute.leading, multiplier: 1, constant: 0)
             leadingConstraint.isActive = true
             
-            let trailingConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.trailing, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+            let trailingConstraint = NSLayoutConstraint(item: exerciseImageView!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy:NSLayoutConstraint.Relation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutConstraint.Attribute.trailing, multiplier: 1, constant: 0)
             trailingConstraint.isActive = true
             
-            let topConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.top, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.top, multiplier: 1, constant: 0)
+            let topConstraint = NSLayoutConstraint(item: exerciseImageView!, attribute: NSLayoutConstraint.Attribute.top, relatedBy:NSLayoutConstraint.Relation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
             topConstraint.isActive = true
             
-            let bottomConstraint = NSLayoutConstraint(item: exerciseImageView, attribute: NSLayoutAttribute.bottom, relatedBy:NSLayoutRelation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: exerciseImageView!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy:NSLayoutConstraint.Relation.equal, toItem: exerciseImageView.superview, attribute:NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0)
             bottomConstraint.isActive = true
         }
         
@@ -350,8 +353,8 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
             exercise["description"] = descriptionTextView?.text.lowercased()
             
             // Save the image or the icon in case we introduce one
-            let imageData = UIImagePNGRepresentation(self.exerciseImageView.image!)
-            let thumbData = UIImagePNGRepresentation(self.thumbnailImageView.image!)
+            let imageData = self.exerciseImageView.image!.pngData()
+            let thumbData = self.thumbnailImageView.image!.pngData()
             
             if imageData != nil && self.imagePicked && self.thumbPicked{
                 let imageFile = PFFile(name:"image.png", data:imageData!)
@@ -387,4 +390,14 @@ class NewExerciseController: UITableViewController, UIImagePickerControllerDeleg
         view.addGestureRecognizer(tap)
     }
     func dismissKeyboard() { view.endEditing(true) }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

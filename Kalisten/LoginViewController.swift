@@ -33,7 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.6)
         self.showAnimate()
         //Add blur effect to the background view
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         self.view.insertSubview(blurEffectView, belowSubview: loginView)
@@ -115,7 +115,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 if ((user) != nil) {
                     let alertController = UIAlertController(title: "Loged In Successfully", message: "Your account has been logged in. Welcome back \(username)", preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                    let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
                         (_)in
                         
                         self.removeAnimate()
