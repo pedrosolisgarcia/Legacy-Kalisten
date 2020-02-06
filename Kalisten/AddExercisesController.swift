@@ -47,7 +47,7 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
@@ -112,7 +112,7 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         
         
         
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 30)
         
         return cell
     }

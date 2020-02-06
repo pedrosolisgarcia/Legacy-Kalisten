@@ -147,6 +147,7 @@ class LadderWorkoutViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         navigItem.title = workout.name.uppercased()
         
         insertExerciseData()
@@ -181,7 +182,7 @@ class LadderWorkoutViewController: UITableViewController {
                 }
             })
         } else {
-            self.exerciseImage.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+            self.exerciseImage.backgroundColor = UIColor.lightGrey
             
         }
         
@@ -189,9 +190,9 @@ class LadderWorkoutViewController: UITableViewController {
         laddersCount.text = "MAX. LADDER: 0"
         ladderUpButton.setTitle("1", for: .normal)
         isGoingUp = true
-        ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        ladderUpButton.backgroundColor = UIColor.estonianBlue
         ladderUpButton.isEnabled = true
-        ladderDownButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        ladderDownButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
         ladderDownButton.setTitle("", for: .normal)
         ladderDownButton.isEnabled = false
         repsCountLabel.text = "0"
@@ -246,7 +247,11 @@ class LadderWorkoutViewController: UITableViewController {
             
         } else {
             
-            remainIntervalLabel.textColor = UIColor.black
+            if #available(iOS 13.0, *) {
+                remainIntervalLabel.textColor = UIColor.label
+            } else {
+                remainIntervalLabel.textColor = UIColor.black
+            }
         }
         
         if ladderLeft <= 0 {
@@ -299,8 +304,8 @@ class LadderWorkoutViewController: UITableViewController {
             pausedTime = Date()
             pauseButton.setTitle("RESUME", for: .normal)
             
-            ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
-            ladderDownButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+            ladderUpButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
+            ladderDownButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
             ladderUpButton.isEnabled = false
             ladderDownButton.isEnabled = false
             
@@ -321,11 +326,11 @@ class LadderWorkoutViewController: UITableViewController {
             pauseButton.setTitle("PAUSE", for: .normal)
             
             if isGoingUp || (!isGoingUp && reps == 1){
-                ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+                ladderUpButton.backgroundColor = UIColor.estonianBlue
                 ladderUpButton.isEnabled = true
             }
             if repsCount > 0 {
-                ladderDownButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+                ladderDownButton.backgroundColor = UIColor.estonianBlue
                 ladderDownButton.isEnabled = true
             }
         }
@@ -340,7 +345,7 @@ class LadderWorkoutViewController: UITableViewController {
     @IBAction func ladderButtonPressed(_ sender: UIButton) {
         if sender == ladderUpButton {
             isGoingUp = true
-            ladderDownButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+            ladderDownButton.backgroundColor = UIColor.estonianBlue
             ladderDownButton.isEnabled = true
             reps += 1
             repsCount += reps
@@ -358,7 +363,7 @@ class LadderWorkoutViewController: UITableViewController {
         if sender == ladderDownButton {
             if reps > 2 {
                 isGoingUp = false
-                ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+                ladderUpButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
                 ladderUpButton.setTitle("", for: .normal)
                 ladderUpButton.isEnabled = false
                 reps -= 1
@@ -366,14 +371,14 @@ class LadderWorkoutViewController: UITableViewController {
                 ladderDownButton.setTitle(String(reps - 1), for: .normal)
             } else if reps == 2{
                 isGoingUp = false
-                ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+                ladderUpButton.backgroundColor = UIColor.estonianBlue
                 ladderUpButton.isEnabled = true
                 reps -= 1
                 repsCount += reps
                 ladderUpButton.setTitle(String(reps + 1), for: .normal)
                 ladderDownButton.setTitle("1", for: .normal)
             } else {
-                ladderUpButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+                ladderUpButton.backgroundColor = UIColor.estonianBlue
                 ladderUpButton.isEnabled = true
                 repsCount += reps
                 ladderUpButton.setTitle(String(reps + 1), for: .normal)

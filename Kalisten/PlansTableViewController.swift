@@ -28,7 +28,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         
         if current == nil {
             addPlan.isEnabled = false
-            addPlan.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            addPlan.tintColor = UIColor.black.opacity(percentage: 0)
         } else {
             addPlan.isEnabled = true
             addPlan.tintColor = UIColor.white
@@ -46,7 +46,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH PLANS..."
         searchController.searchBar.tintColor = UIColor.white
         searchController.searchBar.barTintColor = UIColor.black
@@ -55,7 +55,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
         refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadPlansFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)
         
@@ -100,7 +100,7 @@ class PlansTableViewController: UITableViewController, UISearchResultsUpdating {
         cell.numWeeksLabel.text = "DAYS: \(plan.weeks.count)"
         cell.descriptionView.text = plan.description?.uppercased()
         
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 30)
         
         return cell
     }

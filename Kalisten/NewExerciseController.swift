@@ -240,7 +240,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         var done = ""
         var cancel = ""
         toolBar.barStyle = .default
-        toolBar.barTintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        toolBar.barTintColor = UIColor.estonianBlue
         toolBar.tintColor = UIColor.white
         toolBar.sizeToFit()
         

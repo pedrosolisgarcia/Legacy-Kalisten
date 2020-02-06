@@ -10,14 +10,11 @@ import UIKit
 
 class TrainingCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var strengthLabel: UILabel!
-    @IBOutlet var conditioningLabel: UILabel!
-    @IBOutlet var cardioLabel: UILabel!
-    @IBOutlet var stretchingLabel: UILabel!
+    @IBOutlet var categoryLabel: UILabel!
     
     override var isSelected: Bool {
         didSet {
-            self.contentView.backgroundColor = isSelected ? UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 0.5) : UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+            self.contentView.backgroundColor = isSelected ? UIColor.lightGrey : UIColor.estonianBlue
         }
     }
 }

@@ -15,7 +15,7 @@ class TrainingTableViewController: UITableViewController {
 
         //Remove the title of the back button
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "" ,style: .plain, target: nil, action: nil)
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 50)
     }
     
     override func viewWillAppear(_ animated: Bool) {

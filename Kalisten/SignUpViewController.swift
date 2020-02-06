@@ -84,9 +84,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 50)
         tableView.sectionIndexColor = UIColor.white
-        tableView.sectionIndexBackgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        tableView.sectionIndexBackgroundColor = UIColor.estonianBlue
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -118,7 +118,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     @IBAction func selectMaleGender(_ sender: UIButton) {
         
         maleButton.setTitleColor(UIColor.white, for: .normal)
-        maleButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        maleButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
         femaleButton.setTitleColor(UIColor.black, for: .normal)
         femaleButton.backgroundColor = UIColor.white
         femaleButton.isSelected = false
@@ -128,7 +128,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     @IBAction func selectFemaleGender(_ sender: UIButton) {
         
         femaleButton.setTitleColor(UIColor.white, for: .normal)
-        femaleButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        femaleButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
         maleButton.setTitleColor(UIColor.black, for: .normal)
         maleButton.backgroundColor = UIColor.white
         maleButton.isSelected = false
@@ -155,11 +155,11 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     fileprivate func setupPasswordTextField() {
         
         passwordField.delegate = self
-        passwordField.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).cgColor
+        passwordField.layer.borderColor = UIColor.lightGrey.cgColor
         passwordField.clipsToBounds = true
         passwordField.font = UIFont(name: "AvenirNextCondensed-Medium", size: 17)
         
-        passwordField.rightView?.tintColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 1.0)
+        passwordField.rightView?.tintColor = UIColor.estonianBlue
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -173,7 +173,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                     if (objects!.count > 0){
                         self.usernameIsTaken = true
                         self.usernameTaken.text = "TAKEN"
-                        self.usernameTaken.backgroundColor = UIColor(red: 250/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
+                        self.usernameTaken.backgroundColor = UIColor.errorRed
                     } else {
                         
                         if self.usernameField.text == "" {
@@ -184,7 +184,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                             
                             self.usernameIsTaken = false
                             self.usernameTaken.text = "FREE"
-                            self.usernameTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                            self.usernameTaken.backgroundColor = UIColor.availableGreen
                         }
                     }
                 } else {
@@ -202,7 +202,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                         
                         self.emailIsTaken = true
                         self.emailTaken.text = "TAKEN"
-                        self.emailTaken.backgroundColor = UIColor(red: 250/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
+                        self.emailTaken.backgroundColor = UIColor.errorRed
                     } else {
                         
                         if self.emailField.text == "" {
@@ -213,7 +213,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                             
                             self.emailIsTaken = false
                             self.emailTaken.text = "FREE"
-                            self.emailTaken.backgroundColor = UIColor(red: 100/255.0, green: 210/255.0, blue: 50/255.0, alpha: 1.0)
+                            self.emailTaken.backgroundColor = UIColor.availableGreen
                         }
                     }
                 } else {

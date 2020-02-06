@@ -10,7 +10,7 @@ import Foundation
 
 class Functions {
     
-    static func difficultyLevel(difficulty: Int)-> String {
+    static func difficultyLevel(difficulty: Int) -> String {
         
         var diffLevel = ""
         
@@ -32,7 +32,7 @@ class Functions {
         return diffLevel
     }
     
-    static func difficultyAmount(difficulty: String)-> Int {
+    static func difficultyAmount(difficulty: String) -> Int {
         
         var diffLevel = 0
         

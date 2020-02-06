@@ -52,7 +52,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         if current == nil {
             editButton.isEnabled = false
-            editButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            editButton.tintColor = UIColor.black.opacity(percentage: 0)
         } else {
             editButton.isEnabled = true
             editButton.tintColor = UIColor.white
@@ -125,7 +125,7 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         cell.backgroundColor = UIColor.white
         
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 30)
         
         return cell
     }

@@ -150,6 +150,7 @@ class IntervalWorkoutViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         navigItem.title = workout.name.uppercased()
         
         repetitions = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
@@ -189,7 +190,7 @@ class IntervalWorkoutViewController: UITableViewController {
                 }
             })
         } else {
-            self.exerciseImage.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+            self.exerciseImage.backgroundColor = UIColor.lightGrey
             
         }
         
@@ -290,7 +291,11 @@ class IntervalWorkoutViewController: UITableViewController {
             
         } else {
             
-            remainIntervalLabel.textColor = UIColor.black
+            if #available(iOS 13.0, *) {
+                remainIntervalLabel.textColor = UIColor.label
+            } else {
+                remainIntervalLabel.textColor = UIColor.black
+            }
         }
         
         if interLeft <= 0 {
@@ -401,7 +406,7 @@ extension IntervalWorkoutViewController : UIPickerViewDataSource , UIPickerViewD
         repsLabel.textAlignment = .center
         let myDiff = NSAttributedString(string: repsData, attributes: [NSAttributedString.Key.font:UIFont(name: "AvenirNextCondensed-DemiBold", size: 55)!])
         repsLabel.attributedText = myDiff
-        repsLabel.textColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        repsLabel.textColor = UIColor.estonianBlue
         
         
         return repsLabel

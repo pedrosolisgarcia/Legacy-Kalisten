@@ -44,11 +44,11 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
         }
         
         if PFUser.current() != nil {
-            saveButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+            saveButton.backgroundColor = UIColor.estonianBlue
             saveButton.isEnabled = true
             discardButton.setTitle("DISCARD", for: .normal)
         } else {
-            saveButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+            saveButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
             discardButton.setTitle("EXIT", for: .normal)
             saveButton.isEnabled = false
         }
@@ -91,7 +91,7 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
                 cell.totalReps.text = String(totalReps)
                 cell.totalReps.textColor = UIColor.white
                 cell.exerciseName.text = ""
-                cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.75)
+                cell.backgroundColor = UIColor.estonianBlue.opacity(percentage: 75)
             }
             return cell
         } else {
@@ -114,7 +114,7 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
                 cell.exerciseName.text = ""
                 cell.maxLadder.text = ""
                 cell.reps.text = ""
-                cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.75)
+                cell.backgroundColor = UIColor.estonianBlue.opacity(percentage: 75)
             }
             return cell
         }

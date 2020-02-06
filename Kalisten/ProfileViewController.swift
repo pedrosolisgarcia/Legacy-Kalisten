@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
             avatar.getDataInBackground(block: { (avatarData, error) in
                 if let userAvatarData = avatarData {
                     self.userAvatar.image = UIImage(data: userAvatarData)
-                    self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+                    self.userAvatarView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
                 }
             })
         } else {
@@ -84,7 +84,7 @@ class ProfileViewController: UIViewController {
                 avatar.getDataInBackground(block: { (avatarData, error) in
                     if let userAvatarData = avatarData {
                         self.userAvatar.image = UIImage(data: userAvatarData)
-                        self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+                        self.userAvatarView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
                     }
                 })
             } else {
