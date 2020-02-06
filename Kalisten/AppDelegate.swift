@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UISegmentedControl.appearance().tintColor = UIColor.black
         
         let colorView = UIView()
-        colorView.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        colorView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
         
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app
