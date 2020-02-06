@@ -25,6 +25,14 @@
 		5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5138521D1ED4DCB300685D82 /* ResetPasswordViewController.swift */; };
 		5139017D1ECB9A16002F0EEB /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139017C1ECB9A14002F0EEB /* Routine.swift */; };
 		5139017F1ECB9A5B002F0EEB /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5139017E1ECB9A5B002F0EEB /* Plan.swift */; };
+		513CE81E23E88EFD0073188A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 513CE82023E88EFD0073188A /* Localizable.strings */; };
+		513CE83623EAC6F50073188A /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83523EAC6F50073188A /* String+Localizable.swift */; };
+		513CE83A23EB041F0073188A /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83923EB041F0073188A /* UIColor+CustomColors.swift */; };
+		513CE83C23EB29780073188A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83B23EB29780073188A /* UIColor+Hex.swift */; };
+		513CE83E23EB46AF0073188A /* UIColor+Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83D23EB46AF0073188A /* UIColor+Opacity.swift */; };
+		513CE84023EC20450073188A /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83F23EC20450073188A /* MarqueeLabel.swift */; };
+		513CE84223EC20600073188A /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE84123EC20600073188A /* HideShowPasswordTextField.swift */; };
+		513CE84423EC20B70073188A /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE84323EC20B60073188A /* PasswordToggleVisibilityView.swift */; };
 		514B8D041F02F15B00D80ADD /* NewWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D031F02F15B00D80ADD /* NewWorkoutController.swift */; };
 		514B8D061F02F34B00D80ADD /* NewWorkoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D051F02F34B00D80ADD /* NewWorkoutViewCell.swift */; };
 		514B8D081F044FA800D80ADD /* AddExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D071F044FA800D80ADD /* AddExercisesController.swift */; };
@@ -42,7 +50,6 @@
 		515799CC1E8710B500E6D1A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C11E8710B500E6D1A0 /* Security.framework */; };
 		515799CD1E8710B500E6D1A0 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C21E8710B500E6D1A0 /* SpriteKit.framework */; };
 		515799CE1E8710B500E6D1A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */; };
-		515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */; };
 		516745611EECA2DE00F054A7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516745601EECA2DD00F054A7 /* HealthKit.framework */; };
 		516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F81EDB18DC0039497D /* ic_eye_closed.png */; };
 		516F49041EDB18DC0039497D /* ic_eye_closed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */; };
@@ -53,8 +60,6 @@
 		516F49091EDB18DC0039497D /* ic_password_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */; };
 		516F490A1EDB18DC0039497D /* ic_password_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */; };
 		516F490B1EDB18DC0039497D /* ic_password_checkmark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */; };
-		516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */; };
-		516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */; };
 		51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */; };
 		51702B481EE2E29F00CEEBAF /* SignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */; };
 		51702B4C1EE43E5300CEEBAF /* WorkoutInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51702B4B1EE43E5200CEEBAF /* WorkoutInstructionsViewController.swift */; };
@@ -103,6 +108,23 @@
 		5138521D1ED4DCB300685D82 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		5139017C1ECB9A14002F0EEB /* Routine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
 		5139017E1ECB9A5B002F0EEB /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		513CE82723EAB4C80073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/training.strings; sourceTree = "<group>"; };
+		513CE82823EAB4C80073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/nutrition.strings; sourceTree = "<group>"; };
+		513CE82923EAB4C80073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		513CE82A23EAB4C80073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		513CE82B23EAB4C80073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		513CE83023EAB5EA0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/training.strings; sourceTree = "<group>"; };
+		513CE83123EAB5EA0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/nutrition.strings; sourceTree = "<group>"; };
+		513CE83223EAB5EC0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		513CE83323EAB5EC0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		513CE83423EAB5EC0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		513CE83523EAC6F50073188A /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		513CE83923EB041F0073188A /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		513CE83B23EB29780073188A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		513CE83D23EB46AF0073188A /* UIColor+Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Opacity.swift"; sourceTree = "<group>"; };
+		513CE83F23EC20450073188A /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
+		513CE84123EC20600073188A /* HideShowPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideShowPasswordTextField.swift; sourceTree = "<group>"; };
+		513CE84323EC20B60073188A /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
 		514B8D031F02F15B00D80ADD /* NewWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutController.swift; sourceTree = "<group>"; };
 		514B8D051F02F34B00D80ADD /* NewWorkoutViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewCell.swift; sourceTree = "<group>"; };
 		514B8D071F044FA800D80ADD /* AddExercisesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExercisesController.swift; sourceTree = "<group>"; };
@@ -120,7 +142,6 @@
 		515799C11E8710B500E6D1A0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		515799C21E8710B500E6D1A0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		515799C31E8710B500E6D1A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
 		516745601EECA2DD00F054A7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		516F48F81EDB18DC0039497D /* ic_eye_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_eye_closed.png; sourceTree = "<group>"; };
 		516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_eye_closed@2x.png"; sourceTree = "<group>"; };
@@ -131,8 +152,6 @@
 		516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_password_checkmark.png; sourceTree = "<group>"; };
 		516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_password_checkmark@2x.png"; sourceTree = "<group>"; };
 		516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_password_checkmark@3x.png"; sourceTree = "<group>"; };
-		516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideShowPasswordTextField.swift; sourceTree = "<group>"; };
-		516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
 		516F490E1EDB72D10039497D /* Kalisten.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kalisten.entitlements; sourceTree = "<group>"; };
 		51702B451EDCA88100CEEBAF /* SignUpPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPageViewController.swift; sourceTree = "<group>"; };
 		51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewCell.swift; sourceTree = "<group>"; };
@@ -251,6 +270,63 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		513CE82223E9F7530073188A /* sections */ = {
+			isa = PBXGroup;
+			children = (
+				5103361C1E89947200CDED57 /* Training */,
+				5103361D1E89948A00CDED57 /* Nutrition */,
+				5103361E1E89949400CDED57 /* MyPlan */,
+				5103361F1E8994A600CDED57 /* Challenges */,
+				510336201E8994AE00CDED57 /* Profile */,
+			);
+			name = sections;
+			sourceTree = "<group>";
+		};
+		513CE82423E9F8390073188A /* media */ = {
+			isa = PBXGroup;
+			children = (
+				513CE82523E9F84C0073188A /* images */,
+			);
+			name = media;
+			sourceTree = "<group>";
+		};
+		513CE82523E9F84C0073188A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				516F48F81EDB18DC0039497D /* ic_eye_closed.png */,
+				516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */,
+				516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */,
+				516F48FB1EDB18DC0039497D /* ic_eye_open.png */,
+				516F48FC1EDB18DC0039497D /* ic_eye_open@2x.png */,
+				516F48FD1EDB18DC0039497D /* ic_eye_open@3x.png */,
+				516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */,
+				516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */,
+				516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		513CE82623E9F9740073188A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				513CE83523EAC6F50073188A /* String+Localizable.swift */,
+				513CE83923EB041F0073188A /* UIColor+CustomColors.swift */,
+				513CE83B23EB29780073188A /* UIColor+Hex.swift */,
+				513CE83D23EB46AF0073188A /* UIColor+Opacity.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		513CE84523EC22B00073188A /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				513CE83F23EC20450073188A /* MarqueeLabel.swift */,
+				513CE84323EC20B60073188A /* PasswordToggleVisibilityView.swift */,
+				513CE84123EC20600073188A /* HideShowPasswordTextField.swift */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
 		515799AF1E8705B600E6D1A0 /* Parse */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,25 +377,16 @@
 			name = Plans;
 			sourceTree = "<group>";
 		};
-		516F48F71EDB189A0039497D /* Additional Files */ = {
+		516F48F71EDB189A0039497D /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				515799E71E87D97600E6D1A0 /* MarqueeLabel.swift */,
-				516F48F81EDB18DC0039497D /* ic_eye_closed.png */,
-				516F48F91EDB18DC0039497D /* ic_eye_closed@2x.png */,
-				516F48FA1EDB18DC0039497D /* ic_eye_closed@3x.png */,
-				516F48FB1EDB18DC0039497D /* ic_eye_open.png */,
-				516F48FC1EDB18DC0039497D /* ic_eye_open@2x.png */,
-				516F48FD1EDB18DC0039497D /* ic_eye_open@3x.png */,
-				516F48FE1EDB18DC0039497D /* ic_password_checkmark.png */,
-				516F48FF1EDB18DC0039497D /* ic_password_checkmark@2x.png */,
-				516F49001EDB18DC0039497D /* ic_password_checkmark@3x.png */,
-				516F49011EDB18DC0039497D /* HideShowPasswordTextField.swift */,
-				516F49021EDB18DC0039497D /* PasswordToggleVisibilityView.swift */,
+				513CE84523EC22B00073188A /* classes */,
+				513CE82023E88EFD0073188A /* Localizable.strings */,
+				513CE82623E9F9740073188A /* extensions */,
+				513CE82423E9F8390073188A /* media */,
 				5114FA68200534E1004579C2 /* Functions.swift */,
 			);
-			name = "Additional Files";
-			path = Kalisten;
+			name = utils;
 			sourceTree = "<group>";
 		};
 		51702B4D1EE4ADFB00CEEBAF /* Exercises */ = {
@@ -372,7 +439,6 @@
 				51C625A61E75CCE800E94D6A /* Kalisten */,
 				515799AF1E8705B600E6D1A0 /* Parse */,
 				51C625A51E75CCE800E94D6A /* Products */,
-				516F48F71EDB189A0039497D /* Additional Files */,
 				515799B81E8710B500E6D1A0 /* Frameworks */,
 				CB388CD2F07C945BD1140492 /* Pods */,
 			);
@@ -389,12 +455,9 @@
 		51C625A61E75CCE800E94D6A /* Kalisten */ = {
 			isa = PBXGroup;
 			children = (
+				516F48F71EDB189A0039497D /* utils */,
 				516F490E1EDB72D10039497D /* Kalisten.entitlements */,
-				5103361C1E89947200CDED57 /* Training */,
-				5103361D1E89948A00CDED57 /* Nutrition */,
-				5103361E1E89949400CDED57 /* MyPlan */,
-				5103361F1E8994A600CDED57 /* Challenges */,
-				510336201E8994AE00CDED57 /* Profile */,
+				513CE82223E9F7530073188A /* sections */,
 				51C625A71E75CCE800E94D6A /* AppDelegate.swift */,
 				51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */,
 				51C625D01E7DFDDE00E94D6A /* Assets.xcassets */,
@@ -467,8 +530,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
-				en,
 				Base,
+				es,
+				en,
 			);
 			mainGroup = 51C6259B1E75CCE800E94D6A;
 			productRefGroup = 51C625A51E75CCE800E94D6A /* Products */;
@@ -485,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				513CE81E23E88EFD0073188A /* Localizable.strings in Resources */,
 				516F490B1EDB18DC0039497D /* ic_password_checkmark@3x.png in Resources */,
 				51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */,
 				516F49041EDB18DC0039497D /* ic_eye_closed@2x.png in Resources */,
@@ -568,7 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5199F04E1EF32F8700D20EDF /* Record.swift in Sources */,
-				515799E81E87D97600E6D1A0 /* MarqueeLabel.swift in Sources */,
+				513CE84223EC20600073188A /* HideShowPasswordTextField.swift in Sources */,
 				510D85C61ED033E400EE8B91 /* EditExerciseController.swift in Sources */,
 				51C625D31E7EAA6600E94D6A /* TrainingTableViewController.swift in Sources */,
 				5199F0501EFC763E00D20EDF /* RoutinesTableViewController.swift in Sources */,
@@ -587,12 +652,13 @@
 				5138521E1ED4DCB300685D82 /* ResetPasswordViewController.swift in Sources */,
 				51702B4C1EE43E5300CEEBAF /* WorkoutInstructionsViewController.swift in Sources */,
 				51702B461EDCA88100CEEBAF /* SignUpPageViewController.swift in Sources */,
+				513CE84423EC20B70073188A /* PasswordToggleVisibilityView.swift in Sources */,
+				513CE83E23EB46AF0073188A /* UIColor+Opacity.swift in Sources */,
 				514B8D061F02F34B00D80ADD /* NewWorkoutViewCell.swift in Sources */,
 				51C625A81E75CCE800E94D6A /* AppDelegate.swift in Sources */,
 				5199F0541EFC769700D20EDF /* PlansTableViewCell.swift in Sources */,
 				5111B5F91E8FCB87009D7959 /* TrainingViewController.swift in Sources */,
 				51212B531E9C16BE00EEC333 /* WorkoutDetailTableViewCell.swift in Sources */,
-				516F490D1EDB18DC0039497D /* PasswordToggleVisibilityView.swift in Sources */,
 				514B8D041F02F15B00D80ADD /* NewWorkoutController.swift in Sources */,
 				51DDC3781E81D85C009C1B12 /* ExercisesTableViewCell.swift in Sources */,
 				514B8D081F044FA800D80ADD /* AddExercisesController.swift in Sources */,
@@ -600,17 +666,20 @@
 				5132BD981E8D175300617E24 /* WorkoutsTableViewCell.swift in Sources */,
 				514D7DBA1EBE4FAA009AFD0C /* TrainingTableViewCell.swift in Sources */,
 				513852181ED4DB5900685D82 /* ProfileViewController.swift in Sources */,
+				513CE83A23EB041F0073188A /* UIColor+CustomColors.swift in Sources */,
 				51C625CF1E7D6C0900E94D6A /* MyPlanTableViewController.swift in Sources */,
-				516F490C1EDB18DC0039497D /* HideShowPasswordTextField.swift in Sources */,
 				5114FA69200534E1004579C2 /* Functions.swift in Sources */,
 				51066A391E9A44950085B44E /* ExerciseDetailViewController.swift in Sources */,
 				5199F04C1EF3257200D20EDF /* LadderCompletedViewCell.swift in Sources */,
 				5199F0521EFC766D00D20EDF /* RoutinesTableViewCell.swift in Sources */,
 				5138521A1ED4DC2700685D82 /* SignUpViewController.swift in Sources */,
 				51DDC37A1E8463AB009C1B12 /* NewExerciseController.swift in Sources */,
+				513CE83C23EB29780073188A /* UIColor+Hex.swift in Sources */,
 				51DDC3741E80715B009C1B12 /* Exercise.swift in Sources */,
 				5132BD961E8D172000617E24 /* WorkoutsTableViewController.swift in Sources */,
 				514D7DB81EBE4B27009AFD0C /* TrainingCollectionViewCell.swift in Sources */,
+				513CE83623EAC6F50073188A /* String+Localizable.swift in Sources */,
+				513CE84023EC20450073188A /* MarqueeLabel.swift in Sources */,
 				5199F0561EFC76B200D20EDF /* PlansTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,10 +687,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		513CE82023E88EFD0073188A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513CE82B23EAB4C80073188A /* es */,
+				513CE83423EAB5EC0073188A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		51C625AB1E75CCE800E94D6A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				51C625AC1E75CCE800E94D6A /* Base */,
+				513CE82923EAB4C80073188A /* es */,
+				513CE83223EAB5EC0073188A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -630,6 +710,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				51C625B41E75CCE800E94D6A /* Base */,
+				513CE82A23EAB4C80073188A /* es */,
+				513CE83323EAB5EC0073188A /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -638,6 +720,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				51C625C51E78971800E94D6A /* Base */,
+				513CE82723EAB4C80073188A /* es */,
+				513CE83023EAB5EA0073188A /* en */,
 			);
 			name = training.storyboard;
 			sourceTree = "<group>";
@@ -646,6 +730,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				51C625CA1E78978900E94D6A /* Base */,
+				513CE82823EAB4C80073188A /* es */,
+				513CE83123EAB5EA0073188A /* en */,
 			);
 			name = nutrition.storyboard;
 			sourceTree = "<group>";
@@ -777,7 +863,7 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -800,7 +886,7 @@
 					"$(PROJECT_DIR)/Kalisten",
 				);
 				INFOPLIST_FILE = Kalisten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
