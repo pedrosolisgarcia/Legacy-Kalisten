@@ -1,11 +1,3 @@
-//
-//  UIColor+CustomColors.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 05/02/2020.
-//  Copyright © 2020 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {
@@ -14,4 +6,5 @@ extension UIColor {
     static let estonianBlue = UIColor(netHex: 0x0072CE)
     static let lightGrey = UIColor(netHex: 0xCCCCCC)
     static let midGrey = UIColor(netHex: 0xAAAAAA)
+    static let spaceGrey = UIColor(netHex: 0x1F2124)
 }

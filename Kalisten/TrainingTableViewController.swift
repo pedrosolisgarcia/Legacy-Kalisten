@@ -1,11 +1,3 @@
-//
-//  TrainingTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 19/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class TrainingTableViewController: UITableViewController {

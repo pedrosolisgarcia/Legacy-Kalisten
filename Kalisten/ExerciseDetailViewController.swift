@@ -1,11 +1,3 @@
-//
-//  ExerciseDetailViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 09/04/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -86,13 +78,13 @@ class ExerciseDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         if current == nil {
             editButton.isEnabled = false
-            editButton.tintColor = UIColor.black.opacity(percentage: 0)
+            editButton.tintColor = .clear
         } else if current?["isAdmin"] as! Bool == false{
             editButton.isEnabled = false
-            editButton.tintColor = UIColor.black.opacity(percentage: 0)
+            editButton.tintColor = .clear
         } else {
             editButton.isEnabled = true
-            editButton.tintColor = UIColor.white
+            editButton.tintColor = .white
         }
 
         // Do any additional setup after loading the view.

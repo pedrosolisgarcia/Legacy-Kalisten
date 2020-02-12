@@ -1,11 +1,3 @@
-//
-//  RoutinesTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 23/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -28,10 +20,10 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         
         if current == nil {
             addRoutine.isEnabled = false
-            addRoutine.tintColor = UIColor.black.opacity(percentage: 0)
+            addRoutine.tintColor = .clear
         } else {
             addRoutine.isEnabled = true
-            addRoutine.tintColor = UIColor.white
+            addRoutine.tintColor = .white
         }
         
         loadRoutinesFromParse()
@@ -48,13 +40,13 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH ROUTINES..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.backgroundColor = .white
         refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadRoutinesFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)

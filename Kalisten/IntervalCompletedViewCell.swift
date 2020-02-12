@@ -1,11 +1,3 @@
-//
-//  IntervalCompletedViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 27/07/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class IntervalCompletedViewCell: UITableViewCell {

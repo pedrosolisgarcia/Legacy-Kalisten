@@ -33,6 +33,8 @@
 		513CE84023EC20450073188A /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE83F23EC20450073188A /* MarqueeLabel.swift */; };
 		513CE84223EC20600073188A /* HideShowPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE84123EC20600073188A /* HideShowPasswordTextField.swift */; };
 		513CE84423EC20B70073188A /* PasswordToggleVisibilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513CE84323EC20B60073188A /* PasswordToggleVisibilityView.swift */; };
+		513CE86223EC5AD10073188A /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513CE86423EC5AD10073188A /* profile.storyboard */; };
+		513CE86923EC5B6F0073188A /* challenges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513CE86B23EC5B6F0073188A /* challenges.storyboard */; };
 		514B8D041F02F15B00D80ADD /* NewWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D031F02F15B00D80ADD /* NewWorkoutController.swift */; };
 		514B8D061F02F34B00D80ADD /* NewWorkoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D051F02F34B00D80ADD /* NewWorkoutViewCell.swift */; };
 		514B8D081F044FA800D80ADD /* AddExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B8D071F044FA800D80ADD /* AddExercisesController.swift */; };
@@ -76,9 +78,7 @@
 		51C625AD1E75CCE800E94D6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625AB1E75CCE800E94D6A /* Main.storyboard */; };
 		51C625B51E75CCE800E94D6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625B31E75CCE800E94D6A /* LaunchScreen.storyboard */; };
 		51C625C61E78971900E94D6A /* training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625C41E78971800E94D6A /* training.storyboard */; };
-		51C625C81E78976700E94D6A /* profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625C71E78976700E94D6A /* profile.storyboard */; };
 		51C625CB1E78978900E94D6A /* nutrition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625C91E78978900E94D6A /* nutrition.storyboard */; };
-		51C625CD1E7897BA00E94D6A /* challenges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C625CC1E7897BA00E94D6A /* challenges.storyboard */; };
 		51C625CF1E7D6C0900E94D6A /* MyPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C625CE1E7D6C0900E94D6A /* MyPlanTableViewController.swift */; };
 		51C625D11E7DFDDE00E94D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C625D01E7DFDDE00E94D6A /* Assets.xcassets */; };
 		51C625D31E7EAA6600E94D6A /* TrainingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C625D21E7EAA6600E94D6A /* TrainingTableViewController.swift */; };
@@ -125,6 +125,12 @@
 		513CE83F23EC20450073188A /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarqueeLabel.swift; sourceTree = "<group>"; };
 		513CE84123EC20600073188A /* HideShowPasswordTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideShowPasswordTextField.swift; sourceTree = "<group>"; };
 		513CE84323EC20B60073188A /* PasswordToggleVisibilityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordToggleVisibilityView.swift; sourceTree = "<group>"; };
+		513CE86323EC5AD10073188A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/profile.storyboard; sourceTree = "<group>"; };
+		513CE86623EC5AED0073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/profile.strings; sourceTree = "<group>"; };
+		513CE86823EC5AF60073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/profile.strings; sourceTree = "<group>"; };
+		513CE86A23EC5B6F0073188A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/challenges.storyboard; sourceTree = "<group>"; };
+		513CE86D23EC5B740073188A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/challenges.strings; sourceTree = "<group>"; };
+		513CE86F23EC5B750073188A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/challenges.strings; sourceTree = "<group>"; };
 		514B8D031F02F15B00D80ADD /* NewWorkoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutController.swift; sourceTree = "<group>"; };
 		514B8D051F02F34B00D80ADD /* NewWorkoutViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewCell.swift; sourceTree = "<group>"; };
 		514B8D071F044FA800D80ADD /* AddExercisesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExercisesController.swift; sourceTree = "<group>"; };
@@ -171,9 +177,7 @@
 		51C625B41E75CCE800E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51C625B61E75CCE800E94D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51C625C51E78971800E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/training.storyboard; sourceTree = "<group>"; };
-		51C625C71E78976700E94D6A /* profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = profile.storyboard; sourceTree = "<group>"; };
 		51C625CA1E78978900E94D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/nutrition.storyboard; sourceTree = "<group>"; };
-		51C625CC1E7897BA00E94D6A /* challenges.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = challenges.storyboard; sourceTree = "<group>"; };
 		51C625CE1E7D6C0900E94D6A /* MyPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlanTableViewController.swift; sourceTree = "<group>"; };
 		51C625D01E7DFDDE00E94D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51C625D21E7EAA6600E94D6A /* TrainingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTableViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +255,7 @@
 		5103361F1E8994A600CDED57 /* Challenges */ = {
 			isa = PBXGroup;
 			children = (
-				51C625CC1E7897BA00E94D6A /* challenges.storyboard */,
+				513CE86B23EC5B6F0073188A /* challenges.storyboard */,
 			);
 			name = Challenges;
 			sourceTree = "<group>";
@@ -259,7 +263,7 @@
 		510336201E8994AE00CDED57 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				51C625C71E78976700E94D6A /* profile.storyboard */,
+				513CE86423EC5AD10073188A /* profile.storyboard */,
 				513852171ED4DB5800685D82 /* ProfileViewController.swift */,
 				513852191ED4DC2700685D82 /* SignUpViewController.swift */,
 				51702B471EE2E29F00CEEBAF /* SignUpTableViewCell.swift */,
@@ -556,11 +560,11 @@
 				516F49071EDB18DC0039497D /* ic_eye_open@2x.png in Resources */,
 				516F49061EDB18DC0039497D /* ic_eye_open.png in Resources */,
 				51C625CB1E78978900E94D6A /* nutrition.storyboard in Resources */,
-				51C625C81E78976700E94D6A /* profile.storyboard in Resources */,
+				513CE86223EC5AD10073188A /* profile.storyboard in Resources */,
 				516F49091EDB18DC0039497D /* ic_password_checkmark.png in Resources */,
 				516F490A1EDB18DC0039497D /* ic_password_checkmark@2x.png in Resources */,
 				516F49031EDB18DC0039497D /* ic_eye_closed.png in Resources */,
-				51C625CD1E7897BA00E94D6A /* challenges.storyboard in Resources */,
+				513CE86923EC5B6F0073188A /* challenges.storyboard in Resources */,
 				51C625D11E7DFDDE00E94D6A /* Assets.xcassets in Resources */,
 				516F49081EDB18DC0039497D /* ic_eye_open@3x.png in Resources */,
 				51C625C61E78971900E94D6A /* training.storyboard in Resources */,
@@ -694,6 +698,26 @@
 				513CE83423EAB5EC0073188A /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		513CE86423EC5AD10073188A /* profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513CE86323EC5AD10073188A /* Base */,
+				513CE86623EC5AED0073188A /* en */,
+				513CE86823EC5AF60073188A /* es */,
+			);
+			name = profile.storyboard;
+			sourceTree = "<group>";
+		};
+		513CE86B23EC5B6F0073188A /* challenges.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				513CE86A23EC5B6F0073188A /* Base */,
+				513CE86D23EC5B740073188A /* en */,
+				513CE86F23EC5B750073188A /* es */,
+			);
+			name = challenges.storyboard;
 			sourceTree = "<group>";
 		};
 		51C625AB1E75CCE800E94D6A /* Main.storyboard */ = {

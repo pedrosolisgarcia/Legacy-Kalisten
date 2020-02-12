@@ -1,11 +1,3 @@
-//
-//  WorkoutsTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 30/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -30,10 +22,10 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         //Only guests cannot see the add button
         if current == nil {
             addWorkout.isEnabled = false
-            addWorkout.tintColor = UIColor.black.opacity(percentage: 0)
+            addWorkout.tintColor = .clear
         } else {
             addWorkout.isEnabled = true
-            addWorkout.tintColor = UIColor.white
+            addWorkout.tintColor = .white
         }
         
         loadWorkoutsFromParse()
@@ -50,12 +42,12 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH WORKOUTS..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.midGrey
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.backgroundColor = .white
         refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadWorkoutsFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)

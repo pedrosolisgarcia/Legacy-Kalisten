@@ -1,11 +1,3 @@
-//
-//  LadderWorkoutViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 04/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -170,7 +162,7 @@ class LadderWorkoutViewController: UITableViewController {
             imageDet.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
                     self.exerciseImage.image = UIImage(data: exerciseImageData)
-                    self.exerciseImage.backgroundColor = UIColor.white
+                    self.exerciseImage.backgroundColor = .white
                 }
             })
         }
@@ -178,11 +170,11 @@ class LadderWorkoutViewController: UITableViewController {
             image.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
                     self.exerciseImage.image = UIImage(data: exerciseImageData)
-                    self.exerciseImage.backgroundColor = UIColor.white
+                    self.exerciseImage.backgroundColor = .white
                 }
             })
         } else {
-            self.exerciseImage.backgroundColor = UIColor.lightGrey
+            self.exerciseImage.backgroundColor = .lightGrey
             
         }
         
@@ -190,7 +182,7 @@ class LadderWorkoutViewController: UITableViewController {
         laddersCount.text = "MAX. LADDER: 0"
         ladderUpButton.setTitle("1", for: .normal)
         isGoingUp = true
-        ladderUpButton.backgroundColor = UIColor.estonianBlue
+        ladderUpButton.backgroundColor = .estonianBlue
         ladderUpButton.isEnabled = true
         ladderDownButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
         ladderDownButton.setTitle("", for: .normal)
@@ -243,14 +235,14 @@ class LadderWorkoutViewController: UITableViewController {
         //If the clock has 10 secs or less to finish the interval, it becomes red.
         if ladderLeft <= 11 {
             
-            remainIntervalLabel.textColor = UIColor.red
+            remainIntervalLabel.textColor = .errorRed
             
         } else {
             
             if #available(iOS 13.0, *) {
-                remainIntervalLabel.textColor = UIColor.label
+                remainIntervalLabel.textColor = .label
             } else {
-                remainIntervalLabel.textColor = UIColor.black
+                remainIntervalLabel.textColor = .black
             }
         }
         
@@ -326,11 +318,11 @@ class LadderWorkoutViewController: UITableViewController {
             pauseButton.setTitle("PAUSE", for: .normal)
             
             if isGoingUp || (!isGoingUp && reps == 1){
-                ladderUpButton.backgroundColor = UIColor.estonianBlue
+                ladderUpButton.backgroundColor = .estonianBlue
                 ladderUpButton.isEnabled = true
             }
             if repsCount > 0 {
-                ladderDownButton.backgroundColor = UIColor.estonianBlue
+                ladderDownButton.backgroundColor = .estonianBlue
                 ladderDownButton.isEnabled = true
             }
         }
@@ -345,7 +337,7 @@ class LadderWorkoutViewController: UITableViewController {
     @IBAction func ladderButtonPressed(_ sender: UIButton) {
         if sender == ladderUpButton {
             isGoingUp = true
-            ladderDownButton.backgroundColor = UIColor.estonianBlue
+            ladderDownButton.backgroundColor = .estonianBlue
             ladderDownButton.isEnabled = true
             reps += 1
             repsCount += reps
@@ -371,14 +363,14 @@ class LadderWorkoutViewController: UITableViewController {
                 ladderDownButton.setTitle(String(reps - 1), for: .normal)
             } else if reps == 2{
                 isGoingUp = false
-                ladderUpButton.backgroundColor = UIColor.estonianBlue
+                ladderUpButton.backgroundColor = .estonianBlue
                 ladderUpButton.isEnabled = true
                 reps -= 1
                 repsCount += reps
                 ladderUpButton.setTitle(String(reps + 1), for: .normal)
                 ladderDownButton.setTitle("1", for: .normal)
             } else {
-                ladderUpButton.backgroundColor = UIColor.estonianBlue
+                ladderUpButton.backgroundColor = .estonianBlue
                 ladderUpButton.isEnabled = true
                 repsCount += reps
                 ladderUpButton.setTitle(String(reps + 1), for: .normal)

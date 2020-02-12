@@ -1,11 +1,3 @@
-//
-//  LadderCompletedViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 15/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class LadderCompletedViewCell: UITableViewCell {

@@ -1,11 +1,3 @@
-//
-//  WorkoutDetailViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 10/04/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -52,10 +44,10 @@ class WorkoutDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         if current == nil {
             editButton.isEnabled = false
-            editButton.tintColor = UIColor.black.opacity(percentage: 0)
+            editButton.tintColor = .clear
         } else {
             editButton.isEnabled = true
-            editButton.tintColor = UIColor.white
+            editButton.tintColor = .white
         }
         
         loadExercisesFromWorkout()

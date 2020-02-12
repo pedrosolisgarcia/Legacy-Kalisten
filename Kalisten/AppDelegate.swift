@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 12/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -17,16 +9,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UINavigationBar.appearance().barTintColor = UIColor.black
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UITabBar.appearance().barTintColor = UIColor.black
-        UITabBar.appearance().tintColor = UIColor.white
+        let defaultNavBar = UINavigationBarAppearance()
+        defaultNavBar.configureWithOpaqueBackground()
+        defaultNavBar.backgroundColor = .spaceGrey
+        if let navBarFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
+            defaultNavBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: navBarFront]
+        }
+
+        UINavigationBar.appearance().standardAppearance = defaultNavBar
+        UINavigationBar.appearance().tintColor = .white
+        
+        let defaultTabBar = UITabBarAppearance()
+        defaultTabBar.configureWithOpaqueBackground()
+        defaultTabBar.backgroundColor = .spaceGrey
+        UITabBar.appearance().standardAppearance = defaultTabBar
+        UITabBar.appearance().tintColor = .white
         UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedIcon.png")
         
         //Set the general Segmented Control appearance
         UISegmentedControl.appearance().layer.borderColor = UIColor.black.cgColor
         UISegmentedControl.appearance().layer.cornerRadius = 1
-        UISegmentedControl.appearance().tintColor = UIColor.black
+        UISegmentedControl.appearance().tintColor = .black
         
         let colorView = UIView()
         colorView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
@@ -34,11 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // use UITableViewCell.appearance() to configure
         // the default appearance of all UITableViewCells in your app
         UITableViewCell.appearance().selectedBackgroundView = colorView
-        
-        
-        if let barFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 25) {
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white, NSAttributedString.Key.font:barFront]
-        }
         
         //To make this have effect, you need first to add a row in Info.plist with view controller... and set NO.
         var preferredStatusBarStyle: UIStatusBarStyle {

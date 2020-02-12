@@ -1,11 +1,3 @@
-//
-//  HideShowPasswordTextField.swift
-//  Guidebook
-//
-//  Created by Mike Sprague on 4/15/16.
-//
-//
-
 import Foundation
 import UIKit
 

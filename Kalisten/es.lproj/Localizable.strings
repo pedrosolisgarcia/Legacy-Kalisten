@@ -1,6 +1,45 @@
+// GLOBAL LOCALIZED STRINGS
+
+// TRAINING SECTION
+"training.title" = "ENTRENAMIENTO";
 "training.strength-section.title" = "FUERZA";
 "training.acrobatics-section.title" = "ACROBACIAS";
 "training.aerobics-section.title" = "AERÓBICOS";
 "training.mobility-section.title" = "MOBILIDAD";
 "training.training-plans-section.title" = "PLANES DE ENTRENAMIENTO";
 "training.my-workouts-section.title" = "MIS ENTRENAMIENTOS";
+
+// NUTRITION SECTION
+"nutrition.title" = "NUTRICIÓN";
+
+// MY-PLAN SECTION
+"my-plan.title" = "MI PLAN";
+"my-plan.training.training-label.text" = "ENTRENAMIENTO";
+"my-plan.training.workout-selected.title" = "ENTRENAMIENTO:";
+"my-plan.training.content-default" = "NINGUNO";
+"my-plan.training.week-count.title" = "SEMANA:";
+"my-plan.training.today.title" = "HOY:";
+"my-plan.training.today.nothing-sheduled" = "NADA PROGRAMADO";
+"my-plan.training.warm-up.title" = "CALENTAMIENTO:";
+"my-plan.training.cool-down.title" = "ENFRIAMIENTO:";
+"my-plan.training.total-time.title" = "TIEMPO TOTAL:";
+"my-plan.training.training-button.title-select" = "SELECCIONA ENTRENAMIENTO";
+"my-plan.training.training-button.title-start" = "COMENZAR ENTRENAMIENTO";
+"my-plan.nutrition.nutrition-label.text" = "NUTRICION";
+"my-plan.nutrition.goal.title" = "OBJETIVO:";
+"my-plan.nutrition.goal.content-default" = "NINGUNO";
+"my-plan.nutrition.calorie-intake.title" = "INGESTA CALÓRICA";
+"my-plan.nutrition.calorie-intake.proteins" = "PROTEINAS";
+"my-plan.nutrition.calorie-intake.carbs" = "CARBOS";
+"my-plan.nutrition.calorie-intake.fats" = "GRASAS";
+"my-plan.nutrition.water-intake.water" = "AGUA";
+"my-plan.nutrition.last-meal.title" = "ÚLTIMA COMIDA";
+"my-plan.nutrition.next-meal.title" = "SIGUIENTE COMIDA";
+"my-plan.nutrition.nutrition-button.title-select" = "SELECIONAR OBJETIVO";
+"my-plan.nutrition.nutrition-button.title-add" = "AÑADIR COMIDA";
+
+// CHALLENGES SECTION
+"challenges.title" = "RETOS";
+
+// PROFILE SECTION
+"profile.title" = "PERFIL";

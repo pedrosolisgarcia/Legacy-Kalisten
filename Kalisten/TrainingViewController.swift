@@ -1,11 +1,3 @@
-//
-//  WorkoutListTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 01/04/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class TrainingViewController: UIViewController, UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate, UICollectionViewDelegate {
@@ -47,7 +39,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell\(indexPath.row + 1)", for: indexPath) as! TrainingCollectionViewCell
         // Configure the cell...
         cell.categoryLabel.text = getCollectionString(index: indexPath.row).localized()
-        cell.backgroundColor = UIColor.estonianBlue
+        cell.backgroundColor = .estonianBlue
         return cell
     }
     
@@ -103,6 +95,6 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
         collectionView.frame.size.height = viewWidth
         tableView.frame.size.height = (viewHeight - viewWidth - navigationAndTabBarSize)
         tableView.rowHeight = tableView.frame.size.height * 0.5
-        tableView.separatorColor = UIColor.white
+        tableView.separatorColor = .white
     }
 }

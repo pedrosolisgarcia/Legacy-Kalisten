@@ -1,11 +1,3 @@
-//
-//  UIColorCustoms.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 05/02/2020.
-//  Copyright © 2020 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 extension UIColor {

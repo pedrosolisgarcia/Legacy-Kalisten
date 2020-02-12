@@ -1,11 +1,3 @@
-//
-//  ExercisesTableViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 21/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class ExercisesTableViewCell: UITableViewCell {

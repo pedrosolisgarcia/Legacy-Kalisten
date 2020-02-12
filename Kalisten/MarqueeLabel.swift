@@ -510,7 +510,9 @@ open class MarqueeLabel: UILabel, CAAnimationDelegate {
     
     override open func awakeFromNib() {
         super.awakeFromNib()
+
         forwardPropertiesToSublabel()
+        text = text?.localized()
     }
     
     @available(iOS 8.0, *)
@@ -537,7 +539,7 @@ open class MarqueeLabel: UILabel, CAAnimationDelegate {
         sublabel.text = super.text
         sublabel.font = super.font
         sublabel.textColor = super.textColor
-        sublabel.backgroundColor = super.backgroundColor ?? UIColor.clear
+        sublabel.backgroundColor = super.backgroundColor ?? .clear
         sublabel.shadowColor = super.shadowColor
         sublabel.shadowOffset = super.shadowOffset
         for prop in properties {

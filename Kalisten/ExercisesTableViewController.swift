@@ -1,11 +1,3 @@
-//
-//  ExercisesTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 21/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -30,13 +22,13 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         //Only admins can see the add button
         if current == nil {
             addExercise.isEnabled = false
-            addExercise.tintColor = UIColor.black.opacity(percentage: 0)
+            addExercise.tintColor = .clear
         } else if current?["isAdmin"] as! Bool == false{
             addExercise.isEnabled = false
-            addExercise.tintColor = UIColor.black.opacity(percentage: 0)
+            addExercise.tintColor = .clear
         } else {
             addExercise.isEnabled = true
-            addExercise.tintColor = UIColor.white
+            addExercise.tintColor = .white
         }
         
         loadExercisesFromParse()
@@ -53,12 +45,12 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.midGrey
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.backgroundColor = .white
         refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadExercisesFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)

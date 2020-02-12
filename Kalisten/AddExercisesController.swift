@@ -1,11 +1,3 @@
-//
-//  AddExercisesController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 28/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -49,8 +41,8 @@ class AddExercisesController: UIViewController, UISearchResultsUpdating, UITable
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH EXERCISES..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
     }
     

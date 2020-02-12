@@ -1,11 +1,3 @@
-//
-//  Functions.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 09/01/2018.
-//  Copyright © 2018 AppCoda. All rights reserved.
-//
-
 import Foundation
 
 class Functions {

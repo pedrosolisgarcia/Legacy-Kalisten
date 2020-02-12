@@ -1,0 +1,114 @@
+
+/* Class = "UITextField"; placeholder = "PASSWORD"; ObjectID = "1Co-Jt-TTi"; */
+"1Co-Jt-TTi.placeholder" = "CONTRASEÑA";
+
+/* Class = "UILabel"; text = "AGE"; ObjectID = "1Ys-hY-x9P"; */
+"1Ys-hY-x9P.text" = "EDAD";
+
+/* Class = "UILabel"; text = "TAKEN"; ObjectID = "4fQ-9g-Ksb"; */
+"4fQ-9g-Ksb.text" = "COGIDO";
+
+/* Class = "UILabel"; text = "SELECT YOUR ACTIVITY LEVEL:"; ObjectID = "57A-er-Jl3"; */
+"57A-er-Jl3.text" = "SELECCIONA TU NIVEL DE ACTIVIDAD:";
+
+/* Class = "UITextField"; placeholder = "PASSWORD"; ObjectID = "8ge-kv-NCl"; */
+"8ge-kv-NCl.placeholder" = "CONTRASEÑA";
+
+/* Class = "UIButton"; normalTitle = "MALE"; ObjectID = "9bx-fU-8FG"; */
+"9bx-fU-8FG.normalTitle" = "HOMBRE";
+
+/* Class = "UILabel"; text = "KALISTEN"; ObjectID = "AUv-IL-htx"; */
+"AUv-IL-htx.text" = "KALISTEN";
+
+/* Class = "UILabel"; text = "LOGIN INTO YOUR ACCOUNT:"; ObjectID = "Ce6-gw-9aI"; */
+"Ce6-gw-9aI.text" = "INICIA SESION:";
+
+/* Class = "UITextField"; placeholder = "USERNAME"; ObjectID = "Chd-Dl-Nxr"; */
+"Chd-Dl-Nxr.placeholder" = "USUARIO";
+
+/* Class = "UILabel"; text = "KALISTEN"; ObjectID = "DhU-5r-Vjd"; */
+"DhU-5r-Vjd.text" = "KALISTEN";
+
+/* Class = "UITextField"; placeholder = "EMAIL ADDRESS"; ObjectID = "FgK-cZ-aM0"; */
+"FgK-cZ-aM0.placeholder" = "CORREO ELECTRÓNICO";
+
+/* Class = "UILabel"; text = "YOU DON'T HAVE AN ACCOUNT YET?"; ObjectID = "HL9-WF-QBe"; */
+"HL9-WF-QBe.text" = "¿AÚN NO TIENES UNA CUENTA?";
+
+/* Class = "UITextField"; placeholder = "USERNAME"; ObjectID = "Hr7-7L-gcf"; */
+"Hr7-7L-gcf.placeholder" = "USUARIO";
+
+/* Class = "UILabel"; text = "REGISTER"; ObjectID = "KGg-hC-6aq"; */
+"KGg-hC-6aq.text" = "REGISTRARSE";
+
+/* Class = "UILabel"; text = "TAKEN"; ObjectID = "LqY-GE-ti9"; */
+"LqY-GE-ti9.text" = "COGIDO";
+
+/* Class = "UIButton"; normalTitle = "FORGOT YOUR PASSWORD?"; ObjectID = "ME3-ik-SUL"; */
+"ME3-ik-SUL.normalTitle" = "¿HAS OLVIDADO TU CONTRASEÑA?";
+
+/* Class = "UILabel"; text = "WEIGHT"; ObjectID = "OAR-b0-Yki"; */
+"OAR-b0-Yki.text" = "PESO";
+
+/* Class = "UILabel"; text = "INTRODUCE YOUR EMAIL:"; ObjectID = "OkR-zA-IAE"; */
+"OkR-zA-IAE.text" = "INTRODUCE TU CORREO ELECTRÓNICO:";
+
+/* Class = "UIButton"; normalTitle = "RESET YOUR PASSWORD"; ObjectID = "PVM-zs-fSt"; */
+"PVM-zs-fSt.normalTitle" = "RESTABLECE TU CONTRASEÑA";
+
+/* Class = "UILabel"; text = "REGISTER"; ObjectID = "Pin-eb-m3i"; */
+"Pin-eb-m3i.text" = "REGISTRARSE";
+
+/* Class = "UITextField"; placeholder = "WEIGHT"; ObjectID = "Sjm-JZ-4lp"; */
+"Sjm-JZ-4lp.placeholder" = "PESO";
+
+/* Class = "UITextField"; placeholder = "NAME"; ObjectID = "TW1-1j-gfX"; */
+"TW1-1j-gfX.placeholder" = "NOMBRE";
+
+/* Class = "UINavigationItem"; title = "PERFIL"; ObjectID = "X5a-0B-81c"; */
+"X5a-0B-81c.title" = "PERFIL";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "Yyl-jb-UNv"; */
+"Yyl-jb-UNv.normalTitle" = "INICIAR SESIÓN";
+
+/* Class = "UIButton"; normalTitle = "SAVE AND CONTINUE"; ObjectID = "ZwJ-On-NRx"; */
+"ZwJ-On-NRx.normalTitle" = "GUARDAR Y CONTINUAR";
+
+/* Class = "UILabel"; text = "ACTIVITY LEVEL"; ObjectID = "ZwV-Xc-gq7"; */
+"ZwV-Xc-gq7.text" = "NIVEL DE ACTIVIDAD";
+
+/* Class = "UILabel"; text = "INTRODUCE YOUR DATA:"; ObjectID = "dVW-lP-KnB"; */
+"dVW-lP-KnB.text" = "INTRODUCE TUS DATOS:";
+
+/* Class = "UILabel"; text = "HEIGTH"; ObjectID = "dge-G4-BAt"; */
+"dge-G4-BAt.text" = "ALTURA";
+
+/* Class = "UILabel"; text = "NAME SURNAME"; ObjectID = "fJR-2R-sAj"; */
+"fJR-2R-sAj.text" = "NOMBRE Y APELLIDOS";
+
+/* Class = "UITextField"; placeholder = "LAST NAME/S"; ObjectID = "fbX-fv-aSc"; */
+"fbX-fv-aSc.placeholder" = "APELLIDO/S";
+
+/* Class = "UIButton"; normalTitle = "CREATE MY ACCOUNT"; ObjectID = "hQU-Uh-3RF"; */
+"hQU-Uh-3RF.normalTitle" = "CREA MI CUENTA";
+
+/* Class = "UIButton"; normalTitle = "LOGOUT"; ObjectID = "hTr-vq-NLy"; */
+"hTr-vq-NLy.normalTitle" = "CERRAR SESIÓN";
+
+/* Class = "UITextField"; placeholder = "EMAIL ADDRESS:"; ObjectID = "hmk-aM-V8r"; */
+"hmk-aM-V8r.placeholder" = "CORREO ELECTRÓNICO:";
+
+/* Class = "UIButton"; normalTitle = "FEMALE"; ObjectID = "lfG-nF-Shg"; */
+"lfG-nF-Shg.normalTitle" = "FEMENINO";
+
+/* Class = "UITextField"; placeholder = "AGE"; ObjectID = "qMc-gA-H0N"; */
+"qMc-gA-H0N.placeholder" = "EDAD";
+
+/* Class = "UILabel"; text = "@USERNAME"; ObjectID = "uQc-p1-MVp"; */
+"uQc-p1-MVp.text" = "@USUARIO";
+
+/* Class = "UITextField"; placeholder = "HEIGHT"; ObjectID = "wbG-y5-4g5"; */
+"wbG-y5-4g5.placeholder" = "ALTURA";
+
+/* Class = "UIButton"; normalTitle = "CREATE AN ACCOUNT NOW"; ObjectID = "zTQ-eN-DmG"; */
+"zTQ-eN-DmG.normalTitle" = "CREA MI CUENTA AHORA";

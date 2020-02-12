@@ -20,9 +20,6 @@
 /* Class = "UIButton"; normalTitle = "SELECT NUTRITION GOAL"; ObjectID = "2ce-zr-Aig"; */
 "2ce-zr-Aig.normalTitle" = "SELECT NUTRITION GOAL";
 
-/* Class = "UILabel"; text = "0 gr."; ObjectID = "2iF-xN-cdW"; */
-"2iF-xN-cdW.text" = "0 gr.";
-
 /* Class = "UILabel"; text = "WORKOUT:"; ObjectID = "3kh-C6-NXQ"; */
 "3kh-C6-NXQ.text" = "WORKOUT:";
 
@@ -35,26 +32,11 @@
 /* Class = "UILabel"; text = "NONE"; ObjectID = "6Dd-pD-Zxr"; */
 "6Dd-pD-Zxr.text" = "NONE";
 
-/* Class = "UILabel"; text = "00:00"; ObjectID = "74w-Us-uuE"; */
-"74w-Us-uuE.text" = "00:00";
-
 /* Class = "UILabel"; text = "NEXT MEAL:"; ObjectID = "AEK-Yh-J0g"; */
 "AEK-Yh-J0g.text" = "NEXT MEAL:";
 
-/* Class = "UILabel"; text = "0 Kcal"; ObjectID = "B3e-dj-7K9"; */
-"B3e-dj-7K9.text" = "0 Kcal";
-
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "CbF-9D-WnV"; */
-"CbF-9D-WnV.title" = "Item";
-
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "FY1-K9-L26"; */
-"FY1-K9-L26.title" = "Item";
-
 /* Class = "UILabel"; text = "WARM UP:"; ObjectID = "Gfw-8z-0Qx"; */
 "Gfw-8z-0Qx.text" = "WARM UP:";
-
-/* Class = "UILabel"; text = "0"; ObjectID = "IPJ-4r-nOe"; */
-"IPJ-4r-nOe.text" = "0";
 
 /* Class = "UILabel"; text = "WEEK:"; ObjectID = "ISB-he-60w"; */
 "ISB-he-60w.text" = "WEEK:";
@@ -68,47 +50,17 @@
 /* Class = "UILabel"; text = "      CARBS:"; ObjectID = "OTJ-bO-Kbn"; */
 "OTJ-bO-Kbn.text" = "      CARBS:";
 
-/* Class = "UILabel"; text = "00:00"; ObjectID = "TZG-aM-iDn"; */
-"TZG-aM-iDn.text" = "00:00";
-
-/* Class = "UILabel"; text = "0 gr."; ObjectID = "Tnp-Ix-vxp"; */
-"Tnp-Ix-vxp.text" = "0 gr.";
-
-/* Class = "UILabel"; text = "0 gr."; ObjectID = "UCz-tA-agn"; */
-"UCz-tA-agn.text" = "0 gr.";
-
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "aij-tv-Xn1"; */
-"aij-tv-Xn1.title" = "Item";
-
 /* Class = "UILabel"; text = "TODAY:"; ObjectID = "c5M-t7-mMr"; */
 "c5M-t7-mMr.text" = "TODAY:";
 
 /* Class = "UILabel"; text = "TOTAL TIME:"; ObjectID = "d8o-He-Jbt"; */
 "d8o-He-Jbt.text" = "TOTAL TIME:";
 
-/* Class = "UILabel"; text = "0 ltr."; ObjectID = "eXk-hV-7QD"; */
-"eXk-hV-7QD.text" = "0 ltr.";
-
-/* Class = "UITabBarController"; title = "TabBar"; ObjectID = "elS-Lb-b7s"; */
-"elS-Lb-b7s.title" = "TabBar";
-
 /* Class = "UILabel"; text = "GOAL:"; ObjectID = "g1m-Um-ndP"; */
 "g1m-Um-ndP.text" = "GOAL:";
 
 /* Class = "UILabel"; text = "NONE"; ObjectID = "hBu-hn-cOs"; */
 "hBu-hn-cOs.text" = "NONE";
-
-/* Class = "UITabBarItem"; title = "MY PLAN"; ObjectID = "ke0-ii-nGK"; */
-"ke0-ii-nGK.title" = "MY PLAN";
-
-/* Class = "UILabel"; text = "00:00"; ObjectID = "pz0-PX-EF9"; */
-"pz0-PX-EF9.text" = "00:00";
-
-/* Class = "UILabel"; text = "0 Kcal"; ObjectID = "quW-Q9-7Y0"; */
-"quW-Q9-7Y0.text" = "0 Kcal";
-
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "qyi-Hp-J84"; */
-"qyi-Hp-J84.title" = "Item";
 
 /* Class = "UILabel"; text = "NOTHING SCHEDULED"; ObjectID = "siT-oc-1Rw"; */
 "siT-oc-1Rw.text" = "NOTHING SCHEDULED";
