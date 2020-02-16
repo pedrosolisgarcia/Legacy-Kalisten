@@ -439,7 +439,7 @@
         <scene sceneID="fyP-1z-1uA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i7B-tI-jxM" userLabel="My Plan" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MY PLAN" image="myplanIcon" id="ke0-ii-nGK">
+                    <tabBarItem key="tabBarItem" title="" image="myplanIcon" id="ke0-ii-nGK">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>

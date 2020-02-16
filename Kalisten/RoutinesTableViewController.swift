@@ -106,9 +106,9 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
     }
     
     //Shows the delete option on swipe to remove the routine from Parse
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             let alert = UIAlertController(title: "Delete routine", message: "The routine will be deleted permanently. Are you sure you want to continue?",preferredStyle: .alert)
             
             let delete = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
@@ -140,10 +140,9 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
             self.present(alert, animated: true, completion: nil)
             
         }
-        
-        //This is nice if you want to add a edit button later
-        return [deleteAction]
-        
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
     }
     
     //Prepare data from the selected routine to be shown in the detail view
