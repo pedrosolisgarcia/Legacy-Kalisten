@@ -167,17 +167,18 @@ class EditWorkoutController: UIViewController, UINavigationControllerDelegate, U
     }
     
     //Shows the delete option on swipe to remove the exercise from Parse
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
             self.exercises.remove(at: indexPath.row - 1)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             //self.numExercisesLabel.text = String(self.exercises.count)
         }
         
-        //This is nice if you want to add a edit button later
-        return [deleteAction]
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
     }
     
     func getTarjet(array: [Exercise])-> [String] {

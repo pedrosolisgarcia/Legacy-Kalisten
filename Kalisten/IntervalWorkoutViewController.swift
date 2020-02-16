@@ -265,7 +265,7 @@ class IntervalWorkoutViewController: UITableViewController {
     }
     
     //Is called during startTimer() and provides data to be used when creating the timers
-    func updateTime() {
+    @objc func updateTime() {
         
         let currentTime = Date.timeIntervalSinceReferenceDate
         var pausedSeconds = pausedIntervals.reduce(0) { $0 + $1 }

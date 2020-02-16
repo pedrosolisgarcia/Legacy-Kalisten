@@ -892,7 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -915,7 +915,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vilhon.Kalisten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

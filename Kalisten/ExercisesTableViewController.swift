@@ -130,9 +130,9 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
     }
     
     //Shows the delete option on swipe to remove the exercise from Parse
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    
+    let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             let alert = UIAlertController(title: "Delete exercise", message: "The exercise will be deleted permanently. Are you sure you want to delete it?",preferredStyle: .alert)
             
             let delete = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
@@ -164,7 +164,9 @@ class ExercisesTableViewController: UITableViewController, UISearchResultsUpdati
             self.present(alert, animated: true, completion: nil)
         }
         
-        return [deleteAction]
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
     }
     
     //Prepare data from the selected exercise to be shown in the detail view

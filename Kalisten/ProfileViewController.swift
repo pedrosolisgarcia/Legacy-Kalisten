@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController {
         if let pUserName = PFUser.current()?["username"] as? String {
             self.usernameLabel.text = "@" + pUserName.uppercased()
         } else {
-            self.usernameLabel.text = "@USERNAME"
+            self.usernameLabel.text = "profile.username-default".localized()
         }
         if let pFirstName = PFUser.current()?["firstName"] as? String {
             if let pLastName = PFUser.current()?["lastName"] as? String {
@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController {
         if (PFUser.current() == nil) {
             
             self.userAvatar.image = UIImage(named: "user")
-            self.usernameLabel.text = "@USERNAME"
+            self.usernameLabel.text = "profile.username-default".localized()
             
             if (self.view.subviews.count <= 6) {
                 
@@ -86,7 +86,7 @@ class ProfileViewController: UIViewController {
             if let pUserName = PFUser.current()?["username"] as? String {
                 self.usernameLabel.text = "@" + pUserName.uppercased()
             } else {
-                self.usernameLabel.text = "@USERNAME"
+                self.usernameLabel.text = "profile.username-default".localized()
             }
             if let pFirstName = PFUser.current()?["firstName"] as? String {
                 if let pLastName = PFUser.current()?["lastName"] as? String {

@@ -14,32 +14,12 @@
 
 // MY-PLAN SECTION
 "my-plan.title" = "MY PLAN";
-"my-plan.training.training-label.text" = "TRAINING";
-"my-plan.training.workout-selected.title" = "WORKOUT:";
-"my-plan.training.content-default" = "NONE";
-"my-plan.training.week-count.title" = "WEEK:";
-"my-plan.training.today.title" = "TODAY:";
-"my-plan.training.today.nothing-sheduled" = "NOTHING SCHEDULED";
-"my-plan.training.warm-up.title" = "WARM UP:";
-"my-plan.training.cool-down.title" = "COOL DOWN:";
-"my-plan.training.total-time.title" = "TOTAL TIME:";
-"my-plan.training.training-button.title-select" = "SELECT TRAINING NOW";
-"my-plan.training.training-button.title-start" = "START TRAINING NOW";
-"my-plan.nutrition.nutrition-label.text" = "NUTRITION";
-"my-plan.nutrition.goal.title" = "GOAL:";
-"my-plan.nutrition.goal.content-default" = "NONE";
-"my-plan.nutrition.calorie-intake.title" = "CALORIE INTAKE";
-"my-plan.nutrition.calorie-intake.proteins" = "PROTEINS";
-"my-plan.nutrition.calorie-intake.carbs" = "CARBS";
-"my-plan.nutrition.calorie-intake.fats" = "FATS";
-"my-plan.nutrition.water-intake.water" = "WATER";
-"my-plan.nutrition.last-meal.title" = "LAST MEAL";
-"my-plan.nutrition.next-meal.title" = "NEXT MEAL";
-"my-plan.nutrition.nutrition-button.title-select" = "SELECT NUTRITION GOAL";
-"my-plan.nutrition.nutrition-button.title-add" = "ADD MEAL";
+
 
 // CHALLENGES SECTION
 "challenges.title" = "CHALLENGES";
 
 // PROFILE SECTION
 "profile.title" = "PROFILE";
+"profile.username-default" = "@USERNAME";
+"profile.name-surname-default" = "NAME SURNAME";
