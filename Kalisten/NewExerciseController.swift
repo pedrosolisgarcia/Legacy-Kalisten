@@ -1,11 +1,3 @@
-//
-//  NewExerciseController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 23/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -111,7 +103,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         placeholderLabel.sizeToFit()
         descriptionTextView?.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.textColor = .lightGray
         placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
     }
     
@@ -240,42 +232,42 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         var done = ""
         var cancel = ""
         toolBar.barStyle = .default
-        toolBar.barTintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
-        toolBar.tintColor = UIColor.white
+        toolBar.barTintColor = .estonianBlue
+        toolBar.tintColor = .white
         toolBar.sizeToFit()
         
         if textField == categoryTextField {
-            self.categoryPicker.backgroundColor = UIColor.lightGray
+            self.categoryPicker.backgroundColor = .lightGray
             textField.inputView = self.categoryPicker
             done = "doneCategory"
             cancel = "cancelCategory"
         }
         if textField == familyTextField {
-            self.familyPicker.backgroundColor = UIColor.lightGray
+            self.familyPicker.backgroundColor = .lightGray
             textField.inputView = self.familyPicker
             done = "doneFamily"
             cancel = "cancelFamily"
         }
         if textField == difficultyTextField {
-            self.difficultyPicker.backgroundColor = UIColor.lightGray
+            self.difficultyPicker.backgroundColor = .lightGray
             textField.inputView = self.difficultyPicker
             done = "doneDifficulty"
             cancel = "cancelDifficulty"
         }
         if textField == tarjetsTextField {
-            self.tarjetsPicker.backgroundColor = UIColor.lightGray
+            self.tarjetsPicker.backgroundColor = .lightGray
             textField.inputView = self.tarjetsPicker
             done = "doneTarjets"
             cancel = "cancelTarjets"
         }
         if textField == placeTextField {
-            self.placePicker.backgroundColor = UIColor.lightGray
+            self.placePicker.backgroundColor = .lightGray
             textField.inputView = self.placePicker
             done = "donePlace"
             cancel = "cancelPlace"
         }
         if textField == pqTextField {
-            self.pqPicker.backgroundColor = UIColor.lightGray
+            self.pqPicker.backgroundColor = .lightGray
             textField.inputView = self.pqPicker
             done = "donePQ"
             cancel = "cancelPQ"

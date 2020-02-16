@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 23/05/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -30,7 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view.
         setupPasswordTextField()
-        self.view.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.6)
+        self.view.backgroundColor = UIColor.estonianBlue.opacity(percentage: 60)
         self.showAnimate()
         //Add blur effect to the background view
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
@@ -76,10 +68,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     fileprivate func setupPasswordTextField() {
         
         passwordField.delegate = self
-        passwordField.layer.borderColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0).cgColor
+        passwordField.layer.borderColor = UIColor.lightGrey.cgColor
         passwordField.clipsToBounds = true
         passwordField.font = UIFont(name: "AvenirNextCondensed-Regular", size: 17)
-        passwordField.rightView?.tintColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 1.0)
+        passwordField.rightView?.tintColor = .estonianBlue
     }
     
     @IBAction func loginAction(sender: AnyObject) {

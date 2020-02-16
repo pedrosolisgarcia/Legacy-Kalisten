@@ -1,11 +1,3 @@
-//
-//  SignUpPageViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 29/05/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class SignUpPageViewController: UIPageViewController, UIPageViewControllerDataSource {

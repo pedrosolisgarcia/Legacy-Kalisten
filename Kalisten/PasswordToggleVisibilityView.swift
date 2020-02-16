@@ -1,11 +1,3 @@
-//
-//  PasswordToggleVisibilityView.swift
-//  Guidebook
-//
-//  Created by Mike Sprague on 4/14/16.
-//
-//
-
 import Foundation
 import UIKit
 
@@ -70,7 +62,7 @@ class PasswordToggleVisibilityView: UIView {
         let buttonWidth = (frame.width / 2) - padding
         let buttonFrame = CGRect(x: buttonWidth + padding, y: 0, width: buttonWidth, height: frame.height)
         eyeButton.frame = buttonFrame
-        eyeButton.backgroundColor = UIColor.clear
+        eyeButton.backgroundColor = .clear
         eyeButton.adjustsImageWhenHighlighted = false
         eyeButton.setImage(self.eyeClosedImage, for: UIControl.State())
         eyeButton.setImage(self.eyeOpenedImage.withRenderingMode(.alwaysTemplate), for: .selected)
@@ -85,7 +77,7 @@ class PasswordToggleVisibilityView: UIView {
         checkmarkImageView.frame = checkmarkFrame
         checkmarkImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         checkmarkImageView.contentMode = .center
-        checkmarkImageView.backgroundColor = UIColor.clear
+        checkmarkImageView.backgroundColor = .clear
         checkmarkImageView.tintColor = self.tintColor
         self.addSubview(checkmarkImageView)
     }

@@ -1,11 +1,3 @@
-//
-//  RoutinesTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 23/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -28,10 +20,10 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         
         if current == nil {
             addRoutine.isEnabled = false
-            addRoutine.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            addRoutine.tintColor = .clear
         } else {
             addRoutine.isEnabled = true
-            addRoutine.tintColor = UIColor.white
+            addRoutine.tintColor = .white
         }
         
         loadRoutinesFromParse()
@@ -46,16 +38,16 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH ROUTINES..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor.black
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        refreshControl?.backgroundColor = .white
+        refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadRoutinesFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)
     }
@@ -100,7 +92,7 @@ class RoutinesTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.timeLabel.text = "TIME: \(routine.avgTime)MIN"
         cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: routine.difficulty))
         
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 30)
         
         return cell
     }

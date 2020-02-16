@@ -1,17 +1,8 @@
-//
-//  TrainingTableViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 06/05/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class TrainingTableViewCell: UITableViewCell {
     
-    @IBOutlet var planLabel: UILabel!
-    @IBOutlet var myWorkoutsLabel: UILabel!
+    @IBOutlet var rowLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

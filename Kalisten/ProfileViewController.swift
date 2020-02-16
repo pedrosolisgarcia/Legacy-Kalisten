@@ -1,11 +1,3 @@
-//
-//  ProfileViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 23/05/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -26,7 +18,7 @@ class ProfileViewController: UIViewController {
             avatar.getDataInBackground(block: { (avatarData, error) in
                 if let userAvatarData = avatarData {
                     self.userAvatar.image = UIImage(data: userAvatarData)
-                    self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+                    self.userAvatarView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
                 }
             })
         } else {
@@ -84,7 +76,7 @@ class ProfileViewController: UIViewController {
                 avatar.getDataInBackground(block: { (avatarData, error) in
                     if let userAvatarData = avatarData {
                         self.userAvatar.image = UIImage(data: userAvatarData)
-                        self.userAvatarView.backgroundColor = UIColor(red: 0/255.0, green: 114/255.0, blue: 206/255.0, alpha: 0.5)
+                        self.userAvatarView.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
                     }
                 })
             } else {

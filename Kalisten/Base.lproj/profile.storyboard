@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5eJ-3V-rdJ">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5eJ-3V-rdJ">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNextCondensed.ttc">
-            <string>AvenirNextCondensed-DemiBold</string>
-            <string>AvenirNextCondensed-Medium</string>
-            <string>AvenirNextCondensed-Regular</string>
-            <string>AvenirNextCondensed-UltraLight</string>
-        </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--PROFILE-->
         <scene sceneID="iaU-1D-6I1">
@@ -55,7 +38,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RG-vm-a2h">
-                                <rect key="frame" x="100" y="90" width="175" height="175"/>
+                                <rect key="frame" x="100" y="70" width="175" height="175"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="3mf-Ix-ZYa">
                                         <rect key="frame" x="8" y="8" width="159" height="159"/>
@@ -85,7 +68,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQc-p1-MVp">
-                                <rect key="frame" x="149.5" y="273" width="76" height="21"/>
+                                <rect key="frame" x="149.5" y="253" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rTN-1J-PrM"/>
                                 </constraints>
@@ -94,7 +77,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME SURNAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJR-2R-sAj">
-                                <rect key="frame" x="46" y="302" width="283" height="21"/>
+                                <rect key="frame" x="46" y="282" width="283" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BdM-9J-fUr"/>
                                 </constraints>
@@ -143,10 +126,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEf-n4-Ku4" userLabel="SignUp1">
-                                <rect key="frame" x="21" y="25" width="333" height="617"/>
+                                <rect key="frame" x="21" y="5" width="333" height="657"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUa-eD-2VO" userLabel="EXIT">
-                                        <rect key="frame" x="299" y="8" width="26" height="31"/>
+                                        <rect key="frame" x="299" y="8" width="26" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="uyC-tC-tvg"/>
                                         </constraints>
@@ -180,12 +163,11 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="TuI-2x-MRk"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAKEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-9g-Ksb" userLabel="Usernname Taken">
-                                        <rect key="frame" x="242" y="224" width="64" height="22"/>
+                                        <rect key="frame" x="242" y="224.5" width="64" height="22"/>
                                         <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="aZn-OL-J2a"/>
@@ -204,7 +186,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="7JZ-T3-R94"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                     </textField>
@@ -213,7 +194,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="obQ-7D-4Fb"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                     </textField>
@@ -222,7 +202,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6Ls-nr-FzD"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
@@ -243,7 +222,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vBd-7A-wzh"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                     </textField>
@@ -262,7 +240,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="k7u-Vw-QV1">
-                                        <rect key="frame" x="155" y="589" width="23" height="20"/>
+                                        <rect key="frame" x="155" y="629" width="23" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="WS1-jq-Dou"/>
                                         </constraints>
@@ -326,7 +304,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH3-03-rMI" userLabel="SignUp2">
-                                <rect key="frame" x="21" y="25" width="333" height="617"/>
+                                <rect key="frame" x="21" y="5" width="333" height="657"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srY-qE-lE9" userLabel="EXIT">
                                         <rect key="frame" x="300" y="10" width="25" height="25"/>
@@ -409,7 +387,6 @@
                                             <constraint firstAttribute="width" constant="94" id="Pov-4z-yrS"/>
                                             <constraint firstAttribute="height" constant="40" id="fI4-6Y-Ned"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
@@ -425,7 +402,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="94" id="tET-1z-tOA"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
@@ -435,7 +411,6 @@
                                             <constraint firstAttribute="height" constant="40" id="fBO-ih-hkO"/>
                                             <constraint firstAttribute="width" constant="47" id="iw3-rp-8VI"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
@@ -464,11 +439,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="303" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTr-bn-BaY" id="L3A-Eu-j43">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="39.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="40"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACTIVITY LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZwV-Xc-gq7">
-                                                            <rect key="frame" x="15" y="10" width="273" height="21"/>
+                                                            <rect key="frame" x="15" y="9.5" width="273" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="4iS-Iw-Q6u"/>
                                                             </constraints>
@@ -515,7 +490,7 @@
                                         </connections>
                                     </button>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="7FO-SA-wSv">
-                                        <rect key="frame" x="155" y="589" width="23" height="20"/>
+                                        <rect key="frame" x="155" y="629" width="23" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="e0a-2j-9rY"/>
                                         </constraints>
@@ -642,18 +617,17 @@
                         <viewControllerLayoutGuide type="bottom" id="AZ4-eG-s1E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2ek-Pt-X9r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1v-Gn-t4Z">
-                                <rect key="frame" x="20" y="98" width="335" height="470"/>
+                                <rect key="frame" x="20" y="78" width="335" height="491"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL ADDRESS:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-aM-V8r">
                                         <rect key="frame" x="20" y="191" width="295" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Yl5-5M-LJ7"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
@@ -772,7 +746,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJ8-J8-k08">
-                                <rect key="frame" x="16" y="30" width="343" height="627"/>
+                                <rect key="frame" x="16" y="10" width="343" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KALISTEN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUv-IL-htx">
                                         <rect key="frame" x="52" y="24" width="239" height="93"/>
@@ -801,7 +775,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0sR-Br-K4O"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
@@ -810,7 +783,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="smx-gx-WJe"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
@@ -843,7 +815,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDb-Le-WTB">
-                                        <rect key="frame" x="38" y="511" width="266" height="1"/>
+                                        <rect key="frame" x="38.5" y="531" width="266" height="1"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="266" id="BSI-yb-6xz"/>
@@ -851,7 +823,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU DON'T HAVE AN ACCOUNT YET?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL9-WF-QBe">
-                                        <rect key="frame" x="62" y="519" width="218" height="24"/>
+                                        <rect key="frame" x="62.5" y="539" width="218" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="3xz-Fz-oZd"/>
                                             <constraint firstAttribute="width" constant="218" id="6NR-FW-8yY"/>
@@ -861,7 +833,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTQ-eN-DmG">
-                                        <rect key="frame" x="24" y="560" width="294" height="40"/>
+                                        <rect key="frame" x="24" y="580" width="294" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.75075431029999995" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="MKb-LF-bFY"/>
@@ -930,15 +902,15 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="-2021.7391304347827"/>
         </scene>
-        <!--PROFILE-->
+        <!--Navigation Controller-->
         <scene sceneID="0Y9-8A-waS">
             <objects>
                 <navigationController id="5eJ-3V-rdJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="PROFILE" image="profileIcon" id="0EU-cL-Y1N"/>
+                    <tabBarItem key="tabBarItem" title="" image="profileIcon" id="0EU-cL-Y1N"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdc-pk-xwl">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -953,7 +925,7 @@
     </scenes>
     <resources>
         <image name="cross" width="24" height="24"/>
-        <image name="profileIcon" width="32" height="32"/>
+        <image name="profileIcon" width="25" height="25"/>
         <image name="user" width="512" height="512"/>
     </resources>
 </document>

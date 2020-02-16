@@ -315,7 +315,7 @@
 "Zlm-ru-Ma6.title" = "ADD EXERCISES";
 
 /* Class = "UINavigationItem"; title = "TRAINING"; ObjectID = "aGW-3a-emp"; */
-"aGW-3a-emp.title" = "TRAINING";
+"aGW-3a-emp.title" = "ENTRENAMIENTO";
 
 /* Class = "UILabel"; text = "00:00"; ObjectID = "asP-td-0ev"; */
 "asP-td-0ev.text" = "00:00";
@@ -523,9 +523,6 @@
 
 /* Class = "UILabel"; text = "EXERCISE NAME"; ObjectID = "uUa-Ts-bZd"; */
 "uUa-Ts-bZd.text" = "EXERCISE NAME";
-
-/* Class = "UITabBarItem"; title = "TRAINING"; ObjectID = "uZV-N1-O09"; */
-"uZV-N1-O09.title" = "TRAINING";
 
 /* Class = "UILabel"; text = "IMPROVES"; ObjectID = "ufr-lK-d62"; */
 "ufr-lK-d62.text" = "IMPROVES";

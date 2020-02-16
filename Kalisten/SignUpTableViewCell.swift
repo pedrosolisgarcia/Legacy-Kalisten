@@ -1,11 +1,3 @@
-//
-//  SignUpTableViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 03/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class SignUpTableViewCell: UITableViewCell {

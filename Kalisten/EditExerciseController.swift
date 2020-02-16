@@ -1,11 +1,3 @@
-//
-//  EditExerciseController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 20/05/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -99,7 +91,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                     self.exerciseImageView.image = UIImage(data: exerciseImageData)
                 }
             })
-            contentView.backgroundColor = UIColor.white
+            contentView.backgroundColor = .white
             exerciseImageView.contentMode = .scaleAspectFit
             exerciseImageView.clipsToBounds = true
             
@@ -144,7 +136,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         placeholderLabel.sizeToFit()
         descriptionTextView?.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (descriptionTextView?.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.textColor = .lightGray
         placeholderLabel.isHidden = !(descriptionTextView?.text.isEmpty)!
     }
     

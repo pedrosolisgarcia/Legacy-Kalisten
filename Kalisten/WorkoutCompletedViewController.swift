@@ -1,11 +1,3 @@
-//
-//  WorkoutCompletedViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 15/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -44,11 +36,11 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
         }
         
         if PFUser.current() != nil {
-            saveButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+            saveButton.backgroundColor = .estonianBlue
             saveButton.isEnabled = true
             discardButton.setTitle("DISCARD", for: .normal)
         } else {
-            saveButton.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+            saveButton.backgroundColor = UIColor.estonianBlue.opacity(percentage: 50)
             discardButton.setTitle("EXIT", for: .normal)
             saveButton.isEnabled = false
         }
@@ -87,11 +79,11 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
                 
                 // Configure the cell
                 cell.totalTitle.text = "TOTAL OF REPETITIONS:"
-                cell.totalTitle.textColor = UIColor.white
+                cell.totalTitle.textColor = .white
                 cell.totalReps.text = String(totalReps)
-                cell.totalReps.textColor = UIColor.white
+                cell.totalReps.textColor = .white
                 cell.exerciseName.text = ""
-                cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.75)
+                cell.backgroundColor = UIColor.estonianBlue.opacity(percentage: 75)
             }
             return cell
         } else {
@@ -108,13 +100,13 @@ class WorkoutCompletedViewController: UIViewController, UITableViewDataSource, U
                 
                 // Configure the cell
                 cell.totalTitle.text = "TOTAL OF REPETITIONS:"
-                cell.totalTitle.textColor = UIColor.white
+                cell.totalTitle.textColor = .white
                 cell.totalReps.text = String(totalReps)
-                cell.totalReps.textColor = UIColor.white
+                cell.totalReps.textColor = .white
                 cell.exerciseName.text = ""
                 cell.maxLadder.text = ""
                 cell.reps.text = ""
-                cell.backgroundColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.75)
+                cell.backgroundColor = UIColor.estonianBlue.opacity(percentage: 75)
             }
             return cell
         }

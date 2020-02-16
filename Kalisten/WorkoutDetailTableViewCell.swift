@@ -1,11 +1,3 @@
-//
-//  WorkoutDetailTableViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 10/04/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class WorkoutDetailTableViewCell: UITableViewCell {

@@ -1,11 +1,3 @@
-//
-//  Workout.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 29/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 

@@ -1,11 +1,3 @@
-//
-//  WorkoutsTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 30/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -30,10 +22,10 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         //Only guests cannot see the add button
         if current == nil {
             addWorkout.isEnabled = false
-            addWorkout.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            addWorkout.tintColor = .clear
         } else {
             addWorkout.isEnabled = true
-            addWorkout.tintColor = UIColor.white
+            addWorkout.tintColor = .white
         }
         
         loadWorkoutsFromParse()
@@ -48,15 +40,15 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         searchController = UISearchController(searchResultsController: nil)
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "SEARCH WORKOUTS..."
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.barTintColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.75)
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .black
         
         // Pull To Refresh Control
         refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.white
-        refreshControl?.tintColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.5)
+        refreshControl?.backgroundColor = .white
+        refreshControl?.tintColor = UIColor.estonianBlue.opacity(percentage: 50)
         let selectorName = "loadWorkoutsFromParse"
         refreshControl?.addTarget(self, action: Selector(selectorName), for: UIControl.Event.valueChanged)
     }
@@ -102,7 +94,7 @@ class WorkoutsTableViewController: UITableViewController, UISearchResultsUpdatin
         cell.timeLabel.text = "TIME: \(workout.totalTime)MIN"
         cell.levelLabel.text = String(Functions.difficultyLevel(difficulty: workout.difficulty))
         
-        tableView.separatorColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 0.3)
+        tableView.separatorColor = UIColor.estonianBlue.opacity(percentage: 30)
         
         return cell
     }

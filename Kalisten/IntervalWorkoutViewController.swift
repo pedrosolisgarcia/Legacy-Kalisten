@@ -1,11 +1,3 @@
-//
-//  IntervalWorkoutViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 24/07/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 import Parse
 
@@ -150,6 +142,7 @@ class IntervalWorkoutViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         navigItem.title = workout.name.uppercased()
         
         repetitions = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
@@ -177,7 +170,7 @@ class IntervalWorkoutViewController: UITableViewController {
             imageDet.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
                     self.exerciseImage.image = UIImage(data: exerciseImageData)
-                    self.exerciseImage.backgroundColor = UIColor.white
+                    self.exerciseImage.backgroundColor = .white
                 }
             })
         }
@@ -185,11 +178,11 @@ class IntervalWorkoutViewController: UITableViewController {
             image.getDataInBackground(block: { (imageData, error) in
                 if let exerciseImageData = imageData {
                     self.exerciseImage.image = UIImage(data: exerciseImageData)
-                    self.exerciseImage.backgroundColor = UIColor.white
+                    self.exerciseImage.backgroundColor = .white
                 }
             })
         } else {
-            self.exerciseImage.backgroundColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+            self.exerciseImage.backgroundColor = .lightGrey
             
         }
         
@@ -286,11 +279,15 @@ class IntervalWorkoutViewController: UITableViewController {
         //If the clock has 10 secs or less to finish the interval, it becomes red.
         if interLeft <= 11 {
             
-            remainIntervalLabel.textColor = UIColor.red
+            remainIntervalLabel.textColor = .errorRed
             
         } else {
             
-            remainIntervalLabel.textColor = UIColor.black
+            if #available(iOS 13.0, *) {
+                remainIntervalLabel.textColor = .label
+            } else {
+                remainIntervalLabel.textColor = .black
+            }
         }
         
         if interLeft <= 0 {
@@ -401,7 +398,7 @@ extension IntervalWorkoutViewController : UIPickerViewDataSource , UIPickerViewD
         repsLabel.textAlignment = .center
         let myDiff = NSAttributedString(string: repsData, attributes: [NSAttributedString.Key.font:UIFont(name: "AvenirNextCondensed-DemiBold", size: 55)!])
         repsLabel.attributedText = myDiff
-        repsLabel.textColor = UIColor(red: 0/255, green: 114/255, blue: 206/255, alpha: 1)
+        repsLabel.textColor = .estonianBlue
         
         
         return repsLabel

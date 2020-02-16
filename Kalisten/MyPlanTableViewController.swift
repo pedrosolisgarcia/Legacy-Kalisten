@@ -1,11 +1,3 @@
-//
-//  MyPlanTableViewController.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 18/03/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class MyPlanTableViewController: UITableViewController {
@@ -22,7 +14,7 @@ class MyPlanTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = (self.view.frame.size.height - navigationAndTabBarSize)*0.5
-        tableView.separatorColor = UIColor.black
+        tableView.separatorColor = .black
     }
 
     override func didReceiveMemoryWarning() {

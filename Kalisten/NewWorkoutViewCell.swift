@@ -1,11 +1,3 @@
-//
-//  NewWorkoutViewCell.swift
-//  Kalisten
-//
-//  Created by Pedro Solís García on 27/06/17.
-//  Copyright © 2017 AppCoda. All rights reserved.
-//
-
 import UIKit
 
 class NewWorkoutViewCell: UITableViewCell {
