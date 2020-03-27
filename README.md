@@ -130,9 +130,9 @@ For more information about Cocoa Pods, check [the full guide](https://guides.coc
 # Build Don'ts
 The following are some things that will make the build compile fail.
 
-- Donâ€™t use `Kalisten.xcworkspace` as file to open the project.
-- Donâ€™t install dependencies being used.
-- Donâ€™t import properly dependencies and being in use
+- Don't use `Kalisten.xcworkspace` as file to open the project.
+- Don't install dependencies being used.
+- Don't import properly dependencies and being in use
 - Use deprecated syntax from elder versions of Swift. Refer to [Swift Documentation](https://developer.apple.com/documentation/xcode_release_notes/xcode_10_2_release_notes/swift_5_release_notes_for_xcode_10_2) for more info.
 
 ### Who do I talk to? ###
