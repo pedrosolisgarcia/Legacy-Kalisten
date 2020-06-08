@@ -83,54 +83,9 @@ As mentioned, Xcode provides a lot of facilities and transparency when it comes 
 * [Atom](https://atom.io/) with [Swift plugin](https://atom.io/packages/language-swift)
 
 
-## CocoaPods
-This app supports [CocoaPods](https://cocoapods.org), so third parties from this dependency manager can be added.
-
-### Install
-Simply run the command below to install CocoaPods, using `sudo` if required:
-
-```bash
-$ sudo gem install cocoapods
-```
-
-### Getting started
-In the root directory, there is a [Podfile](https://bitbucket.org/pedrosolisg/kalisten-ios/src/master/Podfile), which shall have a format similar to the one that follows:
-
-```pod
-platform :ios, '8.0'
-use_frameworks!
-
-target 'Kalisten' do
-  pod 'AFNetworking', '~> 2.6'
-  pod 'ORStackView', '~> 3.0'
-  pod 'SwiftyJSON', '~> 2.3'
-end
-```
-
-
-> **Note:** If there would not be such file, you can simply create one with the command `pod init`
-
-Now, to install all dependencies listed in the Podfile in the project:
-
-```bash
-$ pod install
-```
-Make sure you use the Xcode workspace file `Kalisten.xcworkspace`, instead of the default one, every time you open the project.
-
-Now you can import your dependencies e.g.:
-
-```swift
-#import <Reachability/Reachability.h>
-```
-
-### Further Information
-For more information about Cocoa Pods, check [the full guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
-
-
 # Build Don'ts
 The following are some things that will make the build compile fail.
 
-- Don’t use `Kalisten.xcworkspace` as file to open the project.
 - Don’t install dependencies being used.
 - Don’t import properly dependencies and being in use
 - Use deprecated syntax from elder versions of Swift. Refer to [Swift Documentation](https://developer.apple.com/documentation/xcode_release_notes/xcode_10_2_release_notes/swift_5_release_notes_for_xcode_10_2) for more info.
