@@ -1,0 +1,72 @@
+
+/* Class = "UIButton"; normalTitle = "SELECT TRAINING NOW"; ObjectID = "075-hU-ejN"; */
+"075-hU-ejN.normalTitle" = "SELECCIONA ENTRENAMIENTO";
+
+/* Class = "UILabel"; text = "COOL DOWN:"; ObjectID = "0tV-kx-IP9"; */
+"0tV-kx-IP9.text" = "ENFRIAMIENTO:";
+
+/* Class = "UILabel"; text = " TRAINING"; ObjectID = "1St-RC-lag"; */
+"1St-RC-lag.text" = " ENTRENAMIENTO";
+
+/* Class = "UILabel"; text = " NUTRITION"; ObjectID = "1xr-JW-1aA"; */
+"1xr-JW-1aA.text" = " NUTRICIÓN";
+
+/* Class = "UINavigationItem"; title = "KALISTEN"; ObjectID = "1y6-n4-8Y8"; */
+"1y6-n4-8Y8.title" = "KALISTEN";
+
+/* Class = "UILabel"; text = "PROTEIN:"; ObjectID = "2Ec-Ya-JBQ"; */
+"2Ec-Ya-JBQ.text" = "PROTEINAS:";
+
+/* Class = "UIButton"; normalTitle = "SELECT NUTRITION GOAL"; ObjectID = "2ce-zr-Aig"; */
+"2ce-zr-Aig.normalTitle" = "SELECCIONAR OBJETIVO";
+
+/* Class = "UILabel"; text = "WORKOUT:"; ObjectID = "3kh-C6-NXQ"; */
+"3kh-C6-NXQ.text" = "ENTRENAMIENTO:";
+
+/* Class = "UILabel"; text = "NONE"; ObjectID = "5oW-BE-KJa"; */
+"5oW-BE-KJa.text" = "NINGUNO";
+
+/* Class = "UILabel"; text = "LAST MEAL:"; ObjectID = "6CJ-ak-kEw"; */
+"6CJ-ak-kEw.text" = "ULTIMA COMIDA:";
+
+/* Class = "UILabel"; text = "NONE"; ObjectID = "6Dd-pD-Zxr"; */
+"6Dd-pD-Zxr.text" = "NINGUNO";
+
+/* Class = "UILabel"; text = "NEXT MEAL:"; ObjectID = "AEK-Yh-J0g"; */
+"AEK-Yh-J0g.text" = "SIGUIENTE COMIDA:";
+
+/* Class = "UILabel"; text = "WARM UP:"; ObjectID = "Gfw-8z-0Qx"; */
+"Gfw-8z-0Qx.text" = "CALENTAMIENTO:";
+
+/* Class = "UILabel"; text = "WEEK:"; ObjectID = "ISB-he-60w"; */
+"ISB-he-60w.text" = "SEMANA:";
+
+/* Class = "UILabel"; text = "     WATER:"; ObjectID = "LGA-CM-bGU"; */
+"LGA-CM-bGU.text" = "     AGUA:";
+
+/* Class = "UILabel"; text = "     FATS:"; ObjectID = "NuV-1J-p45"; */
+"NuV-1J-p45.text" = "    GRASAS:";
+
+/* Class = "UILabel"; text = "      CARBS:"; ObjectID = "OTJ-bO-Kbn"; */
+"OTJ-bO-Kbn.text" = "     CARBOS:";
+
+/* Class = "UILabel"; text = "TODAY:"; ObjectID = "c5M-t7-mMr"; */
+"c5M-t7-mMr.text" = "HOY:";
+
+/* Class = "UILabel"; text = "TOTAL TIME:"; ObjectID = "d8o-He-Jbt"; */
+"d8o-He-Jbt.text" = "TIEMPO TOTAL:";
+
+/* Class = "UILabel"; text = "GOAL:"; ObjectID = "g1m-Um-ndP"; */
+"g1m-Um-ndP.text" = "OBJETIVO:";
+
+/* Class = "UILabel"; text = "NONE"; ObjectID = "hBu-hn-cOs"; */
+"hBu-hn-cOs.text" = "NINGUNO";
+
+/* Class = "UILabel"; text = "NOTHING SCHEDULED"; ObjectID = "siT-oc-1Rw"; */
+"siT-oc-1Rw.text" = "NADA PROGRAMADO";
+
+/* Class = "UILabel"; text = "CALORIE INTAKE"; ObjectID = "vUy-Cq-cDW"; */
+"vUy-Cq-cDW.text" = "INGESTA CALÓRICA";
+
+/* Class = "UILabel"; text = "NONE"; ObjectID = "zX0-Sv-dQA"; */
+"zX0-Sv-dQA.text" = "NINGUNO";

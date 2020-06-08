@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Kalisten.xcscheme</key>
+		<key>Kalisten.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>51C625A31E75CCE800E94D6A</key>
+		<key>5172E28F2464147D00C476D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5172E2A82464148300C476D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5172E2B32464148300C476D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
