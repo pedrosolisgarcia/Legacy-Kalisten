@@ -38,7 +38,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
     // Load one by one the collection cells
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CCell\(indexPath.row + 1)", for: indexPath) as! TrainingCollectionViewCell
     // Configure the cell...
-    cell.categoryLabel.text = getCollectionString(index: indexPath.row).localized()
+    cell.categoryLabel.text = getCollectionString(index: indexPath.row).localized().uppercased()
     cell.backgroundColor = .estonianBlue
     return cell
   }
@@ -52,7 +52,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UICollect
     // Load each table cells
     let cell = tableView.dequeueReusableCell(withIdentifier: "TCell\(indexPath.row + 1)") as! TrainingTableViewCell
     // Configure the cell...
-    cell.rowLabel.text = "training.\(indexPath.row == 0 ? "training-plans" : "my-workouts")-section.title".localized()
+    cell.rowLabel.text = "training.\(indexPath.row == 0 ? "training-plans" : "my-workouts")-section.title".localized().uppercased()
     return cell
   }
   

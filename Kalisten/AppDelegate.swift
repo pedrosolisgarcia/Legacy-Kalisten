@@ -18,19 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     // STYLING CONFIGURATION FOR NAVBAR AND TABBAR IN KALISTEN STORYBOARD
-//    let defaultNavBar = UINavigationBarAppearance()
-//    defaultNavBar.configureWithOpaqueBackground()
-//    defaultNavBar.backgroundColor = .darkenGrey
-//    if let navBarFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 35) {
-//      defaultNavBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: navBarFront]
-//    }
-////
-//    UINavigationBar.appearance().standardAppearance = defaultNavBar
-//    UINavigationBar.appearance().tintColor = .white
+    let defaultNavBar = UINavigationBarAppearance()
+    defaultNavBar.configureWithOpaqueBackground()
+    defaultNavBar.backgroundColor = .black
+    if let navBarFront = UIFont(name: "AvenirNextCondensed-DemiBold", size: 35) {
+      defaultNavBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font: navBarFront]
+    }
+//
+    UINavigationBar.appearance().standardAppearance = defaultNavBar
+    UINavigationBar.appearance().tintColor = .white
     
     let defaultTabBar = UITabBarAppearance()
     defaultTabBar.configureWithOpaqueBackground()
-    defaultTabBar.backgroundColor = .spaceGrey
+    defaultTabBar.backgroundColor = .black
     UITabBar.appearance().standardAppearance = defaultTabBar
     UITabBar.appearance().tintColor = .white
     UITabBar.appearance().selectionIndicatorImage = UIImage(named: "selectedIcon.png")
