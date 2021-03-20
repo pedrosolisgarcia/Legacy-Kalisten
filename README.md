@@ -1,8 +1,8 @@
-# KALISTEN #
+# LEGACY KALISTEN #
 
 ### What is this repository for? ###
 
-* Store and keep track of all the changes while developing the iOS version of the app.
+* Contains the codebase of the first version of the iOS Kalisten App.
 
 * Deployment Target: `13.0`
 * Version: `1.0`.
